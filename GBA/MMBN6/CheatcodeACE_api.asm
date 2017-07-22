@@ -8,12 +8,13 @@
 #ifndef CHEATCODEACE_API_ASM
 #define CHEATCODEACE_API_ASM
 .thumb
+b EOF // this is an API, the data should be written, not executed
 
-infiniteLoop:
-	// This better not get executed...
-	b infiniteLoop
 
+	
 // <<Global Variables>>
-.equ var, 0x02020007 // 
+.equ buffer, 0x02020007 // len = 3
+.equ var, 0x0202000A
 
+EOF:
 #endif

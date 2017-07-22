@@ -10,14 +10,18 @@
 #ifndef KEYPRESSEXECUTION_ASM
 #define KEYPRESSEXECUTION_ASM
 .thumb
+
+// Headers
 .include "../code/GBA/GBA_header.asm"
 .include "../code/GBA/MMBN6/mmbn6_header.asm"
 
 // handle key press logic <090000>
 b prog
 bl onTrigger    // just to show its location
-bl onActive // just to show its location
-prog:
+bl onActive 	// just to show its location
+prog: // APIs and Drivers
+.include "../code/GBA/MMBN6/CheatcodeACE_api.asm"
+	
 	// Stack
 	push {lr} 
 	
@@ -71,7 +75,7 @@ main:
 	mov r1, #1
 	str r1, [r0]
 	bl onTrigger
-
+	
 0:	POP	  {R0-R7, PC} // Return!
 /*********************************/
 // Custom Code!
@@ -81,8 +85,7 @@ main:
 /********************************/
 b prog // just to show its location
 onTrigger: // <09004E>
-	// Stack
-	push {r0-r7, lr}
+	push {r0-r7, lr} // Stack
 	
 	/*
 	ldr r0, =EnemyA 			// pointer to enemyA struct
@@ -92,9 +95,10 @@ onTrigger: // <09004E>
 	strh r2, [r1, #0x24]
 	strh r3, [r0, #0x24]
 	*/
+	
+	// swi 0x03 // stop!
 		
-	// return
-	pop {r0-r7, pc}
+	pop {r0-r7, pc} // Return
 
 onActive:
 	// Stack
