@@ -42,9 +42,9 @@ onActive:
 onStart:
 	push {r0-r7, lr}
 	
-	// init shortcutsEnabled_0: Should be enabled by default.
+	// init shortcutsEnabled_0: Disabled by default.
 	ldr r0, =shortcutsEnabled_0
-	mov r1, #0x01
+	mov r1, #0x00
 	strb r1, [r0]
 	
 	bl cc_initCheatcodes

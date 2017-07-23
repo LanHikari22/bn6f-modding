@@ -60,11 +60,6 @@ main:
 	LDRB	R3, [R3]
 	CMP		R3, #1
 	BNE		0f
-	// check if shortcutsEnabled_0
-	LDR		R0, =shortcutsEnabled_0
-	LDR		R0, [R0]
-	CMP		r0, #1
-	BNE		0f
 	BL		onActive
 
 0:	// When a certain keystate is entered, check if this is the first time.
@@ -82,7 +77,7 @@ main:
 	// check if shortcutsEnabled_0
 	LDR		R0, =shortcutsEnabled_0
 	LDR		R0, [R0]
-	CMP		r0, #1
+	CMP		R0, #1
 	BNE		0f
 	BL onTrigger
 	
@@ -95,6 +90,17 @@ main:
 handle_onActive:
 	push {r0-r2,lr}
 	
+	// check if shortcutsEnabled_0, if not, reset activationCounter_0 and return.
+	ldr r0, =shortcutsEnabled_0
+	ldr r0, [r0]
+	cmp r0, #1
+	beq 1f
+	// reset activationCounter_0
+	ldr r0, =activationCounter_0
+	mov r1, #0
+	str r1, [r0]
+	b 99f
+1:	
 	ldrh r1, =KeyR
 	bl cc_isPressed
 	cmp r0, #1 // is it SELECT??
