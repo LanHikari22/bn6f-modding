@@ -28,7 +28,7 @@ if __name__ == "__main__":
     # Injecting
     rom.seek(injectionOffset)
     bytesWritten = rom.write(injection.read())
-    print("Injected successfully! overwritten %i bytes at offset 0x%x!" % (bytesWritten, injectionOffset))
+    print("Injected successfully! Wrote %i bytes to offset 0x%x!" % (bytesWritten, injectionOffset))
 
     # Lengths of files
     #romLen = binLen(rom)

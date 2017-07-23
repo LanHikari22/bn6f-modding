@@ -21,36 +21,42 @@ b EOF // this is an API, the data should be accounted for but not executed
  * cheatcodes_1 must be initialized on onStart for this to behave correctly.
  * [side effects] 
  * 
+ * [return]
+ * r0_functionID an ID that can identify a specific function to be executed.
 */
 cc_handleCheatcodeExecution:
 	push {lr}
 
+	// TODO: DEBUG
+	mov r4, #0
+	
 	// insert keystate into buffer
 	ldr r0, =pKeyState
 	ldrh r0, [r0]
 	bl cc_insertKeystate
-	// Check against cheatcode patterns...
+	
+	mov r2, #0 // r2_cursor
 	ldr r1, =cheatcodes_1
+2:	// Check against cheatcode patterns...
 	bl cc_checkPattern
+	cmp r0, #1
+	bne 0f
+
+0:	// increment r1_cheatcodes and cursor.
+	add r1, #pad0_1 // pad0_1 is memory length of r1_cheatcodes
+	add r2, #1
 	
 	// TODO: DEBUG
-	ldr r1, =testVar_0
-	strb r0, [r1]
+	ldr r3, =testVar_0
+	orr	r4, r0
+	strb r4, [r3]
+	
+	// do while r2_cursor < cc_nCheatcodes
+	cmp r2, #cc_nCheatcodes
+	blt 2b
 	
 	pop {pc}
 
-	
-/**
- * Initializes all cheatcodes to known, defined patterns. This must only be executed once.
- * [side effects] 
- * 
-*/
-cc_initCheatcodes:
-	push {lr}
-	
-	
-	
-	pop {pc}
 
 /**
  * Checks whether buffer_1 is equivalent to r1_pPattern.
@@ -223,6 +229,57 @@ cc_isFirstPress:
 0:	mov r0, #0
 
 99:	pop {r1-r2, pc}
+
+/**
+ * Initializes all cheatcodes to known, defined patterns. This must only be executed once.
+ * [side effects] 
+ * 
+*/
+cc_initCheatcodes:
+	push {r0-r1,lr}
+	
+	ldr r0, =cheatcodes_1
+	// 1
+	ldr r1, =0xFC04FC08
+	str r1, [r0]
+	add r0, #4
+	ldr r1, =0xFC04FC04
+	str r1, [r0]
+	add r0, #4
+	
+	// 2
+	ldr r1, =0x2222FC08
+	str r1, [r0]
+	add r0, #4
+	ldr r1, =0x00000000
+	str r1, [r0]
+	add r0, #4
+	
+	// 3
+	ldr r1, =0x3333FC08
+	str r1, [r0]
+	add r0, #4
+	ldr r1, =0x00000000
+	str r1, [r0]
+	add r0, #4
+	
+	// 4
+	ldr r1, =0x4444FC08
+	str r1, [r0]
+	add r0, #4
+	ldr r1, =0x00000000
+	str r1, [r0]
+	add r0, #4
+	
+	// 5
+	ldr r1, =0x5555FC08
+	str r1, [r0]
+	add r0, #4
+	ldr r1, =0x00000000
+	str r1, [r0]
+	add r0, #4
+	
+	pop {r0-r1,pc}
 
 EOF:
 #endif

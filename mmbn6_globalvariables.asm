@@ -39,7 +39,7 @@
 /* Some consts, like cc_cheatLength are depended on dynamically.
 In such cases, a pad must be inserted. to other memory allocations.*/
 .equ pad0_1, 2*(cc_cheatLength) + 2*(cc_cheatLength) % 4
-/* Buffer used to store cheatcode seqence. Length=pad_0 */
+/* Buffer used to store cheatcode seqence. Length=pad0_1 */
 .equ buffer_1, 						alloc1 + 0x00
 /* Cursor to keep track of location on buffer_1*/
 .equ bufferCsr_1,					alloc1 + 0x00 + pad0_1
