@@ -42,42 +42,30 @@ main:
 	PUSH	{R0-R7, LR}
 	
 	// if onActive is enabled, onActive is executed.
-	LDR		R3, =continuous_on_0
+	LDR		R3, =onActive_enabled_0
 	LDRB	R3, [R3]
 	CMP		R3, #1
 	BNE		0f
 	BL		onActive
 
-0:	// Handle trigger code
-	LDR		R3, =p_keyState
-	LDRH	R2, [R3]
-	LDR 	R3, =KeyS
-	/* Input other key logic Only one can be processed.*/
-	/* Such subroutines must return a value in R4 */
-	BL		handle_continuous_trigger
-	CMP		R4, #1 // R4_conditionFulfilled
-	BEQ		0f 
-	CMP		R2, R3 // Check R3_Key is pressed
-	BEQ		1f
+0:	// When a certain keystate is entered, check if this is the first time.
+	ldr r1, =p_keyState
+	ldrh r1, [r1]
+	bl isFirstPress
+	cmp r0, #1
+	bne 99f
 	
-	ldr r0, =isPressed_0
-	mov r1, #0
-	str r1, [r0]
-	/* Nothing is pressed. Account for that.*/
-	bl handle_continuous_trigger_OFF
-	b 0f // return
-	
-1:	# Execused when SELECT is pressed, hold doesn't count
-	ldr r0, =isPressed_0
-	ldr r1, [r0]
-	cmp r1, #1
-	beq 0f
-	
-	mov r1, #1
-	str r1, [r0]
+	// This keystate has been entered for the FIRST time!
+	ldrh r1, =KeyS 
+	bl isPressed
+	cmp r0, #1 // is it SELECT??
+	bne 0f 
 	bl onTrigger
 	
-0:	POP	  {R0-R7, PC} // Return!
+0:	// <<Check other keyState logic as needed.>>
+	bl handle_onActive
+	
+99:	POP	  {R0-R7, PC} // Return!
 /*********************************/
 // Custom Code!
 // Edit onTrigger for trigger activated code (SELECT)
@@ -110,57 +98,36 @@ onActive:
 	// Return
 	pop {r0-r7, pc}
 	
+handle_onActive:
+	push {r0-r2,lr}
 	
+	ldrh r1, =KeyR
+	bl isPressed
+	cmp r0, #1 // is it SELECT??
+	bne 99f
 	
-handle_continuous_trigger:
-	push {r0-r2, lr} // Stack
-	mov r4, #0 // Action not executed unless it is
-	
-	// If S is pressed
-	ldr r0, =p_keyState
-	ldr r0, [r0]
-	ldr r1, =KeyR // R
-	cmp r0, r1
-	bne 0f // no? nothing to do here
-	
-	mov r4, #1 // Ayy, Condition met!
-	// no hold. is this the first press?
-	ldr r0, =cont_isPressed_0
-	ldrb r1, [r0]
-	cmp r1, #1
-	beq 0f // stillPressed? do nothing.
-	// Welcome, you're a first press!
-	mov r1, #1
-	strb r1, [r0]
-	ldr r0, =cont_activationCounter_0
-	ldrb r1, [r0]
-	add r1, #1 // every press, counter increments
-	strb r1, [r0]
-	
-	// Trigger onActive upon activation
-	ldr r0, =cont_activationCounter_0
-	ldrb r1, [r0]
-	cmp r1, #2
+	// if activationCounter_0 == 1, set it to 0 and toggle onActive_enabled_0
+	ldr r1, =activationCounter_0
+	ldrb r2, [r1]
+	cmp r2, #1
 	bne 0f
-	// Activated!! Reset counter and trigger!
-	mov r1, #0
-	strb r1, [r0]
-	ldr r0, =continuous_on_0
-	ldrb r1, [r0]
-	mov r2, #0x01
-	eor r1, r2
-	strb r1, [r0]
-	
-0:	// Return
-	pop {r0-r2, pc}
+	// set activationCounter_0 to 0
+	mov r2, #0
+	strb r2, [r1]
+	// toggle onActive_enabled_0
+	mov r1, #0x01
+	ldr r2, =onActive_enabled_0
+	ldrb r3, [r2]
+	eor r3, r1
+	strb r3, [r2]
+	b 99f
 
-handle_continuous_trigger_OFF:
-	// stack
-	push {r0-r1, lr}
-	ldr r0, =cont_isPressed_0
-	mov r1, #0
-	strb r1, [r0]
-	// return
-	pop {r0-r1, pc}
+0:	// increment activationCounter_0
+	ldr r1, =activationCounter_0
+	ldrb r2, [r1]
+	add r2, #1
+	strb r2, [r1]
+	
+99:	pop {r0-r2,pc}
 	
 #endif
