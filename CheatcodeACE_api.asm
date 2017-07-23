@@ -10,9 +10,9 @@
 #define CHEATCODEACE_API_ASM
 .thumb
 // headers
-.include "../src/GBA/GBA_header.asm"
-.include "../src/GBA/MMBN6/mmbn6_header.asm"
-.include "../src/GBA/MMBN6/mmbn6_globalvariables.asm"
+.include "../GBA_header.asm"
+.include "../mmbn6_header.asm"
+.include "../mmbn6_globalvariables.asm"
 
 b EOF // this is an API, the data should be accounted for but not executed
 
