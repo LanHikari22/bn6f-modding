@@ -10,25 +10,27 @@
 #define MMBN6_HEADER
 .thumb
 
-.equ p_keyState, 0x0200A270
+.equ pKeyState, 0x0200A270
 
 // Keys
-.equ KeyR, 0xFD00
-.equ KeyS, 0xFC04
+.equ KeyR, 		0xFD00
+.equ KeyS, 		0xFC04
+.equ KeyE,		0xFC08
+.equ KeyIDLE, 	0xFC00
 
-.equ s_chiefStruct, 0x020093B0
-.equ p_currBattle, 0x020348BC
-.equ p_currScript, 0x02009CFC
-.equ p_coords, 	0x02009F60  // those are sorta weird
-.equ p_battleLauncher_navi, 0x0809A72C
-.equ s_battle_playerStatus, 0x020384F0
-.equ s_npc_copybotNearDog, 	0x02005BE8
+.equ sChiefStruct, 0x020093B0
+.equ pCurrBattle, 0x020348BC
+.equ pCurrScript, 0x02009CFC
+.equ pCoords, 	0x02009F60  // those are sorta weird
+.equ pBattleLauncher_navi, 0x0809A72C
+.equ sBattle_playerStatus, 0x020384F0
+.equ sNpc_copybotNearDog, 	0x02005BE8
 
 // Battle structs
-.equ s_enemyA, 0x0203AA88
-.equ s_enemyB, 0x0203AB60
-.equ s_enemyC, 0x0203AC38
-.equ s_battle_player, 0x0203A9B0
+.equ sEnemyA, 0x0203AA88
+.equ sEnemyB, 0x0203AB60
+.equ sEnemyC, 0x0203AC38
+.equ sBattle_player, 0x0203A9B0
 
 
 #endif
