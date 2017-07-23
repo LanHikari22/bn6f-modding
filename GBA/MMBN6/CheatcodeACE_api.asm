@@ -8,13 +8,13 @@
 #ifndef CHEATCODEACE_API_ASM
 #define CHEATCODEACE_API_ASM
 .thumb
+// headers
+.include "../code/GBA/GBA_header.asm"
+.include "../code/GBA/MMBN6/mmbn6_header.asm"
+.include "../code/GBA/MMBN6/mmbn6_globalvariables.asm"
+
 b EOF // this is an API, the data should be written, not executed
 
-
-	
-// <<Global Variables>>
-.equ buffer, 0x02020007 // len = 3
-.equ var, 0x0202000A
 
 EOF:
 #endif

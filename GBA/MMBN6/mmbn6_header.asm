@@ -30,13 +30,5 @@
 .equ s_enemyC, 0x0203AC38
 .equ s_battle_player, 0x0203A9B0
 
-/* <<CUSTOM GLOBAL VARIABLES>> */
-// KeyPressExecution.asm
-// Used to execute trigger code upon key press
-.equ isPressed, 0x02020000
-// A trigger flag to activate sub_continous
-.equ continuous_on, 0x02020004
-.equ cont_isPressed,0x02020005
-.equ cont_activationCounter, 0x02020006
 
 #endif
