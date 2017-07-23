@@ -14,9 +14,9 @@
 
 
 // Headers
-.include "../code/GBA/GBA_header.asm"
-.include "../code/GBA/MMBN6/mmbn6_header.asm"
-.include "../code/GBA/MMBN6/mmbn6_globalvariables.asm"
+.include "../src/GBA/GBA_header.asm"
+.include "../src/GBA/MMBN6/mmbn6_header.asm"
+.include "../src/GBA/MMBN6/mmbn6_globalvariables.asm"
 
 // handle key press logic <090000>
 b prog
@@ -25,7 +25,7 @@ bl onActive 	// just to show its location
 bl onStart		// just to show its location
 prog: 
 // APIs and Drivers
-.include "../code/GBA/MMBN6/CheatcodeACE_api.asm"
+.include "../src/GBA/MMBN6/CheatcodeACE_api.asm"
 	
 	push {lr} // Stack
 	
