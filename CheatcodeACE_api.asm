@@ -3,8 +3,10 @@
  * Author: Lan
  * Date created: 7/21/2017
  * Description
- * TODO
- * cc_cheatLength can be modified in mmbn6_globalvariables.asm
+ * Cheatcode ACE System API! by calling cc_handleCheatcodeExecution on trigger of a keystate,
+ * The program will track input sequences and determine when the user inputs a valid cheatcode!
+ * ENTER must first be pressed to input a valid cheatcode.
+ * global variables for modification can be found in mmbn6_globalvariables.asm
 */
 #ifndef CHEATCODEACE_API_ASM
 #define CHEATCODEACE_API_ASM
@@ -14,23 +16,19 @@
 .include "../mmbn6_header.asm"
 .include "../mmbn6_globalvariables.asm"
 
-b EOF // this is an API, the data should be accounted for but not executed
+b CHEATCODEACE_API_ASM_EOF // this is an API, the data should be accounted for but not executed
 
 /**
  * Will check if any cheatcodes have been inserted, and if so, will execute the corresponding functions of them.
  * cheatcodes_1 must be initialized on onStart for this to behave correctly.
  * [side effects] 
- * 
+ * cheatcodes_1, pad0_1, cc_nCheatcodes
  * [return]
- * r0_funcID an ID that can identify a specific function to be executed.
+ * r0_funcID an ID that can identify a specific function to be executed. 
+ * 0xFFFFFFFF indicates that no pattern was detected.
 */
-cc_handleCheatcodeExecution:
+cc_getCheatCodeID:
 	push {lr}
-	
-	// insert keystate into buffer
-	ldr r0, =pKeyState
-	ldrh r0, [r0]
-	bl cc_insertKeystate
 	
 	ldr r3, =0xFFFFFFFF // r3_funcID. same as the cheatcode sequence's location.
 	mov r2, #0 // r2_cursor
@@ -229,56 +227,5 @@ cc_isFirstPress:
 
 99:	pop {r1-r2, pc}
 
-/**
- * Initializes all cheatcodes to known, defined patterns. This must only be executed once.
- * [side effects] 
- * 
-*/
-cc_initCheatcodes:
-	push {r0-r1,lr}
-	
-	ldr r0, =cheatcodes_1
-	// 0
-	ldr r1, =0xFC04FC08
-	str r1, [r0]
-	add r0, #4
-	ldr r1, =0xFC04FC04
-	str r1, [r0]
-	add r0, #4
-	
-	// 1
-	ldr r1, =0x1111FC08
-	str r1, [r0]
-	add r0, #4
-	ldr r1, =0x00000000
-	str r1, [r0]
-	add r0, #4
-	
-	// 2
-	ldr r1, =0x2222FC08
-	str r1, [r0]
-	add r0, #4
-	ldr r1, =0x00000000
-	str r1, [r0]
-	add r0, #4
-	
-	// 3
-	ldr r1, =0x3333FC08
-	str r1, [r0]
-	add r0, #4
-	ldr r1, =0x00000000
-	str r1, [r0]
-	add r0, #4
-	
-	// 4
-	ldr r1, =0x4444FC08
-	str r1, [r0]
-	add r0, #4
-	ldr r1, =0x00000000
-	str r1, [r0]
-	add r0, #4
-	
-	pop {r0-r1,pc}
-
-EOF:
+CHEATCODEACE_API_ASM_EOF:
 #endif

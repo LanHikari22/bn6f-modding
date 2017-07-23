@@ -7,7 +7,7 @@ set asm="..\KeyPressExecution.asm"
 set injectionOffset=090000
 
 pushd "%~dp0"
-call thumb %asm% output.bin
+call thumb %asm% output.bin -mccs
 py RomInjector.py %rom% "output.bin" %injectionOffset%
 del output.bin
 popd

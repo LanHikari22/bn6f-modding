@@ -8,11 +8,12 @@
  * or when a flag is active, respectively.
  * onStart defines logic that is executed ONLY ONCE. put initilizations here!
 */
-#ifndef KEYPRESSEXECUTION_ASM
-#define KEYPRESSEXECUTION_ASM
+
+
+
+//.ifndef KEYPRESSEXECUTION_ASM
+//.def KEYPRESSEXECUTION_ASM
 .thumb
-
-
 // Headers
 .include "../GBA_header.asm"
 .include "../mmbn6_header.asm"
@@ -21,11 +22,14 @@
 // handle key press logic <090000>
 b prog
 bl onTrigger    // just to show its location
-bl onActive 	// just to show its location
+bl onActive 	
+// just to show its location
 bl onStart		// just to show its location
 prog: 
 // APIs and Drivers
+.include "../cheatcodes.asm"
 .include "../CheatcodeACE_api.asm"
+.include "../KeyPressEntrypoints.asm"
 	
 	push {lr} // Stack
 	
@@ -56,69 +60,38 @@ main:
 	LDRB	R3, [R3]
 	CMP		R3, #1
 	BNE		0f
+	// check if shortcutsEnabled_0
+	LDR		R0, =shortcutsEnabled_0
+	LDR		R0, [R0]
+	CMP		r0, #1
+	BNE		0f
 	BL		onActive
 
 0:	// When a certain keystate is entered, check if this is the first time.
-	ldr r1, =pKeyState
-	ldrh r1, [r1]
-	bl cc_isFirstPress
-	cmp r0, #1
-	bne 99f
+	LDR 	R1, =pKeyState
+	LDRH 	R1, [R1]
+	BL 		cc_isFirstPress
+	CMP 	R0, #1
+	BNE 99f
 	
 	// This keystate has been entered for the FIRST time!
-	ldrh r1, =KeyS 
-	bl cc_isPressed
-	cmp r0, #1 // is it SELECT??
-	bne 0f 
-	bl onTrigger
+	LDRH 	R1, =KeyS 
+	BL 		cc_isPressed
+	CMP		R0, #1 // is it SELECT??
+	BNE		0f 
+	// check if shortcutsEnabled_0
+	LDR		R0, =shortcutsEnabled_0
+	LDR		R0, [R0]
+	CMP		r0, #1
+	BNE		0f
+	BL onTrigger
 	
 0:	// <<Input all logic that should be executed only on keyState trigger>>
 	bl handle_onActive
 	bl cc_handleCheatcodeExecution
 	
 99:	POP	  {R0-R7, PC} // Return!
-/*********************************/
-// Custom Code!
-// Edit onTrigger for trigger activated code (SELECT)
-// While pressing R, Press UP to TRIGGER Continous code
-// Edit sub_continous code to handle what happens when it's triggered
-/********************************/
-onTrigger:
-	push {r0-r7, lr}
-	
-	ldr r0, =sEnemyA 			// pointer to enemyA struct
-	ldr r1, =sBattle_player 	// pointer to player battle struct
-	ldrh r2, [r0, #0x24] 		// sEnemyA->HP
-	ldrh r3, [r1, #0x24] 		// PlayerBattleStruct->HP
-	strh r2, [r1, #0x24]
-	strh r3, [r0, #0x24]
-	
-	// swi 0x03 // stop!
-		
-	pop {r0-r7, pc}
 
-onActive:
-	push {r0-r7, lr}
-	
-	ldr r0, =sEnemyA // yay literal pool!
-	ldr r1, [r0, #0x24] // HP
-	add r1, #1
-	str r1, [r0, #0x24] // HP
-	
-	pop {r0-r7, pc}
-	
-onStart:
-	push {r0-r7, lr}
-	
-	bl cc_initCheatcodes
-	
-	// Make sure this doesn't get executed again: Set onStartExecuted_0 to 0xADD2FEED
-	ldr r0, =0xADD2FEED
-	ldr r1, =onStartExecuted_0
-	str r0, [r1]
-	
-	pop {r0-r7, pc}
-	
 handle_onActive:
 	push {r0-r2,lr}
 	

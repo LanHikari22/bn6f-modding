@@ -27,8 +27,11 @@
 /* Determines whether this is the first time this code is executed.
    Its value will change immediately after to (most likely) indicate it did. */
 .equ onStartExecuted_0,				alloc0 + 0x0C
+/* This flag controls whether onTrigger and onActive can be activated with 
+   their desginated simple shorcuts.*/
+.equ shortcutsEnabled_0,				alloc0 + 0x10
 /* --- */
-.equ alloc1,					 	alloc0 + 0x10
+.equ alloc1,					 	alloc0 + 0x14
 
 
 /** CheatcodeACE_api.asm														[1]**/
