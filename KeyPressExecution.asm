@@ -46,7 +46,7 @@ main:
 	// if this is the first time this is executed, onStart will be executed.
 	LDR		R0, =onStartExecuted_0
 	LDR		R0, [R0]
-	LDR		R1, =0xADD2BEEF
+	LDR		R1, =0xADD2FEED
 	CMP		R0, R1
 	BEQ		0f
 	BL		onStart
@@ -83,8 +83,8 @@ main:
 // While pressing R, Press UP to TRIGGER Continous code
 // Edit sub_continous code to handle what happens when it's triggered
 /********************************/
-onTrigger: // <09004E>
-	push {r0-r7, lr} // Stack
+onTrigger:
+	push {r0-r7, lr}
 	
 	ldr r0, =sEnemyA 			// pointer to enemyA struct
 	ldr r1, =sBattle_player 	// pointer to player battle struct
@@ -95,10 +95,9 @@ onTrigger: // <09004E>
 	
 	// swi 0x03 // stop!
 		
-	pop {r0-r7, pc} // Return
+	pop {r0-r7, pc}
 
 onActive:
-	// Stack
 	push {r0-r7, lr}
 	
 	ldr r0, =sEnemyA // yay literal pool!
@@ -106,7 +105,6 @@ onActive:
 	add r1, #1
 	str r1, [r0, #0x24] // HP
 	
-	// Return
 	pop {r0-r7, pc}
 	
 onStart:
@@ -114,11 +112,10 @@ onStart:
 	
 	bl cc_initCheatcodes
 	
-	// Make sure this doesn't get executed again: Set onStartExecuted_0 to 0xADD2BEEF
-	ldr r0, =0xADD2BEEF
+	// Make sure this doesn't get executed again: Set onStartExecuted_0 to 0xADD2FEED
+	ldr r0, =0xADD2FEED
 	ldr r1, =onStartExecuted_0
 	str r0, [r1]
-	
 	
 	pop {r0-r7, pc}
 	
