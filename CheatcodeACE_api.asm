@@ -22,39 +22,38 @@ b EOF // this is an API, the data should be accounted for but not executed
  * [side effects] 
  * 
  * [return]
- * r0_functionID an ID that can identify a specific function to be executed.
+ * r0_funcID an ID that can identify a specific function to be executed.
 */
 cc_handleCheatcodeExecution:
 	push {lr}
-
-	// TODO: DEBUG
-	mov r4, #0
 	
 	// insert keystate into buffer
 	ldr r0, =pKeyState
 	ldrh r0, [r0]
 	bl cc_insertKeystate
 	
+	ldr r3, =0xFFFFFFFF // r3_funcID. same as the cheatcode sequence's location.
 	mov r2, #0 // r2_cursor
 	ldr r1, =cheatcodes_1
 2:	// Check against cheatcode patterns...
 	bl cc_checkPattern
 	cmp r0, #1
 	bne 0f
+	mov r3, r2 // this pattern matches!
 
 0:	// increment r1_cheatcodes and cursor.
 	add r1, #pad0_1 // pad0_1 is memory length of r1_cheatcodes
 	add r2, #1
 	
 	// TODO: DEBUG
-	ldr r3, =testVar_0
-	orr	r4, r0
-	strb r4, [r3]
+	ldr r4, =testVar_0
+	str r3, [r4]
 	
 	// do while r2_cursor < cc_nCheatcodes
 	cmp r2, #cc_nCheatcodes
 	blt 2b
 	
+	mov r0, r3
 	pop {pc}
 
 
@@ -239,11 +238,19 @@ cc_initCheatcodes:
 	push {r0-r1,lr}
 	
 	ldr r0, =cheatcodes_1
-	// 1
+	// 0
 	ldr r1, =0xFC04FC08
 	str r1, [r0]
 	add r0, #4
 	ldr r1, =0xFC04FC04
+	str r1, [r0]
+	add r0, #4
+	
+	// 1
+	ldr r1, =0x1111FC08
+	str r1, [r0]
+	add r0, #4
+	ldr r1, =0x00000000
 	str r1, [r0]
 	add r0, #4
 	
@@ -265,14 +272,6 @@ cc_initCheatcodes:
 	
 	// 4
 	ldr r1, =0x4444FC08
-	str r1, [r0]
-	add r0, #4
-	ldr r1, =0x00000000
-	str r1, [r0]
-	add r0, #4
-	
-	// 5
-	ldr r1, =0x5555FC08
 	str r1, [r0]
 	add r0, #4
 	ldr r1, =0x00000000
