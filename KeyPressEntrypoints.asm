@@ -29,14 +29,14 @@ onTrigger:
 	ldrh r3, [r1, #0x24] 		// PlayerBattleStruct->HP
 	strh r2, [r1, #0x24]
 	strh r3, [r0, #0x24] */
-	
+
+	b 3f
 someText:	.string "Hello andy! look I can print strings now!!\0"
 .align 4
 3:	ldr r1, =someText
 	ldr r2, =0x08090000 // to make location absolute!
 	add r1, r2
 	ldr r2, =0x02034B50 // r2_pOut
-	mov r3, #1			// r3_length
 	bl tg_strcopyTo
 	
 	// swi 0x03 // stop!

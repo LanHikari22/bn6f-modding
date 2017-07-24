@@ -31,7 +31,7 @@
 .equ sEnemyA, 0x0203AA88
 .equ sEnemyB, 0x0203AB60
 .equ sEnemyC, 0x0203AC38
-.equ sBattle_player, 0x0203A9B0
+.equ sBtlPlayer, 0x0203A9B0
 
 
 #endif

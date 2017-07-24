@@ -5,8 +5,8 @@ rem this is for use with the GBA thumb compiler only.
 set rom="..\..\..\..\..\Roms\GBA\MMBN\MMBN6\mmbn6g - SCode.gba"
 rem set asm="..\KeyPressExecution.asm"
 rem set injectionOffset=090000
-set asm="..\Rom Investigation\Subroutine Reversing\sub_08040358.asm"
-set injectionOffset=099000
+set asm="..\Rom Investigation\Subroutine Reversing\InjectionRedirect.asm"
+set injectionOffset=040358
 
 pushd "%~dp0"
 call thumb %asm% output.bin -mccs
