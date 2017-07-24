@@ -20,6 +20,7 @@
 
 .equ sChiefStruct, 0x020093B0
 .equ pCurrBattle, 0x020348BC
+.equ pCurrBattleData, 0x02001B9C
 .equ pCurrScript, 0x02009CFC
 .equ pCoords, 	0x02009F60  // those are sorta weird
 .equ pBattleLauncher_navi, 0x0809A72C
