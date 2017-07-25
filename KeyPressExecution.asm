@@ -27,6 +27,7 @@ bl 		onActive
 bl		onEvent
 bl		onState
 bl		onCountdown
+bl		onPWM
 bl 		onStart		
 prog: 
 // APIs and Drivers
@@ -61,6 +62,7 @@ main:
 0:	BL 		handle_onEvent
 	BL		handle_onState
 	BL		handle_onCountdown
+	BL		handle_onPWM
 	
 	// if onActive is enabled, onActive will be executed.
 	LDR		R3, =onActive_enabled_0
@@ -188,6 +190,11 @@ handle_onCountdown:
 	str		r1, [r0]
 	
 99:	pop		{r0-r7, pc}
+	
+handle_onPWM:
+	push	{r0-r7, lr}
+	
+	pop		{r0-r7, pc}
 	
 /**
  * Determines whether the r3_mask filtered value at r1_pEvent changed.

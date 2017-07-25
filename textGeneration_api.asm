@@ -18,14 +18,22 @@ b TEXTGENERATION_API_ASM_EOF // this is an API, the data should be accounted for
 /**
  * Converts a r1_pText to gametext. Generates gametext at specified r2_pGameText
  * [params]
- * r1_pText, r2_pText
+ * r2_pText, r3_pGameText
  * [side effects]
  * [return]
 */
 tg_toGameText:
-	push {r0-r7, lr}
+	push 	{r0-r7, lr}
 	
-	pop {r0-r7, pc}
+2:	ldrb	r1, [r2]
+	bl		tg_toGameChar
+	strb	r0, [r3]
+	add		r2, #1
+	add		r3, #1
+	cmp		r1, #0xE7
+	bne		2b
+	
+	pop 	{r0-r7, pc}
 
 /**
  * Copies r3_length bytes of r1_pArray to specified r2_pOut.
@@ -70,6 +78,21 @@ tg_strcopyTo:
 	bne 2b
 	
 	pop {r0-r7, pc}
+	
+/**
+ * 
+ * [params]
+ * r1_asciiChar
+ * [return]
+ * r0_gameChar
+*/
+tg_toGameChar:
+	push	{r1-r2, lr}
+
+	ldr		r2, =pAsciiGametext
+	ldrb	r0, [r2, r1]
+	
+	pop		{r1-r2, pc}
 
 TEXTGENERATION_API_ASM_EOF:
 #endif

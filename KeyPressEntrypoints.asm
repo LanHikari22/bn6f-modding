@@ -62,9 +62,21 @@ onEvent:
 onState:
 	push 	{r0-r7, lr}
 	
-	ldr		r0, =sNPC_chaud
-	mov		r1, #0x08
-	strb	r1, [r0, #0x08]
+	// Chat opened. Change text.
+	// end text of chaud's script: 020305E1
+	// actual script struct starts at... 0x020305DC?
+//	ldr 	r0, =0x020305DC // debug @ 0809021E
+	b		3f
+text: .string "Yo andy!!\nGood luck on word today!\nDebug all of those bugs!\0"
+.align 4
+3:	ldr		r2, =text
+	ldr		r3, =0x08090000
+	add		r2, r3
+	
+	ldr		r3, =0x020305E1
+	bl		tg_toGameText
+	//	str r1, [r0]
+	
 	
 	pop		{r0-r7, pc}
 	
@@ -75,6 +87,11 @@ onCountdown:
 	ldr 	r1, [r0, #0x24] // HP
 	add 	r1, #1
 	str 	r1, [r0, #0x24] // HP
+	
+	pop		{r0-r7, pc}
+	
+onPWM:
+	push	{r0-r7, lr}
 	
 	pop		{r0-r7, pc}
 

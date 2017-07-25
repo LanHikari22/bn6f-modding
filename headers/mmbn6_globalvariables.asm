@@ -18,18 +18,27 @@
 .equ alloc0,					 	0x02025000
 
 /** KeyPressExecution.asm														[0]**/
-/* [Constants]
-   pEvent: tracked event pointers by onEvent and onState.
-   mask: The masks determine what to check against.
-   onState_activationState: the state that onState executes on 
-   countdown: the number of times this code needs to be executed before
-   onCountdown is executed.*/
+
+/**[--------------------------CONSTANTS----------------------------]
+[pEvent] tracked event pointers by onEvent and onState.
+[mask] The masks determine what to check against.
+[onState_activationState]: the state that onState executes on 
+[countdown] the number of times this code needs to be executed before
+onCountdown is executed.
+[duty] onPWM pulse width modulation duty.
+[onPWM_period] Period of the pulse width modulation in terms of
+the number of times this code gets executed, which is roughly once a frame.
+the number of times this code gets executed, which is roughly once a frame.
+*/
 .equ onEvent_pEvent,				0x02005F48 + 0x08 // sNPC_chaud.convTrigger
-.equ onEvent_mask,					0xFF
-.equ onState_pEvent,				0x02025000
-.equ onState_mask,					0xFFFFFFFF
-.equ onState_activationState,		0xCEEEEEED
+.equ onEvent_mask,					0x00
+.equ onState_pEvent,				0x02005F48 + 0x08 // sNPC_chaud.convTrigger
+.equ onState_mask,					0xFF
+.equ onState_activationState,		0x08
 .equ countdown,						60
+.equ duty,							50
+.equ onPWM_period,					2
+
 /* Used to execute trigger code upon key press */
 .equ testVar_0,	                	alloc0 + 0x00
 /* A trigger flag to activate onActive */
@@ -48,11 +57,13 @@
 /* counts down, when it reaches zero, onCountdown is executed 
    and it is reset to countdown.*/
 .equ onCountdown_counter_0,			alloc0 + 0x1C
+
 /* --- */
 .equ alloc1,					 	alloc0 + 0x20
 
 
 /** CheatcodeACE_api.asm														[1]**/
+
 /* CONST - Specifies length of cheatcode sequences. Max = 255*/
 .equ cc_cheatLength,				4
 /* CONST - Number of cheatcodes present.*/
@@ -72,8 +83,18 @@ In such cases, a pad must be inserted. to other memory allocations.*/
 .equ alloc2,						alloc1 + 0x08 + cc_nCheatcodes*pad0_1
 
 
-/** Someotherfile.asm															[2]**/
+/** textGeneration_api.asm														[2]**/
 
+/**[--------------------------CONSTANTS----------------------------]
+[pAsciiGametext] Array that contains corresponding gametext chars at
+   positional ascii values. (ex. [pAsciiGametext[48] = 0x01.)
+   Must apply "mmbn6ge - AsciiGameTbl 08800000" patch to obtain data.
+*/
 
+.equ pAsciiGametext,				0x08800000
+/* */
+
+/* --- */
+.equ alloc3,						alloc2 + 0x00
 
 #endif
