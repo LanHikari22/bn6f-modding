@@ -15,9 +15,9 @@
 //.def KEYPRESSEXECUTION_ASM
 .thumb
 // Headers
-.include "../GBA_header.asm"
-.include "../mmbn6_header.asm"
-.include "../mmbn6_globalvariables.asm"
+.include "../headers/GBA_header.asm"
+.include "../headers/mmbn6_header.asm"
+.include "../headers/mmbn6_globalvariables.asm"
 
 // handle key press logic <090000>
 b prog
@@ -55,7 +55,10 @@ main:
 	BEQ		0f
 	BL		onStart
 	
-0:	// if onActive is enabled, onActive will be executed.
+0:	BL 		handle_onEvent
+	BL		handle_onState
+	
+	// if onActive is enabled, onActive will be executed.
 	LDR		R3, =onActive_enabled_0
 	LDRB	R3, [R3]
 	CMP		R3, #1
@@ -130,4 +133,79 @@ handle_onActive:
 	
 99:	pop {r0-r2,pc}
 	
+/**
+ * [params]
+ * [side effects]
+*/
+handle_onEvent:
+	push	{r0-r3, lr}
+	
+	ldr 	r1, =onEvent_pEvent
+	ldr 	r2, =onEvent_watcher_0
+	mov		r3, #onEvent_mask
+	bl		eventOccured
+	cmp 	r0, #1
+	bne 	99f
+	bl		onEvent
+	
+99:	pop		{r0-r3, pc}
+	
+/**
+ * [params]
+ * [side effects]
+*/
+handle_onState:
+	push 	{r0-r7, lr}
+	
+	ldr 	r1, =onState_pEvent
+	ldr 	r2, =onState_watcher_0
+	ldr		r3, =onState_mask
+	bl		eventOccured
+	cmp 	r0, #1
+	bne 	99f
+	// check if state is onState_activationState
+	ldr		r1, [r1]
+	and		r1, r3
+	ldr		r2, =onState_activationState
+	cmp		r1, r2
+	bne		99f
+	bl		onState
+	
+99:	pop		{r0-r7, pc}
+	
+/**
+ * Determines whether the r3_mask filtered value at r1_pEvent changed.
+ * This is based on r2_pEventWatcher, which records that masked value when it is first encountered.
+ * if this subroutine is executed frequently enough, r2_pEventWatcher should accurate with detecting change.
+ * [params]
+ * r1_pEvent, r2_pEventWatcher, r3_mask
+ * [side effects]
+ * r2_pEventWatcher
+ * [return] 
+ * r0_eventOccured (0: false, 1: true)
+*/
+.thumb_func
+eventOccured:
+	push 	{r1-r4, lr}
+	
+	// load masked value
+	ldr 	r1, [r1]
+	and 	r1, r3
+	
+	// Is the value registered in *r2_pEventWatcher?
+	ldr 	r4, [r2]
+	cmp 	r1, r4
+	beq 	0f 		// Yo, you registered this before :(
+	
+	// First time I've seen this. Better register it!
+	str 	r1, [r2]
+
+	// What an eventful time to live in....
+	mov 	r0, #1
+	b 		99f
+	
+0:	mov 	r0, #0
+
+99: pop 	{r1-r4, pc}	
+
 #endif

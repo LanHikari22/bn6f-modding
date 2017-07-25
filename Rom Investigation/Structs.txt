@@ -7,9 +7,7 @@ s_020093B0 <sChiefStruct>:
 	Other Instances
 		Probably None
 	0x2C <s_02009CD0 <sNoname>>
-	
 		
-	
 s_02009CD0 <sNoname>:
 	Description
 		So far, I can just tell it seems to control various things in
@@ -129,7 +127,7 @@ s_020384F0 <sBtlPlayerStatus>:
 	0x40 [0x000Z]
 		.# Auto Destruct
 		
-s_02005BE8 <sNPC_copybotneardog>
+s_02005F48 <sNPC_chaud>
 	TODO
 		Formatting. Still didn't settle on a good reporting format...
 	Description
@@ -137,7 +135,8 @@ s_02005BE8 <sNPC_copybotneardog>
 	Length
 		0x1B0 bytes
 	Other Instances (?)
-		s_02005F48 # Subchip seller guy
+		s_02005BE8 # sNPC_copybotneardog
+		s_02005F48 # chaud (ACDC), Subchip seller guy
 		s_020062A8 # Another copybot
 		s_02006458 # Enemy copybot, sigh
 		s_02005C38 # seems to be a struct of its own? (0x50)

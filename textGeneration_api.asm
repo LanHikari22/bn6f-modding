@@ -9,9 +9,9 @@
 #define TEXTGENERATION_API_ASM
 .thumb
 // headers
-.include "../GBA_header.asm"
-.include "../mmbn6_header.asm"
-.include "../mmbn6_globalvariables.asm"
+//.include "../headers/GBA_header.asm"
+//.include "../headers/mmbn6_header.asm"
+//.include "../headers/mmbn6_globalvariables.asm"
 
 b TEXTGENERATION_API_ASM_EOF // this is an API, the data should be accounted for but not executed
 

@@ -10,9 +10,9 @@
 #define CHEATCODES_ASM
 .thumb
 // headers
-.include "../GBA_header.asm"
-.include "../mmbn6_header.asm"
-.include "../mmbn6_globalvariables.asm"
+//.include "../headers/GBA_header.asm"
+//.include "../headers/mmbn6_header.asm"
+//.include "../headers/mmbn6_globalvariables.asm"
 // APIs and Drivers
 //.include "../CheatcodeACE_api.asm"
 //.include "../KeyPressEntrypoints.asm"

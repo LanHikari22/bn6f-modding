@@ -12,9 +12,9 @@
 #define CHEATCODEACE_API_ASM
 .thumb
 // headers
-.include "../GBA_header.asm"
-.include "../mmbn6_header.asm"
-.include "../mmbn6_globalvariables.asm"
+//.include "../headers/GBA_header.asm"
+//.include "../headers/mmbn6_header.asm"
+//.include "../headers/mmbn6_globalvariables.asm"
 
 b CHEATCODEACE_API_ASM_EOF // this is an API, the data should be accounted for but not executed
 
@@ -42,10 +42,6 @@ cc_getCheatCodeID:
 0:	// increment r1_cheatcodes and cursor.
 	add r1, #pad0_1 // pad0_1 is memory length of r1_cheatcodes
 	add r2, #1
-	
-	// TODO: DEBUG
-	ldr r4, =testVar_0
-	str r3, [r4]
 	
 	// do while r2_cursor < cc_nCheatcodes
 	cmp r2, #cc_nCheatcodes

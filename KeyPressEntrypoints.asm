@@ -14,9 +14,9 @@
 .thumb
 b		KEYPRESSENTRYPOINTS_ASM_EOF
 // Headers
-.include "../GBA_header.asm"
-.include "../mmbn6_header.asm"
-.include "../mmbn6_globalvariables.asm"
+//.include "../headers/GBA_header.asm"
+//.include "../headers/mmbn6_header.asm"
+//.include "../headers/mmbn6_globalvariables.asm"
 .include "../textGeneration_api.asm"
 
 onTrigger:
@@ -33,29 +33,25 @@ onTrigger:
 	b 3f
 someText:	.string "Hello andy! look I can print strings now!!\0"
 .align 4
-3:	ldr r1, =someText
-	ldr r2, =0x08090000 // to make location absolute!
-	add r1, r2
-	ldr r2, =0x02034B50 // r2_pOut
-	bl tg_strcopyTo
+3:	ldr 	r1, =someText
+	ldr 	r2, =0x08090000 // to make location absolute!
+	add 	r1, r2
+	ldr 	r2, =0x02034B50 // r2_pOut
+	bl 		tg_strcopyTo
 	
 	// swi 0x03 // stop!
 		
-	pop {r0-r7, pc}
+	pop 	{r0-r7, pc}
 
 onActive:
-	push {r0-r7, lr}
+	push 	{r0-r7, lr}
 	
+	ldr 	r0, =sEnemyA // yay literal pool!
+	ldr 	r1, [r0, #0x24] // HP
+	add 	r1, #1
+	str 	r1, [r0, #0x24] // HP
 	
-	ldr r0, =sEnemyA // yay literal pool!
-	ldr r1, [r0, #0x24] // HP
-	add r1, #1
-	str r1, [r0, #0x24] // HP
-	
-	
-
-	
-	pop {r0-r7, pc}
+	pop 	{r0-r7, pc}
 	
 onStart:
 	push {r0-r7, lr}
@@ -74,6 +70,19 @@ onStart:
 	
 	pop {r0-r7, pc}
 	
+onEvent:
+	push 	{r0-r7, lr}
 
+	pop		{r0-r7, pc}
+
+onState:
+	push 	{r0-r7, lr}
+	
+	ldr		r0, =sNPC_chaud
+	mov		r1, #0x08
+	strb	r1, [r0, #0x08]
+	
+	pop		{r0-r7, pc}
+	
 KEYPRESSENTRYPOINTS_ASM_EOF:
 #endif

@@ -19,7 +19,7 @@
  * [return]
  *
 */
-main: // <099000 redirected from 040358>
+main: // <099000>
 	push    {r4-r7,r14}
 	
 	// load data from r5_sChiefStruct[0x2C]
@@ -44,7 +44,7 @@ main: // <099000 redirected from 040358>
 	ldr     r0,[r0,#0x2C] // r0 = s_02009CD0
 	ldr     r1,=#0x230 // 0x230. can make Lan teleport or disappear??
 	
-	// [params] r0(s_02009CD0) r1(?)
+	// [params] r0(s_02009CD0) r1(size?)
 	// [return] nothing
 	ldr r7, =0x80008E0 // undocumented call
 	bl blx

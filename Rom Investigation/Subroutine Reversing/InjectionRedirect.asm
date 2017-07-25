@@ -3,13 +3,14 @@
  * Author: Lan
  * Date created: 07/23/2017
  * Description
+ * This is meant to be injected where a subroutine is, and creating
+ * a new location to import the subroutine back in for easy modification.
 */
 .thumb
 
-main: // <injection at: 040358>
-	push    {r3-r6,r14}
-	ldr 	r3, =0x08099001
+main: // <injection at: 8E0>
+	push    {r7,r14}
+	ldr 	r7, =0x08099001
 	mov		lr, pc
-	//swi		0x03
-	bx		r3
-	pop     {r3-r6,r15}
+	bx		r7
+	pop     {r7,r15}

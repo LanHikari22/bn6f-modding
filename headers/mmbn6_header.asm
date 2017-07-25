@@ -25,7 +25,11 @@
 .equ pCoords, 	0x02009F60  // those are sorta weird
 .equ pBattleLauncher_navi, 0x0809A72C
 .equ sBattle_playerStatus, 0x020384F0
-.equ sNpc_copybotNearDog, 	0x02005BE8
+
+// NPC Structs
+.equ sNPC_chaud, 0x02005F48
+.equ sNPC_copybotneardog, 0x02005BE8
+
 
 // Battle structs
 .equ sEnemyA, 0x0203AA88
