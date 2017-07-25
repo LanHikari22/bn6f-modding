@@ -18,14 +18,18 @@
 .equ alloc0,					 	0x02025000
 
 /** KeyPressExecution.asm														[0]**/
-/* CONST - tracked event pointers by onEvent and onState.
-   The masks determine what to check against.
-   onState_activationState is the state that onState executes on */
+/* [Constants]
+   pEvent: tracked event pointers by onEvent and onState.
+   mask: The masks determine what to check against.
+   onState_activationState: the state that onState executes on 
+   countdown: the number of times this code needs to be executed before
+   onCountdown is executed.*/
 .equ onEvent_pEvent,				0x02005F48 + 0x08 // sNPC_chaud.convTrigger
 .equ onEvent_mask,					0xFF
 .equ onState_pEvent,				0x02025000
 .equ onState_mask,					0xFFFFFFFF
 .equ onState_activationState,		0xCEEEEEED
+.equ countdown,						60
 /* Used to execute trigger code upon key press */
 .equ testVar_0,	                	alloc0 + 0x00
 /* A trigger flag to activate onActive */
@@ -41,8 +45,11 @@
 /* Variables that record the state of a RAM value to determine when it changes.*/
 .equ onEvent_watcher_0,				alloc0 + 0x14	
 .equ onState_watcher_0,				alloc0 + 0x18
+/* counts down, when it reaches zero, onCountdown is executed 
+   and it is reset to countdown.*/
+.equ onCountdown_counter_0,			alloc0 + 0x1C
 /* --- */
-.equ alloc1,					 	alloc0 + 0x1C
+.equ alloc1,					 	alloc0 + 0x20
 
 
 /** CheatcodeACE_api.asm														[1]**/

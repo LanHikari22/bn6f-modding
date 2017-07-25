@@ -20,11 +20,14 @@
 .include "../headers/mmbn6_globalvariables.asm"
 
 // handle key press logic <090000>
-b prog
-bl onTrigger    // just to show its location
-bl onActive 	
-// just to show its location
-bl onStart		// just to show its location
+b 		prog
+// just to show location from assembler:
+bl 		onTrigger
+bl 		onActive
+bl		onEvent
+bl		onState
+bl		onCountdown
+bl 		onStart		
 prog: 
 // APIs and Drivers
 .include "../cheatcodes.asm"
@@ -57,6 +60,7 @@ main:
 	
 0:	BL 		handle_onEvent
 	BL		handle_onState
+	BL		handle_onCountdown
 	
 	// if onActive is enabled, onActive will be executed.
 	LDR		R3, =onActive_enabled_0
@@ -133,10 +137,7 @@ handle_onActive:
 	
 99:	pop {r0-r2,pc}
 	
-/**
- * [params]
- * [side effects]
-*/
+
 handle_onEvent:
 	push	{r0-r3, lr}
 	
@@ -150,10 +151,7 @@ handle_onEvent:
 	
 99:	pop		{r0-r3, pc}
 	
-/**
- * [params]
- * [side effects]
-*/
+
 handle_onState:
 	push 	{r0-r7, lr}
 	
@@ -170,6 +168,24 @@ handle_onState:
 	cmp		r1, r2
 	bne		99f
 	bl		onState
+	
+99:	pop		{r0-r7, pc}
+
+handle_onCountdown:
+	push	{r0-r7, lr}
+	
+	// if onCountdown_counter_0 == 0, reset it to countdown and execute onCountdown
+	ldr		r0, =onCountdown_counter_0
+	ldr		r1, [r0]
+	cmp		r1, #0
+	bne		0f
+	ldr		r1, =countdown
+	str		r1, [r0]
+	bl		onCountdown
+
+0:	// decrement onCountdown_counter_0
+	sub		r1, #1
+	str		r1, [r0]
 	
 99:	pop		{r0-r7, pc}
 	

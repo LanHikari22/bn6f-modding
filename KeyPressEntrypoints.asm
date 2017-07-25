@@ -52,23 +52,7 @@ onActive:
 	str 	r1, [r0, #0x24] // HP
 	
 	pop 	{r0-r7, pc}
-	
-onStart:
-	push {r0-r7, lr}
-	
-	// init shortcutsEnabled_0: Disabled by default.
-	ldr r0, =shortcutsEnabled_0
-	mov r1, #0x00
-	strb r1, [r0]
-	
-	bl cc_initCheatcodes
-	
-	// Make sure this doesn't get executed again: Set onStartExecuted_0 to 0xADD2FEED
-	ldr r0, =0xADD2FEED
-	ldr r1, =onStartExecuted_0
-	str r0, [r1]
-	
-	pop {r0-r7, pc}
+
 	
 onEvent:
 	push 	{r0-r7, lr}
@@ -83,6 +67,38 @@ onState:
 	strb	r1, [r0, #0x08]
 	
 	pop		{r0-r7, pc}
+	
+onCountdown:
+	push	{r0-r7, lr}
+	
+	ldr 	r0, =sEnemyA // yay literal pool!
+	ldr 	r1, [r0, #0x24] // HP
+	add 	r1, #1
+	str 	r1, [r0, #0x24] // HP
+	
+	pop		{r0-r7, pc}
+
+onStart:
+	push {r0-r7, lr}
+	
+	// init shortcutsEnabled_0: Disabled by default.
+	ldr r0, =shortcutsEnabled_0
+	mov r1, #0x00
+	strb r1, [r0]
+	
+	// onCountdown_counter_0 is initialized to countdown
+	ldr r0, =onCountdown_counter_0
+	ldr r1, =countdown
+	str r1, [r0]
+	
+	bl cc_initCheatcodes
+	
+	// Make sure this doesn't get executed again: Set onStartExecuted_0 to 0xADD2FEED
+	ldr r0, =0xADD2FEED
+	ldr r1, =onStartExecuted_0
+	str r0, [r1]
+	
+	pop {r0-r7, pc}
 	
 KEYPRESSENTRYPOINTS_ASM_EOF:
 #endif
