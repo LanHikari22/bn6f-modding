@@ -30,17 +30,6 @@ onTrigger:
 	strh r2, [r1, #0x24]
 	strh r3, [r0, #0x24] */
 
-	b 3f
-someText:	.string "Hello andy! look I can print strings now!!\0"
-.align 4
-3:	ldr 	r1, =someText
-	ldr 	r2, =0x08090000 // to make location absolute!
-	add 	r1, r2
-	ldr 	r2, =0x02034B50 // r2_pOut
-	bl 		tg_strcopyTo
-	
-	// swi 0x03 // stop!
-		
 	pop 	{r0-r7, pc}
 
 onActive:
@@ -66,16 +55,17 @@ onState:
 	push 	{r0-r7, lr}
 	
 	// debug @ 0809021E	
+/*
 	b		3f
 text: .string "Zeros and ones.\nIf you doubt yourself...\nYou will lose.\0 \1"
-.align 4
+.align 2
 3:	ldr		r2, =text
 	ldr		r3, =0x08090000
 	add		r2, r3
 	
 	ldr		r3, =0x020305E1
 //	bl		tg_toGameText
-	
+*/
 	
 	pop		{r0-r7, pc}
 	

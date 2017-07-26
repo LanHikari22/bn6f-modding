@@ -19,28 +19,65 @@ b TEXTGENERATION_API_ASM_EOF // this is an API, the data should be accounted for
  * This should be called everytime pCurrScript changes. It updates global variables pActiveScript_2.
  * if pActiveScript_2 == 0, there is no active script at the moment. This is toggled upon the 
  * [side effects]
+ * pCurrScript
 */
 tg_handleScriptEvent:
 	push	{r0-r7, lr}
+	b 		1f
+tg_s0:	.string "How many days have\npassed like this...?\0 \1"
+.align 2
 	
+1:	// there are some weird glitches that happen with SOME NPCs when using this...
 	ldr		r1, =pCurrScript
 	ldr		r1, [r1] // pScript
 	bl		tg_atScriptStart
 	cmp		r0, #1
 	bne		99f
 	
+	bl		tg_handleMegamanScript
+	
+99:	pop		{r0-r7, pc}
+
+/**
+ * A hacky... hack, for now, that tries to only modify the megaman that talks in none gamebreaking scenarios.
+ * This should only be called when pCurrScript changes, and when it's only at the start of the script.
+ * such as the Levibus.
+ * [params]
+ * r1_pScript
+ * [side effects]
+ * pCurrScript
+*/
+tg_handleMegamanScript:
+	push	{r0-r7, lr}
+	
+	// print whenever megaman talks...
+	mov		r2, r1
+	sub		r2, #1
+	ldrb	r2, [r2]
+	cmp		r2, #0x37 // Megaman's npcID!!
+	bne		99f
+
+
+	// Skip gamebreaking levibus case...
+	mov		r2, r1
+	add		r2, #0x02
+	ldrb	r2, [r2]
+	cmp		r2, #0xF1
+	beq		99f
+	mov		r2, r1
+	add		r2, #0x02
+	ldrb	r2, [r2]
+	cmp		r2, #0x0B
+	beq		99f
+	
+	
 	mov		r3, r1
 	add		r3, #0x02 // actual text, not message popup!
-	b		1f
 
-	// there are some weird glitches that happen with SOME NPCs when using this...
-tg_s0:	.string "DUMMY. CANNOT TALK!\0 \1"
-	.align 4
-1:	ldr		r2, =tg_s0
+	ldr		r2, =tg_s0
 	ldr		r1, =injectionAddress
 	add		r2, r1
 	bl		tg_toGameText
-	
 99:	pop		{r0-r7, pc}
 
 /**
