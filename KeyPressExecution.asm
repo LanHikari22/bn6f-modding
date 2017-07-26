@@ -63,7 +63,7 @@ main:
 	BL		handle_onState
 	BL		handle_onCountdown
 	BL		handle_onPWM
-	
+		
 	// if onActive is enabled, onActive will be executed.
 	LDR		R3, =onActive_enabled_0
 	LDRB	R3, [R3]
@@ -145,7 +145,7 @@ handle_onEvent:
 	
 	ldr 	r1, =onEvent_pEvent
 	ldr 	r2, =onEvent_watcher_0
-	mov		r3, #onEvent_mask
+	ldr		r3, =onEvent_mask
 	bl		eventOccured
 	cmp 	r0, #1
 	bne 	99f

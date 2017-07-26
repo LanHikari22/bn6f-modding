@@ -20,6 +20,7 @@
 /** KeyPressExecution.asm														[0]**/
 
 /**[--------------------------CONSTANTS----------------------------]
+[injectionAddress] Addr of where KeyPressExecution.asm is injected
 [pEvent] tracked event pointers by onEvent and onState.
 [mask] The masks determine what to check against.
 [onState_activationState]: the state that onState executes on 
@@ -30,8 +31,9 @@ onCountdown is executed.
 the number of times this code gets executed, which is roughly once a frame.
 the number of times this code gets executed, which is roughly once a frame.
 */
-.equ onEvent_pEvent,				0x02005F48 + 0x08 // sNPC_chaud.convTrigger
-.equ onEvent_mask,					0x00
+.equ injectionAddress,				0x08090000
+.equ onEvent_pEvent,				pCurrScript
+.equ onEvent_mask,					0xFFFFFFFF
 .equ onState_pEvent,				0x02005F48 + 0x08 // sNPC_chaud.convTrigger
 .equ onState_mask,					0xFF
 .equ onState_activationState,		0x08

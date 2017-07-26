@@ -16,6 +16,34 @@
 b TEXTGENERATION_API_ASM_EOF // this is an API, the data should be accounted for but not executed
 
 /**
+ * This should be called everytime pCurrScript changes. It updates global variables pActiveScript_2.
+ * if pActiveScript_2 == 0, there is no active script at the moment. This is toggled upon the 
+ * [side effects]
+*/
+tg_handleScriptEvent:
+	push	{r0-r7, lr}
+	
+	ldr		r1, =pCurrScript
+	ldr		r1, [r1] // pScript
+	bl		tg_atScriptStart
+	cmp		r0, #1
+	bne		99f
+	
+	mov		r3, r1
+	add		r3, #0x02 // actual text, not message popup!
+	b		1f
+
+	// there are some weird glitches that happen with SOME NPCs when using this...
+tg_s0:	.string "DUMMY. CANNOT TALK!\0 \1"
+	.align 4
+1:	ldr		r2, =tg_s0
+	ldr		r1, =injectionAddress
+	add		r2, r1
+	bl		tg_toGameText
+	
+99:	pop		{r0-r7, pc}
+
+/**
  * Converts a r1_pText to gametext. Generates gametext at specified r2_pGameText
  * [params]
  * r2_pText, r3_pGameText
@@ -93,6 +121,28 @@ tg_toGameChar:
 	ldrb	r0, [r2, r1]
 	
 	pop		{r1-r2, pc}
+	
+
+/**
+ * Determines if given r1_pScript is at its start.
+ * This is done by checking by checking if it's currently at
+ * the command msgOpen (0xE8 0x00).
+ * [params]
+ * r1_pScript
+ * [return]
+ * r0_atScriptStart (false: 0, true: 1)
+*/
+tg_atScriptStart:
+	push	{r1-r3, lr}
+	mov		r0, #0
+	ldrb	r2, [r1]		
+	ldrb	r3, [r1, #0x01]
+	cmp		r2, #0xE8
+	bne		99f
+	cmp		r3, #0x00
+	bne		99f
+	mov		r0, #1
+99:	pop		{r1-r3, pc}
 
 TEXTGENERATION_API_ASM_EOF:
 #endif
