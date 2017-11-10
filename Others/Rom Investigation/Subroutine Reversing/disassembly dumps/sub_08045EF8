@@ -1,0 +1,7 @@
+	push    {r1,r2}
+	ldr     r1,=#0x2009F38
+	ldr     r2,[r1]
+	orr     r2,r0
+	str     r2,[r1]
+	pop     {r1,r2}
+	mov     r15,r14

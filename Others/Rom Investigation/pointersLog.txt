@@ -1,0 +1,41 @@
+/**
+ * mmbn6_header.asm
+ * Author: Lan
+ * Date created: 7/26/2017
+ * Description
+ * Experimental file. May contain a lot of data, but should be formatted neatly.
+*/
+
+[Keys]
+	pKeyState				0x0200A270
+	KeyR 					0xFD00
+	KeyS 					0xFC04
+	KeyE					0xFC08
+	KeyIDLE 				0xFC00
+
+	
+[Battle]
+	pCurrBattle				0x020348BC
+	pCurrBattleData			0x02001B9C
+	pBattleLauncher_navi	0x0809A72C
+	sBattle_playerStatus	0x020384F0
+	[Battle Structs]
+		sEnemyA				0x0203AA88
+		sEnemyB				0x0203AB60
+		sEnemyC				0x0203AC38
+		sBtlPlayer			0x0203A9B0
+	
+[Script]
+	pCurrScript				0x02009CFC
+
+[NPC]
+	sNPC_chaud				0x02005F48
+	sNPC_copybotneardog		0x02005BE8
+	
+[Generic]
+	pCoords (?)				0x02009F60
+	
+[Find]
+	pZennies				?
+	
+	
