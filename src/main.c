@@ -16,14 +16,11 @@ typedef char bool;
 #define true 1
 #define false 0
 
-
+NPC *npc;
 uint32_t* p;
 int onStart_executed;
 int savedKeyState;
-int counter; // TODO: actually breaks project AND other variables unless initialized???? Doesn't work as static either. Linker error.
-// Actually, it also breaks if it's accessed a lot??? Putting it in many places in main BREAKS variables, but putting in a place that doesn't execute much doesnt???
-// onStart() breaks it for example...
-
+int counter;
 
 
 // A random pattern that will only be written into the global during onStart
@@ -59,8 +56,15 @@ void onStart(){
 	onStart_executed = ONSTART_EXECUTED;
 	/* Put initialization logic here ******/
 	// p is just somewhere full of zeros i like to debug values in.
-	p = (uint32_t*)0x02050000;	
+	p = (uint32_t*)0x02050000;
+	counter = 0;
+	npc = (NPC*)0x02050010;
+	p[0] = (uint32_t)npc;
+	
 }
+
+
+
 
 /**
 * This is called once per frame. Approximately once every 60th of a second.
@@ -69,9 +73,6 @@ void onUpdate(){
 	if(counter % 60 == 0)
 		sBtlEnemyA->HP++;
 	counter++;
-	p[0] = counter;
-	p[1] = &counter;
-	p[3] = &p;
 }
 
 /**
@@ -91,34 +92,8 @@ void onKeyPress(){
 void intercept_08040000();
 
 void RPress(){
-	//callThumb(0x08040358); // Brings text into life!
-	
-	
-	// register int r0 asm("r0") = 0xFFFFFFFF;
-	// register int r1 asm("r1") = 0xFFFFFFFF;
-	// register int r2 asm("r2") = 0xFFFFFFFF;
-	// register int r3 asm("r3") = 0xFFFFFFFF;
-	// register int r4 asm("r4") = 0xFFFFFFFF;
-	// register int r6 asm("r6") = 0xFFFFFFFF;
-	// register int r7 asm("r7") = 0xFFFFFFFF;
-	// register int r8 asm("r8") = 0xFFFFFFFF;
-	// register int r9 asm("r9") = 0xFFFFFFFF;
-	// 	register int r5 asm("r5") = sNPC_chaud;
-    // 
-	// //r5 = 0x00000101;
-	// callThumb(fpRunChatbox); // THIS ACTUALLY STARTS A MESSAGE BOX LEGIT
-	// p[0] = r0;
-	// p[1] = r1;
-	// p[2] = r2;
-	// p[3] = r3;
-	// p[4] = r4;
-	// p[5] = r5;
-	// p[6] = r6;
-	// p[7] = r7;
-	// p[8] = r8;
-	// p[9] = r9;
-	// 
-	// ((uint32_t*)0x08A00000)[0] = 0xDEADFEED;
+	int register r5 asm("r5") = npc;
+	callThumb(fpRunChatbox);
 }
 
 /**
