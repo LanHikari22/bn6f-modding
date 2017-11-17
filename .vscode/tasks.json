@@ -6,7 +6,8 @@
         {
             "label": "echo",
             "type": "shell",
-            "command": "echo Hello"
+            "command": "echo Hello",
+            "problemMatcher": []
         },
         {
             "label": "build",
@@ -17,6 +18,12 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "asm_NoRegisterSuffix",
+            "type": "shell",
+            "command": ".\\.vscode\\userTools\\asm_NoRegisterSuffix.bat",
+            "problemMatcher": []
         }
     ]
 }

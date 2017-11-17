@@ -365,21 +365,21 @@ typedef struct {
 * Length: 0xD8 bytes
 */
 typedef struct{
-	uint16_t ctrl;				// 0x00
+	uint16_t ctrl;				// loc=0x00
 		uint8_t pad1202 [0x12 - 0x02];
-	uint16_t attackCoord;		// 0x12
+	uint16_t attackCoord;		// loc=0x12
 		uint8_t pad2414 [0x24 - 0x14];
-	uint16_t HP;				// 0x24
+	uint16_t HP;				// loc=0x24
 		uint8_t pad3626 [0x36 - 0x26];
-	uint16_t x;					// 0x36
+	uint16_t x;					// loc=0x36
 		uint8_t pad3A38 [0x3A - 0x38];
-	uint16_t y;					// 0x3A
+	uint16_t y;					// loc=0x3A
 		uint8_t pad3E3C [0x3E - 0x3C];
-	uint16_t z;					// 0x3E
+	uint16_t z;					// loc=0x3E
 		uint8_t pad943F [0x94 - 0x40]; 
-	uint16_t pallete;			// 0x94
+	uint16_t pallete;			// loc=0x94
 		uint8_t padA696 [0xA6 - 0x96];
-	uint16_t facingDirection;	// 0xA6
+	uint16_t facingDirection;	// loc=0xA6
 		uint8_t padD8A8 [0xD8 - 0xA8];
 	// END						// 0xD8	
 }Battle;
@@ -421,17 +421,21 @@ typedef struct {
  */
 typedef struct {
 	// TODO: Not padded
-	uint8_t  invisCollSwitch;	// 0x00
-	uint16_t convTrigger; 		// 0x08
-	uint16_t volume;			// 0x0C
-	uint16_t facingDirection;	// 0x14
-	uint8_t  palleteIndx;		// 0x16
-	uint16_t convoSelect;		// 0x1C
-	uint32_t x;					// 0x24
-	uint32_t y;					// 0x28
-	uint32_t z;					// 0x32
-	uint16_t sprite;			// 0x3C
-	uint32_t *pScript;			// 0x94
+	uint8_t  invisCollSwitch;	// loc=0x00
+	uint16_t convTrigger; 		// loc=0x08
+	uint16_t volume;			// loc=0x0C
+	uint16_t facingDirection;	// loc=0x14
+	uint8_t  palleteIndx;		// loc=0x16
+	uint16_t convoSelect;		// loc=0x1C
+	uint32_t x;					// loc=0x24
+	uint32_t y;					// loc=0x28
+	uint32_t z;					// loc=0x32
+	uint16_t sprite;			// loc=0x3C
+	uint32_t *pScript;			// loc=0x94
+	uint32_t unk_60;			// loc=0x60
+	
+
+	// 0x1B0
 	
 	// TODO: construct NPC struct
 }NPC;
