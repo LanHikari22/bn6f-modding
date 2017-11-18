@@ -93,7 +93,10 @@ void intercept_08040000();
 
 void RPress(){
 	int register r5 asm("r5") = npc;
-	callThumb(fpRunChatbox);
+	int register r0 asm("r0") = 0xF
+	int regist
+	callThumb(0x080A00F4);
+	// callThumb(fpRunChatbox);
 }
 
 /**

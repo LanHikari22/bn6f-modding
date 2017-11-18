@@ -38,6 +38,7 @@ r5_0205888
 
 #pragma region Algorithm
 void sub_080A0058(r5_pNpc){
+    global r10_cheifStruct;
     r0 = r5_pNpc->unk_60;
     if(r0 & r1:2){
         r7 = r10_chiefStruct->0x3C->0x18; // 0x02001B80->0x18
@@ -86,11 +87,11 @@ void sub_080A0058(r5_pNpc){
             }
         }
         else { /* r2 & r1:0x400 == 0 */
-            r0 = r5_pNpc->0x1C; // LDRB
+            r0 = r5_pNpc->unk_1C; // LDRB
             sub_0803FD3C();
         }
         r0 = 4;
-        r5_pNpc->0xA = r0; // u8
+        r5_pNpc->unk_0A = r0; // u8
         sub_080A00F4();
     }
 }

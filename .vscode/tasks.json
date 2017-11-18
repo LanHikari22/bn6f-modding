@@ -24,6 +24,12 @@
             "type": "shell",
             "command": ".\\.vscode\\userTools\\asm_NoRegisterSuffix.bat",
             "problemMatcher": []
+        },
+        {
+            "label": "padStruct",
+            "type": "shell",
+            "command": ".\\.vscode\\userTools\\padStruct.bat",
+            "problemMatcher": []
         }
     ]
 }

@@ -420,24 +420,30 @@ typedef struct {
  * Length: 0x1B0
  */
 typedef struct {
-	// TODO: Not padded
-	uint8_t  invisCollSwitch;	// loc=0x00
-	uint16_t convTrigger; 		// loc=0x08
-	uint16_t volume;			// loc=0x0C
-	uint16_t facingDirection;	// loc=0x14
-	uint8_t  palleteIndx;		// loc=0x16
-	uint16_t convoSelect;		// loc=0x1C
-	uint32_t x;					// loc=0x24
-	uint32_t y;					// loc=0x28
-	uint32_t z;					// loc=0x32
-	uint16_t sprite;			// loc=0x3C
-	uint32_t *pScript;			// loc=0x94
-	uint32_t unk_60;			// loc=0x60
-	
-
-	// 0x1B0
-	
-	// TODO: construct NPC struct
+	uint8_t invisCollSwitch;      // loc=0x0 Hi senpai!
+		uint8_t pad_1[0x7];          // loc=0x1
+	uint16_t convTrigger;         // loc=0x8 
+	uint8_t unk_0A;               // loc=0xA
+		uint8_t pad_B[0x1];          // loc=0xB
+	uint16_t volume;              // loc=0xC 
+		uint8_t pad_E[0x6];          // loc=0xE
+	uint16_t facingDirection;     // loc=0x14 
+	uint8_t palleteIndx;          // loc=0x16 
+		uint8_t pad_17[0x5];         // loc=0x17
+	uint8_t convoSelect;          // loc=0x1C 
+		uint8_t pad_1D[0x7];         // loc=0x1D
+	uint32_t x;                   // loc=0x24 
+	uint32_t y;                   // loc=0x28 
+		uint8_t pad_2C[0x6];         // loc=0x2C
+	uint32_t z;                   // loc=0x32 
+		uint8_t pad_36[0x6];         // loc=0x36
+	uint16_t sprite;              // loc=0x3C
+		uint8_t pad_3E[0x22];        // loc=0x3E
+	uint32_t unk_60;              // loc=0x60
+		uint8_t pad_64[0x30];        // loc=0x64
+	uint32_t *pScript;            // loc=0x94
+		uint8_t pad_98[0x117];       // loc=0x98
+	// size=0x1B0
 }NPC;
 #define sNPC_chaud 			((NPC*)0x02005F48)
 #define sNPC_copybotneardog ((NPC*)0x02005BE8)

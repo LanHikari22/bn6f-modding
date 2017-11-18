@@ -1,13 +1,24 @@
- if(r0 & r1:2){
-        r7 = r10_chiefStruct->0x3C->0x18; // 0x02001B80->0x18
-        r0 = r7->0x20;
-        r2_y = r5_pNpc->y; // 0x28
-        r0 -= r2_y;
-        r1 = r7->0x1C;
-        r2_x = r5_pNpc->x; // 0x24
-        r1 -= r2_x;
-        sub_800117C();
-        r0 += 0x20;
-        r1 += 0xC0;
-        r0 = (r0&r1>>6) << 1 + 1;
-        sub_08002DA4();
+	uint8_t invisCollSwitch;      // loc=0x0 Hi senpai!
+		uint8_t pad_1[0x7];          // loc=0x1
+	uint16_t convTrigger;         // loc=0x8 
+	uint8_t unk_0A;               // loc=0xA
+		uint8_t pad_B[0x1];          // loc=0xB
+	uint16_t volume;              // loc=0xC 
+		uint8_t pad_E[0x6];          // loc=0xE
+	uint16_t facingDirection;     // loc=0x14 
+	uint8_t palleteIndx;          // loc=0x16 
+		uint8_t pad_17[0x5];         // loc=0x17
+	uint8_t convoSelect;          // loc=0x1C 
+		uint8_t pad_1D[0x7];         // loc=0x1D
+	uint32_t x;                   // loc=0x24 
+	uint32_t y;                   // loc=0x28 
+		uint8_t pad_2C[0x6];         // loc=0x2C
+	uint32_t z;                   // loc=0x32 
+		uint8_t pad_36[0x6];         // loc=0x36
+	uint16_t sprite;              // loc=0x3C
+		uint8_t pad_3E[0x22];        // loc=0x3E
+	uint32_t unk_60;              // loc=0x60
+		uint8_t pad_64[0x30];        // loc=0x64
+	uint32_t *pScript;            // loc=0x94
+		uint8_t pad_98[0x127];       // loc=0x98
+	// size=0x1B0
