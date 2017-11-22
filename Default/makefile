@@ -1,5 +1,6 @@
 # nope... SHELL = /bin/sh 
 SRCDIR = ../src/
+INC = ../include/
 BIN = C:/devkitPro/devkitARM/bin
 CC = $(BIN)/arm-none-eabi-gcc
 LD = $(BIN)/arm-none-eabi-ld
@@ -7,7 +8,7 @@ YACC = bison -y
 CDEBUG = 
 #CDEBUG = -g
 COMPLIANCE_FLAGS = -Wall -Wno-unknown-pragmas
-CFLAGS = $(COMPLIANCE_FLAGS) $(CDEBUG) -I. -I$(SRCDIR)
+CFLAGS = $(COMPLIANCE_FLAGS) $(CDEBUG) -I. -I$(SRCDIR) # TODO: not used? in rom at least
 LDFLAGS =
 #LDFLAGS = -g
 LIBS = 
@@ -48,7 +49,7 @@ OBJS = $(patsubst %.c, %.o, $(SOURCES))
 
 # This handles compiling and ROMLinking
 rom:
-	$(CC) $(COMPLIANCE_FLAGS) -c $(LDFLAGS) $(ABS_SOURCES) $(LIBS)
+	$(CC) $(COMPLIANCE_FLAGS) -c $(LDFLAGS) $(ABS_SOURCES) $(LIBS) -I$(INC)
 	$(LD) -r -o $(COMBINED_OBJ) $(OBJS)
 	cp $(BACKUP_ROM) $(ROM)
 	java -jar ROM_LINKER.jar $(ROM) $(COMBINED_OBJ) $(MMP) $(SUPPRESS)

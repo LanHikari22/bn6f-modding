@@ -101,7 +101,8 @@ def pad(entries, structSize):
             next = entries[i+1]
             padAmount = next.location - (curr.location + curr.size//8)
         else:
-            padAmount = (structSize-1) - (curr.location + curr.size//8)
+            padAmount = (structSize) - (curr.location + curr.size//8)
+            if structSize == 0: padAmount = 0
         # add a pad if needed
         if padAmount != 0:
             entry = Entry(type="uint8_t", name="pad_%X[0x%X];" % (curr.location + curr.size//8, padAmount),
@@ -127,7 +128,8 @@ def output(entries, maxLen, structSize):
         # output entry
         print(s)
     # output size
-    print("\t// size=0x%X" % structSize, end='')
+    if structSize != 0:
+        print("\t// size=0x%X" % structSize, end='')
 
 ##
 # This program takes in member definitions for a structure, and applies pads as appropriate so that the structure

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "mmbn6.h": "c",
+        "inttypes.h": "c"
+    },
+    "C_Cpp.intelliSenseEngineFallback": "Enabled"
+}

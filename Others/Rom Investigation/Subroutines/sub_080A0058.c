@@ -25,7 +25,12 @@ bl 0x0803FD3C <> {}
 bl 0x080A00F4 {}
 
 [Backtrace -----------------------]
-sub_080A0058 <- 0x080A003C
+nc: No callback
+0x080A0058 <- 0x080A003C <- 0x080A0012 <- 0x0809FAA8
+<- 0x0800461E <- 0x08005268 nc <- 0x080050EC
+<- 0x080002A8
+
+asm
 
 [Memory Accesses -----------------]
 r5: <NPC> r10: <chiefStruct>
@@ -33,7 +38,7 @@ r5->RD[0x60, 0x28, 0x24, 0x60, 0x1C]
 r5->WR[0xA]
 r10->RD[0x18->[0x20]]
 
-[Pointers Accesed ----------------]
+[Pointers Accessed ----------------]
 r5_0205888 
 
 #pragma region Algorithm

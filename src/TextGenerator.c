@@ -1,4 +1,4 @@
-#include "TextGenerator.h"
+#include <TextGenerator.h>
 
 /**
  * This should be called everytime pCurrScript changes. It updates global variables pActiveScript_2.
