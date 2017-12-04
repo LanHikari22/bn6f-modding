@@ -1,24 +1,53 @@
-	uint8_t invisCollSwitch;      // loc=0x0 Hi senpai!
-		uint8_t pad_1[0x7];          // loc=0x1
-	uint16_t convTrigger;         // loc=0x8 
-	uint8_t unk_0A;               // loc=0xA
-		uint8_t pad_B[0x1];          // loc=0xB
-	uint16_t volume;              // loc=0xC 
-		uint8_t pad_E[0x6];          // loc=0xE
-	uint16_t facingDirection;     // loc=0x14 
-	uint8_t palleteIndx;          // loc=0x16 
-		uint8_t pad_17[0x5];         // loc=0x17
-	uint8_t convoSelect;          // loc=0x1C 
-		uint8_t pad_1D[0x7];         // loc=0x1D
-	uint32_t x;                   // loc=0x24 
-	uint32_t y;                   // loc=0x28 
-		uint8_t pad_2C[0x6];         // loc=0x2C
-	uint32_t z;                   // loc=0x32 
-		uint8_t pad_36[0x6];         // loc=0x36
-	uint16_t sprite;              // loc=0x3C
-		uint8_t pad_3E[0x22];        // loc=0x3E
-	uint32_t unk_60;              // loc=0x60
-		uint8_t pad_64[0x30];        // loc=0x64
-	uint32_t *pScript;            // loc=0x94
-		uint8_t pad_98[0x117];       // loc=0x98
-	// size=0x1B0
+[Header]
+	[Name] s_02034880
+	[Size] 0x94
+	[Description]
+Offset  Type  Name 
+0x00    u8    ?    
+0x01    u8    ?    
+0x02    u8    ?    
+0x03    u8    ?    
+0x04    u8    ?    
+0x05    u8    ?    
+0x06    u8    ?    
+0x07    u8    ?    
+0x08    u8    ?    
+0x09    u8    ?    
+0x0A    u8    ?    
+0x0B    u8    ?    
+0x0D    u8    ?    
+0x0E    u8    ?    
+0x0F    u8    ?    
+0x10    u8    ?    
+0x11    u8    ?    
+0x12    u8    ?    
+0x13    u8    ?    
+0x14    u8    ?    
+0x15    u8    ?    
+0x16    u8    ?    
+0x17    u8    ?    
+0x18    u8    ?    
+0x19    u8    ?    
+0x1A    u8    ?    
+0x1B    u8    ?    
+0x1C    u8    ?    
+0x1D    u8    ?    
+0x1E    u8    ?    
+0x1F    u8    ?    
+0x28    u16   ?    
+0x32    u16   ?    
+0x34    u16   ?    
+0x36    u16   ?    
+0x3A    u16   ?    
+0x3C    u32   ?    
+0x40    u32   ?    
+0x44    u8    ?    
+0x45    u8    ?    
+0x4C    u16   ?    
+0x54    u16   ?    
+0x56    u16   ?    
+0x5C    u32   ?    
+0x60    u32   ?    
+0x64    u32   ?    
+0x80    u32   ?    
+0x90    u32   ?    

@@ -94,7 +94,6 @@ void RPress()
 {
 	// int register r5 asm("r5") = npc;
 	// callThumb(fpRunChatbox);
-	callThumb(0x3006730);
 }
 
 /**

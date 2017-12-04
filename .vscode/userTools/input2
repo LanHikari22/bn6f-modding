@@ -1,0 +1,42 @@
+	[Header]
+		[Name] Joystick
+		[Size] 0x18
+		[Description]
+	Offset  Type   Name                
+	0x00    u16    keyState            
+		Default: 0xFC00
+		The flags in IQR hold for this as well, the state would be 0xFC00|Flags where Flags
+		are the flags of the held keys.
+
+	0x02    Keys   IQR
+		[Size] 0x02
+		These fire whenever these buttons are pressed
+		0x0001	A
+		0x0002	B
+		0x0004	SELECT
+		0x0008	START
+		0x0010	Right
+		0x0020 	Left
+		0x0040	Up
+		0x0080	Down
+		0x0100	R
+		0x0200	L
+	0x04    u16    keyPress            
+		This only updates when the keystate changes, but then immediately returns
+		to its default state 0xFC00
+	0x06    u16    keyState_dup        
+	0x08    u8     A_holdTimer         
+		counts from 0x00 -> 0x10 max    
+	0x09    u8     B_holdTimer         
+	0x0A    u8     Select_holdTimer    
+	0x0B    u8     Start_holdTimer     
+	0x0C    u8     Right_holdTimer     
+	0x0D    u8     Left_holdTimer      
+	0x0E    u8     Up_holdTimer        
+	0x0F    u8     Down_holdTimer      
+	0x10    u8     L_holdTimer         
+	0x11    u8     R_holdTimer         
+	0x13    u8     Counter             
+		Counts from 0x00 to 0x04    
+	0x14    u32    ?                   
+

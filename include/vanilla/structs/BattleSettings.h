@@ -1,41 +1,45 @@
 #ifndef BATTLE_SETTINGS_H
 #define BATTLE_SETTINGS_H
+
+#include "../../inttypes.h"
+
+
 /**
  * TODO: fill
  */
-typedef struct{
-	uint8_t battlefield;
-	uint8_t pad01;
-	uint8_t music;
-	uint8_t battleType;
-	uint8_t background;
-	uint8_t battleNumber;
-	uint8_t battlefieldSidesModifier;
-	uint8_t pad07;
-	uint32_t UnknownOptionalSettings; // TODO investigate this
-	uint32_t pEnemySetup;
+typedef struct {
+	uint8_t battlefield;                  // loc=0x0
+		uint8_t pad_01[0x01];                
+	uint8_t music;                        // loc=0x2
+	uint8_t battleType;                   // loc=0x3
+	uint8_t background;                   // loc=0x4
+	uint8_t battleNumber;                 // loc=0x5
+	uint8_t battlefieldSidesModifier;     // loc=0x6
+		uint8_t pad_07[0x01];                
+	uint32_t UnknownOptionalSettings;     // loc=0x8
+	uint32_t *pEnemySetup;                // loc=0xC
+	// size=0x10
 }BattleSettings;
 
 #pragma region sBattleSettings
 /*
-<sBattleSettings>:
-	Description
-		this structure defines the battle settings for a battle.
-	Length
-		0x10
-	Instances
-		Can be found through  <pCurrBattle> = 0x02001B9C
-	[Definition]
-	0x00 <battlefield>
-	0x01 <pad01> // unkwown
-	0x02 <music>
-	0x03 <battleType>
-	0x04 <background>
-	0x05 <battleNumber>
-	0x06 <battlefieldSidesModifier>
-	0x07 <pad07> // unknown
-	0x08 <UnkownOptionalSettings> [0xZZZZZZ]
-	0x0C <pEnemySetup>
+[Header]
+	[Name] BattleSettings
+	[Size] 0x10
+	[Description]
+	this structure defines the battle settings for a battle.
+	[Instances]
+	Can be found through  <pCurrBattle> = 0x02001B9C
+Offset  Type  Name                        
+0x00    u8    battlefield                 
+0x02    u8    music                       
+0x03    u8    battleType                  
+0x04    u8    background                  
+0x05    u8    battleNumber                
+0x06    u8    battlefieldSidesModifier    
+0x08    u32   UnknownOptionalSettings
+	[0xZZZZZZ] [Me to past me]: only 6 Z's?
+0x0C    u32   *pEnemySetup
 */
 #pragma endregion sBattleSettings
 #endif /* BATTLE_SETTINGS_H */

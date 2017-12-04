@@ -1,31 +1,23 @@
-	uint8_t invisCtrlSwitch;  // loc=0x0
-	uint8_t unk_01;           // loc=0x1
-	uint8_t unk_02;           // loc=0x2
-		uint8_t pad_3[0x1];      // loc=0x3
-	uint32_t unk_04;          // loc=0x4
-	uint8_t contTrigger;      // loc=0x8 Freezes game.
-	uint8_t walkingFlag;      // loc=0x9 No effect. Got from NPC struct
-	uint8_t unk_0A;           // loc=0xA
-		uint8_t pad_B[0x1];      // loc=0xB
-	uint8_t collision;        // loc=0xC
-		uint8_t pad_D[0x3];      // loc=0xD
-	uint8_t unk_10;           // loc=0x10
-	uint8_t unk_11;           // loc=0x11
-		uint8_t pad_12[0x2];     // loc=0x12
-	uint8_t animationSelect;  // loc=0x14
-	uint8_t ROAnimationSel;   // loc=0x15
-		uint8_t pad_16[0x6];     // loc=0x16
-	uint32_t x;               // loc=0x1C
-	uint32_t y;               // loc=0x20
-	uint32_t unk_24;          // loc=0x24
-	uint32_t RO_x;            // loc=0x28
-	uint32_t RO_y;            // loc=0x2C
-		uint8_t pad_30[0x1C];    // loc=0x30
-	uint16_t unk_4C;          // loc=0x4C
-		uint8_t pad_4E[0x8];     // loc=0x4E
-	uint8_t unk_56;           // loc=0x56
-		uint8_t pad_57[0x51];    // loc=0x57
-	uint32_t *unk_A8;         // loc=0xA8
-	uint32_t *unk_AC;         // loc=0xAC
-		uint8_t pad_B0[0x100];   // loc=0xB0
-	// size=0x1B0
+08001382? 0800139A? 080013A2? 08007204 08007358 
+08007368 08007778 080077B4 080077D2 08007800 
+08007850 0800794C 08007978 0800799C 080079A8 
+080079D0 080079F0 08007A0C 08007A44 08007B80 
+08007B9C 08007BD0 08007C14 08007CA0 080080D2 
+080081A4 0800825A 08009158 080091F0 080092A0 
+080092C0 080092E6? 08009338 0800938A 0800945C 
+08009478 080094A6? 080094B6 080094DA 0800A0FE? 
+0800A11C? 0800A152 0800A18E? 0800A2D8? 0800A2E4? 
+0800A2F0? 0800A2F8 0800A3E4 0800A570 0800A6A6 
+0800A704? 0800A7E2? 0800A832? 0800A840 0800A86E 
+0800A998 0800A9CA? 0800A9D6? 0800A9E2? 0800A9EC? 
+0800ABC6 0800AC20 0800AE0C 0800AE44? 0800AFBA 
+0800B022 0800B090 0800B144 0800B3A2 0800B6F2 
+0800C01C 0800C0BA 0800C100 0800EBD4 0800FAE0 
+0800FDC0 080163B4 08016460 08016934 08016CA4 
+0801C082 0801CADC 0801FF18 08026840 08026B04 
+08027D78 08027E2C 080284E2 0802899C 08029110 
+080293F8 0802A118 0802A20C 0802A21C 0802A408 
+0802A498 0802A560 0802A59C 0802A5D6 0802A642 
+0802C34E 0802C8EA? 0802C8FA 0802CA1E 0802CE60? 
+0802D234 0802D246 0802D26A 080823C8 080AC0FC 
+080AC150 080AC2AC 080E19C0 08110370 

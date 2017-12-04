@@ -351,6 +351,9 @@ j) 0803271C
  * Exits battles very nicely. If battling someone, a You-Lost scene plays too.
  */
 #define fpEndBattleNoGM 0x0800AABC
+
+#define apply_NCP_effect 0x0801379F
+
 #pragma endregion function_pointers
 
 #pragma region Game_Structures

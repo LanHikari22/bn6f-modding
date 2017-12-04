@@ -1,32 +1,61 @@
-	uint8_t invisCtrlSwitch;  // loc=0x0
-	uint8_t unk_01;           // loc=0x1
-	uint8_t unk_02;           // loc=0x2
-		uint8_t pad_3[0x1];      // loc=0x3
-	uint32_t unk_04;          // loc=0x4
-	uint8_t contTrigger;      // loc=0x8 Freezes game.
-	uint8_t walkingFlag;      // loc=0x9 No effect. Got from NPC struct
-		uint8_t pad_A[0x-1];     // loc=0xA
-	uint8_t unk_0A;           // loc=0xA
-		uint8_t pad_B[0x1];      // loc=0xB
-	uint8_t collision;        // loc=0xC
-		uint8_t pad_D[0x3];      // loc=0xD
-	uint8_t unk_10;           // loc=0x10
-	uint8_t unk_11;           // loc=0x11
-		uint8_t pad_12[0x2];     // loc=0x12
-	uint8_t animationSelect;  // loc=0x14
-	uint8_t ROAnimationSel;   // loc=0x15
-		uint8_t pad_16[0x6];     // loc=0x16
-	uint32_t x;               // loc=0x1C
-	uint32_t y;               // loc=0x20
-	uint32_t unk_24;          // loc=0x24
-	uint32_t RO_x;            // loc=0x28
-	uint32_t RO_y;            // loc=0x2C
-		uint8_t pad_30[0x1C];    // loc=0x30
-	uint16_t unk_4C;          // loc=0x4C
-		uint8_t pad_4E[0x8];     // loc=0x4E
-	uint8_t unk_56;           // loc=0x56
-		uint8_t pad_57[0x51];    // loc=0x57
-	uint32_t *unk_A8;         // loc=0xA8
-	uint32_t *unk_AC;         // loc=0xAC
-		uint8_t pad_B0[0x100];   // loc=0xB0
-	// size=0x1B0
+typedef struct {
+	uint8_t unk_00;     // loc=0x0 CONFLICT u32
+	uint8_t unk_01;     // loc=0x1
+	uint8_t unk_02;     // loc=0x2 CONFLICT u16
+	uint8_t unk_03;     // loc=0x3
+	uint8_t unk_04;     // loc=0x4 CONFLICT u16
+	uint8_t unk_05;     // loc=0x5
+	uint8_t unk_06;     // loc=0x6
+	uint8_t unk_07;     // loc=0x7
+	uint8_t unk_08;     // loc=0x8
+	uint8_t unk_09;     // loc=0x9
+	uint8_t unk_0A;     // loc=0xA
+	uint8_t unk_0B;     // loc=0xB
+		uint8_t pad_0C[0x01]; 
+	uint8_t unk_0D;     // loc=0xD
+	uint8_t unk_0E;     // loc=0xE
+	uint8_t unk_0F;     // loc=0xF
+	uint8_t unk_10;     // loc=0x10
+	uint8_t unk_11;     // loc=0x11
+	uint8_t unk_12;     // loc=0x12 CONFLICT u16
+	uint8_t unk_13;     // loc=0x13
+	uint8_t unk_14;     // loc=0x14
+	uint8_t unk_15;     // loc=0x15
+	uint8_t unk_16;     // loc=0x16
+	uint8_t unk_17;     // loc=0x17
+	uint8_t unk_18;     // loc=0x18
+	uint8_t unk_19;     // loc=0x19
+	uint8_t unk_1A;     // loc=0x1A
+	uint8_t unk_1B;     // loc=0x1B
+	uint8_t unk_1C;     // loc=0x1C
+	uint8_t unk_1D;     // loc=0x1D
+	uint8_t unk_1E;     // loc=0x1E
+	uint8_t unk_1F;     // loc=0x1F
+		uint8_t pad_20[0x08]; 
+	uint16_t unk_28;    // loc=0x28
+		uint8_t pad_2A[0x08]; 
+	uint16_t unk_32;    // loc=0x32
+	uint16_t unk_34;    // loc=0x34
+	uint16_t unk_36;    // loc=0x36
+		uint8_t pad_38[0x02]; 
+	uint16_t unk_3A;    // loc=0x3A
+	uint32_t unk_3C;    // loc=0x3C
+	uint32_t unk_40;    // loc=0x40
+	uint8_t unk_44;     // loc=0x44
+	uint8_t unk_45;     // loc=0x45
+		uint8_t pad_46[0x06]; 
+	uint16_t unk_4C;    // loc=0x4C
+		uint8_t pad_4E[0x06]; 
+	uint16_t unk_54;    // loc=0x54
+	uint16_t unk_56;    // loc=0x56
+		uint8_t pad_58[0x04]; 
+	uint32_t unk_5C;    // loc=0x5C
+	uint32_t unk_60;    // loc=0x60
+	uint32_t unk_64;    // loc=0x64
+		uint8_t pad_68[0x18]; 
+	uint32_t unk_80;    // loc=0x80
+		uint8_t pad_84[0x0C]; 
+	uint32_t unk_90;    // loc=0x90
+	// size=0x94
+}s_02034880;
+
