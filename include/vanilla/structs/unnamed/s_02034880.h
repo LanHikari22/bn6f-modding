@@ -67,7 +67,59 @@ typedef struct {
 #pragma region Docs
 
 /*
-
+	[Header]
+		[Name] s_02034880
+		[Size] 0x94
+		[Description]
+	Offset  Type  Name 
+	0x00    u8    ?    
+	0x01    u8    ?    
+	0x02    u8    ?    
+	0x03    u8    ?    
+	0x04    u8    ?    
+	0x05    u8    ?    
+	0x06    u8    ?    
+	0x07    u8    ?    
+	0x08    u8    ?    
+	0x09    u8    ?    
+	0x0A    u8    ?    
+	0x0B    u8    ?    
+	0x0D    u8    ?    
+	0x0E    u8    ?    
+	0x0F    u8    ?    
+	0x10    u8    ?    
+	0x11    u8    ?    
+	0x12    u8    ?    
+	0x13    u8    ?    
+	0x14    u8    ?    
+	0x15    u8    ?    
+	0x16    u8    ?    
+	0x17    u8    ?    
+	0x18    u8    ?    
+	0x19    u8    ?    
+	0x1A    u8    ?    
+	0x1B    u8    ?    
+	0x1C    u8    ?    
+	0x1D    u8    ?    
+	0x1E    u8    ?    
+	0x1F    u8    ?    
+	0x28    u16   ?    
+	0x32    u16   ?    
+	0x34    u16   ?    
+	0x36    u16   ?    
+	0x3A    u16   ?    
+	0x3C    u32   ?    
+	0x40    u32   ?    
+	0x44    u8    ?    
+	0x45    u8    ?    
+	0x4C    u16   ?    
+	0x54    u16   ?    
+	0x56    u16   ?    
+	0x5C    u32   ?    
+	0x60    u32   ?    
+	0x64    u32   ?    
+	0x80    u32   ?    
+	0x90    u32   ?    
 */
 
 /*

@@ -5,92 +5,50 @@
 #include "../OWPlayer.h"
 
 typedef struct {
-	uint8_t unk_00;        // loc=0x0 CONFLICT u32
-	uint8_t unk_01;        // loc=0x1
-	uint8_t unk_03;        // loc=0x3
-	uint8_t unk_04;        // loc=0x4 CONFLICT u16
-	uint8_t unk_05;        // loc=0x5
-	uint8_t unk_06;        // loc=0x6
-	uint8_t unk_07;        // loc=0x7
-	uint8_t unk_08;        // loc=0x8
-	uint8_t unk_09;        // loc=0x9
-	uint8_t unk_0A;        // loc=0xA
-	uint8_t unk_0C;        // loc=0xC CONFLICT u16
-	uint8_t unk_0D;        // loc=0xD
-	uint8_t unk_0E;        // loc=0xE
-	uint8_t unk_0F;        // loc=0xF
-	uint8_t unk_10;        // loc=0x10
-	uint8_t unk_11;        // loc=0x11
-	uint8_t unk_12;        // loc=0x12
-	uint8_t unk_14;        // loc=0x14
-	uint8_t unk_15;        // loc=0x15
-	uint8_t unk_16;        // loc=0x16
-	uint8_t unk_17;        // loc=0x17
-	OWPlayer *player;      // loc=0x18
-	uint32_t unk_1C;       // loc=0x1C
-	uint32_t unk_20;       // loc=0x20
-	uint32_t unk_24;       // loc=0x24
-	uint32_t unk_28;       // loc=0x28
-	uint32_t unk_2C;       // loc=0x2C
-	uint32_t unk_30;       // loc=0x30
-	uint32_t unk_34;       // loc=0x34
-	uint32_t unk_38;       // loc=0x38
-	uint32_t unk_3C;       // loc=0x3C
-	uint32_t unk_40;       // loc=0x40
-	uint32_t unk_44;       // loc=0x44
-	uint32_t unk_5C;       // loc=0x5C
-	uint32_t unk_60;       // loc=0x60
-	uint32_t unk_64;       // loc=0x64
-	uint32_t unk_68;       // loc=0x68
-	uint32_t unk_6C;       // loc=0x6C
-	uint32_t unk_70;       // loc=0x70
-	// size=0x80
-}s_02001B80;
-typedef struct {
-	uint8_t unk_00;        // loc=0x0 CONFLICT u32
-	uint8_t unk_01;        // loc=0x1
-		uint8_t pad_02[0x01]; 
-	uint8_t unk_03;        // loc=0x3
-	uint8_t unk_04;        // loc=0x4 CONFLICT u16
-	uint8_t unk_05;        // loc=0x5
-	uint8_t unk_06;        // loc=0x6
-	uint8_t unk_07;        // loc=0x7
-	uint8_t unk_08;        // loc=0x8
-	uint8_t unk_09;        // loc=0x9
-	uint8_t unk_0A;        // loc=0xA
-		uint8_t pad_0B[0x01]; 
-	uint8_t unk_0C;        // loc=0xC CONFLICT u16
-	uint8_t unk_0D;        // loc=0xD
-	uint8_t unk_0E;        // loc=0xE
-	uint8_t unk_0F;        // loc=0xF
-	uint8_t unk_10;        // loc=0x10
-	uint8_t unk_11;        // loc=0x11
-	uint8_t unk_12;        // loc=0x12
-		uint8_t pad_13[0x01]; 
-	uint8_t unk_14;        // loc=0x14
-	uint8_t unk_15;        // loc=0x15
-	uint8_t unk_16;        // loc=0x16
-	uint8_t unk_17;        // loc=0x17
-	OWPlayer *player;      // loc=0x18
-	uint32_t unk_1C;       // loc=0x1C
-	uint32_t unk_20;       // loc=0x20
-	uint32_t unk_24;       // loc=0x24
-	uint32_t unk_28;       // loc=0x28
-	uint32_t unk_2C;       // loc=0x2C
-	uint32_t unk_30;       // loc=0x30
-	uint32_t unk_34;       // loc=0x34
-	uint32_t unk_38;       // loc=0x38
-	uint32_t unk_3C;       // loc=0x3C
-	uint32_t unk_40;       // loc=0x40
-	uint32_t unk_44;       // loc=0x44
-		uint8_t pad_48[0x14]; 
-	uint32_t unk_5C;       // loc=0x5C
-	uint32_t unk_60;       // loc=0x60
-	uint32_t unk_64;       // loc=0x64
-	uint32_t unk_68;       // loc=0x68
-	uint32_t unk_6C;       // loc=0x6C
-	uint32_t unk_70;       // loc=0x70
-		uint8_t pad_74[0x0C]; 
+	uint8_t subSystemSelect;         // loc=0x0
+	uint8_t PET_naviSelect;          // loc=0x1
+		uint8_t pad_02[0x01];           
+	uint8_t unk_03;                  // loc=0x3
+	uint8_t MapSelect;               // loc=0x4
+	uint8_t MapSubOffset;            // loc=0x5
+	uint8_t unk_06;                  // loc=0x6
+	uint8_t unk_07;                  // loc=0x7
+	uint8_t unk_08;                  // loc=0x8
+	uint8_t unk_09;                  // loc=0x9
+	uint8_t unk_0A;                  // loc=0xA
+		uint8_t pad_0B[0x01];           
+	uint8_t unk_0C;                  // loc=0xC
+	uint8_t unk_0D;                  // loc=0xD
+	uint8_t unk_0E;                  // loc=0xE
+	uint8_t bgMusicIndicator;        // loc=0xF
+	uint8_t unk_10;                  // loc=0x10
+	uint8_t unk_11;                  // loc=0x11
+	uint8_t unk_12;                  // loc=0x12
+		uint8_t pad_13[0x01];           
+	uint8_t unk_14;                  // loc=0x14
+	uint8_t unk_15;                  // loc=0x15
+	uint8_t unk_16;                  // loc=0x16
+	uint8_t unk_17;                  // loc=0x17
+	OWPlayer *player;                // loc=0x18
+	uint32_t *currBattleData;        // loc=0x1C
+	uint32_t unk_20;                 // loc=0x20
+	uint32_t player_x;               // loc=0x24
+	uint32_t player_y;               // loc=0x28
+	uint32_t unk_2C;                 // loc=0x2C
+	uint32_t unk_30;                 // loc=0x30
+	uint32_t unk_34;                 // loc=0x34
+	uint32_t unk_38;                 // loc=0x38
+	uint32_t unk_3C;                 // loc=0x3C
+	uint32_t unk_40;                 // loc=0x40
+	uint32_t unk_44;                 // loc=0x44
+		uint8_t pad_48[0x14];           
+	uint32_t protected_zennies;      // loc=0x5C
+	uint32_t protected_bugFrags;     // loc=0x60
+	uint32_t unk_64;                 // loc=0x64
+	uint32_t unk_68;                 // loc=0x68
+	uint32_t unk_6C;                 // loc=0x6C
+	uint32_t unk_70;                 // loc=0x70
+		uint8_t pad_74[0x0C];           
 	// size=0x80
 }s_02001B80;
 
@@ -114,6 +72,99 @@ s_02001B80 <>:
 	0x1C	ptr		*pCurrBattleData
 		[0xPPPPPPPP]
 */
+
+/*
+	[Header]
+		[Name] s_02001B80
+		[Size] 0x80
+		[Description]
+	Offset  Type        Name       
+	0x00    u8          subSystemSelect
+		bx index?
+		0x00 - ?? Everything goes poof, you only see the background
+		0x04 - Default state?
+		0x08 - Rendering gets all distorted then CRASH BOOM
+		0x0C - Only background
+		0x10 - A quick disappearance occurs, then you pop out in a presumable location in the map (ACDC, mayl's house)
+		0x14 - Jack in/Jack out animation. Takes you to mayl's house in either cases
+		0x18 - Open PET Windows (Distorted pallete)
+		0x1C - CRASH. Camera gets distorted?
+		0x20 - Rendering distortion
+		0x24 - Opens a different kind of folder, teleports to bus station after leaving
+		0x28 - CRASH. Camera distortion
+		0x2C - CRASH. Camera distortion
+		0x30 - CRASH. Same thing. Everything in memory nearby zeros out?
+		0x34 - Opens mail box subsystem!
+		0x38 - Train Mini game
+
+	0x01    u8          PET_naviSelect
+		Seems to only be valid from 0x00 to 0x0E.
+		Changing this basically modifies the navi sprie near the PET icon        
+	0x03    u8          ?    
+	0x04    u8          MapSelect
+		This changes both the map name when accessing PET, and when accessing a submenu, you find yourself
+		in that map next!!
+		>= 0x80 is the internet?! It actually triggers random battles while walking in the real world TOO
+		but after coming back you'd be warped to the internet
+		It is used as such: v2[MapSelect] + unk_05 where v2 = (int*)&0x803385C
+		803385C seems to be pointing to map data to be loaded
+	0x05    u8          MapSubOffset     
+		Seems to also be map selection related! values above 0x01 may crash? confirm
+		It is used as such: v2[MapSelect] + off_05 where v2 = (int*)&0x803385C   
+	0x06    u8          ?
+		Changes conversations for NPCs... Including L Message!!!          
+	0x07    u8          ?          
+	0x08    u8          ?
+		Seems to affect L-messages.
+		> 0x03 crashes game when initiating L-msg?          
+	0x09    u8          ?          
+	0x0A    u8          ?          
+	0x0C    u8          ?          
+	0x0D    u8          ?
+		Linked with offset 0x05 somehow? equated to it in sub_8005C04       
+	0x0E    u8          ?          
+	0x0F    u8          bgMusicIndicator
+		Changing this and entering then exiting a subsystem changes background music
+		But changing it alone is not enough to trigger music change          
+	0x10    u8          ?          
+	0x11    u8          ?          
+	0x12    u8          ?          
+	0x14    u8          ?          
+	0x15    u8          ?          
+	0x16    u8          ?          
+	0x17    u8          ?          
+	0x18    OWPlayer    *player    
+	0x1C    u32         *currBattleData
+		This is loaded when a battle is initiated! It's otherwise NULL
+		Contains current battle information!!!
+	0x20    u32         ?
+		Pointer! Seems to point to a jump table of some sort
+	0x24    u32         player_x
+		x coordinate of player in some circumstance? They don't update often though 
+		Seems to update when you open a subsystem, so it might be to reload the player back in when coming back         
+	0x28    u32         player_y
+		y coordinate of player in some circumstance? Doesn't update continuously though   
+		Seems to update when you open a subsystem, so it might be to reload the player back in when coming back         
+	0x2C    u32         ?          
+	0x30    u32         ?          
+	0x34    u32         ?          
+	0x38    u32         ?          
+	0x3C    u32         ?          
+	0x40    u32         ?          
+	0x44    u32         ?          
+	0x5C    u32         protected_zennies
+		Amount of money you have, but changing this triggers an ANTI-CHEATING mechanism
+		setting your zennies to zero!           
+	0x60    u32         protected_bugFrags
+		Amount of bugfrags you have, but changing this triggers an ANTI CHEAT MECHANISM!
+		It sets them to zero. Boo-hoo.          
+	0x64    u32         ?          
+	0x68    u32         ?          
+	0x6C    u32         ?          
+	0x70    u32         ?          
+
+Docs*/
+
 #pragma endregion Docs
 
 #pragma region Accesses
@@ -246,7 +297,7 @@ Accesses */
 	0809F098 0809F438 0809F44E? {} 0809F59C 0809F600 
 	0809F6E6? {} 0809F780? () 0809F78C? {} 0809F7E6? {} 0809F7F0? {} 
 	0809F96C 0809F97A? {} 0809F98A? 0809F99A 0809F9A6 
-	080A0058 080A00F4 080A07A8 080A0E22 080A10FC 
+	080A0058 <RunChatbox> 080A00F4 080A07A8 080A0E22 080A10FC 
 	080ABD30 080ABE64 0812106C 0812149C 081214E4 
 	08121504 0812513C 0813E18C 
 Detected Access Functions */

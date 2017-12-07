@@ -9,6 +9,65 @@
 #include <vanilla/structs/NPC.h>
 #include <inttypes.h>
 
+/**
+* Calls an arbitrary function pointer to code in THUMB mode.
+* This converts to THUMB to make the call, then converts back to ARM
+* once done.
+* The magic assembly is:
+*	push {r3}
+*	mov r3, r15
+*	add r3, #0x4
+* 	bx r3
+* 
+* R3 is reserved for long jump. In case it is needed, other macros r4CallThumb through r7Callthumb
+*/
+#define callThumb(funcAddress) ({\
+	void (*f)() = (void *)(funcAddress + 1); \
+	f(); \
+	asm(".byte 0x08, 0xB4, 0x7B, 0x46, 0x04, 0x33, 0x18, 0x47"); \
+	asm("pop {r3}"); \
+})
+#define callThumb_r4(funcAddress) ({\
+	int register r asm("r4") = funcAddress + 1; \
+	asm("push {lr}"); \
+	asm("mov lr, pc"); \
+	asm("bx r4"); \
+	asm(".byte 0x10, 0xB4, 0x7C, 0x46, 0x04, 0x34, 0x20, 0x47"); \
+	asm("pop {r4}"); \
+	asm("pop {r4}"); \
+	asm("mov lr, r4"); \
+})
+#define callThumb_r5(funcAddress) ({\
+	int register r asm("r5") = funcAddress + 1; \
+	asm("push {lr}"); \
+	asm("mov lr, pc"); \
+	asm("bx r5"); \
+	asm(".byte 0x20, 0xB4, 0x7D, 0x46, 0x04, 0x35, 0x28, 0x47"); \
+	asm("pop {r5}"); \
+	asm("pop {r5}"); \
+	asm("mov lr, r5"); \
+})
+#define callThumb_r6(funcAddress) ({\
+	int register r asm("r6") = funcAddress + 1; \
+	asm("push {lr}"); \
+	asm("mov lr, pc"); \
+	asm("bx r6"); \
+	asm(".byte 0x40, 0xB4, 0x7E, 0x46, 0x04, 0x36, 0x30, 0x47"); \
+	asm("pop {r6}"); \
+	asm("pop {r6}"); \
+	asm("mov lr, r6"); \
+})
+#define callThumb_r7(funcAddress) ({\
+	int register r asm("r7") = funcAddress + 1; \
+	asm("push {lr}"); \
+	asm("mov lr, pc"); \
+	asm("bx r7"); \
+	asm(".byte 0x80, 0xB4, 0x7F, 0x46, 0x04, 0x37, 0x38, 0x47"); \
+	asm("pop {r7}"); \
+	asm("pop {r7}"); \
+	asm("mov lr, r7"); \
+})
+
 #define NULL ((void *)0)
 typedef char bool;
 #define true 1
@@ -23,8 +82,6 @@ int counter;
 // A random pattern that will only be written into the global during onStart
 #define ONSTART_EXECUTED 0xDEADFEED
 
-void callThumb(uint32_t funcAddress);
-void callThumb_r(uint32_t funcAddress, int r1, int r2);
 void onStart();
 void onKeyPress();
 void onUpdate();
@@ -90,36 +147,13 @@ void onKeyPress()
 */
 void intercept_08040000();
 
-void RPress()
+void RPress() // 0x0890018c
 {
 	// int register r5 asm("r5") = npc;
+	// int register r2 asm("r2") = *((uint8_t*)0x02050050);
+	int register r5 asm("r5") = 0x02005888;
 	// callThumb(fpRunChatbox);
-}
 
-/**
-* Calls an arbitrary function pointer to code in THUMB mode.
-* This converts to THUMB to make the call, then converts back to ARM
-* once done.
-* TODO: turn this into a macro so it's easier to pass R0,R1,R2,R3 params
-*/
-void callThumb(uint32_t funcAddress)
-{
-	void (*f)() = (void *)(funcAddress + 1); // convert to THUMB mode
-	f();
-	// bx to next instruction and convert THUMB to ARM mode:
-	/*	push {r3}
-		mov r3, pc
-		add r3, #0x4
-		bx r3 */
-	asm(".byte 0x08, 0xB4, 0x7B, 0x46, 0x04, 0x33, 0x18, 0x47");
-	asm("pop {r3}"); // this was used in the magical THUMB asm above!
-}
-
-/**
-* This is a register optimized callThumb function. The operator may specify what registers to use
-* in order to perform the bx call...
-*/
-void callThumb_r(uint32_t funcAddress, int r1, int r2)
-{
-	// TODO: implement callThumb_r
+	int register r1 asm("r0") = ((NPC*)r5)->convoSelect;
+	callThumb(0x803FD3C);
 }

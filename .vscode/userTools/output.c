@@ -1,23 +1,67 @@
-08001382? 0800139A? 080013A2? 08007204 08007358 
-08007368 08007778 080077B4 080077D2 08007800 
-08007850 0800794C 08007978 0800799C 080079A8 
-080079D0 080079F0 08007A0C 08007A44 08007B80 
-08007B9C 08007BD0 08007C14 08007CA0 080080D2 
-080081A4 0800825A 08009158 080091F0 080092A0 
-080092C0 080092E6? 08009338 0800938A 0800945C 
-08009478 080094A6? 080094B6 080094DA 0800A0FE? 
-0800A11C? 0800A152 0800A18E? 0800A2D8? 0800A2E4? 
-0800A2F0? 0800A2F8 0800A3E4 0800A570 0800A6A6 
-0800A704? 0800A7E2? 0800A832? 0800A840 0800A86E 
-0800A998 0800A9CA? 0800A9D6? 0800A9E2? 0800A9EC? 
-0800ABC6 0800AC20 0800AE0C 0800AE44? 0800AFBA 
-0800B022 0800B090 0800B144 0800B3A2 0800B6F2 
-0800C01C 0800C0BA 0800C100 0800EBD4 0800FAE0 
-0800FDC0 080163B4 08016460 08016934 08016CA4 
-0801C082 0801CADC 0801FF18 08026840 08026B04 
-08027D78 08027E2C 080284E2 0802899C 08029110 
-080293F8 0802A118 0802A20C 0802A21C 0802A408 
-0802A498 0802A560 0802A59C 0802A5D6 0802A642 
-0802C34E 0802C8EA? 0802C8FA 0802CA1E 0802CE60? 
-0802D234 0802D246 0802D26A 080823C8 080AC0FC 
-080AC150 080AC2AC 080E19C0 08110370 
+typedef struct {
+	uint8_t invisCollSwitch;          // loc=0x0
+	uint8_t unk_01;                   // loc=0x1
+	uint8_t objTypeSpriteOff;         // loc=0x2
+	uint8_t unk_03;                   // loc=0x3
+	uint8_t walkingSpeed;             // loc=0x4
+	uint8_t walkingTimer;             // loc=0x5
+		uint8_t pad_06[0x01];            
+	uint8_t unk_07;                   // loc=0x7
+	uint8_t contTrigger;              // loc=0x8
+	uint8_t walkingFlag;              // loc=0x9
+	uint8_t walkingFlag2;             // loc=0xA
+		uint8_t pad_0B[0x01];            
+	uint8_t volume;                   // loc=0xC
+	uint8_t unk_0D;                   // loc=0xD
+	uint8_t walkingConfig;            // loc=0xE
+	uint8_t RO_walkingConfig;         // loc=0xF
+	uint8_t unk_10;                   // loc=0x10
+	uint8_t unk_11;                   // loc=0x11
+	uint8_t unk_12;                   // loc=0x12
+	uint8_t unk_13;                   // loc=0x13
+	uint8_t animationSelect;          // loc=0x14
+	uint8_t RO_AnimationSel;          // loc=0x15
+	uint8_t palleteIndx;              // loc=0x16
+	uint8_t interactionLocked;        // loc=0x17
+	uint8_t triggerChat;              // loc=0x18
+	uint8_t animationTimerActive;     // loc=0x19
+		uint8_t pad_1A[0x02];            
+	uint8_t convoSelect;              // loc=0x1C
+	uint8_t unk_1D;                   // loc=0x1D
+	uint8_t unk_1E;                   // loc=0x1E
+	uint8_t timerActive;              // loc=0x1F
+	uint16_t animationTimer;          // loc=0x20
+	uint16_t timer;                   // loc=0x22
+	uint32_t x;                       // loc=0x24
+	uint32_t y;                       // loc=0x28
+	uint32_t z;                       // loc=0x2C
+	uint32_t nextX;                   // loc=0x30
+	uint32_t nextY;                   // loc=0x34
+	uint32_t nextZ;                   // loc=0x38
+	uint16_t NPCSelect;               // loc=0x3C
+	uint16_t RO_NPCSelect;            // loc=0x3E
+	uint32_t deltaX;                  // loc=0x40
+	uint32_t deltaY;                  // loc=0x44
+	uint32_t deltaZ;                  // loc=0x48
+	uint32_t *animationData;          // loc=0x4C
+	uint32_t hyp_IQR0;                // loc=0x50
+	uint32_t hyp_IQR1;                // loc=0x54
+	uint32_t hyp_IQR2;                // loc=0x58
+	uint32_t hyp_IQR3;                // loc=0x5C
+	uint32_t configFlags1;            // loc=0x60
+	uint32_t unk_64;                  // loc=0x64
+	uint32_t configFlags2;            // loc=0x68
+	uint32_t RO_configFlags2;         // loc=0x6C
+	uint32_t unk_70;                  // loc=0x70
+	uint32_t unk_74;                  // loc=0x74
+	uint32_t unk_78;                  // loc=0x78
+		uint8_t pad_7C[0x05];            
+	uint8_t unk_81;                   // loc=0x81
+	uint8_t unk_82;                   // loc=0x82
+	uint8_t unk_83;                   // loc=0x83
+		uint8_t pad_84[0x08];            
+	uint32_t unk_8C;                  // loc=0x8C
+		uint8_t pad_90[0x04];            
+	uint32_t *pScript;                // loc=0x94
+	// size=0x98
+}NPC;

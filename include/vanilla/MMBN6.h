@@ -14,6 +14,7 @@
 #include <inttypes.h>
 #include <vanilla/structs/NPC.h>
 #include <vanilla/structs/Battle.h>
+#include <vanilla/structs/ChiefStruct.h>
 
 /* ************************************************************************/
 /* Game-intrinsic Module **************************************************/
@@ -340,6 +341,7 @@ j) 0803271C
  * @param r5_sNPC An NPC object within the map. If available, its script plays.
  */
 #define fpRunChatbox 0x080A0058
+#define chatbox_run_script 0x08040358
 
 /**
  * This might be only for multiplayer. It might also do more.
@@ -354,18 +356,23 @@ j) 0803271C
 
 #define apply_NCP_effect 0x0801379F
 
+#define u8Array_to_u32 0x080A0B3A
+
+/* Unnamed */
+
+
 #pragma endregion function_pointers
 
 #pragma region Game_Structures
+/*
+	sub_804171C r4 includes: 0202DAB3, 02034ADE (L-msg)
 
-
-
-/* Battle settings *******************/
-
+structs to investigate*/ 
 
 
 /* Battle Structures: Player Status Structure ************************8***/
 typedef struct {
+	int unk;
 	// TODO: construct Battle_playerStatus
 }Btl_playerStatus;
 #define sBtl_playerStatus ((Btl_playerStatus*)0x020384F0)

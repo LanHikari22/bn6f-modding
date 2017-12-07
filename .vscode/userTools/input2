@@ -1,42 +1,71 @@
-	[Header]
-		[Name] Joystick
-		[Size] 0x18
-		[Description]
-	Offset  Type   Name                
-	0x00    u16    keyState            
-		Default: 0xFC00
-		The flags in IQR hold for this as well, the state would be 0xFC00|Flags where Flags
-		are the flags of the held keys.
+[Header]
+	[Name] NPC
+	[Size] 0x98
+	[TODO] Formatting. Still didnt settle on a good reporting format...
+	[Description]
+	// Overworld parameters and encapsulation of NPC objs?
+	[Detected Structs] {0x24, 0x58} 0xA0, 0xD8, 0xFC ,0x178
+Offset  Type  Name               
+0x00    u8    invisCollSwitch    
+		[0x0Z] <invisCollSwitch>
+		// This seems to hold 4 states. All others are repeated. 00 through 04
+		// covers all cases of INVISIBLE = TRUE/FALSE and COLLIDABLE = TRUE/FALSE!
+0x01    u8    ?                  
+		[0x0Z]
+		// ??? Most values crash the game. May be tied to a function pointer calculation...
+0x08    u8    contTrigger        
+		[0x000Z] <convTrigger>
+		// Z = 8: Trigger a certain conversation
+		// Many other values just crash?
+		end
 
-	0x02    Keys   IQR
-		[Size] 0x02
-		These fire whenever these buttons are pressed
-		0x0001	A
-		0x0002	B
-		0x0004	SELECT
-		0x0008	START
-		0x0010	Right
-		0x0020 	Left
-		0x0040	Up
-		0x0080	Down
-		0x0100	R
-		0x0200	L
-	0x04    u16    keyPress            
-		This only updates when the keystate changes, but then immediately returns
-		to its default state 0xFC00
-	0x06    u16    keyState_dup        
-	0x08    u8     A_holdTimer         
-		counts from 0x00 -> 0x10 max    
-	0x09    u8     B_holdTimer         
-	0x0A    u8     Select_holdTimer    
-	0x0B    u8     Start_holdTimer     
-	0x0C    u8     Right_holdTimer     
-	0x0D    u8     Left_holdTimer      
-	0x0E    u8     Up_holdTimer        
-	0x0F    u8     Down_holdTimer      
-	0x10    u8     L_holdTimer         
-	0x11    u8     R_holdTimer         
-	0x13    u8     Counter             
-		Counts from 0x00 to 0x04    
-	0x14    u32    ?                   
+0x09    u8    walkingFlag        
+0x0A    u8    ?                  
+0x0C    u16   volume             
+		[0xAABB] <volume>
+		// This specifies the width of the collision walls, in two components parallel and anti-parallel to
+		// the streets in the game.
+0x14    u8    animationSelect    
+		[0X0Z] <facingDirection>
+		// X not sure, but it is always identical or close to Z. It might be a flag.
+		// Z determines direction of NPC based on 2<<n-1
+0x15    u8    ROAnimationSel     
+0x16    u8    palleteIndx        
+		[0xZZ] <palleteIndx>
+		// This seems like a pallete index
+0x18    u16   ?                  
+		[0x000Z]
+		// Another conversation switch at Z...
+0x1C    u8    convoSelect        
+		[0x00ZZ] <convoSelect>
+		// Changes conversation of copybot!!
+0x24    u32   x                  
+		[u32] <x>
+0x28    u32   y                  
+		[u32] <y>
+0x2C    u32   z                  
+		[u32] <z>
+0x3C    u16   NPCSelect          
+		[u32] <NPCSelect>
+		// Changes sprite! some are neat, some are weird.
+0x50    u16   ?                  
+		[0x000Z]
+		// For any Z, a certain conversation is triggered
+		// Value constantly written to unless PET is open, for example
+		// <0800385C> breaks whenever you talk to a character hmm..
+0x60    u32   flConfig           
+		[u32] <flConfig>
+		// Flags! 0xUUUUU_0bXcUU_UUUs_osta
+		// a(0x001): !activate. 1 = interaction w/ NPC is disabled.
+		// t(0x002): !turn. 1 = disabled. NPC won't turn when you interact.
+		// s(0x004): !solid. 1 = Can walk through NPC.
+		// o(0x008): orientation. 0 = Facing direction parallel to Lan's old house. 1 = perpendicular
+		// s(0x010): also solid. No other effects observed.
+		// c(0x400): conversation select of some sort. 
+		// X(0x800): If c, This enters a weird state where game
+		// pauses for a while until a conversation is reached...
+		// Unknown. Dangerous.
+		
+
+0x94    u32   *pScript      
 

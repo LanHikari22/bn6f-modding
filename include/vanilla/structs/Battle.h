@@ -7,7 +7,8 @@
  */
 typedef struct {
 	// size=0x3
-}s_080182C4
+	int pad;
+}s_080182C4;
 
 typedef struct {
 	uint8_t naviVirusIndicator;        // loc=0x0
@@ -199,22 +200,10 @@ typedef struct {
 	uint32_t unk_5C;                         // loc=0x5C
 	uint8_t extraVars[0x2C];                 // loc=0x60 size=0x2C
 	// size=0x8C
-	uint32_t y;                              // loc=0x38
-	uint32_t z;                              // loc=0x3C
-	uint32_t vx;                             // loc=0x40
-	uint32_t vy;                             // loc=0x44
-	uint32_t vz;                             // loc=0x48
-	uint32_t *parent;                        // loc=0x4C
-	uint32_t *childobject2;                  // loc=0x50
-	CollisionData *collisionData;                  // loc=0x54
-	AI *ai;                             // loc=0x58
-	uint32_t unk_5C;                         // loc=0x5C
-	uint8_t extraVars[0x2C];                 // loc=0x60 size=0x2C
-	// size=0x8C
 }Battle;
 
 
-#define sBtlEnemyA 	((Battle*)0x0203AA88)
+#define sBtlEnemyA 	((Bat	tle*)0x0203AA88)
 #define sBtlEnemyB 	((Battle*)0x0203AB60)
 #define sBtlEnemyC 	((Battle*)0x0203AC38)
 #define sBtlPlayer 	((Battle*)0x0203A9B0)

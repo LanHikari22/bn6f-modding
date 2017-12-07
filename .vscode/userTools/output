@@ -1,53 +1,110 @@
 [Header]
-	[Name] s_02034880
-	[Size] 0x94
+	[Name] NPC
+	[Size] 0x98
+	[TODO] Formatting. Still didnt settle on a good reporting format...
 	[Description]
-Offset  Type  Name 
-0x00    u8    ?    
-0x01    u8    ?    
-0x02    u8    ?    
-0x03    u8    ?    
-0x04    u8    ?    
-0x05    u8    ?    
-0x06    u8    ?    
-0x07    u8    ?    
-0x08    u8    ?    
-0x09    u8    ?    
-0x0A    u8    ?    
-0x0B    u8    ?    
-0x0D    u8    ?    
-0x0E    u8    ?    
-0x0F    u8    ?    
-0x10    u8    ?    
-0x11    u8    ?    
-0x12    u8    ?    
-0x13    u8    ?    
-0x14    u8    ?    
-0x15    u8    ?    
-0x16    u8    ?    
-0x17    u8    ?    
-0x18    u8    ?    
-0x19    u8    ?    
-0x1A    u8    ?    
-0x1B    u8    ?    
-0x1C    u8    ?    
-0x1D    u8    ?    
-0x1E    u8    ?    
-0x1F    u8    ?    
-0x28    u16   ?    
-0x32    u16   ?    
-0x34    u16   ?    
-0x36    u16   ?    
-0x3A    u16   ?    
-0x3C    u32   ?    
-0x40    u32   ?    
-0x44    u8    ?    
-0x45    u8    ?    
-0x4C    u16   ?    
-0x54    u16   ?    
-0x56    u16   ?    
-0x5C    u32   ?    
-0x60    u32   ?    
-0x64    u32   ?    
-0x80    u32   ?    
-0x90    u32   ?    
+	// Overworld parameters and encapsulation of NPC objs?
+	[Detected Structs] {0x24, 0x58} 0xA0, 0xD8, 0xFC ,0x178
+Offset  Type  Name               
+0x00    u8    invisCollSwitch    
+		[0x0Z] <invisCollSwitch>
+		// This seems to hold 4 states. All others are repeated. 00 through 04
+		// covers all cases of INVISIBLE = TRUE/FALSE and COLLIDABLE = TRUE/FALSE!
+0x01    u8    ?                  
+		[0x0Z]
+		// ??? Most values crash the game. May be tied to a function pointer calculation...
+0x02    u8    ?                  
+0x03    u8    ?                  
+0x04    u8    ?                  
+0x05    u8    ?                  
+0x07    u8    ?                  
+0x08    u8    contTrigger        
+		[0x000Z] <convTrigger>
+		// Z = 8: Trigger a certain conversation
+		// Many other values just crash?
+		end
+
+0x09    u8    walkingFlag        
+0x0A    u8    ?                  
+0x0C    u16   volume             
+		[0xAABB] <volume>
+		// This specifies the width of the collision walls, in two components parallel and anti-parallel to
+		// the streets in the game.
+0x0D    u8    ?                  
+0x0E    u8    ?                  
+0x0F    u8    ?                  
+0x10    u8    ?                  
+0x11    u8    ?                  
+0x12    u8    ?                  
+0x13    u8    ?                  
+0x14    u8    animationSelect    
+		[0X0Z] <facingDirection>
+		// X not sure, but it is always identical or close to Z. It might be a flag.
+		// Z determines direction of NPC based on 2<<n-1
+0x15    u8    ROAnimationSel     
+0x16    u8    palleteIndx        
+		[0xZZ] <palleteIndx>
+		// This seems like a pallete index
+0x17    u8    ?                  
+0x18    u8    ?                  
+		[0x000Z]
+		// Another conversation switch at Z...
+0x19    u8    ?                  
+0x1C    u8    convoSelect        
+		[0x00ZZ] <convoSelect>
+		// Changes conversation of copybot!!
+0x1D    u8    ?                  
+0x1E    u8    ?                  
+0x1F    u8    ?                  
+0x20    u16   ?                  
+0x24    u32   x                  
+		[u32] <x>
+0x28    u32   y                  
+		[u32] <y>
+0x2C    u32   z                  
+		[u32] <z>
+0x30    u32   ?                  
+0x34    u32   ?                  
+0x38    u32   ?                  
+0x3C    u16   NPCSelect          
+		[u32] <NPCSelect>
+		// Changes sprite! some are neat, some are weird.
+0x3E    u16   ?                  
+0x40    u32   ?                  
+0x44    u32   ?                  
+0x48    u32   ?                  
+0x4C    u32   ?                  
+0x50    u32   ?                  
+		[0x000Z]
+		// For any Z, a certain conversation is triggered
+		// Value constantly written to unless PET is open, for example
+		// <0800385C> breaks whenever you talk to a character hmm..
+0x54    u32   ?                  
+0x58    u32   ?                  
+0x5C    u32   ?                  
+0x60    u32   flConfig           
+		[u32] <flConfig>
+		// Flags! 0xUUUUU_0bXcUU_UUUs_osta
+		// a(0x001): !activate. 1 = interaction w/ NPC is disabled.
+		// t(0x002): !turn. 1 = disabled. NPC won't turn when you interact.
+		// s(0x004): !solid. 1 = Can walk through NPC.
+		// o(0x008): orientation. 0 = Facing direction parallel to Lan's old house. 1 = perpendicular
+		// s(0x010): also solid. No other effects observed.
+		// c(0x400): conversation select of some sort. 
+		// X(0x800): If c, This enters a weird state where game
+		// pauses for a while until a conversation is reached...
+		// Unknown. Dangerous.
+		
+
+0x64    u32   ?                  
+0x68    u32   ?                  
+0x6C    u32   ?                  
+0x70    u32   ?                  
+0x74    u32   ?                  
+0x78    u32   ?                  
+0x81    u8    ?                  
+0x82    u8    ?                  
+0x83    u8    ?                  
+0x8C    u32   ?                  
+0x94    u32   *pScript           
+
