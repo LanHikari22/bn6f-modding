@@ -22,7 +22,7 @@
 /* pointers of interest **************************************************/
 #define pCurrBattle0 		((uint32_t*)0x020348BC) // todo seems to be more involved with battle. MIGHT BE A STRUCT
 #define pCurrBattle			((uint32_t*)0x02001B9C)
-#define pCurrScript 		((uint32_t*)0x02009CFC)
+// #define pCurrScript 		((uint32_t*)0x02009CFC)
 #define pCoords 			((uint32_t*)0x02009F60)  // those are sorta weird
 #define pBtlLauncher_navi 	((uint32_t*)0x0809A72C)
 
@@ -342,6 +342,8 @@ j) 0803271C
  */
 #define fpRunChatbox 0x080A0058
 #define chatbox_run_script 0x08040358
+#define chatbox_interprete_script_char 0x0803FF24
+ 
 
 /**
  * This might be only for multiplayer. It might also do more.
@@ -359,7 +361,8 @@ j) 0803271C
 #define u8Array_to_u32 0x080A0B3A
 
 /* Unnamed */
-
+#define s_8041CC4 0x8041CC4
+#define sub_8045F30 0x8045F30 // Seems to flush the screen if the chat page is still in typing mode
 
 #pragma endregion function_pointers
 

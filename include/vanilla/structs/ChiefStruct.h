@@ -96,7 +96,7 @@ typedef struct{
 	// size=0x94
 }ChiefStruct;
 
-#define sChiefStruct ((ChiefStruct*)0x020093B0)
+#define sChief ((ChiefStruct*)0x020093B0)
 
 #pragma region Docs
 /*

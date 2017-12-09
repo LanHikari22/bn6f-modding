@@ -203,7 +203,7 @@ typedef struct {
 }Battle;
 
 
-#define sBtlEnemyA 	((Bat	tle*)0x0203AA88)
+#define sBtlEnemyA 	((Battle*)0x0203AA88)
 #define sBtlEnemyB 	((Battle*)0x0203AB60)
 #define sBtlEnemyC 	((Battle*)0x0203AC38)
 #define sBtlPlayer 	((Battle*)0x0203A9B0)

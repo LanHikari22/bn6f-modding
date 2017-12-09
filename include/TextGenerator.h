@@ -1,28 +1,32 @@
-typedef char bool;
-#define true 1
-#define false 0
+#ifndef TEXT_GENERATOR_H
+#define TEXT_GENERATOR_H
+
+#include <inttypes.h>
+#include <main.h>
 
 // This is an array stored in the ROM specifying a conversion between ASCII and game text
 #define pAsciiGameText ((unsigned char*)0x08800000)
 
-/**
- * This should be called everytime pCurrScript changes. It updates global variables pActiveScript_2.
- * if pActiveScript_2 == 0, there is no active script at the moment. This is toggled upon the 
- * [side effects]
- * pCurrScript
-*/
-extern void tg_handleScriptEvent();
+void memcpy(void *dest, void *src, int size);
+
+int strlen(char* s);
 
 /**
- * A hacky... hack, for now, that tries to only modify the megaman that talks in none gamebreaking scenarios.
- * This should only be called when pCurrScript changes, and when it's only at the start of the script.
- * such as the Levibus.
- * [params]
- * r1_pScript
- * [side effects]
- * pCurrScript
-*/
-extern void tg_handleMegamanScript(void* pScript);
+ * Prints a message using the chatbox!
+ * @param str       ASCII string to print in GameText
+ * @param mugshot   mugshot to be used in the chatbox
+ */
+void tg_chatPrint(char* str, uint8_t mugshot);
+
+/**
+ * Returns a Script list that links to its script components.
+ * currScript = script + (script + 2 * offset)[0]
+ * 
+ * @param scriptList	This array should contain enough space for 9 + strlen(str)
+ * @param str   		ASCII text to convert to game text and print
+ * @param mugshot       Mugshot of the chatbox
+ */
+void tg_createScriptList(uint16_t *scriptList, char* str, uint8_t mugshot);
 
 /**
  * Determines if given r1_pScript is at its start.
@@ -42,7 +46,7 @@ extern bool tg_atScriptStart(char* pScript);
  * [side effects]
  * [return]
 */
-extern char* tg_toGameText(char* pText, char* pGameText);
+extern void tg_toGameText(char* pText, char* pGameText);
 
 /**
  * 
@@ -52,3 +56,5 @@ extern char* tg_toGameText(char* pText, char* pGameText);
  * r0_gameChar
 */
 extern char tg_toGameChar(char asciiChar);
+
+#endif // TEXT_GENERATOR_H

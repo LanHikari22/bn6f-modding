@@ -18,8 +18,8 @@ typedef struct {
 		uint8_t pad_06[0x01];            
 	uint8_t unk_07;                   // loc=0x7
 	uint8_t contTrigger;              // loc=0x8
-	uint8_t walkingFlag;              // loc=0x9
-	uint8_t walkingFlag2;             // loc=0xA
+	uint8_t walkingFlag_09;           // loc=0x9
+	uint8_t walkingFlag_0A;           // loc=0xA
 		uint8_t pad_0B[0x01];            
 	uint8_t volume;                   // loc=0xC
 	uint8_t unk_0D;                   // loc=0xD
@@ -36,7 +36,7 @@ typedef struct {
 	uint8_t triggerChat;              // loc=0x18
 	uint8_t animationTimerActive;     // loc=0x19
 		uint8_t pad_1A[0x02];            
-	uint8_t convoSelect;              // loc=0x1C
+	uint8_t scriptArrayOffset;        // loc=0x1C
 	uint8_t unk_1D;                   // loc=0x1D
 	uint8_t unk_1E;                   // loc=0x1E
 	uint8_t timerActive;              // loc=0x1F
@@ -54,14 +54,14 @@ typedef struct {
 	uint32_t deltaY;                  // loc=0x44
 	uint32_t deltaZ;                  // loc=0x48
 	uint32_t *animationData;          // loc=0x4C
-	uint32_t hyp_IQR0;                // loc=0x50
-	uint32_t hyp_IQR1;                // loc=0x54
-	uint32_t hyp_IQR2;                // loc=0x58
-	uint32_t hyp_IQR3;                // loc=0x5C
-	uint32_t configFlags1;            // loc=0x60
+	uint32_t IRQ_50;                  // loc=0x50
+	uint32_t IRQ_54;                  // loc=0x54
+	uint32_t IRQ_58;                  // loc=0x58
+	uint32_t IRQ_5C;                  // loc=0x5C
+	uint32_t flags_60;                // loc=0x60
 	uint32_t unk_64;                  // loc=0x64
-	uint32_t configFlags2;            // loc=0x68
-	uint32_t RO_configFlags2;         // loc=0x6C
+	uint32_t flags_68;                // loc=0x68
+	uint32_t RO_flags_68;             // loc=0x6C
 	uint32_t unk_70;                  // loc=0x70
 	uint32_t unk_74;                  // loc=0x74
 	uint32_t unk_78;                  // loc=0x78
@@ -72,7 +72,7 @@ typedef struct {
 		uint8_t pad_84[0x08];            
 	uint32_t unk_8C;                  // loc=0x8C
 		uint8_t pad_90[0x04];            
-	uint32_t *pScript;                // loc=0x94
+	uint16_t *scriptArray;            // loc=0x94
 	// size=0x98
 }NPC;
 
@@ -135,11 +135,11 @@ Other instances*/
 			// Many other values just crash?
 			end
 
-	0x09    u8    walkingFlag
+	0x09    u8    walkingFlag_09
 		0x00 - Stop
 		0x04 - Default, moving
 		0x08 - Stop, animation continues
-	0x0A    u8    walkingFlag2
+	0x0A    u8    walkingFlag_0A
 		Those might not be flags, since 0x0C behaves unpredictably by 0x04 and 0x08
 		0x00 - No effect, it keeps setting to 0x04
 		0x04 - Default, moving
@@ -190,9 +190,9 @@ Other instances*/
 		bool.
 		Activates a timer at npc->loc_20 that represents a timer for which the current animation state
 		is active.                  
-	0x1C    u8    convoSelect        
-			[0x00ZZ] <convoSelect>
-			// Changes conversation of copybot!!
+	0x1C    u8    scriptArrayOffset        
+			This is the offset of loc_94
+			It's a halfword offset
 	0x1D    u8    ?
 		npc->walkingFlag = npc->unk_1D;
 	0x1E    u8    ?
@@ -236,22 +236,22 @@ Other instances*/
 		See loc_40
 	0x4C    u32   *animationData
 		Those change as animation switches!                  
-	0x50    u32   hyp_IQR0                  
+	0x50    u32   IRQ_50                  
 			[0x0000000Z]
 			// For any Z, a certain conversation is triggered
 			// Value constantly written to unless PET is open, for example
 			// <0800385C> breaks whenever you talk to a character hmm..
-	0x54    u32   hyp_IQR1
+	0x54    u32   IRQ_54
 		IRQ Flags?
 		0x00000001 - May trigger some conversation. The Interaction is detected. The NPC faces you.
 
-	0x58    u32   hyp_IQR2
+	0x58    u32   IRQ_58
 		IRQ Flags?                  
-	0x5C    u32   hyp_IQR3
+	0x5C    u32   IRQ_5C
 		IRQ Flags?  
 		Those are very dangerous, anything you overwrite totally freezes the game.
 		Then suddenly... an address pops out?!                
-	0x60    u32   configFlags1           
+	0x60    u32   flags_60           
 			[u32] <flConfig>
 			// Flags! 0xUUUUU_0bXcUU_UUUs_osta
 			// a(0x001): !activate. 1 = interaction w/ NPC is disabled.
@@ -268,8 +268,8 @@ Other instances*/
 	0x64    u32   ?
 		Configuration State?
 		Can make character pallete complete white, or change conversation, or change their z depth???                  
-	0x68    u32   configFlags2                  
-	0x6C    u32   RO_configFlags2                  
+	0x68    u32   flags_68                  
+	0x6C    u32   RO_flags_68                  
 	0x70    u32   ?                  
 	0x74    u32   ?                  
 	0x78    u32   ?                  
@@ -277,7 +277,9 @@ Other instances*/
 	0x82    u8    ?                  
 	0x83    u8    ?                  
 	0x8C    u32   ?                  
-	0x94    u32   *pScript                   
+	0x94    u16   *scriptArray
+		this array determines the script to be run for some type of NPCs
+		Hypothetical number of entries: 8*6 + 5 = 53                   
 Doc: NPC*/
 #pragma endregion Doc
 
@@ -436,6 +438,102 @@ Accesses: NPC Chaud and ACDC Walking Kid*/
 	080408A4::080408AC u16(0x42), 
 
 Accesses: s_0202FA04*/
+
+/*
+    name=s_0202FA04, size=0x44
+    08040358::08040386 u16(0x3C), 080408A4::080408AC u16(0x3E), 08040358::08040386 u16(0x0A), 
+    08040358::08040386 u16(0x00), 080408A4::080408AC u16(0x0C), 
+    080408A4::080408AC u16(0x40), 080408A4::080408AC u16(0x42),
+    Accesses: s_0202FA04 Array
+    
+	Those right here are actual character cursor runs detected
+    0803FF24::0803FF2C u8(0x84+0x00), 08041CC4::08041CC6 u8(0x84+0x01), 08041CC4::08041CF8 u8(0x84+0x02), 
+    0803FF24::0803FF2C u8(0x87+0x00), 08040F44::08040F48 u8(0x87+0x01), 08040F44::08040F9E u8(0x87+0x01), 
+    0803FF24::0803FF2C u8(0x89+0x00), 0803FF24::0803FF2C u8(0x8A+0x00), 0803FF24::0803FF2C u8(0x8B+0x00), 
+    0803FF24::0803FF2C u8(0x8C+0x00), 0803FF24::0803FF2C u8(0x8D+0x00), 0803FF24::0803FF2C u8(0x8E+0x00), 
+    0803FF24::0803FF2C u8(0x8F+0x00), 0803FF24::0803FF2C u8(0x90+0x00), 0803FF24::0803FF2C u8(0x91+0x00), 
+    0803FF24::0803FF2C u8(0x92+0x00), 0803FF24::0803FF2C u8(0x93+0x00), 0803FF24::0803FF2C u8(0x94+0x00), 
+    0803FF24::0803FF2C u8(0x95+0x00), 0803FF24::0803FF2C u8(0x96+0x00), 0803FF24::0803FF2C u8(0x97+0x00), 
+    0803FF24::0803FF2C u8(0x98+0x00), 0803FF24::0803FF2C u8(0x99+0x00), 0803FF24::0803FF2C u8(0x9A+0x00), 
+    0803FF24::0803FF2C u8(0x9B+0x00), 0803FF24::0803FF2C u8(0x9C+0x00), 0803FF24::0803FF2C u8(0x9D+0x00), 
+    0803FF24::0803FF2C u8(0x9E+0x00), 08040EC8::08040F00 u8(0x9E+0x01), 0803FF24::0803FF2C u8(0xA0+0x00), 
+    0803FF24::0803FF2C u8(0xA1+0x00), 0803FF24::0803FF2C u8(0xA2+0x00), 0803FF24::0803FF2C u8(0xA3+0x00), 
+    0803FF24::0803FF2C u8(0xA4+0x00), 0803FF24::0803FF2C u8(0xA5+0x00), 0803FF24::0803FF2C u8(0xA6+0x00), 
+    0803FF24::0803FF2C u8(0xA7+0x00), 0803FF24::0803FF2C u8(0xA8+0x00), 0803FF24::0803FF2C u8(0xA9+0x00), 
+    0803FF24::0803FF2C u8(0xAA+0x00), 08041F38::08041F3C u8(0xAA+0x01), 08041F84::08041F8E u8(0xAA+0x02), 
+    08041F84::08041F90 u8(0xAA+0x03), 0803FF24::0803FF2C u8(0xAE+0x00), 0803FF24::0803FF2C u8(0xAF+0x00), 
+    0803FF24::0803FF2C u8(0xB0+0x00), 0803FF24::0803FF2C u8(0xB1+0x00), 0803FF24::0803FF2C u8(0xB2+0x00), 
+    0803FF24::0803FF2C u8(0xB3+0x00), 0803FF24::0803FF2C u8(0xB4+0x00), 0803FF24::0803FF2C u8(0xB5+0x00), 
+    0803FF24::0803FF2C u8(0xB6+0x00), 0803FF24::0803FF2C u8(0xB7+0x00), 0803FF24::0803FF2C u8(0xB8+0x00), 
+    0803FF24::0803FF2C u8(0xB9+0x00), 0803FF24::0803FF2C u8(0xBA+0x00), 0803FF24::0803FF2C u8(0xBB+0x00), 
+    0803FF24::0803FF2C u8(0xBC+0x00), 0803FF24::0803FF2C u8(0xBD+0x00), 0803FF24::0803FF2C u8(0xBE+0x00), 
+    0803FF24::0803FF2C u8(0xBF+0x00), 0803FF24::0803FF2C u8(0xC0+0x00), 0803FF24::0803FF2C u8(0xC1+0x00), 
+    0803FF24::0803FF2C u8(0xC2+0x00), 08040EC8::08040F00 u8(0xC2+0x01), 0803FF24::0803FF2C u8(0xC4+0x00), 
+    0803FF24::0803FF2C u8(0xC5+0x00), 0803FF24::0803FF2C u8(0xC6+0x00), 0803FF24::0803FF2C u8(0xC7+0x00), 
+    0803FF24::0803FF2C u8(0xC8+0x00), 0803FF24::0803FF2C u8(0xC9+0x00), 0803FF24::0803FF2C u8(0xCA+0x00), 
+    0803FF24::0803FF2C u8(0xCB+0x00), 0803FF24::0803FF2C u8(0xCC+0x00), 0803FF24::0803FF2C u8(0xCD+0x00), 
+    0803FF24::0803FF2C u8(0xCE+0x00), 0803FF24::0803FF2C u8(0xCF+0x00), 0803FF24::0803FF2C u8(0xD0+0x00), 
+    0803FF24::0803FF2C u8(0xD1+0x00), 0803FF24::0803FF2C u8(0xD2+0x00), 0803FF24::0803FF2C u8(0xD3+0x00), 
+    0803FF24::0803FF2C u8(0xD4+0x00), 0803FF24::0803FF2C u8(0xD5+0x00), 0803FF24::0803FF2C u8(0xD6+0x00), 
+    0803FF24::0803FF2C u8(0xD7+0x00), 0803FF24::0803FF2C u8(0xD8+0x00), 0803FF24::0803FF2C u8(0xD9+0x00), 
+    0803FF24::0803FF2C u8(0xDA+0x00), 0803FF24::0803FF2C u8(0xDB+0x00), 0803FF24::0803FF2C u8(0xDC+0x00), 
+    0803FF24::0803FF2C u8(0xDD+0x00), 0803FF24::0803FF2C u8(0xDE+0x00), 0803FF24::0803FF2C u8(0xDF+0x00), 
+    0803FF24::0803FF2C u8(0xE0+0x00), 0803FF24::0803FF2C u8(0xE1+0x00), 0803FF24::0803FF2C u8(0xE2+0x00), 
+    0803FF24::0803FF2C u8(0xE3+0x00), 0803FF24::0803FF2C u8(0xE4+0x00), 0803FF24::0803FF2C u8(0xE5+0x00), 
+    0803FF24::0803FF2C u8(0xE6+0x00), 0803FF24::0803FF2C u8(0xE7+0x00), 0803FF24::0803FF2C u8(0xE8+0x00), 
+    0803FF24::0803FF2C u8(0xE9+0x00), 0803FF24::0803FF2C u8(0xEA+0x00), 0803FF24::0803FF2C u8(0xEB+0x00), 
+    0803FF24::0803FF2C u8(0xEC+0x00), 0803FF24::0803FF2C u8(0xED+0x00), 0803FF24::0803FF2C u8(0xEE+0x00), 
+    0803FF24::0803FF2C u8(0xEF+0x00), 0803FF24::0803FF2C u8(0xF0+0x00), 0803FF24::0803FF2C u8(0xF1+0x00), 
+    08040EC8::08040F00 u8(0xF1+0x01), 0803FF24::0803FF2C u8(0xF3+0x00), 0803FF24::0803FF2C u8(0xF4+0x00), 
+    0803FF24::0803FF2C u8(0xF5+0x00), 0803FF24::0803FF2C u8(0xF6+0x00), 0803FF24::0803FF2C u8(0xF7+0x00), 
+    0803FF24::0803FF2C u8(0xF8+0x00), 0803FF24::0803FF2C u8(0xF9+0x00), 0803FF24::0803FF2C u8(0xFA+0x00), 
+    0803FF24::0803FF2C u8(0xFB+0x00), 0803FF24::0803FF2C u8(0xFC+0x00), 0803FF24::0803FF2C u8(0xFD+0x00), 
+    0803FF24::0803FF2C u8(0xFE+0x00), 0803FF24::0803FF2C u8(0xFF+0x00), 
+    0803FF24::0803FF2C u8(0x0A+0x00), 08041540::08041544 u8(0x0A+0x01), 
+    080416F0::080416F2 u8(0x0A+0x02), 080416F0::080416F4 u8(0x0A+0x03), 080416F0::08041708 u8(0x0A+0x05), 
+    0803FF24::0803FF2C u8(0x10+0x00), 08041CC4::08041CC6 u8(0x10+0x01), 08041CC4::08041CF8 u8(0x10+0x02), 
+    0803FF24::0803FF2C u8(0x13+0x00), 08040F44::08040F48 u8(0x13+0x01), 08040F44::08040F9E u8(0x13+0x01), 
+    0803FF24::0803FF2C u8(0x15+0x00), 0803FF24::0803FF2C u8(0x16+0x00), 0803FF24::0803FF2C u8(0x17+0x00), 
+    0803FF24::0803FF2C u8(0x18+0x00), 0803FF24::0803FF2C u8(0x19+0x00), 0803FF24::0803FF2C u8(0x1A+0x00), 
+    0803FF24::0803FF2C u8(0x1B+0x00), 0803FF24::0803FF2C u8(0x1C+0x00), 0803FF24::0803FF2C u8(0x1D+0x00), 
+    0803FF24::0803FF2C u8(0x1E+0x00), 0803FF24::0803FF2C u8(0x1F+0x00), 0803FF24::0803FF2C u8(0x20+0x00), 
+    0803FF24::0803FF2C u8(0x21+0x00), 0803FF24::0803FF2C u8(0x22+0x00), 0803FF24::0803FF2C u8(0x23+0x00), 
+    0803FF24::0803FF2C u8(0x24+0x00), 0803FF24::0803FF2C u8(0x25+0x00), 0803FF24::0803FF2C u8(0x26+0x00), 
+    0803FF24::0803FF2C u8(0x27+0x00), 0803FF24::0803FF2C u8(0x28+0x00), 0803FF24::0803FF2C u8(0x29+0x00), 
+    0803FF24::0803FF2C u8(0x2A+0x00), 0803FF24::0803FF2C u8(0x2B+0x00), 0803FF24::0803FF2C u8(0x2C+0x00), 
+    0803FF24::0803FF2C u8(0x2D+0x00), 08040EC8::08040F00 u8(0x2D+0x01), 0803FF24::0803FF2C u8(0x2F+0x00), 
+    0803FF24::0803FF2C u8(0x30+0x00), 0803FF24::0803FF2C u8(0x31+0x00), 0803FF24::0803FF2C u8(0x32+0x00), 
+    0803FF24::0803FF2C u8(0x33+0x00), 0803FF24::0803FF2C u8(0x34+0x00), 0803FF24::0803FF2C u8(0x35+0x00), 
+    0803FF24::0803FF2C u8(0x36+0x00), 0803FF24::0803FF2C u8(0x37+0x00), 0803FF24::0803FF2C u8(0x38+0x00), 
+    0803FF24::0803FF2C u8(0x39+0x00), 0803FF24::0803FF2C u8(0x3A+0x00), 0803FF24::0803FF2C u8(0x3B+0x00), 
+    0803FF24::0803FF2C u8(0x3C+0x00), 0803FF24::0803FF2C u8(0x3D+0x00), 0803FF24::0803FF2C u8(0x3E+0x00), 
+    0803FF24::0803FF2C u8(0x3F+0x00), 0803FF24::0803FF2C u8(0x40+0x00), 0803FF24::0803FF2C u8(0x41+0x00), 
+    0803FF24::0803FF2C u8(0x42+0x00), 0803FF24::0803FF2C u8(0x43+0x00), 0803FF24::0803FF2C u8(0x44+0x00), 
+    0803FF24::0803FF2C u8(0x45+0x00), 0803FF24::0803FF2C u8(0x46+0x00), 0803FF24::0803FF2C u8(0x47+0x00), 
+    0803FF24::0803FF2C u8(0x48+0x00), 0803FF24::0803FF2C u8(0x49+0x00), 0803FF24::0803FF2C u8(0x4A+0x00), 
+    0803FF24::0803FF2C u8(0x4B+0x00), 0803FF24::0803FF2C u8(0x4C+0x00), 0803FF24::0803FF2C u8(0x4D+0x00), 
+    0803FF24::0803FF2C u8(0x4E+0x00), 0803FF24::0803FF2C u8(0x4F+0x00), 0803FF24::0803FF2C u8(0x50+0x00), 
+    0803FF24::0803FF2C u8(0x51+0x00), 0803FF24::0803FF2C u8(0x52+0x00), 0803FF24::0803FF2C u8(0x53+0x00), 
+    0803FF24::0803FF2C u8(0x54+0x00), 0803FF24::0803FF2C u8(0x55+0x00), 0803FF24::0803FF2C u8(0x56+0x00), 
+    0803FF24::0803FF2C u8(0x57+0x00), 0803FF24::0803FF2C u8(0x58+0x00), 0803FF24::0803FF2C u8(0x59+0x00), 
+    0803FF24::0803FF2C u8(0x5A+0x00), 0803FF24::0803FF2C u8(0x5B+0x00), 0803FF24::0803FF2C u8(0x5C+0x00), 
+    0803FF24::0803FF2C u8(0x5D+0x00), 0803FF24::0803FF2C u8(0x5E+0x00), 0803FF24::0803FF2C u8(0x5F+0x00), 
+    0803FF24::0803FF2C u8(0x60+0x00), 08040EC8::08040F00 u8(0x60+0x01), 0803FF24::0803FF2C u8(0x62+0x00), 
+    0803FF24::0803FF2C u8(0x63+0x00), 0803FF24::0803FF2C u8(0x64+0x00), 0803FF24::0803FF2C u8(0x65+0x00), 
+    0803FF24::0803FF2C u8(0x66+0x00), 0803FF24::0803FF2C u8(0x67+0x00), 0803FF24::0803FF2C u8(0x68+0x00), 
+    0803FF24::0803FF2C u8(0x69+0x00), 0803FF24::0803FF2C u8(0x6A+0x00), 0803FF24::0803FF2C u8(0x6B+0x00), 
+    0803FF24::0803FF2C u8(0x6C+0x00), 0803FF24::0803FF2C u8(0x6D+0x00), 0803FF24::0803FF2C u8(0x6E+0x00), 
+    0803FF24::0803FF2C u8(0x6F+0x00), 0803FF24::0803FF2C u8(0x70+0x00), 0803FF24::0803FF2C u8(0x71+0x00), 
+    0803FF24::0803FF2C u8(0x72+0x00), 08040EC8::08040F00 u8(0x72+0x01), 0803FF24::0803FF2C u8(0x74+0x00), 
+    0803FF24::0803FF2C u8(0x75+0x00), 0803FF24::0803FF2C u8(0x76+0x00), 0803FF24::0803FF2C u8(0x77+0x00), 
+    0803FF24::0803FF2C u8(0x78+0x00), 0803FF24::0803FF2C u8(0x79+0x00), 0803FF24::0803FF2C u8(0x7A+0x00), 
+    0803FF24::0803FF2C u8(0x7B+0x00), 0803FF24::0803FF2C u8(0x7C+0x00), 0803FF24::0803FF2C u8(0x7D+0x00), 
+    0803FF24::0803FF2C u8(0x7E+0x00), 0803FF24::0803FF2C u8(0x7F+0x00), 0803FF24::0803FF2C u8(0x80+0x00), 
+    0803FF24::0803FF2C u8(0x81+0x00), 0803FF24::0803FF2C u8(0x82+0x00), 0803FF24::0803FF2C u8(0x83+0x00), 
+    0803FF24::0803FF2C u8(0x85+0x00), 0803FF24::0803FF2C u8(0x86+0x00), 0803FF24::0803FF2C u8(0x88+0x00), 
+    08040EC8::08040F00 u8(0x91+0x01),  
+loc 0x0202FA04 Script offset Array*/
+
 #pragma endregion Accesses
 
 /*
