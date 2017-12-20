@@ -22,7 +22,8 @@ int strlen(char* s){
  * Prints a message using the chatbox!
  */
 void tg_chatPrint(char* str, uint8_t mugshot){	
-
+	uint32_t *d = 0x02050000;
+	d[0x60>>2] = str;
 	tg_createScriptList((uint16_t*)0x02050040, str, mugshot);
 	int register r0 asm("r0") = 0x02050040;
 	int register r1 asm("r1") = 0x00; // halfword offset to start from in script
@@ -42,26 +43,6 @@ void tg_createScriptList(uint16_t *scriptList, char* str, uint8_t mugshot){
     memcpy(script + 5, gameText, strlen(str));
 	memcpy(script + 5 + strlen(str), closureCtrl, 4);
 }
-
-
-/**
- * This should be called everytime pCurrScript changes. It updates global variables pActiveScript_2.
- * if pActiveScript_2 == 0, there is no active script at the moment. This is toggled upon the 
- * [side effects]
- * pCurrScript
-*/
-void tg_handleScriptEvent();
-
-/**
- * A hacky... hack, for now, that tries to only modify the megaman that talks in none gamebreaking scenarios.
- * This should only be called when pCurrScript changes, and when it's only at the start of the script.
- * such as the Levibus.
- * [params]
- * r1_pScript
- * [side effects]
- * pCurrScript
-*/
-void tg_handleMegamanScript(void* pScript);
 
 /**
  * Determines if given r1_pScript is at its start.
@@ -101,5 +82,6 @@ void tg_toGameText(char* pText, char* pGameText){
  * r0_gameChar
 */
 char tg_toGameChar(char asciiChar){
+	// return tg_ascii2GameText[asciiChar];
 	return pAsciiGameText[(unsigned int)asciiChar];
 }

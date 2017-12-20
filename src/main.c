@@ -78,6 +78,11 @@ void onKeyPress()
 	}
 }
 
+void RPress(){
+	tg_chatPrint("Hello World", 0x38);
+}
+
+
 /**
 * TODO: modify linker so it can create these. Once that is done,
 * main will be changed to be called... intecept_someAddress. That is because main is really just an interceptor function.
@@ -85,7 +90,4 @@ void onKeyPress()
 */
 void intercept_08040000();
 
-void RPress()
-{
-	tg_chatPrint("Hello, Lan!", 0x01);
-}
+ 
