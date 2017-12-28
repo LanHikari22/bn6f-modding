@@ -1,0 +1,214 @@
+Archive member included to satisfy reference by file (symbol)
+
+C:/devkitPro/devkitARM/arm-none-eabi/lib/\libc.a(lib_a-memset.o)
+                              TextGenerator.o (memset)
+C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
+                              main.o (__aeabi_idivmod)
+C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_dvmd_tls.o)
+                              C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o) (__aeabi_idiv0)
+
+Allocating common symbols
+Common symbol       size              file
+
+p                   0x4               main.o
+onStart_executed    0x4               main.o
+savedKeyState       0x4               main.o
+counter             0x4               main.o
+npc                 0x4               main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08000000                . = 0x8000000
+
+.rom            0x08000000   0x800000
+ *.o(.rom)
+ .rom           0x08000000   0x800000 pure.o
+                0x08000000                _binary____mmbn6g_gba_start
+                0x08800000                _binary____mmbn6g_gba_end
+                0x08900000                . = 0x8900000
+
+.text           0x08900000      0x488
+ main.o(.text)
+ .text          0x08900000       0xf0 main.o
+                0x08900000                main
+                0x0890003c                onStart
+                0x08900080                onUpdate
+                0x089000b8                onKeyPress
+                0x089000d8                RPress
+ *(.text)
+ .text          0x089000f0      0x228 TextGenerator.o
+                0x089000f0                memcpy
+                0x08900122                strlen
+                0x0890015e                tg_chatPrint
+                0x089001b0                tg_createScriptList
+                0x08900280                tg_atScriptStart
+                0x089002a6                tg_toGameText
+                0x089002f4                tg_toGameChar
+ .text          0x08900318        0xe beep.o
+                0x08900318                newFunction
+ .text          0x08900326        0x0 mainHook.o
+ .text          0x08900326        0x0 C:/devkitPro/devkitARM/arm-none-eabi/lib/\libc.a(lib_a-memset.o)
+ *fill*         0x08900326        0x2 
+ .text          0x08900328      0x148 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
+                0x08900328                __divsi3
+                0x08900328                __aeabi_idiv
+                0x08900450                __aeabi_idivmod
+ .text          0x08900470        0x4 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_dvmd_tls.o)
+                0x08900470                __aeabi_idiv0
+                0x08900470                __aeabi_ldiv0
+ *fill*         0x08900474        0x4 
+ .text.__stub   0x08900478       0x10 linker stubs
+
+.glue_7         0x08900488        0x0
+ .glue_7        0x08900488        0x0 linker stubs
+
+.glue_7t        0x08900488        0x0
+ .glue_7t       0x08900488        0x0 linker stubs
+
+.vfp11_veneer   0x08900488        0x0
+ .vfp11_veneer  0x08900488        0x0 linker stubs
+
+.v4_bx          0x08900488        0x0
+ .v4_bx         0x08900488        0x0 linker stubs
+
+.iplt           0x08900488        0x0
+ .iplt          0x08900488        0x0 main.o
+
+.text.memset    0x08900488      0x114
+ .text.memset   0x08900488      0x114 C:/devkitPro/devkitARM/arm-none-eabi/lib/\libc.a(lib_a-memset.o)
+                0x08900488                memset
+
+.rodata         0x0890059c      0x114
+ *(.rodata)
+ .rodata        0x0890059c       0x8f main.o
+ *fill*         0x0890062b        0x1 
+ .rodata        0x0890062c       0x84 TextGenerator.o
+                0x089006b0                . = ALIGN (0x4)
+                0x02500000                . = 0x2500000
+
+.data           0x02500000        0x0
+ *(.data)
+ .data          0x02500000        0x0 main.o
+ .data          0x02500000        0x0 TextGenerator.o
+ .data          0x02500000        0x0 beep.o
+ .data          0x02500000        0x0 mainHook.o
+ .data          0x02500000        0x0 C:/devkitPro/devkitARM/arm-none-eabi/lib/\libc.a(lib_a-memset.o)
+ .data          0x02500000        0x0 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
+ .data          0x02500000        0x0 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_dvmd_tls.o)
+                0x02500000                . = ALIGN (0x4)
+
+.igot.plt       0x02500000        0x0
+ .igot.plt      0x02500000        0x0 main.o
+
+.bss            0x02500000       0x14
+ *(.bss)
+ .bss           0x02500000        0x0 main.o
+ .bss           0x02500000        0x0 TextGenerator.o
+ .bss           0x02500000        0x0 beep.o
+ .bss           0x02500000        0x0 mainHook.o
+ .bss           0x02500000        0x0 C:/devkitPro/devkitARM/arm-none-eabi/lib/\libc.a(lib_a-memset.o)
+ .bss           0x02500000        0x0 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
+ .bss           0x02500000        0x0 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_dvmd_tls.o)
+                0x02500000                . = ALIGN (0x4)
+ COMMON         0x02500000       0x14 main.o
+                0x02500000                p
+                0x02500004                onStart_executed
+                0x02500008                savedKeyState
+                0x0250000c                counter
+                0x02500010                npc
+                0x08090000                . = 0x8090000
+
+.mainHook       0x08090000       0x20
+ *.o(.mainHook)
+ .mainHook      0x08090000       0x20 mainHook.o
+                0x08000402                . = 0x8000402
+
+.intercept_08000402
+                0x08000402        0x8
+ *.o(.intercept_08000402)
+ .intercept_08000402
+                0x08000402        0x8 mainHook.o
+LOAD TextGenerator.o
+LOAD beep.o
+LOAD main.o
+LOAD mainHook.o
+LOAD pure.o
+LOAD C:/devkitPro/devkitARM/arm-none-eabi/lib/\libc.a
+LOAD C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a
+OUTPUT(output.o elf32-littlearm)
+
+.rel.dyn        0x0800040c        0x0
+ .rel.iplt      0x0800040c        0x0 main.o
+
+.debug_info     0x00000000     0x204d
+ .debug_info    0x00000000      0xd94 main.o
+ .debug_info    0x00000d94     0x11f2 TextGenerator.o
+ .debug_info    0x00001f86       0x53 beep.o
+ .debug_info    0x00001fd9       0x74 mainHook.o
+
+.debug_abbrev   0x00000000      0x2b6
+ .debug_abbrev  0x00000000      0x113 main.o
+ .debug_abbrev  0x00000113      0x149 TextGenerator.o
+ .debug_abbrev  0x0000025c       0x48 beep.o
+ .debug_abbrev  0x000002a4       0x12 mainHook.o
+
+.debug_aranges  0x00000000       0x88
+ .debug_aranges
+                0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 TextGenerator.o
+ .debug_aranges
+                0x00000040       0x20 beep.o
+ .debug_aranges
+                0x00000060       0x28 mainHook.o
+
+.debug_line     0x00000000      0x2fe
+ .debug_line    0x00000000       0xbe main.o
+ .debug_line    0x000000be      0x1a2 TextGenerator.o
+ .debug_line    0x00000260       0x3e beep.o
+ .debug_line    0x0000029e       0x60 mainHook.o
+
+.debug_str      0x00000000      0xe89
+ .debug_str     0x00000000      0x913 main.o
+                                0x960 (size before relaxing)
+ .debug_str     0x00000913      0x55c TextGenerator.o
+                                0x821 (size before relaxing)
+ .debug_str     0x00000e6f       0x1a beep.o
+                                 0xd7 (size before relaxing)
+
+.comment        0x00000000       0x22
+ .comment       0x00000000       0x22 main.o
+                                 0x23 (size before relaxing)
+ .comment       0x00000022       0x23 TextGenerator.o
+ .comment       0x00000022       0x23 beep.o
+ .comment       0x00000022       0x23 C:/devkitPro/devkitARM/arm-none-eabi/lib/\libc.a(lib_a-memset.o)
+
+.ARM.attributes
+                0x00000000       0x2e
+ .ARM.attributes
+                0x00000000       0x2c main.o
+ .ARM.attributes
+                0x0000002c       0x2c TextGenerator.o
+ .ARM.attributes
+                0x00000058       0x2c beep.o
+ .ARM.attributes
+                0x00000084       0x20 mainHook.o
+ .ARM.attributes
+                0x000000a4       0x30 C:/devkitPro/devkitARM/arm-none-eabi/lib/\libc.a(lib_a-memset.o)
+ .ARM.attributes
+                0x000000d4       0x18 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x000000ec       0x18 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_dvmd_tls.o)
+
+.debug_frame    0x00000000      0x158
+ .debug_frame   0x00000000       0x80 main.o
+ .debug_frame   0x00000080       0xb4 TextGenerator.o
+ .debug_frame   0x00000134       0x24 beep.o
+
+.debug_ranges   0x00000000       0x20
+ .debug_ranges  0x00000000       0x20 mainHook.o
