@@ -30,7 +30,7 @@ ABS_SOURCES = $(addprefix $(SRCDIR), $(SOURCES))
 # list The ROM to build your program into. This file should be specified in this folder.
 ROM = mmbn6ge.gba
 # This is generated and is linked with the linker script to mod ROM
-PURE_ROM = mmbn6ge_pure.gba
+PURE_ROM = ../mmbn6ge.gba
 #################################################################################################
 
 #################################################################################################
