@@ -5,50 +5,50 @@
 #include "../OWPlayer.h"
 
 typedef struct {
-	uint8_t subSystemSelect;         // loc=0x0
-	uint8_t PET_naviSelect;          // loc=0x1
-		uint8_t pad_02[0x01];           
-	uint8_t unk_03;                  // loc=0x3
-	uint8_t MapSelect;               // loc=0x4
-	uint8_t MapSubOffset;            // loc=0x5
-	uint8_t unk_06;                  // loc=0x6
-	uint8_t unk_07;                  // loc=0x7
-	uint8_t unk_08;                  // loc=0x8
-	uint8_t unk_09;                  // loc=0x9
-	uint8_t unk_0A;                  // loc=0xA
-		uint8_t pad_0B[0x01];           
-	uint8_t unk_0C;                  // loc=0xC
-	uint8_t unk_0D;                  // loc=0xD
-	uint8_t unk_0E;                  // loc=0xE
-	uint8_t bgMusicIndicator;        // loc=0xF
-	uint8_t unk_10;                  // loc=0x10
-	uint8_t unk_11;                  // loc=0x11
-	uint8_t unk_12;                  // loc=0x12
-		uint8_t pad_13[0x01];           
-	uint8_t unk_14;                  // loc=0x14
-	uint8_t unk_15;                  // loc=0x15
-	uint8_t unk_16;                  // loc=0x16
-	uint8_t unk_17;                  // loc=0x17
+	u8 subSystemSelect;         // loc=0x0
+	u8 PET_naviSelect;          // loc=0x1
+		u8 pad_02[0x01];           
+	u8 unk_03;                  // loc=0x3
+	u8 MapSelect;               // loc=0x4
+	u8 MapSubOffset;            // loc=0x5
+	u8 unk_06;                  // loc=0x6
+	u8 unk_07;                  // loc=0x7
+	u8 unk_08;                  // loc=0x8
+	u8 unk_09;                  // loc=0x9
+	u8 unk_0A;                  // loc=0xA
+		u8 pad_0B[0x01];           
+	u8 unk_0C;                  // loc=0xC
+	u8 unk_0D;                  // loc=0xD
+	u8 unk_0E;                  // loc=0xE
+	u8 bgMusicIndicator;        // loc=0xF
+	u8 unk_10;                  // loc=0x10
+	u8 unk_11;                  // loc=0x11
+	u8 unk_12;                  // loc=0x12
+		u8 pad_13[0x01];           
+	u8 unk_14;                  // loc=0x14
+	u8 unk_15;                  // loc=0x15
+	u8 unk_16;                  // loc=0x16
+	u8 unk_17;                  // loc=0x17
 	OWPlayer *player;                // loc=0x18
-	uint32_t *currBattleData;        // loc=0x1C
-	uint32_t unk_20;                 // loc=0x20
-	uint32_t player_x;               // loc=0x24
-	uint32_t player_y;               // loc=0x28
-	uint32_t unk_2C;                 // loc=0x2C
-	uint32_t unk_30;                 // loc=0x30
-	uint32_t unk_34;                 // loc=0x34
-	uint32_t unk_38;                 // loc=0x38
-	uint32_t unk_3C;                 // loc=0x3C
-	uint32_t unk_40;                 // loc=0x40
-	uint32_t unk_44;                 // loc=0x44
-		uint8_t pad_48[0x14];           
-	uint32_t protected_zennies;      // loc=0x5C
-	uint32_t protected_bugFrags;     // loc=0x60
-	uint32_t unk_64;                 // loc=0x64
-	uint32_t unk_68;                 // loc=0x68
-	uint32_t unk_6C;                 // loc=0x6C
-	uint32_t unk_70;                 // loc=0x70
-		uint8_t pad_74[0x0C];           
+	u32 *currBattleData;        // loc=0x1C
+	u32 unk_20;                 // loc=0x20
+	u32 player_x;               // loc=0x24
+	u32 player_y;               // loc=0x28
+	u32 unk_2C;                 // loc=0x2C
+	u32 unk_30;                 // loc=0x30
+	u32 unk_34;                 // loc=0x34
+	u32 unk_38;                 // loc=0x38
+	u32 unk_3C;                 // loc=0x3C
+	u32 unk_40;                 // loc=0x40
+	u32 unk_44;                 // loc=0x44
+		u8 pad_48[0x14];           
+	u32 protected_zennies;      // loc=0x5C
+	u32 protected_bugFrags;     // loc=0x60
+	u32 unk_64;                 // loc=0x64
+	u32 unk_68;                 // loc=0x68
+	u32 unk_6C;                 // loc=0x6C
+	u32 unk_70;                 // loc=0x70
+		u8 pad_74[0x0C];           
 	// size=0x80
 }s_02001B80;
 

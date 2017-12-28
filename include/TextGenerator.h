@@ -17,7 +17,6 @@ static const char tg_ascii2GameText[128] =
 };
 
 void memcpy(void *dest, void *src, int size);
-
 int strlen(char* s);
 
 /**
@@ -46,7 +45,7 @@ void tg_createScriptList(uint16_t *scriptList, char* str, uint8_t mugshot);
  * [return]
  * r0_atScriptStart (false: 0, true: 1)
 */
-extern bool tg_atScriptStart(char* pScript);
+extern bool_t tg_atScriptStart(char* pScript);
 
 /**
  * Converts a r1_pText to gametext. Generates gametext at specified r2_pGameText

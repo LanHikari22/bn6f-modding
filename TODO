@@ -1,4 +1,4 @@
-Status  Objective
+giStatus  Objective
 
 BUG     VBA-rr not opening newly compiled ROM right away??? Needs a few tries
 START   Set up wingdb

@@ -4,36 +4,36 @@
 #include "../../inttypes.h"
 
 typedef struct {
-	uint8_t invisCtrlSwitch;     // loc=0x0
-	uint8_t unk_01;              // loc=0x1
-	uint8_t unk_02;              // loc=0x2
-		uint8_t pad_03[0x01];       
-	uint32_t unk_04;             // loc=0x4
-	uint8_t contTrigger;         // loc=0x8
-	uint8_t walkingFlag;         // loc=0x9
-	uint8_t unk_0A;              // loc=0xA
-		uint8_t pad_0B[0x01];       
-	uint8_t collision;           // loc=0xC
-		uint8_t pad_0D[0x03];       
-	uint8_t unk_10;              // loc=0x10
-	uint8_t unk_11;              // loc=0x11
-		uint8_t pad_12[0x02];       
-	uint8_t animationSelect;     // loc=0x14
-	uint8_t ROAnimationSel;      // loc=0x15
-		uint8_t pad_16[0x06];       
-	uint32_t x;                  // loc=0x1C
-	uint32_t y;                  // loc=0x20
-	uint32_t unk_24;             // loc=0x24
-	uint32_t RO_x;               // loc=0x28
-	uint32_t RO_y;               // loc=0x2C
-		uint8_t pad_30[0x1C];       
-	uint16_t unk_4C;             // loc=0x4C
-		uint8_t pad_4E[0x08];       
-	uint8_t unk_56;              // loc=0x56
-		uint8_t pad_57[0x51];       
-	uint32_t *unk_A8;            // loc=0xA8
-	uint32_t *unk_AC;            // loc=0xAC
-		uint8_t pad_B0[0x100];      
+	u8 invisCtrlSwitch;     // loc=0x0
+	u8 unk_01;              // loc=0x1
+	u8 unk_02;              // loc=0x2
+		u8 pad_03[0x01];       
+	u32 unk_04;             // loc=0x4
+	u8 contTrigger;         // loc=0x8
+	u8 walkingFlag;         // loc=0x9
+	u8 unk_0A;              // loc=0xA
+		u8 pad_0B[0x01];       
+	u8 collision;           // loc=0xC
+		u8 pad_0D[0x03];       
+	u8 unk_10;              // loc=0x10
+	u8 unk_11;              // loc=0x11
+		u8 pad_12[0x02];       
+	u8 animationSelect;     // loc=0x14
+	u8 ROAnimationSel;      // loc=0x15
+		u8 pad_16[0x06];       
+	u32 x;                  // loc=0x1C
+	u32 y;                  // loc=0x20
+	u32 unk_24;             // loc=0x24
+	u32 RO_x;               // loc=0x28
+	u32 RO_y;               // loc=0x2C
+		u8 pad_30[0x1C];       
+	u16 unk_4C;             // loc=0x4C
+		u8 pad_4E[0x08];       
+	u8 unk_56;              // loc=0x56
+		u8 pad_57[0x51];       
+	u32 *unk_A8;            // loc=0xA8
+	u32 *unk_AC;            // loc=0xAC
+		u8 pad_B0[0x100];      
 	// size=0x1B0
 }OWPlayer;
 

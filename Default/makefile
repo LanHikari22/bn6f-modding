@@ -1,41 +1,36 @@
-# nope... SHELL = /bin/sh 
 SRCDIR = ../src/
+SYSLIBDIR = C:/devkitPro/devkitARM/arm-none-eabi/lib/
 INC = ../include/
+
+# bin utils
 BIN = C:/devkitPro/devkitARM/bin
 CC = $(BIN)/arm-none-eabi-gcc
 LD = $(BIN)/arm-none-eabi-ld
-YACC = bison -y
-CDEBUG = 
-#CDEBUG = -g
+OBJCOPY = $(BIN)/arm-none-eabi-objcopy
+
 COMPLIANCE_FLAGS = -Wall -Wno-unknown-pragmas
+CDEBUG = 
 CFLAGS = $(COMPLIANCE_FLAGS) $(CDEBUG) -I. -I$(SRCDIR) # TODO: not used? in rom at least
-LDFLAGS =
-#LDFLAGS = -g
-LIBS = 
+LDFLAGS = -L
+
+# Add system libraries and custom libraries to include here
+LIB_LINK_FLAG = -l
+SYS_LIBS = c
+ABS_SYS_LIBS = $(addprefix $(LIB_LINK_FLAG), $(SYS_LIBS))
+LIBS = $(ABS_SYS_LIBS)
 
 #################################################################################################
 # List your sources here.  The sources are all of the .c files that are part of the project.
 SOURCES = main.c beep.c TextGenerator.c
+SYSTEM_SOURCES = libc.a
 ABS_SOURCES = $(addprefix $(SRCDIR), $(SOURCES))
-#################################################################################################
-
-#################################################################################################
-# list the name of your output program here. (i.e. myfirstprogram
-EXECUTABLE = hello
-#################################################################################################
-
-#################################################################################################
-# Memory map (.mmp) configuratio file specifying text segment and data segment(s) for injection
-MMP = ROM_Memory_Map.mmp
-# This option can be triggered (true/false) to supress the ROM_LINKER module's report
-SUPPRESS = false
 #################################################################################################
 
 #################################################################################################
 # list The ROM to build your program into. This file should be specified in this folder.
 ROM = mmbn6ge.gba
-# This is the backup living somewhere else. This is restored back when cleaning.
-BACKUP_ROM = ../mmbn6ge.gba
+# This is generated and is linked with the linker script to mod ROM
+PURE_ROM = mmbn6ge_pure.gba
 #################################################################################################
 
 #################################################################################################
@@ -47,15 +42,16 @@ OBJS = $(patsubst %.c, %.o, $(SOURCES))
 
 # include $(SOURCES:.c=.d) # TODO gives error
 
-# This handles compiling and ROMLinking
-rom:
-	$(CC) $(COMPLIANCE_FLAGS) -c $(LDFLAGS) $(ABS_SOURCES) $(LIBS) -I$(INC)
-	$(LD) -r -o $(COMBINED_OBJ) $(OBJS)
-	cp $(BACKUP_ROM) $(ROM)
-	java -jar ROM_LINKER.jar $(ROM) $(COMBINED_OBJ) $(MMP) $(SUPPRESS)
-	
-all : $(OBJS) $(EXECUTABLE)
+PURE_OBJCOPY_FLAGS = -O elf32-littlearm -B arm --rename-section .data=.rom --set-section-flags .rom="r,c,a"
 
+# This handles compiling and linking into ROM.
+build:
+	$(OBJCOPY) -I binary $(PURE_OBJCOPY_FLAGS) $(PURE_ROM) pure.o
+	$(CC) $(COMPLIANCE_FLAGS) -c $(ABS_SOURCES) -I$(INC)
+	$(LD) -T romlink.ld -o $(COMBINED_OBJ) $(OBJS) pure.o
+	$(OBJCOPY) --set-section-flags .rom="r,c,a" output.o
+	$(OBJCOPY) -O binary output.o $(ROM)
+	
 $(EXECUTABLE) : $(OBJS)
 	$(CC) $(COMPLIANCE_FLAGS) -o $(EXECUTABLE) $(LDFLAGS) $(OBJS) $(LIBS)
 	

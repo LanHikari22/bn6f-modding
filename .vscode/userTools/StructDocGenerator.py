@@ -2,6 +2,7 @@ import sys
 import re
 import StructPadder
 
+
 class DocEntry:
     table: dict # contains all values in this entry
     docs: str   # docs attached to this entry
@@ -280,7 +281,10 @@ def generateDoc(inputFile, mergeFile=None):
         if member.type == "uint8_t": _type = "u8"
         if member.type == "uint16_t": _type = "u16"
         if member.type == "uint32_t": _type = "u32"
-        if member.type in ["uint8_t*", "uint16_t*", "uint32_t*"]: _type += "*"
+        if member.type == "int8_t": _type = "i8"
+        if member.type == "int16_t": _type = "i16"
+        if member.type == "int32_t": _type = "i32"
+        if member.type in ["uint8_t*", "uint16_t*", "uint32_t*", "int8_t*", "int16_t*", "int32_t*"]: _type += "*"
         # if name is unk_<>, change it to ?
         name = member.name[:-1] # remove ;
         if len(name) > len('unk_') and name[0:4] == "unk_": name = '?'
@@ -303,10 +307,14 @@ def generateStruct(inputFile):
     for member in doc.members:
         _type = member.table["Type"]
         # if this is a primitive, change it from u<> to uint<>_t
-        if member.table["Type"] == "u8": _type = "uint8_t"
-        if member.table["Type"] == "u16": _type = "uint16_t"
-        if member.table["Type"] == "u32": _type = "uint32_t"
-        if member.table["Type"] in ["u8*", "u16*", "u32*"]: _type += "*"
+        if StructPadder.int_types_long:
+            if member.table["Type"] == "u8": _type = "uint8_t"
+            if member.table["Type"] == "u16": _type = "uint16_t"
+            if member.table["Type"] == "u32": _type = "uint32_t"
+            if member.table["Type"] == "i8": _type = "int8_t"
+            if member.table["Type"] == "i16": _type = "int16_t"
+            if member.table["Type"] == "i32": _type = "int32_t"
+            if member.table["Type"] in ["u8*", "u16*", "u32*, i8*", "i16*", "i32*"]: _type += "*"
         # if the name is a '?' make it unk_<offset>
         name = member.table["Name"] + ";"
         if name == '?;': name = "unk_%02X;" % member.table["Offset"]

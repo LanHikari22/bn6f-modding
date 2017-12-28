@@ -20,11 +20,11 @@
 /* Game-intrinsic Module **************************************************/
 
 /* pointers of interest **************************************************/
-#define pCurrBattle0 		((uint32_t*)0x020348BC) // todo seems to be more involved with battle. MIGHT BE A STRUCT
-#define pCurrBattle			((uint32_t*)0x02001B9C)
-// #define pCurrScript 		((uint32_t*)0x02009CFC)
-#define pCoords 			((uint32_t*)0x02009F60)  // those are sorta weird
-#define pBtlLauncher_navi 	((uint32_t*)0x0809A72C)
+#define pCurrBattle0 		((u32*)0x020348BC) // todo seems to be more involved with battle. MIGHT BE A STRUCT
+#define pCurrBattle			((u32*)0x02001B9C)
+// #define pCurrScript 		((u32*)0x02009CFC)
+#define pCoords 			((u32*)0x02009F60)  // those are sorta weird
+#define pBtlLauncher_navi 	((u32*)0x0809A72C)
 
 
 /* SpriteList in ROM ***************************************************/
@@ -42,7 +42,7 @@ h) 08032314
 i) 08032598
 j) 0803271C
 */
-#define pSpriteListSections ((uint32_t*)0x08031CC4)
+#define pSpriteListSections ((u32*)0x08031CC4)
 
 /**
 * Modifying the address of this pointer changes Lan's spirit.
@@ -50,7 +50,7 @@ j) 0803271C
 * changes Lan's address.
 * This is an array of pointers to actual data.
 */
-#define pNPCSprites ((uint32_t*)0x08031CDC)
+#define pNPCSprites ((u32*)0x08031CDC)
 
 
 /**
@@ -60,7 +60,7 @@ j) 0803271C
 * this has a size of 0x100. It includes the first 4 to 5 sections.
 */
 #pragma region Sections0To4
-#define pSpriteList_Sections0To4 ((uint32_t*)0x08031CEC)
+#define pSpriteList_Sections0To4 ((u32*)0x08031CEC)
 #define isL_Megaman             0x00
 #define isL_Heatbeast           0x01
 #define isL_Elecbeast           0x02
@@ -68,8 +68,8 @@ j) 0803271C
 #define isL_Killerbeast         0x04
 #define isL_Chargebeast         0x05
 #define isL_Spoutbeast          0x06
-#define isL_Tomahawkbeast       0x07
-#define isL_Tengubeast          0x08
+#define isLomahawkbeast       0x07
+#define isLengubeast          0x08
 #define isL_Groundbeast         0x09
 #define isL_Dustbeast           0x0A
 #define isL_GBeast              0x0B
@@ -85,7 +85,7 @@ j) 0803271C
 #define isL_Catack              0x15
 #define isL_Champy              0x16
 #define isL_WindBox             0x17
-#define isL_Trumpy              0x18
+#define isLrumpy              0x18
 #define isL_OldStove            0x19
 #define isL_HauntedCandle       0x1A
 #define isL_Kettle              0x1B
@@ -106,7 +106,7 @@ j) 0803271C
 #define isL_Cragger             0x2A
 #define isL_Nightmare           0x2B
 #define isL_WhiteDot2            0x2C
-#define isL_TomahawkMiniGame	0x2D // Totem(TomahawkMiniGame)
+#define isLomahawkMiniGame	0x2D // Totem(TomahawkMiniGame)
 #define isL_WhiteDot3            0x2E
 #define isL_Heatman             0x2F
 #define isL_Elecman             0x30
@@ -114,8 +114,8 @@ j) 0803271C
 #define isL_Killerman           0x32
 #define isL_Chargeman           0x33
 #define isL_Spoutman            0x34
-#define isL_Tomahawkman         0x35
-#define isL_Tenguman            0x36
+#define isLomahawkman         0x35
+#define isLenguman            0x36
 #define isL_Groundman           0x37
 #define isL_Dustman             0x38
 #define isL_Protoman            0x39
@@ -138,12 +138,12 @@ j) 0803271C
 #define isL_BeastOut            0x4A
 #define isL_Nothing_glitchy	    0x4B // Glitchy
 #define isL_Aura                0x4C
-#define isL_TankCannon          0x4D
+#define isLankCannon          0x4D
 #define isL_LockOnTarget        0x4E // (BeastOut)
 #define isL_F_BeastWings        0x4F // (............thiscouldbehelpful)
 #define isL_YoYoBlade           0x50
 #define isL_YoYoLauncher        0x51
-#define isL_TomahawkCross       0x52
+#define isLomahawkCross       0x52
 #define isL_Flame_sideways      0x53
 #define isL_WhiteDot6            0x54
 #define isL_SpoutCCSC		 	0x55 // SpoutCrossChargeShotCannon
@@ -152,8 +152,8 @@ j) 0803271C
 #define isL_DoublePointSphere   0x58
 #define isL_WideSlash           0x59
 #define isL_LifeSwordSlash      0x5A
-#define isL_TornadoArmAttachment 0x5B
-#define isL_Tornado             0x5C
+#define isLornadoArmAttachment 0x5B
+#define isLornado             0x5C
 #define isL_AirShot				0x5D // (armAttachmentthatshoots)
 #define isL_SpreaderCannon      0x5E
 #define isL_Bubbles             0x5F
@@ -165,14 +165,14 @@ j) 0803271C
 #define isL_BubbleWrap          0x65
 #define isL_F_BeastFeather      0x66
 #define isL_Mine                0x67
-#define isL_TimeBomb            0x68
+#define isLimeBomb            0x68
 #define isL_BlackBomb           0x69
 #define isL_AquaTower           0x6A
 #define isL_WhiteDot7            0x6B
 #define isL_WindRack            0x6C
 #define isL_WindRackSlash       0x6D
 #define isL_SomeKindofGun       0x6E // SomeKindofGun.....HELP?
-#define isL_TrainArrowGun       0x6F
+#define isLrainArrowGun       0x6F
 #define isL_CornShot            0x70
 #define isL_Snake               0x71
 #define isL_Holeinthefloor      0x72 // ?
@@ -206,14 +206,14 @@ j) 0803271C
 #define isL_WhiteDot15            0x8E
 #define isL_WhiteDot16            0x8F
 #define isL_Beat                0x90
-#define isL_Tango               0x91
-#define isL_ThingTangoGives     0x92
+#define isLango               0x91
+#define isLhingTangoGives     0x92
 #define isL_WhiteDot17            0x93
 #define isL_BatCannon           0x94
 #define isL_Roll                0x95
 #define isL_Eleccross           0x96
 #define isL_Slashcross          0x97
-#define isL_Tengucross          0x98
+#define isLengucross          0x98
 #define isL_Erasecross          0x99
 #define isL_Chargecross         0x9A
 #define isL_WhiteDot18            0x9B
@@ -222,7 +222,7 @@ j) 0803271C
 #define isL_WideShotLauncher    0x9E
 #define isL_WhiteDot20            0x9F
 #define isL_WhiteDot21            0xA0
-#define isL_TengucrossArm       0xA1
+#define isLengucrossArm       0xA1
 #define isL_RollingLogLauncher  0xA2
 #define isL_RiskyHoneyLauncher  0xA3
 #define isL_ElecPulseLauncher   0xA4
@@ -245,8 +245,8 @@ j) 0803271C
 #define isL_Boomer              0xB5
 #define isL_Rock_obstacle       0xB6
 #define isL_GregarHead          0xB7
-#define isL_TankCannonExplosion 0xB8
-#define isL_TankCannonGunpowder 0xB9
+#define isLankCannonExplosion 0xB8
+#define isLankCannonGunpowder 0xB9
 #define isL_InBattleGMD         0xBA
 #define isL_HellzRolling        0xBB
 #define isL_DeltaRay            0xBC
@@ -257,7 +257,7 @@ j) 0803271C
 #define isL_ElectricityConductor 0xC1
 #define isL_WhiteDot26            0xC2
 #define isL_WhiteDot27            0xC3
-#define isL_ThunderBall         0xC4
+#define isLhunderBall         0xC4
 #define isL_AquaNeedle          0xC5
 #define isL_WhiteDot28            0xC6
 #define isL_HeatmanFireHands    0xC7
@@ -276,9 +276,9 @@ j) 0803271C
 #define isL_Smallexplosiononground 0xD4 // (couldbebassrake)
 #define isL_MachineGunTarget    0xD5
 #define isL_MachineGunFire      0xD6
-#define isL_Tomahawkmantotempole 0xD7
-#define isL_TomahawmanEagle     0xD8
-#define isL_Tomahawkthrow       0xD9
+#define isLomahawkmantotempole 0xD7
+#define isLomahawmanEagle     0xD8
+#define isLomahawkthrow       0xD9
 #define isL_EagleTomahawkShockwave 0xDA
 #define isL_Unknown02             0xDB
 #define isL_SpoutbeastAquaWhirl 0xDC
@@ -302,7 +302,7 @@ j) 0803271C
 #define isL_ElecPulse           0xEE
 #define isL_SlashX              0xEF
 #define isL_SpoutmanLargeSpout  0xD0
-#define isL_TenguTornado        0xF0
+#define isLenguTornado        0xF0
 #define isL_MagCoil             0xF1
 #define isL_FalzarTornado       0xF2
 #define isL_MagnumCursor        0xF3
@@ -358,7 +358,7 @@ j) 0803271C
 
 #define apply_NCP_effect 0x0801379F
 
-#define u8Array_to_u32 0x080A0B3A
+#define u8Arrayo_u32 0x080A0B3A
 
 /* Unnamed */
 #define s_8041CC4 0x8041CC4

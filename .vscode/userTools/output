@@ -1,99 +1,13 @@
 [Header]
-		[Name] ChatBoxPropreties
-		[Size] 0x98
-		[Offset] 0x02009CD0
-		[Description]
-Offset  Type  Name                 
-0x00    u8    visible              
-		bool.
-		- if 0, not visible, otherwise chatbox is visible when
-		initiated
-		.# enable bit for textbox? Only Hides textbox when in-chat.
-0x01    u8    scriptID             
-0x02    u8    currLine             
-		- This changes whenever the text reaches a new line!
-0x03    u8    ?                    
-0x04    u8    ?                    
-		- Might be currLine of cursor?
-0x05    u8    ?                    
-		- =0xFF: Cannot leave chatbox
-		- values other than 0x00 just make character spam animate until interacted to?
-		And when pressing a button, the character stops and the chatbox no longer is responsive
-0x07    u8    mugshotPalleteSel    
-		- Seems to select the magshot pallete
-0x08    u8    typingSpeed          
-		- Mugshot animation speed is not affected
-0x09    u8    typingPauseTimer     
-		- It seems like the mugshot animation may be synced to this by code, but also not.
-		- The text freezes until it counts to 0. Then everything continues as normal. 
-		- In normal operation, this is set to 1, so it counts down to 0 again immediately before reset to 1 again
-0x0A    u8    ?                    
-0x0B    u8    ?                    
-0x0C    u8    ?                    
-0x0E    u8    ?                    
-0x0F    u8    ?                    
-0x10    u8    ?                    
-		[0xZZ]
-		.# determines textbox width and content state
-0x11    u8    ?                    
-0x12    u8    ?                    
-0x13    u8    ?                    
-0x14    u8    ?                    
-0x15    u8    ?                    
-0x16    u8    ?                    
-0x17    u8    ?                    
-0x18    u8    textCoord            
-		[0xYYXX] <textCoord>
-		.# coord of text body
-0x19    u8    ?                    
-0x1A    u8    csrCoord             
-		[0xYYXX] <csrCoord>
-		.# coord of text cursor
-0x1B    u8    ?                    
-0x1C    u8    ?                    
-		[0xPPPPYYXX]
-		.# textbox gfx pointer? (0x081E0C00)
-0x1D    u8    ?                    
-0x1E    u8    ?                    
-0x1F    u8    ?                    
-0x22    u16   keyState_onChip      
-		[0xKKKK] <keyState_onChip>
-		.# keyState (only active on-chat)
-0x24    u16   ?                    
-		[0xKKKK]
-		.# KeyState? (Unexplored behavior)
-0x26    u16   ?                    
-0x2C    u32   pCurrScript          
-		[0xPPPPPPPP] <pCurrScript>.
-		.# changing causes mouth animations.
-		0x9C	u8		RelScriptId
-		[0xZZ] <RelScriptID?>
-		.# more likely to be a scriptID than 0x01!
-		.# doesnt change while interacting with obj!
-		.# (?)
-0x30    u32   pScript              
-0x34    u32   ?                    
-0x38    u32   ?                    
-0x3D    u8    ?                    
-0x3E    u16   ?                    
-0x40    u32   ?                    
-0x44    u32   ?                    
-0x4C    u32   ?                    
-0x50    u32   ?                    
-0x54    u32   ?                    
-0x58    u32   ?                    
-0x64    u16   ?                    
-0x68    u16   ?                    
-0x6A    u16   ?                    
-0x6C    u16   ?                    
-0x6E    u16   ?                    
-0x70    u32   ?                    
-0x74    u32   ?                    
-0x78    u32   ?                    
-0x7C    u32   ?                    
-0x80    u8    ?                    
-0x84    u32   ?                    
-0x88    u32   ?                    
-0x90    u32   ?                    
-0x94    u8    ?                    
-
+	[Name] BattleSettings
+	[Size] 0x10
+	[Description]
+Offset  Type  Name                        
+0x00    u8    battlefield                 
+0x02    u8    music                       
+0x03    u8    battleType                  
+0x04    u8    background                  
+0x05    u8    battleNumber                
+0x06    u8    battlefieldSidesModifier    
+0x08    u32   UnknownOptionalSettings     
+0x0C    u32   *pEnemySetup                

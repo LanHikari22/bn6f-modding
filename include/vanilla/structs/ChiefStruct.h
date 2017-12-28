@@ -13,41 +13,41 @@ typedef enum {
 }Keys;
 
 typedef struct {
-	uint16_t keyState;            // loc=0x0
-	uint16_t IQR;                     // loc=0x2
-	uint16_t keyPress;            // loc=0x4
-	uint16_t keyState_dup;        // loc=0x6
-	uint8_t A_holdTimer;          // loc=0x8
-	uint8_t B_holdTimer;          // loc=0x9
-	uint8_t Select_holdTimer;     // loc=0xA
-	uint8_t Start_holdTimer;      // loc=0xB
-	uint8_t Right_holdTimer;      // loc=0xC
-	uint8_t Left_holdTimer;       // loc=0xD
-	uint8_t Up_holdTimer;         // loc=0xE
-	uint8_t Down_holdTimer;       // loc=0xF
-	uint8_t L_holdTimer;          // loc=0x10
-	uint8_t R_holdTimer;          // loc=0x11
-		uint8_t pad_12[0x01];        
-	uint8_t Counter;              // loc=0x13
-	uint32_t unk_14;              // loc=0x14
+	u16 keyState;            // loc=0x0
+	u16 IQR;                     // loc=0x2
+	u16 keyPress;            // loc=0x4
+	u16 keyState_dup;        // loc=0x6
+	u8 A_holdTimer;          // loc=0x8
+	u8 B_holdTimer;          // loc=0x9
+	u8 Select_holdTimer;     // loc=0xA
+	u8 Start_holdTimer;      // loc=0xB
+	u8 Right_holdTimer;      // loc=0xC
+	u8 Left_holdTimer;       // loc=0xD
+	u8 Up_holdTimer;         // loc=0xE
+	u8 Down_holdTimer;       // loc=0xF
+	u8 L_holdTimer;          // loc=0x10
+	u8 R_holdTimer;          // loc=0x11
+		u8 pad_12[0x01];        
+	u8 Counter;              // loc=0x13
+	u32 unk_14;              // loc=0x14
 	// size=0x18
 }Joystick;
 
 typedef struct {
-	uint16_t unk_00;    // loc=0x0
-	uint16_t unk_02;    // loc=0x2
-	uint16_t unk_04;    // loc=0x4 CONFLICT u32
-	uint16_t unk_06;    // loc=0x6
-	uint16_t unk_08;    // loc=0x8 CONFLICT u32
-	uint16_t unk_0A;    // loc=0xA
-	uint16_t unk_0C;    // loc=0xC
-	uint16_t unk_0E;    // loc=0xE
-	uint16_t unk_10;    // loc=0x10
-	uint16_t unk_12;    // loc=0x12
-	uint16_t unk_14;    // loc=0x14
-	uint16_t unk_16;    // loc=0x16
-	uint16_t unk_18;    // loc=0x18
-	uint16_t unk_1A;    // loc=0x1A
+	u16 unk_00;    // loc=0x0
+	u16 unk_02;    // loc=0x2
+	u16 unk_04;    // loc=0x4 CONFLICT u32
+	u16 unk_06;    // loc=0x6
+	u16 unk_08;    // loc=0x8 CONFLICT u32
+	u16 unk_0A;    // loc=0xA
+	u16 unk_0C;    // loc=0xC
+	u16 unk_0E;    // loc=0xE
+	u16 unk_10;    // loc=0x10
+	u16 unk_12;    // loc=0x12
+	u16 unk_14;    // loc=0x14
+	u16 unk_16;    // loc=0x16
+	u16 unk_18;    // loc=0x18
+	u16 unk_1A;    // loc=0x1A
 	// size=0x1C
 }s_0200AC40;
 
@@ -92,7 +92,7 @@ typedef struct{
 	void *unk_84;                // loc=0x84
 	void *unk_88;                // loc=0x88
 	void *unk_8C;                // loc=0x8C
-	uint32_t unk_90;             // loc=0x90
+	u32 unk_90;             // loc=0x90
 	// size=0x94
 }ChiefStruct;
 

@@ -2,7 +2,9 @@
     "files.associations": {
         "mmbn6.h": "c",
         "inttypes.h": "c",
-        "npc.h": "c"
+        "npc.h": "c",
+        "string.h": "c",
+        "chiefstruct.h": "c"
     },
     "C_Cpp.intelliSenseEngineFallback": "Enabled"
 }

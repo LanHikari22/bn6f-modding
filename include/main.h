@@ -4,6 +4,9 @@
 #include <vanilla/MMBN6.h>
 #include <vanilla/structs/ChiefStruct.h>
 
+/* All supported System code is here */
+// #include <string.h>
+
 /**
 * Calls an arbitrary function pointer to code in THUMB mode.
 * This converts to THUMB to make the call, then converts back to ARM
@@ -63,9 +66,6 @@
 	asm("mov lr, r7"); \
 })
 
-#define NULL ((void *)0)
-typedef char bool;
-#define true 1
-#define false 0
+uint32_t *p;
 
 #endif // MAIN_H

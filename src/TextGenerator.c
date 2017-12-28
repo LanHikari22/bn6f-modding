@@ -1,5 +1,4 @@
 #include <TextGenerator.h>
-#include <inttypes.h>
 
 void memcpy(void *dest, void *src, int size){
     for(int i = 0; i<size; i++){
@@ -22,12 +21,12 @@ int strlen(char* s){
  * Prints a message using the chatbox!
  */
 void tg_chatPrint(char* str, uint8_t mugshot){	
-	uint32_t *d = 0x02050000;
-	d[0x60>>2] = str;
+	p[0x60>>2] = (u32)str;
 	tg_createScriptList((uint16_t*)0x02050040, str, mugshot);
 	int register r0 asm("r0") = 0x02050040;
 	int register r1 asm("r1") = 0x00; // halfword offset to start from in script
 	int register r5 asm("r5") = sChief->chatbox;
+	// r5 = r5 + 0*(r0 + r1); // a damn hacky way of removing warnings
 	callThumb(chatbox_run_script);
 }
 
@@ -53,7 +52,7 @@ void tg_createScriptList(uint16_t *scriptList, char* str, uint8_t mugshot){
  * [return]
  * r0_atScriptStart (false: 0, true: 1)
 */
-bool tg_atScriptStart(char* pScript){
+bool_t tg_atScriptStart(char* pScript){
 	return pScript[0] == 0xE8 && pScript[1] == 0x00;
 }
 

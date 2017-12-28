@@ -11,133 +11,133 @@ typedef struct {
 }s_080182C4;
 
 typedef struct {
-	uint8_t naviVirusIndicator;        // loc=0x0
-	uint8_t AI_index;                  // loc=0x1
-	uint8_t unk_02;                    // loc=0x2
-	uint8_t unk_03;                    // loc=0x3
-		uint8_t pad_04[0x05];             
-	uint8_t unk_09;                    // loc=0x9
-		uint8_t pad_0A[0x02];             
-	uint8_t unk_0C;                    // loc=0xC
-		uint8_t pad_0D[0x01];             
-	uint8_t unk_0E;                    // loc=0xE
-		uint8_t pad_0F[0x03];             
-	uint8_t unk_12;                    // loc=0x12
-		uint8_t pad_13[0x03];             
-	uint8_t level;                     // loc=0x16
-	uint8_t level2;                    // loc=0x17
-		uint8_t pad_18[0x01];             
-	uint8_t unk_19;                    // loc=0x19
-	uint8_t unk_1A;                    // loc=0x1A
-	uint8_t unk_1B;                    // loc=0x1B
-		uint8_t pad_1C[0x01];             
-	uint8_t unk_1D;                    // loc=0x1D
-	uint8_t unk_1E;                    // loc=0x1E
-		uint8_t pad_1F[0x01];             
-	uint16_t totalDamageReceived;      // loc=0x20
-	uint16_t keysHeld;                 // loc=0x22
-	uint16_t keysDown;                 // loc=0x24
-	uint16_t keysUp;                   // loc=0x26
-	uint16_t prevKeysHeld;             // loc=0x28
-		uint8_t pad_2A[0x08];             
-	uint16_t unk_32;                   // loc=0x32
-	uint16_t isAngry;                  // loc=0x34
-	uint16_t unk_36;                   // loc=0x36
-	uint16_t unk_38;                   // loc=0x38
-		uint8_t pad_3A[0x02];             
-	uint16_t unk_3C;                   // loc=0x3C
-		uint8_t pad_3E[0x02];             
-	uint32_t unk_40;                   // loc=0x40
-	uint32_t unk_44;                   // loc=0x44
-	uint32_t unk_48;                   // loc=0x48
-		uint8_t pad_4C[0x08];             
-	uint32_t unk_54;                   // loc=0x54
-		uint8_t pad_58[0x08];             
-	uint32_t unk_60;                   // loc=0x60
-		uint8_t pad_64[0x04];             
-	uint32_t unk_68;                   // loc=0x68
-		uint8_t pad_6C[0x08];             
-	uint32_t unk_74;                   // loc=0x74
-	uint32_t unk_78;                   // loc=0x78
-	uint32_t unk_7C;                   // loc=0x7C
-	uint8_t AI_state[0x20];            // loc=0x80 size=0x20
-	uint8_t attackVarRegion[0x50];     // loc=0xA0 size=0x50
-		uint8_t pad_F0[0x10];             
+	u8 naviVirusIndicator;        // loc=0x0
+	u8 AI_index;                  // loc=0x1
+	u8 unk_02;                    // loc=0x2
+	u8 unk_03;                    // loc=0x3
+		u8 pad_04[0x05];             
+	u8 unk_09;                    // loc=0x9
+		u8 pad_0A[0x02];             
+	u8 unk_0C;                    // loc=0xC
+		u8 pad_0D[0x01];             
+	u8 unk_0E;                    // loc=0xE
+		u8 pad_0F[0x03];             
+	u8 unk_12;                    // loc=0x12
+		u8 pad_13[0x03];             
+	u8 level;                     // loc=0x16
+	u8 level2;                    // loc=0x17
+		u8 pad_18[0x01];             
+	u8 unk_19;                    // loc=0x19
+	u8 unk_1A;                    // loc=0x1A
+	u8 unk_1B;                    // loc=0x1B
+		u8 pad_1C[0x01];             
+	u8 unk_1D;                    // loc=0x1D
+	u8 unk_1E;                    // loc=0x1E
+		u8 pad_1F[0x01];             
+	u16 totalDamageReceived;      // loc=0x20
+	u16 keysHeld;                 // loc=0x22
+	u16 keysDown;                 // loc=0x24
+	u16 keysUp;                   // loc=0x26
+	u16 prevKeysHeld;             // loc=0x28
+		u8 pad_2A[0x08];             
+	u16 unk_32;                   // loc=0x32
+	u16 isAngry;                  // loc=0x34
+	u16 unk_36;                   // loc=0x36
+	u16 unk_38;                   // loc=0x38
+		u8 pad_3A[0x02];             
+	u16 unk_3C;                   // loc=0x3C
+		u8 pad_3E[0x02];             
+	u32 unk_40;                   // loc=0x40
+	u32 unk_44;                   // loc=0x44
+	u32 unk_48;                   // loc=0x48
+		u8 pad_4C[0x08];             
+	u32 unk_54;                   // loc=0x54
+		u8 pad_58[0x08];             
+	u32 unk_60;                   // loc=0x60
+		u8 pad_64[0x04];             
+	u32 unk_68;                   // loc=0x68
+		u8 pad_6C[0x08];             
+	u32 unk_74;                   // loc=0x74
+	u32 unk_78;                   // loc=0x78
+	u32 unk_7C;                   // loc=0x7C
+	u8 AI_state[0x20];            // loc=0x80 size=0x20
+	u8 attackVarRegion[0x50];     // loc=0xA0 size=0x50
+		u8 pad_F0[0x10];             
 	// size=0x100
 }AI;
 
 typedef struct {
-	uint8_t enable;                         // loc=0x0
-	uint8_t collisionRegion;                // loc=0x1
-	uint8_t primaryElement;                 // loc=0x2
-	uint8_t unk_03;                         // loc=0x3
-	uint8_t alliance;                       // loc=0x4
-	uint8_t flip;                           // loc=0x5
-	uint8_t unk_06;                         // loc=0x6
-	uint8_t staminaDmg_counterDisabler;     // loc=0x7
-	uint8_t poisonPanelTimer;               // loc=0x8
-		uint8_t pad_09[0x01];                  
-	uint8_t panelX;                         // loc=0xA
-	uint8_t panelY;                         // loc=0xB
-	uint8_t direction;                      // loc=0xC
-	uint8_t counterTimer;                   // loc=0xD
-	uint8_t hitModifierBase;                // loc=0xE
-	uint8_t hitModifierFinal;               // loc=0xF
-	uint8_t statusEffectBase;               // loc=0x10
-	uint8_t statusEffectFinal;              // loc=0x11
-	uint16_t bugs;                          // loc=0x12
-		uint8_t pad_14[0x04];                  
-	uint8_t secondaryElementWeakness;       // loc=0x18
-	uint8_t secondaryElement;               // loc=0x19
-		uint8_t pad_1A[0x02];                  
-	uint16_t unk_1C;                        // loc=0x1C
-	uint16_t unk_1E;                        // loc=0x1E
-	uint16_t unk_20;                        // loc=0x20
-	uint16_t unk_22;                        // loc=0x22
-	uint16_t unk_24;                        // loc=0x24
-	uint16_t unk_26;                        // loc=0x26
-	uint16_t unk_28;                        // loc=0x28
-	uint16_t unk_2A;                        // loc=0x2A
-	uint16_t unk_2C;                        // loc=0x2C
-	uint16_t selfDamage;                    // loc=0x2E
-	uint32_t selfCollisionTypeFlags;        // loc=0x30
-	uint32_t targetCollisionTypeFlags;      // loc=0x34
-	uint32_t *parentObject;                 // loc=0x38
-	uint32_t objectFlags;                   // loc=0x3C
-	uint32_t objectFlags2;                  // loc=0x40
-	uint32_t collisionIndexBit;             // loc=0x44
-	uint32_t unk_48;                        // loc=0x48
-	uint32_t unk_4C;                        // loc=0x4C
-		uint8_t pad_50[0x04];                  
-	uint32_t unk_54;                        // loc=0x54
-		uint8_t pad_58[0x08];                  
-	uint32_t unk_60;                        // loc=0x60
-	uint32_t unk_64;                        // loc=0x64
-	uint32_t unk_68;                        // loc=0x68
-	uint32_t unk_6C;                        // loc=0x6C
-	uint32_t collisionFlags;                // loc=0x70
-	uint8_t factorialIndicator;             // loc=0x74
-	uint8_t damageMultiplier;               // loc=0x75
-	uint8_t damageElements;                 // loc=0x76
-	uint8_t unk_77;                         // loc=0x77
-	uint16_t unk_78;                        // loc=0x78
-		uint8_t pad_7A[0x02];                  
-	uint32_t unk_7C;                        // loc=0x7C
-	uint16_t finalDamage;                   // loc=0x80
-	uint16_t panelDamage1;                  // loc=0x82
-	uint16_t panelDamage2;                  // loc=0x84
-	uint16_t panelDamage3;                  // loc=0x86
-	uint16_t panelDamage4;                  // loc=0x88
-	uint16_t panelDamage5;                  // loc=0x8A
-	uint16_t panelDamage6;                  // loc=0x8C
-	uint16_t unk_8E;                        // loc=0x8E
-	uint16_t unk_90;                        // loc=0x90
-	uint16_t unk_92;                        // loc=0x92
-	uint16_t unk_94;                        // loc=0x94
-		uint8_t pad_96[0x0A];                  
-	uint32_t unk_A0;                        // loc=0xA0
-	uint8_t inflictedBugs;                  // loc=0xA4
-		uint8_t pad_A5[0x03];                  
+	u8 enable;                         // loc=0x0
+	u8 collisionRegion;                // loc=0x1
+	u8 primaryElement;                 // loc=0x2
+	u8 unk_03;                         // loc=0x3
+	u8 alliance;                       // loc=0x4
+	u8 flip;                           // loc=0x5
+	u8 unk_06;                         // loc=0x6
+	u8 staminaDmg_counterDisabler;     // loc=0x7
+	u8 poisonPanelTimer;               // loc=0x8
+		u8 pad_09[0x01];                  
+	u8 panelX;                         // loc=0xA
+	u8 panelY;                         // loc=0xB
+	u8 direction;                      // loc=0xC
+	u8 counterTimer;                   // loc=0xD
+	u8 hitModifierBase;                // loc=0xE
+	u8 hitModifierFinal;               // loc=0xF
+	u8 statusEffectBase;               // loc=0x10
+	u8 statusEffectFinal;              // loc=0x11
+	u16 bugs;                          // loc=0x12
+		u8 pad_14[0x04];                  
+	u8 secondaryElementWeakness;       // loc=0x18
+	u8 secondaryElement;               // loc=0x19
+		u8 pad_1A[0x02];                  
+	u16 unk_1C;                        // loc=0x1C
+	u16 unk_1E;                        // loc=0x1E
+	u16 unk_20;                        // loc=0x20
+	u16 unk_22;                        // loc=0x22
+	u16 unk_24;                        // loc=0x24
+	u16 unk_26;                        // loc=0x26
+	u16 unk_28;                        // loc=0x28
+	u16 unk_2A;                        // loc=0x2A
+	u16 unk_2C;                        // loc=0x2C
+	u16 selfDamage;                    // loc=0x2E
+	u32 selfCollisionTypeFlags;        // loc=0x30
+	u32 targetCollisionTypeFlags;      // loc=0x34
+	u32 *parentObject;                 // loc=0x38
+	u32 objectFlags;                   // loc=0x3C
+	u32 objectFlags2;                  // loc=0x40
+	u32 collisionIndexBit;             // loc=0x44
+	u32 unk_48;                        // loc=0x48
+	u32 unk_4C;                        // loc=0x4C
+		u8 pad_50[0x04];                  
+	u32 unk_54;                        // loc=0x54
+		u8 pad_58[0x08];                  
+	u32 unk_60;                        // loc=0x60
+	u32 unk_64;                        // loc=0x64
+	u32 unk_68;                        // loc=0x68
+	u32 unk_6C;                        // loc=0x6C
+	u32 collisionFlags;                // loc=0x70
+	u8 factorialIndicator;             // loc=0x74
+	u8 damageMultiplier;               // loc=0x75
+	u8 damageElements;                 // loc=0x76
+	u8 unk_77;                         // loc=0x77
+	u16 unk_78;                        // loc=0x78
+		u8 pad_7A[0x02];                  
+	u32 unk_7C;                        // loc=0x7C
+	u16 finalDamage;                   // loc=0x80
+	u16 panelDamage1;                  // loc=0x82
+	u16 panelDamage2;                  // loc=0x84
+	u16 panelDamage3;                  // loc=0x86
+	u16 panelDamage4;                  // loc=0x88
+	u16 panelDamage5;                  // loc=0x8A
+	u16 panelDamage6;                  // loc=0x8C
+	u16 unk_8E;                        // loc=0x8E
+	u16 unk_90;                        // loc=0x90
+	u16 unk_92;                        // loc=0x92
+	u16 unk_94;                        // loc=0x94
+		u8 pad_96[0x0A];                  
+	u32 unk_A0;                        // loc=0xA0
+	u8 inflictedBugs;                  // loc=0xA4
+		u8 pad_A5[0x03];                  
 	// size=0xA8
 }CollisionData;
 
@@ -148,57 +148,57 @@ typedef struct {
 * Length: 0xD8 bytes
 */
 typedef struct {
-	uint8_t objFlags;                        // loc=0x0
-	uint8_t objIndex;                        // loc=0x1
-	uint8_t objTypeSpriteOff;                // loc=0x2
-	uint8_t objMemIndex;                     // loc=0x3
-	uint32_t objParams;                      // loc=0x4
-	uint8_t currState;                       // loc=0x8
-	uint8_t currAction;                      // loc=0x9
-	uint8_t currPhase;                       // loc=0xA
-	uint8_t phaseInitialized;                // loc=0xB
-		uint8_t pad_0C[0x01];                   
-	uint8_t unk_0D;                          // loc=0xD
-	uint8_t Element;                         // loc=0xE
-	uint8_t unk_0F;                          // loc=0xF
-	uint8_t currAnimation;                   // loc=0x10
-	uint8_t currAnimationCpy;                // loc=0x11
-	uint8_t panelX;                          // loc=0x12
-	uint8_t panelY;                          // loc=0x13
-	uint8_t futurePanelX;                    // loc=0x14
-	uint8_t futurePanelY;                    // loc=0x15
-	uint8_t Alliance;                        // loc=0x16
-	uint8_t directionFlip;                   // loc=0x17
-	uint8_t preventAnimation;                // loc=0x18
-	uint8_t unk_19;                          // loc=0x19
-	uint8_t chipsHeld;                       // loc=0x1A
-		uint8_t pad_1B[0x01];                   
-	uint8_t unk_1C;                          // loc=0x1C
-	uint8_t unk_1D;                          // loc=0x1D
-		uint8_t pad_1E[0x01];                   
-	uint8_t unk_1F;                          // loc=0x1F
-	uint16_t Timer;                          // loc=0x20
-	uint16_t Timer2;                         // loc=0x22
-	uint16_t HP;                             // loc=0x24
-	uint16_t maxHP;                          // loc=0x26
-	uint16_t nameID;                         // loc=0x28
-	uint16_t chip;                           // loc=0x2A
-	uint16_t damage;                         // loc=0x2C
-	uint16_t staminaDmg_counterDisabler;     // loc=0x2E
-	uint16_t unk_30;                         // loc=0x30
-	uint16_t unk_32;                         // loc=0x32
-	uint32_t x;                              // loc=0x34
-	uint32_t y;                              // loc=0x38
-	uint32_t z;                              // loc=0x3C
-	uint32_t vx;                             // loc=0x40
-	uint32_t vy;                             // loc=0x44
-	uint32_t vz;                             // loc=0x48
-	uint32_t *parent;                        // loc=0x4C
-	uint32_t *childobject2;                  // loc=0x50
+	u8 objFlags;                        // loc=0x0
+	u8 objIndex;                        // loc=0x1
+	u8 objTypeSpriteOff;                // loc=0x2
+	u8 objMemIndex;                     // loc=0x3
+	u32 objParams;                      // loc=0x4
+	u8 currState;                       // loc=0x8
+	u8 currAction;                      // loc=0x9
+	u8 currPhase;                       // loc=0xA
+	u8 phaseInitialized;                // loc=0xB
+		u8 pad_0C[0x01];                   
+	u8 unk_0D;                          // loc=0xD
+	u8 Element;                         // loc=0xE
+	u8 unk_0F;                          // loc=0xF
+	u8 currAnimation;                   // loc=0x10
+	u8 currAnimationCpy;                // loc=0x11
+	u8 panelX;                          // loc=0x12
+	u8 panelY;                          // loc=0x13
+	u8 futurePanelX;                    // loc=0x14
+	u8 futurePanelY;                    // loc=0x15
+	u8 Alliance;                        // loc=0x16
+	u8 directionFlip;                   // loc=0x17
+	u8 preventAnimation;                // loc=0x18
+	u8 unk_19;                          // loc=0x19
+	u8 chipsHeld;                       // loc=0x1A
+		u8 pad_1B[0x01];                   
+	u8 unk_1C;                          // loc=0x1C
+	u8 unk_1D;                          // loc=0x1D
+		u8 pad_1E[0x01];                   
+	u8 unk_1F;                          // loc=0x1F
+	u16 Timer;                          // loc=0x20
+	u16 Timer2;                         // loc=0x22
+	u16 HP;                             // loc=0x24
+	u16 maxHP;                          // loc=0x26
+	u16 nameID;                         // loc=0x28
+	u16 chip;                           // loc=0x2A
+	u16 damage;                         // loc=0x2C
+	u16 staminaDmg_counterDisabler;     // loc=0x2E
+	u16 unk_30;                         // loc=0x30
+	u16 unk_32;                         // loc=0x32
+	u32 x;                              // loc=0x34
+	u32 y;                              // loc=0x38
+	u32 z;                              // loc=0x3C
+	u32 vx;                             // loc=0x40
+	u32 vy;                             // loc=0x44
+	u32 vz;                             // loc=0x48
+	u32 *parent;                        // loc=0x4C
+	u32 *childobject2;                  // loc=0x50
 	CollisionData *collisionData;                  // loc=0x54
 	AI *ai;                             // loc=0x58
-	uint32_t unk_5C;                         // loc=0x5C
-	uint8_t extraVars[0x2C];                 // loc=0x60 size=0x2C
+	u32 unk_5C;                         // loc=0x5C
+	u8 extraVars[0x2C];                 // loc=0x60 size=0x2C
 	// size=0x8C
 }Battle;
 

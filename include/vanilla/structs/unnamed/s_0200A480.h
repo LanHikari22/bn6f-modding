@@ -5,15 +5,15 @@
 
 
 typedef struct{
-	uint8_t gameSubsysSel;     // loc=0x0
-		uint8_t pad_1[0x3]; // loc=0x1
-	uint8_t unk_04;     // loc=0x4
-		uint8_t pad_5[0xB]; // loc=0x5
-	uint32_t unk_10;    // loc=0x10
-	uint8_t unk_14;     // loc=0x14
-		uint8_t pad_15[0x3]; // loc=0x15
-	uint32_t unk_18;    // loc=0x18
-		uint8_t pad_1C[0x20]; // loc=0x1C
+	u8 gameSubsysSel;     // loc=0x0
+		u8 pad_1[0x3]; // loc=0x1
+	u8 unk_04;     // loc=0x4
+		u8 pad_5[0xB]; // loc=0x5
+	u32 unk_10;    // loc=0x10
+	u8 unk_14;     // loc=0x14
+		u8 pad_15[0x3]; // loc=0x15
+	u32 unk_18;    // loc=0x18
+		u8 pad_1C[0x20]; // loc=0x1C
 	// size=0x3C
 }s_0200A480;
 

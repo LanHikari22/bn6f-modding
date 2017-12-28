@@ -12,7 +12,6 @@
 #include <TextGenerator.h>
 
 NPC *npc;
-uint32_t *p;
 int onStart_executed;
 int savedKeyState;
 int counter;
@@ -51,7 +50,7 @@ void onStart()
 	onStart_executed = ONSTART_EXECUTED;
 	/* Put initialization logic here ******/
 	// p is just somewhere full of zeros i like to debug values in.
-	p = (uint32_t *)0x02050000;
+	p = (uint32_t*)0x02050000;
 	counter = 0;
 	npc = (NPC *)0x02050010;
 	p[0] = (uint32_t)npc;
