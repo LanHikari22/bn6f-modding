@@ -75,7 +75,4 @@ clean : # Delete any and all artifacts from the build. The only thing which is k
 	rm -f *.s
 	rm -f *.S
 	rm -f *.o
-	rm -f *d
-	rm -f $(EXECUTABLE)
-	cp $(BACKUP_ROM) $(ROM)
-
+	rm -f *.d

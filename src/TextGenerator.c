@@ -81,6 +81,6 @@ void tg_toGameText(char* pText, char* pGameText){
  * r0_gameChar
 */
 char tg_toGameChar(char asciiChar){
-	// return tg_ascii2GameText[asciiChar];
-	return pAsciiGameText[(unsigned int)asciiChar];
+	return tg_ascii2GameText[asciiChar];
+	// return pAsciiGameText[(unsigned int)asciiChar];
 }

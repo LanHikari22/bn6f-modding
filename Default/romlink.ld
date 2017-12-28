@@ -8,4 +8,7 @@ SECTIONS
     . = 0x08900000;
     .text : {*(.text)}
     .rodata : {*(.rodata) . = ALIGN(4);}
+    . = 0x02500000;
+    .data : {*(.data) . = ALIGN(4);}
+    .bss : {*(.bss) . = ALIGN(4);}
 }

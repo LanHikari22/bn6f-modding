@@ -78,7 +78,7 @@ void onKeyPress()
 }
 
 void RPress(){
-	tg_chatPrint("Hello World", 0x38);
+	tg_chatPrint("Hello, World!!", 0x38);
 }
 
 

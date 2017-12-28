@@ -12,7 +12,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": ".\\run.bat",
+            "command": ".\\build.bat",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
