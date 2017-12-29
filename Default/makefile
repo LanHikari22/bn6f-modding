@@ -47,11 +47,14 @@ COMBINED_OBJ = output.o
 
 # This handles compiling and linking into ROM.
 build:
-	$(OBJCOPY) -I binary $(PURE_OBJCOPY_FLAGS) $(PURE_ROM) pure.o
 	$(CC) $(CFLAGS) -c $(SOURCES) -I$(INC)
 	$(LD) $(LDFLAGS) -o $(COMBINED_OBJ) $(OFILES) pure.o $(LD_LINK)
 	$(OBJCOPY) --set-section-flags .rom="r,c,a" output.o
 	$(OBJCOPY) -O binary output.o $(ROM)
+	
+
+init:
+	$(OBJCOPY) -I binary $(PURE_OBJCOPY_FLAGS) $(PURE_ROM) pure.o
 	
 $(EXECUTABLE) : $(OBJS)
 	$(CC) $(COMPLIANCE_FLAGS) -o $(EXECUTABLE) $(LDFLAGS) $(OBJS) $(LIBS)

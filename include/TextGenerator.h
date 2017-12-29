@@ -2,10 +2,12 @@
 #define TEXT_GENERATOR_H
 
 #include <inttypes.h>
+#include <scriptCommands.h>
 #include <main.h>
 
+#define tg_max_str_len 255
+
 // This is an array specifying a conversion between ASCII and game text
-// #define pAsciiGameText ((unsigned char*)0x08800000)
 static const char tg_ascii2GameText[128] = 
 { 0xE7, 0xE6, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xE9, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xA2, 0xAA, 0x00, 0x00, 0x9C, 
@@ -18,6 +20,8 @@ static const char tg_ascii2GameText[128] =
 
 void memcpy(void *dest, void *src, int size);
 int strlen(char* s);
+
+void tg_startBattle(u16 index);
 
 /**
  * Prints a message using the chatbox!
@@ -35,6 +39,8 @@ void tg_chatPrint(char* str, uint8_t mugshot);
  * @param mugshot       Mugshot of the chatbox
  */
 void tg_createScriptList(uint16_t *scriptList, char* str, uint8_t mugshot);
+
+sc_script* tg_setupScriptList(uint16_t *scriptList);
 
 /**
  * Determines if given r1_pScript is at its start.

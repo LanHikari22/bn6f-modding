@@ -16,6 +16,8 @@ typedef signed short 	int16_t;
 typedef unsigned int	uint32_t;
 typedef signed int		int32_t;
 
+#define NULL            ((void*)0)
+
 #endif /* _MACHINE__DEFAULTYPES_H */
 
 typedef unsigned char 	u8;

@@ -17,7 +17,7 @@ mov		r14, r2
 // hook <08090000>
 	push {lr} // Stack
 	
-	// Do Overwritten Code <400>
+	// Do Overwritten Code <08000402>
 	mov r6, r4
 	and r6, r5
 	mov r1, #0x8

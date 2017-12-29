@@ -61,9 +61,10 @@ void onStart()
 */
 void onUpdate()
 {
-	if (counter % 60 == 0)
+	static ctr = 0;
+	if (ctr % 60 == 0)
 		sBtlEnemyA->HP++;
-	counter++;
+	ctr++;
 }
 
 /**
@@ -78,7 +79,8 @@ void onKeyPress()
 }
 
 void RPress(){
-	tg_chatPrint("Hello, World!!", 0x38);
+	// tg_startBattle(0x00);
+	tg_chatPrint("You've been playing\nThis game for many\nHours!", 0x37);
 }
 
 

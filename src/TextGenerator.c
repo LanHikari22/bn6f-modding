@@ -1,4 +1,5 @@
 #include <TextGenerator.h>
+#include <scriptCommands.h>
 
 void memcpy(void *dest, void *src, int size){
     for(int i = 0; i<size; i++){
@@ -26,21 +27,44 @@ void tg_chatPrint(char* str, uint8_t mugshot){
 	int register r0 asm("r0") = 0x02050040;
 	int register r1 asm("r1") = 0x00; // halfword offset to start from in script
 	int register r5 asm("r5") = sChief->chatbox;
+	r5 = r5 + 0*(r0 + r1); // a damn hacky way of removing warnings
+	((void (*)())(chatbox_run_script+1))();
+}
+
+void tg_startBattle(u16 index){
+	uint8_t *scriptList = (uint16_t*)0x02050040;
+    scriptList[0] = 0x0002;
+	uint8_t entryCtrl[5] = {0xF5, 0x00, 0x00, 0xE8};
+	uint8_t battleScript[4] = {0xFB, 0x03, (index & 0xFF) >> 8, index & 0xFF};
+	uint8_t closureCtrl[4] = {0xE7, 0x00, 0xE6, 0xF0};
+	uint8_t *script = scriptList + 1;
+	memcpy(script, entryCtrl, 5);
+    memcpy(script + 6, battleScript, 4);
+	memcpy(script + 6 + 5, closureCtrl, 4);
+	int register r0 asm("r0") = 0x02050040;
+	int register r1 asm("r1") = 0x00; // halfword offset to start from in script
+	int register r5 asm("r5") = sChief->chatbox;
 	// r5 = r5 + 0*(r0 + r1); // a damn hacky way of removing warnings
 	((void (*)())(chatbox_run_script+1))();
 }
 
-
 void tg_createScriptList(uint16_t *scriptList, char* str, uint8_t mugshot){
-	char gameText[255];
-    tg_toGameText(str, gameText);
-    scriptList[0] = 0x0002;
-	uint8_t entryCtrl[5] = {0xF5, 0x00, mugshot, 0xE8};
-	uint8_t closureCtrl[4] = {0xE7, 0x00, 0xE6, 0xF0};
-	uint8_t *script = scriptList + 1;
-	memcpy(script, entryCtrl, 5);
-    memcpy(script + 5, gameText, strlen(str));
-	memcpy(script + 5 + strlen(str), closureCtrl, 4);
+	sc_script *script = tg_setupScriptList(scriptList);
+	// uint8_t entryCtrl[5] = {0xF5, 0x00, mugshot, 0xE8, 0x00};
+	sc_mugshot(script, 0x00, mugshot); // F5
+ 	sc_msgbox (script, 0x00, NULL, NULL); // E8
+	sc_text(script, str);
+	// uint8_t closureCtrl[4] = {0xE7, 0x00, 0xE6, 0xF0};
+	sc_buttonhalt(script, 0x00); // E7
+	sc_end(script); // E6
+	sc_jump(script, NULL, NULL); // F0
+}
+
+sc_script* tg_setupScriptList(uint16_t *scriptList){
+	scriptList[0] = 0x0008;
+	sc_script *pScript = scriptList + 2;
+	sc_init_script(pScript);
+	return pScript;
 }
 
 /**
@@ -74,13 +98,8 @@ void tg_toGameText(char* pText, char* pGameText){
 }
 
 /**
- * 
- * [params]
- * r1_asciiChar
- * [return]
- * r0_gameChar
+ * converts ASCII text to gameText
 */
 char tg_toGameChar(char asciiChar){
 	return tg_ascii2GameText[asciiChar];
-	// return pAsciiGameText[(unsigned int)asciiChar];
 }
