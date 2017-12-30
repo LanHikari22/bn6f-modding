@@ -35,9 +35,9 @@ SOURCES :=  $(addprefix $(SRCDIR), $(CFILES)) $(addprefix $(SRCDIR), $(SFILES))
 
 #################################################################################################
 # list The ROM to build your program into. This file should be specified in this folder.
-ROM = mmbn6g.gba
+ROM = mmbn6f.gba
 # This is generated and is linked with the linker script to mod ROM
-PURE_ROM = ../mmbn6g.gba
+PURE_ROM = ../mmbn6f.gba
 # A temporary object file that is generated to as the sum of compiled object files to be injected
 COMBINED_OBJ = output.o
 #################################################################################################
@@ -56,6 +56,10 @@ build:
 init:
 	$(OBJCOPY) -I binary $(PURE_OBJCOPY_FLAGS) $(PURE_ROM) pure.o
 	
+all:
+	$(MAKE) init
+	$(MAKE) build
+
 $(EXECUTABLE) : $(OBJS)
 	$(CC) $(COMPLIANCE_FLAGS) -o $(EXECUTABLE) $(LDFLAGS) $(OBJS) $(LIBS)
 	

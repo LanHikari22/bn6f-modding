@@ -31,16 +31,14 @@ void tg_startBattle(u16 index);
 void tg_chatPrint(char* str, uint8_t mugshot);
 
 /**
- * Returns a Script list that links to its script components.
+ * Returns the first script associated with a Script list that links to its script components.
  * currScript = script + (script + 2 * offset)[0]
  * 
  * @param scriptList	This array should contain enough space for 9 + strlen(str)
- * @param str   		ASCII text to convert to game text and print
- * @param mugshot       Mugshot of the chatbox
  */
-void tg_createScriptList(uint16_t *scriptList, char* str, uint8_t mugshot);
-
 sc_script* tg_setupScriptList(uint16_t *scriptList);
+
+void tg_invoke_script_engine(uint16_t *scriptList);
 
 /**
  * Determines if given r1_pScript is at its start.

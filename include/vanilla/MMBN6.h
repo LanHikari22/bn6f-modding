@@ -11,6 +11,9 @@
 #ifndef MMBN6_H
 #define MMBN6_H
 
+#define FALZAR
+// #define GREGAR
+
 #include <inttypes.h>
 #include <vanilla/structs/NPC.h>
 #include <vanilla/structs/Battle.h>
@@ -334,7 +337,8 @@ j) 0803271C
 #define KeyIDLE 	0xFC00
 
 /* Game function pointers of interest ***********************************/
-#pragma region function_pointers
+#pragma region gregar_function_pointers
+#ifdef GREGAR
 /**
  * Runs the Chatbox program based on a structure passed to it
  * r5_sNPC may be NULL, in that case a preselected NPC on the map is used.
@@ -363,8 +367,14 @@ j) 0803271C
 /* Unnamed */
 #define s_8041CC4 0x8041CC4
 #define sub_8045F30 0x8045F30 // Seems to flush the screen if the chat page is still in typing mode
+#endif // GREGAR
+#pragma endregion gregar_function_pointers
 
-#pragma endregion function_pointers
+#pragma region falzar_function_pointers
+#ifdef FALZAR
+#define chatbox_run_script 0x08040384 // 0x08040358 (diff: 0x2C)
+#endif // FALZAR
+#pragma endregion falzar_function_pointers
 
 #pragma region Game_Structures
 /*
@@ -383,3 +393,19 @@ typedef struct {
 #endif /* MMBN6_H */
 //DF050302
 //020305DF
+
+#pragma region memo
+/*
+	lol
+	Battle indexes for sc_special
+		0x0600 - is battle index vs colonel!
+		0x0800 - heatman
+		0x0900 - heatman EX
+		0x0A00 - heatman SP
+		...
+		0x1900 - Protoman FZ
+		0x1A00 - Virus Battle
+	Play with: 0804E2AA for NPC load (walking kid)
+
+*/
+#pragma endregion memo

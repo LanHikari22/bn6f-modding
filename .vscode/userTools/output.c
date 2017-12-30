@@ -1,13 +1,10 @@
-typedef struct {
-	u8 battlefield;                  // loc=0x0
-		u8 pad_01[0x01];                
-	u8 music;                        // loc=0x2
-	u8 battleType;                   // loc=0x3
-	u8 background;                   // loc=0x4
-	u8 battleNumber;                 // loc=0x5
-	u8 battlefieldSidesModifier;     // loc=0x6
-		u8 pad_07[0x01];                
-	u32 UnknownOptionalSettings;     // loc=0x8
-	u32 *pEnemySetup;                // loc=0xC
-	// size=0x10
-}BattleSettings;
+03006028 030061E8 0300631C 080026A4 080026C4 
+080026E4 08002D52 08002D80? 08002DA4? 08002E14? 
+08002F5A? 08002F90? 080037F4 080045C0 08004602 
+0800461E 0800467C 08030A8C 08031686? 080318B0 
+0809D7A8 0809D7C8 0809E01C 0809E570 0809E590 
+0809E5E2 0809E6C8 0809EADA 0809EB04 0809EB20 
+0809EBDC 0809EBF8 0809ED94 0809EE12? 0809EE6C 
+0809EEB6 0809EEF8? 0809EF00? 0809F018? 0809F1C6 
+0809F3C0 0809F506 0809F516 0809F51E 0809F526 
+0809F5FC 0809F68C 

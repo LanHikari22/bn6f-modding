@@ -2,7 +2,7 @@
 #define SCRIPT_COMMANDS_H
 
 #include <inttypes.h>
-
+// doc: http://forums.therockmanexezone.com/topic/8695308/1/
 typedef struct{
     u32 size;
     u8 content[0];
@@ -67,8 +67,12 @@ void sc_select(sc_script *pScript, u8 a1, u8 a2, u8 a3);
 // EE
 void sc_pause(sc_script *pScript, u8 mode, u16 data);
 
-// EF
-void sc_checkflag(sc_script *pScript, u8 func, u8 a1, u8 a2, u8 a3, u8 a4);
+/**
+ * EF
+ *  tests something and executes a specific script based on the result
+ */
+void sc_checkflag(sc_script *pScript, u8 func, u8 a1, u8 a2, u8 a3, u8 a4, u8 a5, u8 a6, u8 a7,
+u8 a8, u8 a9, u8 a10, u8 a11, u8 a12, u8 a13);
 
 // F0
 void sc_jump(sc_script *pScript, u8 func, u8 index);
@@ -77,6 +81,11 @@ void sc_jump(sc_script *pScript, u8 func, u8 index);
 void sc_textspeed(sc_script *pScript, u8 a1, u8 speed);
 
 // F2
+/**
+ * F2
+ * removes all text from the screen and resets text printing position
+ * Also changes the currScript in the chatbox struct
+ */
 void sc_clearmsgbox(sc_script *pScript);
 
 // F3

@@ -80,7 +80,8 @@ void onKeyPress()
 
 void RPress(){
 	// tg_startBattle(0x00);
-	tg_chatPrint("You've been playing\nThis game for many\nHours!", 0x37);
+	tg_chatPrint("Naah! It's part of the\ngame.", 0x05);
+	// tg_startBattle((uint16_t)p[0x80>>2]);
 }
 
 
