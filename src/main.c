@@ -79,9 +79,14 @@ void onKeyPress()
 }
 
 void RPress(){
-	// tg_startBattle(0x00);
-	tg_chatPrint("Naah! It's part of the\ngame.", 0x05);
+	// tg_chatPrint("Happy new year!", 0x01);
 	// tg_startBattle((uint16_t)p[0x80>>2]);
+	// testfunc(0x089A0000, 0x089A0004);
+
+	// Call function from jump table
+	u32 *jumpTable = 0x0813F42C;
+	void (*fp) () = ( (void (*) ()) jumpTable[*((u8*)0x089A0000)] );
+	fp();
 }
 
 

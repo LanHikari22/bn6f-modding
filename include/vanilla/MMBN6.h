@@ -11,13 +11,13 @@
 #ifndef MMBN6_H
 #define MMBN6_H
 
-#define FALZAR
-// #define GREGAR
-
+#include <vanilla/version.h>
 #include <inttypes.h>
+#include <vanilla/Functions.h>
 #include <vanilla/structs/NPC.h>
 #include <vanilla/structs/Battle.h>
 #include <vanilla/structs/ChiefStruct.h>
+
 
 /* ************************************************************************/
 /* Game-intrinsic Module **************************************************/
@@ -335,46 +335,6 @@ j) 0803271C
 #define KeyS 		0xFC04
 #define KeyE		0xFC08
 #define KeyIDLE 	0xFC00
-
-/* Game function pointers of interest ***********************************/
-#pragma region gregar_function_pointers
-#ifdef GREGAR
-/**
- * Runs the Chatbox program based on a structure passed to it
- * r5_sNPC may be NULL, in that case a preselected NPC on the map is used.
- * @param r5_sNPC An NPC object within the map. If available, its script plays.
- */
-#define fpRunChatbox 0x080A0058
-#define chatbox_run_script 0x08040358
-#define chatbox_interprete_script_char 0x0803FF24
- 
-
-/**
- * This might be only for multiplayer. It might also do more.
- * TODO: investigate this function
- */
-#define fpGenBattleStageAndBackgrounds 0x081209DC
-/*
- * Modified first word in 0x02034880 to 0x00001400
- * Exits battles very nicely. If battling someone, a You-Lost scene plays too.
- */
-#define fpEndBattleNoGM 0x0800AABC
-
-#define apply_NCP_effect 0x0801379F
-
-#define u8Arrayo_u32 0x080A0B3A
-
-/* Unnamed */
-#define s_8041CC4 0x8041CC4
-#define sub_8045F30 0x8045F30 // Seems to flush the screen if the chat page is still in typing mode
-#endif // GREGAR
-#pragma endregion gregar_function_pointers
-
-#pragma region falzar_function_pointers
-#ifdef FALZAR
-#define chatbox_run_script 0x08040384 // 0x08040358 (diff: 0x2C)
-#endif // FALZAR
-#pragma endregion falzar_function_pointers
 
 #pragma region Game_Structures
 /*

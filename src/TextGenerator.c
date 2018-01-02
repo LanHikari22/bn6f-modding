@@ -35,12 +35,7 @@ void tg_chatPrint(char* str, uint8_t mugshot){
 }
 
 void tg_invoke_script_engine(uint16_t *scriptList){
-	int register r0 asm("r0") = (int)scriptList;
-	int register r1 asm("r1") = 0x00; // halfword offset to start from in script
-	int register r5 asm("r5") = sChief->chatbox;
-	r5 = r5 + 0*(r0 + r1); // a damn hacky way of removing warnings
-	((void (*)())(chatbox_run_script+1))();
-
+	chatbox_run_script(scriptList, 0x00 /* halfword offset to start from in script */);
 }
 
 void tg_startBattle(u16 index){
