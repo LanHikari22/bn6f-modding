@@ -72,6 +72,18 @@
             "type": "shell",
             "command": ".\\.vscode\\userTools\\mergeStructToDoc.bat",
             "problemMatcher": []
+        },
+        {
+            "label": "dataRecordToMacro",
+            "type": "shell",
+            "command": ".\\.vscode\\userTools\\dataRecordToMacro.bat",
+            "problemMatcher": []
+        },
+        {
+            "label": "dataRecordUpdate",
+            "type": "shell",
+            "command": ".\\.vscode\\userTools\\dataRecordUpdate.bat",
+            "problemMatcher": []
         }
     ]
 }

@@ -81,12 +81,16 @@ void onKeyPress()
 void RPress(){
 	// tg_chatPrint("Happy new year!", 0x01);
 	// tg_startBattle((uint16_t)p[0x80>>2]);
-	// testfunc(0x089A0000, 0x089A0004);
+
+	// int register r5 asm("r5") = 0x02005780;
+	int res = testfunc();
+	p[0x10>>2] = res;
+	// testfunc(((u8*)0x089A0000)[0]);
 
 	// Call function from jump table
-	u32 *jumpTable = 0x0813F42C;
-	void (*fp) () = ( (void (*) ()) jumpTable[*((u8*)0x089A0000)] );
-	fp();
+	// u32 *jumpTable = 0x0813F42C;
+	// void (*fp) () = ( (void (*) ()) jumpTable[*((u8*)0x089A0000)] );
+	// fp();
 }
 
 

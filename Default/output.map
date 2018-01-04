@@ -30,80 +30,77 @@ Linker script and memory map
                 0x08800000                _binary____mmbn6f_gba_end
                 0x08900000                . = 0x8900000
 
-.text           0x08900000      0xb78
+.text           0x08900000      0xb68
  main.o(.text)
- .text          0x08900000      0x108 main.o
+ .text          0x08900000      0x104 main.o
                 0x08900000                main
                 0x0890003c                onStart
                 0x08900080                onUpdate
                 0x089000b8                onKeyPress
                 0x089000d8                RPress
  *(.text)
- .text          0x08900108      0x208 TextGenerator.o
-                0x08900108                memcpy
-                0x0890013a                strlen
-                0x08900176                tg_chatPrint
-                0x089001e0                tg_invoke_script_engine
-                0x08900200                tg_startBattle
-                0x08900244                tg_createScriptList
-                0x08900256                tg_setupScriptList
-                0x0890027a                tg_atScriptStart
-                0x089002a0                tg_toGameText
-                0x089002ee                tg_toGameChar
- .text          0x08900310        0xe beep.o
-                0x08900310                newFunction
- *fill*         0x0890031e        0x2 
- .text          0x08900320      0x704 scriptCommands.o
-                0x08900320                sc_init_script
-                0x08900336                sc_script_write
-                0x08900368                sc_text
-                0x089003b0                sc_end
-                0x089003d0                sc_buttonhalt
-                0x08900414                sc_msgbox
-                0x089004c8                sc_newline
-                0x089004e8                sc_checkflag
-                0x08900844                sc_jump
-                0x089008de                sc_clearmsgbox
-                0x089008fe                sc_mugshot
-                0x08900958                sc_special
- .text          0x08900a24        0x0 mainHook.o
- .text          0x08900a24      0x148 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
-                0x08900a24                __divsi3
-                0x08900a24                __aeabi_idiv
-                0x08900b4c                __aeabi_idivmod
- .text          0x08900b6c        0x4 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_dvmd_tls.o)
-                0x08900b6c                __aeabi_idiv0
-                0x08900b6c                __aeabi_ldiv0
- .text.__stub   0x08900b70        0x8 linker stubs
+ .text          0x08900104      0x208 TextGenerator.o
+                0x08900104                memcpy
+                0x08900136                strlen
+                0x08900172                tg_chatPrint
+                0x089001dc                tg_invoke_script_engine
+                0x089001fc                tg_startBattle
+                0x08900240                tg_createScriptList
+                0x08900252                tg_setupScriptList
+                0x08900276                tg_atScriptStart
+                0x0890029c                tg_toGameText
+                0x089002ea                tg_toGameChar
+ .text          0x0890030c      0x704 scriptCommands.o
+                0x0890030c                sc_init_script
+                0x08900322                sc_script_write
+                0x08900354                sc_text
+                0x0890039c                sc_end
+                0x089003bc                sc_buttonhalt
+                0x08900400                sc_msgbox
+                0x089004b4                sc_newline
+                0x089004d4                sc_checkflag
+                0x08900830                sc_jump
+                0x089008ca                sc_clearmsgbox
+                0x089008ea                sc_mugshot
+                0x08900944                sc_special
+ .text          0x08900a10        0x0 mainHook.o
+ .text          0x08900a10      0x148 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
+                0x08900a10                __divsi3
+                0x08900a10                __aeabi_idiv
+                0x08900b38                __aeabi_idivmod
+ .text          0x08900b58        0x4 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_dvmd_tls.o)
+                0x08900b58                __aeabi_idiv0
+                0x08900b58                __aeabi_ldiv0
+ *fill*         0x08900b5c        0x4 
+ .text.__stub   0x08900b60        0x8 linker stubs
 
-.glue_7         0x08900b78        0x0
- .glue_7        0x08900b78        0x0 linker stubs
+.glue_7         0x08900b68        0x0
+ .glue_7        0x08900b68        0x0 linker stubs
 
-.glue_7t        0x08900b78        0x0
- .glue_7t       0x08900b78        0x0 linker stubs
+.glue_7t        0x08900b68        0x0
+ .glue_7t       0x08900b68        0x0 linker stubs
 
-.vfp11_veneer   0x08900b78        0x0
- .vfp11_veneer  0x08900b78        0x0 linker stubs
+.vfp11_veneer   0x08900b68        0x0
+ .vfp11_veneer  0x08900b68        0x0 linker stubs
 
-.v4_bx          0x08900b78        0x0
- .v4_bx         0x08900b78        0x0 linker stubs
+.v4_bx          0x08900b68        0x0
+ .v4_bx         0x08900b68        0x0 linker stubs
 
-.iplt           0x08900b78        0x0
- .iplt          0x08900b78        0x0 main.o
+.iplt           0x08900b68        0x0
+ .iplt          0x08900b68        0x0 main.o
 
-.rodata         0x08900b78      0x2b4
+.rodata         0x08900b68      0x2b4
  *(.rodata)
- .rodata        0x08900b78       0x80 main.o
- .rodata        0x08900bf8       0x80 TextGenerator.o
- .rodata        0x08900c78      0x1b4 scriptCommands.o
-                0x08900e2c                . = ALIGN (0x4)
+ .rodata        0x08900b68       0x80 main.o
+ .rodata        0x08900be8       0x80 TextGenerator.o
+ .rodata        0x08900c68      0x1b4 scriptCommands.o
+                0x08900e1c                . = ALIGN (0x4)
                 0x02500000                . = 0x2500000
 
 .data           0x02500000        0x0
  *(.data)
  .data          0x02500000        0x0 main.o
  .data          0x02500000        0x0 TextGenerator.o
- .data          0x02500000        0x0 beep.o
  .data          0x02500000        0x0 scriptCommands.o
  .data          0x02500000        0x0 mainHook.o
  .data          0x02500000        0x0 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
@@ -117,7 +114,6 @@ Linker script and memory map
  *(.bss)
  .bss           0x02500000        0x4 main.o
  .bss           0x02500004        0x0 TextGenerator.o
- .bss           0x02500004        0x0 beep.o
  .bss           0x02500004        0x0 scriptCommands.o
  .bss           0x02500004        0x0 mainHook.o
  .bss           0x02500004        0x0 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
@@ -142,7 +138,6 @@ Linker script and memory map
  .intercept_08000402
                 0x08000402        0x8 mainHook.o
 LOAD TextGenerator.o
-LOAD beep.o
 LOAD main.o
 LOAD scriptCommands.o
 LOAD mainHook.o
@@ -154,54 +149,46 @@ OUTPUT(output.o elf32-littlearm)
 .rel.dyn        0x0800040c        0x0
  .rel.iplt      0x0800040c        0x0 main.o
 
-.debug_info     0x00000000     0x187c
- .debug_info    0x00000000      0xdd7 main.o
- .debug_info    0x00000dd7      0x374 TextGenerator.o
- .debug_info    0x0000114b       0x53 beep.o
- .debug_info    0x0000119e      0x66a scriptCommands.o
- .debug_info    0x00001808       0x74 mainHook.o
+.debug_info     0x00000000     0x180f
+ .debug_info    0x00000000      0xdbd main.o
+ .debug_info    0x00000dbd      0x374 TextGenerator.o
+ .debug_info    0x00001131      0x66a scriptCommands.o
+ .debug_info    0x0000179b       0x74 mainHook.o
 
-.debug_abbrev   0x00000000      0x440
- .debug_abbrev  0x00000000      0x146 main.o
- .debug_abbrev  0x00000146      0x16a TextGenerator.o
- .debug_abbrev  0x000002b0       0x48 beep.o
- .debug_abbrev  0x000002f8      0x136 scriptCommands.o
- .debug_abbrev  0x0000042e       0x12 mainHook.o
+.debug_abbrev   0x00000000      0x3ec
+ .debug_abbrev  0x00000000      0x13a main.o
+ .debug_abbrev  0x0000013a      0x16a TextGenerator.o
+ .debug_abbrev  0x000002a4      0x136 scriptCommands.o
+ .debug_abbrev  0x000003da       0x12 mainHook.o
 
-.debug_aranges  0x00000000       0xa8
+.debug_aranges  0x00000000       0x88
  .debug_aranges
                 0x00000000       0x20 main.o
  .debug_aranges
                 0x00000020       0x20 TextGenerator.o
  .debug_aranges
-                0x00000040       0x20 beep.o
+                0x00000040       0x20 scriptCommands.o
  .debug_aranges
-                0x00000060       0x20 scriptCommands.o
- .debug_aranges
-                0x00000080       0x28 mainHook.o
+                0x00000060       0x28 mainHook.o
 
-.debug_line     0x00000000      0x36e
- .debug_line    0x00000000       0xc0 main.o
- .debug_line    0x000000c0       0xf1 TextGenerator.o
- .debug_line    0x000001b1       0x3e beep.o
- .debug_line    0x000001ef      0x11f scriptCommands.o
- .debug_line    0x0000030e       0x60 mainHook.o
+.debug_line     0x00000000      0x32f
+ .debug_line    0x00000000       0xbf main.o
+ .debug_line    0x000000bf       0xf1 TextGenerator.o
+ .debug_line    0x000001b0      0x11f scriptCommands.o
+ .debug_line    0x000002cf       0x60 mainHook.o
 
-.debug_str      0x00000000      0xb72
- .debug_str     0x00000000      0x916 main.o
-                                0x96a (size before relaxing)
- .debug_str     0x00000916      0x117 TextGenerator.o
+.debug_str      0x00000000      0xb4e
+ .debug_str     0x00000000      0x90c main.o
+                                0x960 (size before relaxing)
+ .debug_str     0x0000090c      0x117 TextGenerator.o
                                 0x24d (size before relaxing)
- .debug_str     0x00000a2d       0x1a beep.o
-                                 0xd7 (size before relaxing)
- .debug_str     0x00000a47      0x12b scriptCommands.o
+ .debug_str     0x00000a23      0x12b scriptCommands.o
                                 0x271 (size before relaxing)
 
 .comment        0x00000000       0x22
  .comment       0x00000000       0x22 main.o
                                  0x23 (size before relaxing)
  .comment       0x00000022       0x23 TextGenerator.o
- .comment       0x00000022       0x23 beep.o
  .comment       0x00000022       0x23 scriptCommands.o
 
 .ARM.attributes
@@ -211,21 +198,18 @@ OUTPUT(output.o elf32-littlearm)
  .ARM.attributes
                 0x0000002c       0x2c TextGenerator.o
  .ARM.attributes
-                0x00000058       0x2c beep.o
+                0x00000058       0x2c scriptCommands.o
  .ARM.attributes
-                0x00000084       0x2c scriptCommands.o
+                0x00000084       0x20 mainHook.o
  .ARM.attributes
-                0x000000b0       0x20 mainHook.o
+                0x000000a4       0x18 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
  .ARM.attributes
-                0x000000d0       0x18 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_divsi3.o)
- .ARM.attributes
-                0x000000e8       0x18 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_dvmd_tls.o)
+                0x000000bc       0x18 C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/\libgcc.a(_dvmd_tls.o)
 
-.debug_frame    0x00000000      0x2c0
+.debug_frame    0x00000000      0x29c
  .debug_frame   0x00000000       0x80 main.o
  .debug_frame   0x00000080       0xf0 TextGenerator.o
- .debug_frame   0x00000170       0x24 beep.o
- .debug_frame   0x00000194      0x12c scriptCommands.o
+ .debug_frame   0x00000170      0x12c scriptCommands.o
 
 .debug_ranges   0x00000000       0x20
  .debug_ranges  0x00000000       0x20 mainHook.o
