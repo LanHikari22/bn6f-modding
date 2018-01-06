@@ -12,10 +12,11 @@ SECTIONS
     .data : {*(.data) . = ALIGN(4);}
     .bss : {*(.bss) . = ALIGN(4);}
 
+/*
     /* things that require specialized linking */
     . = 0x08090000;
     .mainHook : {*.o(.mainHook)}
     . = 0x08000402;
     .intercept_08000402 : {*.o(.intercept_08000402)}
-
+*/
 }
