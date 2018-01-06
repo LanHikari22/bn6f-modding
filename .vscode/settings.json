@@ -4,7 +4,8 @@
         "inttypes.h": "c",
         "npc.h": "c",
         "string.h": "c",
-        "chiefstruct.h": "c"
+        "chiefstruct.h": "c",
+        "version.h": "c"
     },
     "C_Cpp.intelliSenseEngineFallback": "Enabled"
 }

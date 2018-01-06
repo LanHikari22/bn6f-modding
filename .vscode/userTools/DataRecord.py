@@ -230,8 +230,10 @@ class DataRecord:
 
         for entry in self.entries:
             variableName = self._getVariableName(entry.Variable)
+            starAmount = self._determineStarAmount(entry.Variable)
+            if starAmount == 0: starAmount = 1 # Only references can be macro'd
             output += '#define ' + variableName + (maxVariableLen - len(variableName))*' '+ ' ((' + entry.Type \
-                + self._determineStarAmount(entry.Variable)*'*' + ')' + ('0x%08X)' % entry.Address) + '\n'
+                + starAmount*'*' + ')' + ('0x%08X)' % entry.Address) + '\n'
 
         return output
 

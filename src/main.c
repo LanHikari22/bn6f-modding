@@ -31,11 +31,12 @@ int main()
 	{
 		onStart();
 	}
+
 	// handle onUpdate()
 	onUpdate();
 
 	// handle onKeyPress()
-	if (*pKeyState != KeyIDLE)
+	if (sChief->joystick->keyPress != KeyIDLE)
 	{
 		onKeyPress();
 	}
@@ -72,33 +73,48 @@ void onUpdate()
 */
 void onKeyPress()
 {
-	if (*pKeyState == KeyR)
+	if (sChief->joystick->keyPress == KeyR)
 	{
 		RPress();
 	}
 }
 
+void sweep1D(int (*fp)(int a1), int* loggingLoc, int start, int amount);
+void sweepPartial2D(int (*fp)(int a1, int a2), int* loggingLoc, int start, int amount, int c, int which);
+
 void RPress(){
+	u32 *c = (u8*)0x089A0000;
 	// tg_chatPrint("Happy new year!", 0x01);
+	// sBtlEnemyA->HP -= 10;
 	// tg_startBattle((uint16_t)p[0x80>>2]);
 
 	// int register r5 asm("r5") = 0x02005780;
-	int res = testfunc();
-	p[0x10>>2] = res;
-	// testfunc(((u8*)0x089A0000)[0]);
+	// testfunc();
+	// p[0x10>>2] = testfunc(c[0]);
+	p[0x10>>2] = testfunc(c[0], c[1]);
+	sweepPartial2D(testfunc, &c[0], 0, 0xFF, 0x23, 1);
+
 
 	// Call function from jump table
-	// u32 *jumpTable = 0x0813F42C;
-	// void (*fp) () = ( (void (*) ()) jumpTable[*((u8*)0x089A0000)] );
+	// void (*fp) () = ( (void (*) ()) chatbox_jt3[c[0]] );
 	// fp();
+
+	// Sweep Tests
+	// sweep1D(testfunc, &p[0x10>>2], c[0], c[1]);
+	// sweepPartial2D(testfunc, &p[0x10>>2], c[0], c[1], c[2], c[3])
+
 }
 
+void sweep1D(int (*fp)(int a1), int* loggingLoc, int start, int amount){
+	
+	for (int i = start; i < start + amount; i++){
+		loggingLoc[i - start] = fp(i); 
+	}
+}
 
-/**
-* TODO: modify linker so it can create these. Once that is done,
-* main will be changed to be called... intecept_someAddress. That is because main is really just an interceptor function.
-* The intercepting logic has just been hardwired.
-*/
-void intercept_08040000();
-
- 
+void sweepPartial2D(int (*fp)(int a1, int a2), int* loggingLoc, int start, int amount, int c, int which){
+	for (int i = start; i < start + amount; i++){
+		if (which == 1) loggingLoc[i - start] = fp(c, i);
+		if (which == 2) loggingLoc[i - start] = fp(i, c);
+	}
+}

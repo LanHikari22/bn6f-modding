@@ -1,9 +1,0 @@
-giStatus  Objective
-
-BUG     VBA-rr not opening newly compiled ROM right away??? Needs a few tries
-START   Set up wingdb
-ERROR   Static char array for ASCII to GameText somehow glitches the linking process. 
-        A str is mispointed somehow? Also huge gap of zeros between code and const data
-DOC     Convert ASCII to GameText table to software
-        [1] Implement [0] Doc [0] Test
-OK      Create this TODO file!
