@@ -1,9 +1,13 @@
 */__pycache__/*
 *.gba
-Build/*
+Build/*.o
+Build/*.bin
+Build/*.dmp
+Build/*.s??
+Build/*.gba*
+Build/*.map
 .vs/*
 .vscode/*
-build.bat
 Tools/*.sw?
 Tools/input*
 Tools/output*
