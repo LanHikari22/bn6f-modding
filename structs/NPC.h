@@ -1,6 +1,6 @@
 #ifndef NPC_H
 #define NPC_H
-#include "../../inttypes.h"
+#include "../include/inttypes.h"
 
 /**
  * Description:

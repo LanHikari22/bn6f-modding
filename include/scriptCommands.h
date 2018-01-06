@@ -1,7 +1,8 @@
 #ifndef SCRIPT_COMMANDS_H
 #define SCRIPT_COMMANDS_H
 
-#include <inttypes.h>
+#include "inttypes.h"
+
 // doc: http://forums.therockmanexezone.com/topic/8695308/1/
 typedef struct{
     u32 size;

@@ -1,8 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <vanilla/MMBN6.h>
-#include <vanilla/structs/ChiefStruct.h>
+#include "MMBN6.h"
+#include "../Structs/ChiefStruct/ChiefStruct.h"
+
 
 /* All supported System code is here */
 // #include <string.h>

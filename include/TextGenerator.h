@@ -1,9 +1,9 @@
 #ifndef TEXT_GENERATOR_H
 #define TEXT_GENERATOR_H
 
-#include <inttypes.h>
-#include <scriptCommands.h>
-#include <main.h>
+#include "inttypes.h"
+#include "scriptCommands.h"
+#include "main.h"
 
 #define tg_max_str_len 255
 

@@ -1,9 +1,9 @@
 #ifndef DATA_LOCATIONS_H
 #define DATA_LOCATIONS_H
 
-#include "../../inttypes.h"
-#include "../version.h"
-#include "../structs/BattleSettings.h"
+#include "../include/inttypes.h"
+#include "../include/version.h"
+#include "../Structs/BattleSettings.h"
 
 /*
 Add to tables by copying entries like '02025A04 ; u8 *reqBBS_requestNames_textualData' to
@@ -58,7 +58,8 @@ Address  Type           Variable
 0813F42C void           *reqBBS_jumpTable[18]
 087EFBC8 u8             *reqBBS_texual_shades
 087EE2F0  u8 reqBBS_request_ROM_textData[176]
-08140238  u8 reqBBS_checkmark_tileGfx
+08140238  u8 reqBBS_tiles_checkmark
+08140244  u8 reqBBS_tiles_yellowIcon
 ROM Data Table*/
 
 

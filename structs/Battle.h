@@ -1,6 +1,6 @@
 #ifndef BATTLE_H
 #define BATTLE_H
-#include "../../inttypes.h"
+#include "../include/inttypes.h"
 
 /**
  * Structure obtained from sub_080182B4

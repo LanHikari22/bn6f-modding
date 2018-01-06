@@ -5,9 +5,9 @@
 * That's fine though, considering they would always be called with BL. But you may Fix.
 * @file main.c
 */
-#include <main.h>
-#include <vanilla/MMBN6.h>
-#include <vanilla/structs/NPC.h>
+#include "../include/main.h"
+#include "../include/MMBN6.h"
+#include "../Structs/NPC.h"
 #include <inttypes.h>
 #include <TextGenerator.h>
 
@@ -84,7 +84,7 @@ void sweepPartial2D(int (*fp)(int a1, int a2), int* loggingLoc, int start, int a
 
 void RPress(){
 	u32 *c = (u8*)0x089A0000;
-	// tg_chatPrint("Happy new year!", 0x01);
+	tg_chatPrint("Happy new year!", 0x01);
 	// sBtlEnemyA->HP -= 10;
 	// tg_startBattle((uint16_t)p[0x80>>2]);
 

@@ -1,7 +1,7 @@
 #ifndef BATTLE_SETTINGS_H
 #define BATTLE_SETTINGS_H
 
-#include "../../inttypes.h"
+#include "../include/inttypes.h"
 
 
 /**

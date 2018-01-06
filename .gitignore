@@ -1,1 +1,9 @@
 */__pycache__/*
+*.gba
+Build/*
+.vs/
+.vscode/
+build.bat
+Tools/*.sw?
+Tools/input*
+Tools/output*

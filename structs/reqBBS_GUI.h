@@ -1,7 +1,7 @@
 #ifndef s_02005780_H
 #define s_02005780_H
 
-#include "../../inttypes.h"
+#include "../include/inttypes.h"
 
 /*
 TODO: decode this

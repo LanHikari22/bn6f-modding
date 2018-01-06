@@ -1,2 +1,2 @@
-cd C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Default
+cd "%~dp0/Build"
 make build | less

@@ -1,7 +1,7 @@
 #ifndef S_02009F40_H
 #define S_02009F40_H
 
-#include "../../inttypes.h"
+#include "../include/inttypes.h"
 
 typedef struct {
 	u8 invisCtrlSwitch;     // loc=0x0

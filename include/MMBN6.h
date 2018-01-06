@@ -11,13 +11,13 @@
 #ifndef MMBN6_H
 #define MMBN6_H
 
-#include <inttypes.h>
-#include <vanilla/version.h>
-#include <vanilla/data/data_locations.h>
-#include <vanilla/Functions.h>
-#include <vanilla/structs/NPC.h>
-#include <vanilla/structs/Battle.h>
-#include <vanilla/structs/ChiefStruct.h>
+#include "inttypes.h"
+#include "version.h"
+#include "../Data/data_locations.h"
+#include "../Scripts/Functions.h"
+#include "../Structs/NPC.h"
+#include "../Structs/Battle.h"
+#include "../Structs/ChiefStruct/ChiefStruct.h"
 
 
 /* ************************************************************************/

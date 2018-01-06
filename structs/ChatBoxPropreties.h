@@ -1,7 +1,7 @@
 #ifndef S_02009CD0_H
 #define S_02009CD0_H
 
-#include "../../inttypes.h"
+#include "../include/inttypes.h"
 
 /**
  * This is responsible for GUI propreties of the chatbox as well as script running.
