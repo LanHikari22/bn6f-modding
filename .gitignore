@@ -1,8 +1,8 @@
 */__pycache__/*
 *.gba
 Build/*
-.vs/
-.vscode/
+.vs/*
+.vscode/*
 build.bat
 Tools/*.sw?
 Tools/input*
