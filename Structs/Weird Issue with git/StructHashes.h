@@ -1,5 +1,6 @@
 #ifndef StructHashes
 #define StructHashes
+
 /* These hashes encode the sizes of accessses at different locations: 0: u8, 1: u16, 3: u32 */
 // first char at col 40
 

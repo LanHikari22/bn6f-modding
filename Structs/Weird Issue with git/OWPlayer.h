@@ -3,6 +3,7 @@
 
 #include "../include/inttypes.h"
 
+
 typedef struct {
 	u8 invisCtrlSwitch;     // loc=0x0
 	u8 unk_01;              // loc=0x1

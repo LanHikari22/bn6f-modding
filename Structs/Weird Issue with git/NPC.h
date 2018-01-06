@@ -145,7 +145,6 @@ Other instances*/
 		0x04 - Default, moving
 		0x08 - Stop
 		0x0C - Stop, with a weird location transformation for a moment.
-
 	0x0C    u8   volume             
 			[0xAA] <volume>
 			// This specifies the width of the collision walls, in two components parallel and anti-parallel to
