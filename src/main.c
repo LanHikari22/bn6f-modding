@@ -80,10 +80,8 @@ void onUpdate()
 */
 void onKeyPress()
 {
-	static int x = 0;
 	if (sChief->joystick->keyPress == (Key_DEFAULT | Key_R))
 	{
-		x++;
 		// Launch debugging console
 		dc_startConsole(&p[0x10>>2], (dc_ROM*)0x089A0000);
 
@@ -92,7 +90,8 @@ void onKeyPress()
 
 /**
  * Executes if 0x089A0000 is set to 0x02. This is handled by the DebugConsole.c Module
+ * Can also be triggered to execute using the cheatcode "SELECT SELECT SELECT R"
  */
 void RPress(){
-	while(true);
+	
 }

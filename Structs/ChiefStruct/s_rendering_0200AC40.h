@@ -1,36 +1,56 @@
-#ifndef STRUCTS_S_0200AC40_H
-#define STRUCTS_S_0200AC40_H
+#ifndef STRUCTS_s_rendering_0200AC40_H
+#define STRUCTS_s_rendering_0200AC40_H
 
 #include "../../include/inttypes.h"
 
 typedef struct {
-	u16 unk_00;    // loc=0x0
-	u16 unk_02;    // loc=0x2
-	u16 unk_04;    // loc=0x4 CONFLICT u32
-	u16 unk_06;    // loc=0x6
-	u16 unk_08;    // loc=0x8 CONFLICT u32
-	u16 unk_0A;    // loc=0xA
-	u16 unk_0C;    // loc=0xC
-	u16 unk_0E;    // loc=0xE
-	u16 unk_10;    // loc=0x10
-	u16 unk_12;    // loc=0x12
-	u16 unk_14;    // loc=0x14
-	u16 unk_16;    // loc=0x16
-	u16 unk_18;    // loc=0x18
-	u16 unk_1A;    // loc=0x1A
+	u16 renderingState;     // loc=0x0
+	u16 unk_02;             // loc=0x2
+	u16 unk_04;             // loc=0x4
+	u16 unk_06;             // loc=0x6
+	u16 unk_08;             // loc=0x8
+	u16 unk_0A;             // loc=0xA
+	u16 unk_0C;             // loc=0xC
+	u16 unk_0E;             // loc=0xE
+	u16 unk_10;             // loc=0x10
+	u16 unk_12;             // loc=0x12
+	u16 unk_14;             // loc=0x14
+	u16 unk_16;             // loc=0x16
+	u16 unk_18;             // loc=0x18
+	u16 unk_1A;             // loc=0x1A
 	// size=0x1C
-}s_0200AC40;
+}s_rendering_0200AC40;
 
 /*
 	[Header]
-		[Name] s_0200AC40
+		[Name] s_rendering_0200AC40
 		[Size] 0x1C
 		[Description]
 	Offset  Type   Name 
-	0x00    u16    ?
-		Flags that are responsible with the sprite renderings somehow    
+	0x00    u16    renderingState
+		States (?):
+			0x1740 - Default (Overworld)
+
+			0x0001 - Disable BG2
+			0x0002 - Disable BG1 and BG0
+			0x0003 - Whole Screen goes black, little more than disabling BG0, BG1, and BG2
+			0x0004 - Background color still in, but otherwise like 0x0003
+			0x0005 - Like 0x0003?
+			0x0006 - Rendering of objects is disabled
+			0x0007 - same as 0x0006?
+			0x0008 - ?
+			0x0009 - Disable BG2
+			...
+
+		State that is responsible with the sprite renderings somehow
+
 	0x02    u16    ?    
-	0x04    u16    ?    
+	0x04    u16    ?
+		0x[ABXD]
+		A: ODD: No glitchy graphics layer. EVEN: Glitchy graphics layer over all
+		B: ??? Default value for OW is C, everything else is weird graphics glitching
+		X: Don't care
+		D: Involved with layering objects and background. Map graphics data is not present until 8.
 	0x06    u16    ?    
 	0x08    u16    ?    
 	0x0A    u16    ?    
@@ -43,10 +63,10 @@ typedef struct {
 	0x18    u16    ?    
 	0x1A    u16    ?    
 
-Docs: s_0200AC40*/
+Docs: s_rendering_0200AC40*/
 
 /*
-	name=s_0200AC40, size=0x1C
+	name=s_rendering_0200AC40, size=0x1C
 	0800172C::08001734 u16(0x02), 0800172C::0800175E u16(0x00), 08030136?::08030146 u16(0x10), 
 	08030136?::0803014A u16(0x12), 08030136?::0803014E u16(0x10), 08030136?::08030150 u16(0x12), 
 	08030136?::08030152 u16(0x14), 08030136?::08030154 u16(0x16), 08001788?::0800178E u16(0x0C), 
@@ -100,7 +120,7 @@ Docs: s_0200AC40*/
 	08134984::081349A6 u16(0x14), 08134984::081349A8 u16(0x16), 08134984::081349AA u16(0x18), 
 	08134984::081349AC u16(0x1A), 
 
-Accesses: s_0200AC40*/
+Accesses: s_rendering_0200AC40*/
 
 /*
 	080015EC? 0800172C 08001764? 08001780? 08001788? 
@@ -110,6 +130,6 @@ Accesses: s_0200AC40*/
 	080302DE? 08030316? 08030336? 08121504 081255BC 
 	08125D58 08126938 08128948 081297F8 0812A52C 
 	0812B024 08134984 081374D0 081396B0 
-Functions: s_0200AC40*/
+Functions: s_rendering_0200AC40*/
 
-#endif // STRUCTS_S_0200AC40_H
+#endif // STRUCTS_s_rendering_0200AC40_H

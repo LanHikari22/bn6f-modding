@@ -4,10 +4,11 @@
 
 #include "../../include/inttypes.h"
 #include "Joystick.h"
-#include "s_0200AC40.h"
+#include "s_rendering_0200AC40.h"
 #include "s_02001B80.h"
 #include "s_0200A480.h"
 #include "s_02034880.h"
+#include "Camera.h"
 #include "../ChatBoxPropreties.h"
 
 /**
@@ -15,17 +16,17 @@
  * and hosts important other structures the game accesses.
  */
 typedef struct{
-	s_0200A480 *unk_00;          // loc=0x0
+	u8 *jo_gameSubsysSel;          // loc=0x0
 	Joystick *joystick;                // loc=0x4
-	s_0200AC40 *unk_08;                // loc=0x8
-	void *unk_0C;                // loc=0xC
+	s_rendering_0200AC40 *sRender_08;                // loc=0x8
+	Camera *camera;                // loc=0xC
 	void *unk_10;                // loc=0x10
 	void *unk_14;                // loc=0x14
 	s_02034880 *unk_18;                // loc=0x18
 	void *unk_1C;                // loc=0x1C
 	void *unk_20;                // loc=0x20
 	void *unk_24;                // loc=0x24
-	void *unk_28;                // loc=0x28
+	void *gfx_28;                // loc=0x28
 	ChatBoxPropreties *chatbox;  // loc=0x2C
 	void *unk_30;                // loc=0x30
 	void *unk_34;                // loc=0x34
@@ -33,7 +34,7 @@ typedef struct{
 	s_02001B80 *unk_3C;          // loc=0x3C
 	void *unk_40;                // loc=0x40
 	void *unk_44;                // loc=0x44
-	void *unk_48;                // loc=0x48
+	void *sChip_48;                // loc=0x48
 	void *unk_4C;                // loc=0x4C
 	void *unk_50;                // loc=0x50
 	void *unk_54;                // loc=0x54
@@ -66,25 +67,28 @@ s_020093B0 <sChiefStruct>:
 	Other Instances
 		Probably None
 	Offset	Type	Value		StructName
-	0x00 	ptr 	0x0200A480	s_0200A480
+	0x00 	u8* 	0x0200A480	jo_gameSubsysSel
 	0x04 	ptr		0x0200A270	Joystick
-	0x08 	ptr		0x0200AC40	s_0200AC40
-	0x0C 	ptr		0x02009980	?
+	0x08 	ptr		0x0200AC40	s_rendering_0200AC40
+	0x0C 	ptr		0x02009980	Camera
 	0x10 	ptr		0x02011C50	?
 	0x14 	ptr		0x02011BB0	?
 	0x18 	ptr		0x02034880	s_02034880
 	0x1C 	ptr		0x0200F3A0	?
 	0x20 	ptr		0x02009740	?
 	0x24 	ptr		0x0200A210	?
-	0x28 	ptr		0x030025C0	?
+	0x28 	ptr		0x030025C0	gfx_28
 	0x2C 	ptr		0x02009CD0	ChatBoxPropreties
 	0x30 	ptr		0x020384F0	?
-	0x34 	ptr		0x02009A30	?
+	0x34 	ptr		0x02009A30	MenuControl
 	0x38 	ptr		0x0200A220	?
 	0x3C 	ptr		0x02001B80	s_02001B80
 	0x40 	ptr		0x02001C04	?
 	0x44 	ptr		0x02001C88	?
-	0x48 	ptr		0x02002178	?
+			bot dog disappeared while zeroing this
+	0x48 	ptr		0x02002178	sChip_48
+		Involved w/ chip data. When changed, and modifying folder,
+		It says you have damaged chip data and freezes...
 	0x4C 	ptr		0x02002230	?
 	0x50 	ptr		0x02003134	?
 	0x54 	ptr		0x020032C8	?
@@ -100,6 +104,7 @@ s_020093B0 <sChiefStruct>:
 	0x7C 	ptr		0x02004C20	?
 	0x80 	ptr		0x02004E24	?
 	0x84 	ptr		0x02005028	?
+		First Word of this is Protected Zennies. change it, and your money is gone.
 	0x88 	ptr		0x02005030	?
 	0x8C 	ptr		0x02005038	?
 	0x90 	u32		0x4F4DD170	?

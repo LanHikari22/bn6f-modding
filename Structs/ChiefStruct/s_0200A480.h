@@ -24,9 +24,11 @@ s_0200A480 <>
 	Description
 		Unknown
     Length
-        Hypothesis: 0x3C (0x0200A4BC - 0x0200A480)
+        // Hypothesis: 0x3C (0x0200A4BC - 0x0200A480)
+        Accesses indicate that this is not a struct, but really... just a value. At 0x00. That's all.
 	Offset	Type	Name
-    0x00    u8      gameSubsysSel
+    0x00    u8      jo_gameSubsysSel
+        jump table: 0800034C subsystem_jt
         - Jumptable index! Changing 
         - its value while not in the overworld may yield different results, such as the window persisting (doesn't go back to OW)
         - When equal to these values:
@@ -55,7 +57,7 @@ s_0200A480 <>
             ...
 
 
-    0x04    u8      ?
+    0x04    u8      timer_04
         A Countdown timer, when you set it to some value, it counts down to 0x00
     0x10    u32     ?
         Can easily freeze the game. Seems to affect 0x14 somehow.

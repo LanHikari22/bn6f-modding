@@ -22,7 +22,7 @@
 #pragma region ChiefStruct
 #define HASH__ChiefStruct              "3___3___3___3___3___3___3___3___3___3___3___3___3___3___3___3___3___3___3___3___3___3___3___3___3_______3_______3___3___3___3_______3___3___________"
 #define HASH__Joystick                 "1_1_1_1_0000000000_03___"
-#define HASH__s_0200AC40               "1_1_1_1_1_1_1_1_1_1_1_1_1_1_"
+#define HASH__s_rendering_0200AC40               "1_1_1_1_1_1_1_1_1_1_1_1_1_1_"
 
 
 #pragma endregion Chiefstruct
