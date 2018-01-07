@@ -8,6 +8,7 @@
 #include "../include/main.h"
 #include "../include/MMBN6.h"
 #include "../Structs/NPC.h"
+#include "../Constants/keys.h"
 #include <main.h>
 #include <inttypes.h>
 #include <TextGenerator.h>
@@ -79,8 +80,10 @@ void onUpdate()
 */
 void onKeyPress()
 {
-	if (sChief->joystick->keyPress == KeyR)
+	static int x = 0;
+	if (sChief->joystick->keyPress == (Key_DEFAULT | Key_R))
 	{
+		x++;
 		// Launch debugging console
 		dc_startConsole(&p[0x10>>2], (dc_ROM*)0x089A0000);
 

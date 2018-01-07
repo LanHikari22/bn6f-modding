@@ -11,7 +11,7 @@
 // Module State
 u32 *writeLoc;
 dc_ROM *ROM;
-bool_t RPressEN;
+u8 RPressState;
 Key dc_cheatSeq[4];
 dc_seqCtr;
 
@@ -30,13 +30,16 @@ void dc_call(int Address, u32* RetAddress, int numParams, u32 params[]);
 void dc_init(u32 *wl, dc_ROM *rl){
     writeLoc = wl;
     ROM = rl;
-    RPressEN = false;
+    RPressState = 0; // disabled state
     for (int i=0; i<4; i++)
         dc_cheatSeq[i] = 0;
     dc_seqCtr = 0;
 }
 
 void dc_onUpdate(dc_ROM *configMem){
+
+    if (sChief->joystick->keyPress == Key_DEFAULT && RPressState >= 2) // Not OFF, or ON
+        RPressState = !(RPressState - 2); // Return to previous state of OFF/ON and toggle
 
     if (configMem->command == dc_cmd_cheatsystem){
         dc_Command cmd = dc_monitorKeySequence();
@@ -45,7 +48,8 @@ void dc_onUpdate(dc_ROM *configMem){
                 onStart_executed = 0;
                 break;
             case dc_cmd_toggleRPress:   /* SEL SEL SEL R */
-                RPressEN ^= 1;
+                RPressState += 2; // needs to be toggled once the keypress goes cold
+                
         }
         if (cmd != dc_cmd_NONE){
             for (int i = 0; i < 4; i++)
@@ -88,7 +92,8 @@ void dc_startConsole(u32 *writeLoc, dc_ROM *configMem){
         configMem->params[3], &configMem->params[4]);
     }
 
-    if (configMem->command == dc_cmd_toggleRPress || RPressEN){
+    if (configMem->command == dc_cmd_toggleRPress 
+        || RPressState == 1) {
         RPress();
     }
 }
@@ -161,7 +166,8 @@ void dc_sweepPartial2D(int (*fp)(int a1, int a2), int* loggingLoc, int start, in
 }
 
 dc_Command dc_monitorKeySequence(){
-    Key curr = sChief->joystick->IQR;
+    Key curr = sChief->joystick->keyPress;
+    curr &= ~(Key_DEFAULT);
     
     if (curr != Key_None){
         dc_cheatSeq[dc_seqCtr] = curr;
