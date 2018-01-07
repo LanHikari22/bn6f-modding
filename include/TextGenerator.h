@@ -18,9 +18,6 @@ static const char tg_ascii2GameText[128] =
   0x37, 0x38, 0x39, 0x3A, 0x3B, 0x3C, 0x3D, 0x3E, 0x3F, 0x00, 0x00, 0x00, 0xAB, 0x00
 };
 
-void memcpy(void *dest, void *src, int size);
-int strlen(char* s);
-
 void tg_startBattle(u16 index);
 
 /**
@@ -28,7 +25,7 @@ void tg_startBattle(u16 index);
  * @param str       ASCII string to print in GameText
  * @param mugshot   mugshot to be used in the chatbox
  */
-void tg_chatPrint(char* str, uint8_t mugshot);
+void tg_chatPrint(const char* str, uint8_t mugshot);
 
 /**
  * Returns the first script associated with a Script list that links to its script components.
@@ -58,7 +55,7 @@ extern bool_t tg_atScriptStart(char* pScript);
  * [side effects]
  * [return]
 */
-extern void tg_toGameText(char* pText, char* pGameText);
+extern void tg_toGameText(const char* pText, char* pGameText);
 
 /**
  * 

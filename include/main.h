@@ -4,6 +4,10 @@
 #include "MMBN6.h"
 #include "../Structs/ChiefStruct/ChiefStruct.h"
 
+int onStart_executed;
+
+void RPress();
+
 
 /* All supported System code is here */
 // #include <string.h>

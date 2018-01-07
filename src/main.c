@@ -8,11 +8,12 @@
 #include "../include/main.h"
 #include "../include/MMBN6.h"
 #include "../Structs/NPC.h"
+#include <main.h>
 #include <inttypes.h>
 #include <TextGenerator.h>
+#include <DebugConsole.h>
 
 NPC *npc;
-int onStart_executed;
 int savedKeyState;
 int counter;
 
@@ -50,6 +51,8 @@ void onStart()
 {
 	onStart_executed = ONSTART_EXECUTED;
 	/* Put initialization logic here ******/
+	dc_init((u32*)0x02050010, (dc_ROM*)0x089A0000);
+
 	// p is just somewhere full of zeros i like to debug values in.
 	p = (uint32_t*)0x02050000;
 	counter = 0;
@@ -62,7 +65,10 @@ void onStart()
 */
 void onUpdate()
 {
-	static ctr = 0;
+	// Put all modules that require frame updating here
+	dc_onUpdate(0x089A0000);
+
+	static int ctr = 0;
 	if (ctr % 60 == 0)
 		sBtlEnemyA->HP++;
 	ctr++;
@@ -75,46 +81,15 @@ void onKeyPress()
 {
 	if (sChief->joystick->keyPress == KeyR)
 	{
-		RPress();
+		// Launch debugging console
+		dc_startConsole(&p[0x10>>2], (dc_ROM*)0x089A0000);
+
 	}
 }
 
-void sweep1D(int (*fp)(int a1), int* loggingLoc, int start, int amount);
-void sweepPartial2D(int (*fp)(int a1, int a2), int* loggingLoc, int start, int amount, int c, int which);
-
+/**
+ * Executes if 0x089A0000 is set to 0x02. This is handled by the DebugConsole.c Module
+ */
 void RPress(){
-	u32 *c = (u8*)0x089A0000;
-	tg_chatPrint("Happy new year!", 0x01);
-	// sBtlEnemyA->HP -= 10;
-	// tg_startBattle((uint16_t)p[0x80>>2]);
-
-	// int register r5 asm("r5") = 0x02005780;
-	// testfunc();
-	// p[0x10>>2] = testfunc(c[0]);
-	p[0x10>>2] = testfunc(c[0], c[1]);
-	sweepPartial2D(testfunc, &c[0], 0, 0xFF, 0x23, 1);
-
-
-	// Call function from jump table
-	// void (*fp) () = ( (void (*) ()) chatbox_jt3[c[0]] );
-	// fp();
-
-	// Sweep Tests
-	// sweep1D(testfunc, &p[0x10>>2], c[0], c[1]);
-	// sweepPartial2D(testfunc, &p[0x10>>2], c[0], c[1], c[2], c[3])
-
-}
-
-void sweep1D(int (*fp)(int a1), int* loggingLoc, int start, int amount){
-	
-	for (int i = start; i < start + amount; i++){
-		loggingLoc[i - start] = fp(i); 
-	}
-}
-
-void sweepPartial2D(int (*fp)(int a1, int a2), int* loggingLoc, int start, int amount, int c, int which){
-	for (int i = start; i < start + amount; i++){
-		if (which == 1) loggingLoc[i - start] = fp(c, i);
-		if (which == 2) loggingLoc[i - start] = fp(i, c);
-	}
+	while(true);
 }

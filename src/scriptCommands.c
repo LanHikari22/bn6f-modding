@@ -1,6 +1,7 @@
 
 #include <scriptCommands.h>
 #include <TextGenerator.h>
+#include <str.h>
 
 void sc_init_script(sc_script *pScript){
     pScript->size = 0;
@@ -12,7 +13,7 @@ void sc_script_write(sc_script *pScript, u8 *arr, u32 arrSize){
     pScript->size += arrSize;
 }
 
-void sc_text(sc_script *pScript, char* str){
+void sc_text(sc_script *pScript, const char* str){
     int strLen = strlen(str);
     char gameText[tg_max_str_len];
     tg_toGameText(str, gameText);

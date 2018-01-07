@@ -1,31 +1,15 @@
 #include <TextGenerator.h>
 #include <scriptCommands.h>
-
-void memcpy(void *dest, void *src, int size){
-    for(int i = 0; i<size; i++){
-        ((uint8_t*)dest)[i] = ((uint8_t*)src)[i];
-    }
-}
-
-int strlen(char* s){
-    char c = s[0];
-    int i;
-    for (i = 0; ;i++){
-        if(c == '\0')
-            break;
-        c = s[i];
-    }
-    return i;
-}
+#include <str.h>
 
 /**
  * Prints a message using the chatbox!
  */
-void tg_chatPrint(char* str, uint8_t mugshot){	
+void tg_chatPrint(const char* str, uint8_t mugshot){	
 	// setup script
 	sc_script *script = tg_setupScriptList((uint16_t*)0x02050040);
 	sc_mugshot(script, 0x00, mugshot); // F5
- 	sc_msgbox (script, 0x00, NULL, NULL); // E8
+ 	sc_msgbox (script, 0x00, 0, 0); // E8
 	sc_text(script, str);
 	sc_buttonhalt(script, 0x00); // E7
 	sc_end(script); // E6
@@ -54,7 +38,7 @@ void tg_createScriptList(uint16_t *scriptList, char* str, uint8_t mugshot){
 
 sc_script* tg_setupScriptList(uint16_t *scriptList){
 	scriptList[0] = 0x0008;
-	sc_script *pScript = scriptList + 2;
+	sc_script *pScript = (sc_script*)(scriptList + 2);
 	sc_init_script(pScript);
 	return pScript;
 }
@@ -80,7 +64,7 @@ bool_t tg_atScriptStart(char* pScript){
  * [side effects]
  * [return]
 */
-void tg_toGameText(char* pText, char* pGameText){
+void tg_toGameText(const char* pText, char* pGameText){
 	int i = 0;
 	while(pText[i] != '\0'){
 		char gameChar = tg_toGameChar(pText[i]);

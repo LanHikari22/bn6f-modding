@@ -18,29 +18,34 @@ File Maintainance Usage*/
 
 /* ROM ------------------------------------------------------------------------------------------- */
 
-#define jumpTable_4              ((void**)0x080030FC)
-#define jumpTable_3              ((void**)0x08003114)
-#define jumpTable_2              ((void**)0x080045BC)
-#define chatbox_jt3              ((u32**)0x08041E94)
-#define chatbox_jt2              ((u32**)0x08041F7C)
-#define chatbox_FB_jt            ((void**)0x0804239C)
-#define chatbox_jt1              ((void**)0x08042624)
-#define jumpTable_0              ((void**)0x0809E6A4)
-#define jumpTable_1              ((void**)0x0809EC30)
-#define battle_settings_list0    ((BattleSettings*)0x080AEE70)
-#define battle_settings_list1    ((BattleSettings*)0x080B0D88)
-#define reqBBS_draw_jt1          ((void**)0x0813E0CC)
-#define reqBBS_entries_graphics  ((u8*)0x0813EF44)
-#define reqBBS_textualPointers   ((void**)0x0813F34C)
-#define reqBBS_difficultyEntries ((u8*)0x0813F380)
-#define reqBBS_jumpTable         ((void**)0x0813F42C)
-#define reqBBS_texual_shades     ((u8*)0x087EFBC8)
+#define jumpTable_4                 ((void**)0x080030FC)
+#define jumpTable_3                 ((void**)0x08003114)
+#define jumpTable_2                 ((void**)0x080045BC)
+#define subsystem_jt                ((void**)0x0800510C)
+#define chatbox_jt3                 ((u32**)0x08041E94)
+#define chatbox_jt2                 ((u32**)0x08041F7C)
+#define chatbox_FB_jt               ((void**)0x0804239C)
+#define chatbox_jt1                 ((void**)0x08042624)
+#define jumpTable_0                 ((void**)0x0809E6A4)
+#define jumpTable_1                 ((void**)0x0809EC30)
+#define battle_settings_list0       ((BattleSettings*)0x080AEE70)
+#define battle_settings_list1       ((BattleSettings*)0x080B0D88)
+#define reqBBS_draw_jt1             ((void**)0x0813E0CC)
+#define reqBBS_entries_graphics     ((u8*)0x0813EF44)
+#define reqBBS_textualPointers      ((void**)0x0813F34C)
+#define reqBBS_difficultyEntries    ((u8*)0x0813F380)
+#define reqBBS_jumpTable            ((void**)0x0813F42C)
+#define reqBBS_tiles_checkmark      ((u8*)0x08140238)
+#define reqBBS_tiles_yellowIcon     ((u8*)0x08140244)
+#define reqBBS_request_ROM_textData ((u8*)0x087EE2F0)
+#define reqBBS_texual_shades        ((u8*)0x087EFBC8)
 
 /*
 Address  Type           Variable
 080030FC void           *jumpTable_4[6]
 08003114 void           *jumpTable_3[6]
 080045BC void           *jumpTable_2[1]
+0800510C void           *subsystem_jt[15]
 08041E94 u32            *chatbox_jt3[7]
 08041F7C u32            *chatbox_jt2[14]
 0804239C void           *chatbox_FB_jt[16]
@@ -56,10 +61,10 @@ Address  Type           Variable
 0813F34C void           *reqBBS_textualPointers[2]
 0813F380 u8             reqBBS_difficultyEntries[0x64]
 0813F42C void           *reqBBS_jumpTable[18]
+08140238 u8             reqBBS_tiles_checkmark
+08140244 u8             reqBBS_tiles_yellowIcon
+087EE2F0 u8             reqBBS_request_ROM_textData[176]
 087EFBC8 u8             *reqBBS_texual_shades
-087EE2F0  u8 reqBBS_request_ROM_textData[176]
-08140238  u8 reqBBS_tiles_checkmark
-08140244  u8 reqBBS_tiles_yellowIcon
 ROM Data Table*/
 
 

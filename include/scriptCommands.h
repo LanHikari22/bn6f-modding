@@ -16,7 +16,7 @@ void sc_init_script(sc_script *pScript);
 /**
  * Appends the ASCII text as gameText in the script
  */
-void sc_text(sc_script *pScript, char* str);
+void sc_text(sc_script *pScript, const char* str);
 
 /**
  * E5 = nop

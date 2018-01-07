@@ -11,10 +11,10 @@ OBJCOPY = $(BIN)/arm-none-eabi-objcopy
 
 # build flags
 COMPLIANCE_FLAGS = -fomit-frame-pointer -ffast-math -fno-toplevel-reorder -nostdinc # -O2 makes main not first
-WFLAGS = -Wall -Wno-unkown-pragmas
+WFLAGS = -Wno-builtin-declaration-mismatch # doesn't recognize -Wno-unkown-pragmas
 ARCH   = -mcpu=arm7tdmi -mabi=aapcs -mthumb -mthumb-interwork
 CDEBUG = -g
-CFLAGS = $(ARCH) $(COMPLIANCE_FLAGS) $(CDEBUG) -I. -I$(SRCDIR)
+CFLAGS = $(ARCH) $(WFLAGS) $(COMPLIANCE_FLAGS) $(CDEBUG) -I. -I$(SRCDIR)
 LDFLAGS = -g -T romlink.ld -Map output.map
 LD_LINK = -static -L $(SYS_LIB_DIR1) -L $(SYS_LIB_DIR2) $(LIBS)
 PURE_OBJCOPY_FLAGS = -O elf32-littlearm -B arm --rename-section .data=.rom --set-section-flags .rom="r,c,a"
@@ -42,8 +42,6 @@ PURE_ROM = ../mmbn6f.gba
 COMBINED_OBJ = output.o
 #################################################################################################
 # Create the names of the object files (each .c file becomes a .o file)
-
-# include $(SOURCES:.c=.d) # TODO gives error
 
 # This handles compiling and linking into ROM.
 build:

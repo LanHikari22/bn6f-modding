@@ -1,8 +1,10 @@
 #ifndef MUGSHOTS
 #define MUGSHOTS
 
-#define mugshot_lan     0x00
-#define mugshot_shuko   0x1F
-#define mugshot_megaman 0x37
+typedef enum{
+    mugshot_lan =       0x00,
+    mugshot_shuko =     0x1F,
+    mugshot_megaman =   0x37,
+}Mugshot;
 
 #endif // MUGSHOTS
