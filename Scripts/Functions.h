@@ -5,10 +5,13 @@
 #include "Bios.h"
 #include "Chatbox.h"
 #include "Memory.h"
+#include "NPC.h"
 #include "reqBBS.h"
+#include "Save.h"
 #include "Sound.h"
 #include "Sprite.h"
 #include "subsystem.h"
+
 
 #pragma region FALZAR
 #ifdef FALZAR
@@ -16,6 +19,9 @@
 #define testfunc ((int (*)(int a1, int a2))(0x802F164+1))
 
 /* unnamed */
+
+// Involved with a lot. Might have to do with loading data in game state/ launching menus... Chatbox too????
+#define sub_8006E50 ((int (*)())(0x08006E50+1))
 
 // Very long... Seems super involved. Zennies? Bugs? And the reqBBS?? Battle?
 #define sub_8004DF0 ((int (*)())(0x08004DF0+1))
