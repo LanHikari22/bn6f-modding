@@ -66,6 +66,7 @@ Address  Type           Variable
 087EE2F0 u8             reqBBS_request_ROM_textData[176]
 087EFBC8 u8             *reqBBS_texual_shades
 08040E24  void *chatbox_ctrl_jt[27]
+0813C74C  void *NCPs_jt[47]
 ROM Data Table*/
 
 

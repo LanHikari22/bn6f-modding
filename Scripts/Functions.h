@@ -8,6 +8,7 @@
 #include "Load.h"
 #include "Memory.h"
 #include "MenuControl.h"
+#include "NCP.h"
 #include "NPC.h"
 #include "object.h"
 #include "reqBBS.h"
