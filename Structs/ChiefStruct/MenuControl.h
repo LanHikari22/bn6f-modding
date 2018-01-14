@@ -63,7 +63,7 @@ Offset  Type  Name
 0x00    u8    jo_00
     jt=0811F7A0, jumptable of submenu callbacks  
 0x01    u8    jo_01
-
+    
 0x02    u8    ?    
 0x03    u8    ?    
 0x0C    u8    ?    

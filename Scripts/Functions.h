@@ -3,6 +3,7 @@
 
 #include "../include/inttypes.h"
 #include "Battle.h"
+#include "BattleMenu.h"
 #include "Bios.h"
 #include "Chatbox.h"
 #include "Load.h"
