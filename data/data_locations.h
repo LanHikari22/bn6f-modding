@@ -67,6 +67,8 @@ Address  Type           Variable
 087EFBC8 u8             *reqBBS_texual_shades
 08040E24  void *chatbox_ctrl_jt[27]
 0813C74C  void *NCPs_jt[47]
+08003EC4  void *jt_54[213]
+081583F8 void **MusicTable
 ROM Data Table*/
 
 

@@ -9,7 +9,6 @@ typedef enum{
     mo_indoors,
     mo_school,
     mo_seaside_town,
-    mo_seaside_town,
     mo_sky_town,
     mo_green_town,
     mo_graveyard_area,

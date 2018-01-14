@@ -96,6 +96,5 @@ void onKeyPress()
 void RPress(){
 	// dc_printChat((u16*)0x02500050, mugshot_shuko, "How can I help you?"); // sets zennies to 0
 
-	int register r5 asm("r5") = sChief->submenu;
-	MenuControl_Megaman_cbNaviCust();
+	Sound_playBG(mo_ACDC_town);
 }
