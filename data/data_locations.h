@@ -65,6 +65,7 @@ Address  Type           Variable
 08140244 u8             reqBBS_tiles_yellowIcon
 087EE2F0 u8             reqBBS_request_ROM_textData[176]
 087EFBC8 u8             *reqBBS_texual_shades
+08040E24  void *chatbox_ctrl_jt[27]
 ROM Data Table*/
 
 
@@ -103,6 +104,7 @@ Address  Type        Variable
 0203AC38 Battle      sBtlEnemyC
 02001150  u8 reqBBS_draw_jt1_bxo
 02029A04  u8 reqBBS_requestInfo_textOffsets[200]
+
 
 RAM Data Table*/
 

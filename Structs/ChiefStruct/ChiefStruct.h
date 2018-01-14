@@ -4,6 +4,7 @@
 
 #include "../../include/inttypes.h"
 #include "Joystick.h"
+#include "MenuControl.h"
 #include "s_rendering_0200AC40.h"
 #include "s_02001B80.h"
 #include "s_0200A480.h"
@@ -25,11 +26,11 @@ typedef struct{
 	s_02034880 *unk_18;                // loc=0x18
 	void *unk_1C;                // loc=0x1C
 	void *unk_20;                // loc=0x20
-	void *unk_24;                // loc=0x24
+	u16 *currFrame;                // loc=0x24
 	void *gfx_28;                // loc=0x28
 	ChatBoxPropreties *chatbox;  // loc=0x2C
 	void *unk_30;                // loc=0x30
-	void *unk_34;                // loc=0x34
+	MenuControl *submenu;                // loc=0x34
 	void *unk_38;                // loc=0x38
 	s_02001B80 *unk_3C;          // loc=0x3C
 	void *unk_40;                // loc=0x40
@@ -76,7 +77,7 @@ s_020093B0 <sChiefStruct>:
 	0x18 	ptr		0x02034880	s_02034880
 	0x1C 	ptr		0x0200F3A0	?
 	0x20 	ptr		0x02009740	?
-	0x24 	ptr		0x0200A210	?
+	0x24 	u16*	0x0200A210	currFrame
 	0x28 	ptr		0x030025C0	gfx_28
 	0x2C 	ptr		0x02009CD0	ChatBoxPropreties
 	0x30 	ptr		0x020384F0	?

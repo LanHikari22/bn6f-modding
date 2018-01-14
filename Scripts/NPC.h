@@ -7,4 +7,4 @@
 
 /* Unnamed */
 
-#endif // SCRIPT_SOUND_H
+#endif // SCRIPT_NPC_H

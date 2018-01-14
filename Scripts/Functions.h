@@ -2,14 +2,19 @@
 #define FUNCTIONS_H
 
 #include "../include/inttypes.h"
+#include "Battle.h"
 #include "Bios.h"
 #include "Chatbox.h"
+#include "Load.h"
 #include "Memory.h"
+#include "MenuControl.h"
 #include "NPC.h"
+#include "object.h"
 #include "reqBBS.h"
 #include "Save.h"
 #include "Sound.h"
-#include "Sprite.h"
+#include "sprite.h"
+#include "StartScreen.h"
 #include "subsystem.h"
 
 
@@ -17,6 +22,10 @@
 #ifdef FALZAR
 
 #define testfunc ((int (*)(int a1, int a2))(0x802F164+1))
+
+#define __main ((void (*)())(0x080002BC+1))
+
+#define render_background_gfx ((int (*)())(0x080304E8+1))
 
 /* unnamed */
 

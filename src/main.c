@@ -9,6 +9,7 @@
 #include "../include/MMBN6.h"
 #include "../Structs/NPC.h"
 #include "../Constants/keys.h"
+#include "../Constants/Mugshots.h"
 #include <main.h>
 #include <inttypes.h>
 #include <TextGenerator.h>
@@ -93,5 +94,8 @@ void onKeyPress()
  * Can also be triggered to execute using the cheatcode "SELECT SELECT SELECT R"
  */
 void RPress(){
-	
+	// dc_printChat((u16*)0x02500050, mugshot_shuko, "How can I help you?"); // sets zennies to 0
+
+	int register r5 asm("r5") = sChief->submenu;
+	MenuControl_Megaman_cbNaviCust();
 }

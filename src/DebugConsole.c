@@ -71,7 +71,7 @@ void dc_startConsole(u32 *writeLoc, dc_ROM *configMem){
     // Format: call <Address> <retAddress> <numParams> <params...>
     // if <retAddress> is 0, it is assumed that the function doesn't return a value in R0.
     if (configMem->command == dc_cmd_call)
-        dc_call(configMem->params[0], (u32*)configMem->params[1], configMem->params[2], &configMem->params[3]);
+        dc_call(configMem->params[0]+1, (u32*)configMem->params[1], configMem->params[2], &configMem->params[3]);
     
     // Format: sweep1D <Address> <loggingAddress> <start> <amount>
     if (configMem->command == dc_cmd_sweep1D){
@@ -88,8 +88,12 @@ void dc_startConsole(u32 *writeLoc, dc_ROM *configMem){
 
     // Formar: jumptable <TableAddress> <WordOffset> <retAddress> <numParams> <params...>
     if (configMem->command == dc_cmd_jumptable){
-        dc_call(((u32*)configMem->params[0])[configMem->params[1]], configMem->params[2], 
-        configMem->params[3], &configMem->params[4]);
+        dc_call(
+            ((u32*)configMem->params[0])[configMem->params[1]], /* Address = jumptable[off] */
+            configMem->params[2], /* retAddress */
+            configMem->params[3], /* numParams */
+            &configMem->params[4] /* array of params */
+            );
     }
 
     if (configMem->command == dc_cmd_toggleRPress 
