@@ -18,7 +18,6 @@ typedef struct{
 }s_0200A480;
 
 
-#pragma region Docs
 /*
 s_0200A480 <>
 	Description
@@ -67,9 +66,7 @@ s_0200A480 <>
         This is crazy too. Writing any value to it seems to change the memory around it and freeze the game.
 
 */
-#pragma endregion Docs
 
-#pragma region Accesses
 
 /*
     080002B4? 08000454 080007BE 08000808 080053E4 
@@ -87,6 +84,5 @@ Detected Function Accesses */
 
 Accesses */
 
-#pragma endregion Accesses
 
 #endif /* S_0200A480_H */

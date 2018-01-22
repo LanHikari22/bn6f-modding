@@ -53,7 +53,6 @@ typedef struct {
 }s_02001B80;
 
 
-#pragma region Docs
 /*
 s_02001B80 <>:
 	Description
@@ -167,9 +166,7 @@ s_02001B80 <>:
 
 Docs*/
 
-#pragma endregion Docs
 
-#pragma region Accesses
 /*	
 	Format: <subroutine_Addr>::<Address of access> <type>(<value>)
 	If an access has eben shown before: subAddr, type and register are not shown.
@@ -304,12 +301,9 @@ Accesses */
 	08121504 0812513C 0813E18C 
 Detected Access Functions */
 
-#pragma endregion Accesses
 
-#pragma region memo
 /*
 A structure was found at s_02001C04 due to overestimating Size
 */
-#pragma endregion memo
 
 #endif /* S_02001B80_H */

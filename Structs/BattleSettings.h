@@ -21,7 +21,6 @@ typedef struct {
 	// size=0x10
 }BattleSettings;
 
-#pragma region sBattleSettings
 /*
 [Header]
 	[Name] BattleSettings
@@ -41,5 +40,4 @@ Offset  Type  Name
 	[0xZZZZZZ] [Me to past me]: only 6 Z's?
 0x0C    u32   *pEnemySetup
 */
-#pragma endregion sBattleSettings
 #endif /* BATTLE_SETTINGS_H */

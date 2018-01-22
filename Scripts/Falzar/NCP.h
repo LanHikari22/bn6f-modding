@@ -1,7 +1,7 @@
 #ifndef SCRIPT_NCP_H
 #define SCRIPT_NCP_H
 
-#include "../include/inttypes.h"
+#include "../../include/inttypes.h"
 
 #define NCP_ChipShuffle ((int (*)())(0x0813C918+1))
 

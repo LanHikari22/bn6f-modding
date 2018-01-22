@@ -64,7 +64,6 @@ typedef struct {
 	// size=0x94
 }s_02034880;
 
-#pragma region Docs
 
 /*
 	[Header]
@@ -142,9 +141,6 @@ s_02034880
 	Offset	Type	Name
 	0x3C	ptr		*pcurrBattle
 */
-#pragma endregion Docs
-
-#pragma region Accesses
 
 /*
 	name=s_02034880, size=0x94
@@ -314,6 +310,5 @@ Accesses*/
 	0802D234 0802D246 0802D26A 080823C8 080AC0FC 
 	080AC150 080AC2AC 080E19C0 08110370 
 Functions*/
-#pragma endregion Accesses
 
 #endif /* S_02034880_H */

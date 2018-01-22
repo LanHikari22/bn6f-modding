@@ -1,7 +1,7 @@
 #ifndef SCRIPT_LOAD_H
 #define SCRIPT_LOAD_H
 
-#include "../include/inttypes.h"
+#include "../../include/inttypes.h"
 
 
 

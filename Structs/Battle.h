@@ -11,12 +11,6 @@ typedef struct {
 }s_080182C4;
 
 typedef struct {
-	uint32_t MODER; // loc=0x00
-	uint32_t ODR; // loc=0x08
-	// size=0x08
-}GPIO;
-
-typedef struct {
 	u8 naviVirusIndicator;        // loc=0x0
 	u8 AI_index;                  // loc=0x1
 	u8 unk_02;                    // loc=0x2
@@ -71,10 +65,6 @@ typedef struct {
 		u8 pad_F0[0x10];             
 	// size=0x100
 }AI;
-
-#define GPIO (volatile GPIO*)(0x084A0000)
-
-GPIO->ODR = 0x00;
 
 typedef struct {
 	u8 enable;                         // loc=0x0

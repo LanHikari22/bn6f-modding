@@ -39,7 +39,6 @@ typedef struct {
 }OWPlayer;
 
 
-#pragma region Docs
 /*
 [Header]
 	[Name] OWPlayer (s_02009F40)
@@ -68,9 +67,6 @@ Offset  Type  Name
 0xA8    u32   *unk_A8            
 0xAC    u32   *unk_AC            
 */
-#pragma endregion Docs
-
-#pragma region Accesses
 /*
 Format: <subroutine_Addr>::<Address of access> <type>(<value>)
 If an access has eben shown before: subAddr, type and register are not shown.
@@ -246,9 +242,6 @@ Writes:
 
 Accesses*/
 
-#pragma endregion Accesses
-
-#pragma region memo
 /*
 a new struct found at s_02009F5C due to overestimating size.
 However, s_02009F5C is actually accessed through this... 
@@ -258,6 +251,5 @@ Callbacks encountered in Accesses:
     0809ED38
 
 */
-#pragma endregion memo
 
 #endif /* S_02009F40_H */

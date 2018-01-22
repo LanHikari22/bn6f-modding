@@ -1,7 +1,6 @@
 #ifndef game_areas
 #define game_areas
 
-#pragma region memo
 /*
 To get to the list of all NPC in the area:
 For 0x00 maps:
@@ -165,6 +164,5 @@ For 0x80 maps:
 01 = Graveyard2
 02 = Immortal Area
 */
-#pragma endregion memo
 
 #endif // game_areas

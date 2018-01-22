@@ -1,7 +1,7 @@
 #ifndef SCRIPT_REQ_BBS_H
 #define SCRIPT_REQ_BBS_H
 
-#include "../include/inttypes.h"
+#include "../../include/inttypes.h"
 
 #define reqBBS_get_selectedEntry_ID ((int (*)())(0x081408C8+1))
 

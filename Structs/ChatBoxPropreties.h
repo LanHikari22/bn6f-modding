@@ -80,7 +80,6 @@ typedef struct {
 	// size=0x98
 }ChatBoxPropreties;
 
-#pragma region Docs
 /*
 s_02009CD0 <ChatBoxPropreties>:
 	Description
@@ -298,9 +297,7 @@ Old Docs*/
 
 
 Docs: ChatBoxPropreties*/
-#pragma endregion Docs
 
-#pragma region Accesses
 
 /*
 	03006F88 030070B0 0803FE88 0803FE96? 0803FF24 
@@ -425,7 +422,6 @@ Function Accesses */
 
 Accesses */
 
-#pragma endregion Accesses
 
 
 #endif /* S_02009CD0_H */

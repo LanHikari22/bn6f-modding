@@ -39,7 +39,7 @@ int main()
 	onUpdate();
 
 	// handle onKeyPress()
-	if (sChief->joystick->keyPress != KeyIDLE)
+	if (sChief->joystick->keyPress != Key_DEFAULT)
 	{
 		onKeyPress();
 	}

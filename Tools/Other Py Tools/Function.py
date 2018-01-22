@@ -21,7 +21,9 @@ class Function:
             raise(Exception("Address %08x does not live within a function" % func_ea))
 
     def getName(self):
-        return idaapi.get_func_name(func_ea)
+        return idaapi.get_func_name(self.func_ea)
+    def setName(self, funcName):
+        idc.MakeName(self.func_ea, funcName)
 
     def getXRefsTo(self):
         """
@@ -48,7 +50,7 @@ class Function:
 
             return (crefs, drefs)
 
-    def getXRefsFrom(self):
+    def ongoing_getXRefsFrom(self):
         crefs = []
         drefs = []
         normalFlow = True
@@ -58,6 +60,13 @@ class Function:
         for ref in CodeRefsFrom(self.func_ea, not normalFlow): # XrefsFrom
             # print xref.type, XrefTypeName(xref.type), 'from', hex(xref.frm), 'to', hex(xref.to)
             crefs.append(ref)
+        # for xref in XrefsFrom(self.func_ea, 0):
+            # if xref.type == fl_CN or xref.type == fl_CF:
+                # Message("%s calls %s from %x\n" % (fname,  Name(xref.to), i))
+            # else:
+                # Warning("No function found at location %x" % here())
+            # crefs.append(xref.to)
+
         for ref in DataRefsFrom(self.func_ea):
             drefs.append(ref)
         for ref in DataRefsFrom(self.func_ea+1):
@@ -93,8 +102,10 @@ def printRefs(crefs, drefs):
 
 def RunTesting():
     func = Function(here())
-    crefs, drefs = func.getXRefsFrom()
-    printRefs(crefs, drefs)
+    print(func.setName("Strawberry_sub"))
+
+    # crefs, drefs = func.getXRefsFrom()
+    # printRefs(crefs, drefs)
 
 if __name__ == '__main__':
     RunTesting()

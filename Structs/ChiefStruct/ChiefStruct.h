@@ -57,7 +57,6 @@ typedef struct{
 	// size=0x94
 }ChiefStruct;
 
-#pragma region Docs
 /*
 s_020093B0 <sChiefStruct>:
 	Description
@@ -112,9 +111,7 @@ s_020093B0 <sChiefStruct>:
 */
 
 
-#pragma endregion Docs
 
-#pragma region Accesses
 /*
 	name=ChiefStruct, size=0x94
 	0800172C::08001730 u32(0x08), 0800172C::08001744 u32(0x1C), 0800172C::0800174E u32(0x20), 
@@ -384,6 +381,5 @@ Accesses: chiefStruct*/
 	08141370 081416D0 08141E2C 08142138 
 Functions: chiefStruct*/
 
-#pragma endregion Accesses
 
 #endif /* CHIEF_STRUCT_H */

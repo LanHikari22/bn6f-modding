@@ -1,7 +1,7 @@
 #ifndef SCRIPT_BATTLE_H
 #define SCRIPT_BATTLE_H
 
-#include "../include/inttypes.h"
+#include "../../include/inttypes.h"
 
 
 

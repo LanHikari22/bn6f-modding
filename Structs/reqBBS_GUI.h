@@ -81,7 +81,6 @@ typedef struct {
 	// size=0x80
 }reqBBS_GUI;
 
-#pragma region Doc
 /*
 [Header]
 	[Name] reqBBS_GUI
@@ -179,9 +178,6 @@ Offset  Type  Name
 0x7C    u32   ?    
 
 */
-#pragma endregion Doc
-
-#pragma region Accesses
 
 /*
 name=s_02005780, size=0x80
@@ -241,9 +237,6 @@ name=s_02005780, size=0x80
 0813F6F8::0813F720 u8(0x08), 0813F6F8::0813F724 u8(0x08), 0813F6F8::0813F72A u8(0x00), 
 081403A8::081403B4 u8(0x00), 0813F590::0813F5A4 u8(0x05), 0813F590::0813F5A6 u32(0x28), 
 Falzar Accesses*/
-#pragma endregion Accesses
-
-#pragma region other
 
 /*
     name=d_0813F34C, size=0x200
@@ -276,6 +269,5 @@ d_0813F34C->loc_34 (0813f380)*/
     Array of THUMB function pointers!
     
 d_0813F34C->loc_E0 (0813f42c)*/
-#pragma endregion other
 
 #endif // s_02005780_H

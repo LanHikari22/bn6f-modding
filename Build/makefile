@@ -11,7 +11,7 @@ OBJCOPY = $(BIN)/arm-none-eabi-objcopy
 
 # build flags
 COMPLIANCE_FLAGS = -fomit-frame-pointer -ffast-math -fno-toplevel-reorder -nostdinc # -O2 makes main not first
-WFLAGS = -Wno-builtin-declaration-mismatch # doesn't recognize -Wno-unkown-pragmas
+WFLAGS = -Wno-builtin-declaration-mismatch
 ARCH   = -mcpu=arm7tdmi -mabi=aapcs -mthumb -mthumb-interwork
 CDEBUG = -g
 CFLAGS = $(ARCH) $(WFLAGS) $(COMPLIANCE_FLAGS) $(CDEBUG) -I. -I$(SRCDIR)

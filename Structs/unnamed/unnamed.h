@@ -1,0 +1,6 @@
+#ifndef STRUCTS_UNNAMED_H
+#define STRUCTS_UNNAMED_H
+
+#include "s_02001C88.h"
+
+#endif // STRUCTS_UNNAMED_H

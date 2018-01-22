@@ -86,15 +86,12 @@ typedef enum{
 
 
 /* Instances */
-#pragma region Instances
 #define sNPC_chaud 			((NPC*)0x02005F48)
 #define sNPC_copybotneardog ((NPC*)0x02005BE8)
 #define sNPC_ACDC_Boy		((NPC*)0x02005888)
-#pragma endregion Instances
 
 
 
-#pragma region Doc
 /*
 	
 		s_02005BE8 # sNPC_copybotneardog
@@ -280,11 +277,7 @@ Other instances*/
 		this array determines the script to be run for some type of NPCs
 		Hypothetical number of entries: 8*6 + 5 = 53                   
 Doc: NPC*/
-#pragma endregion Doc
 
-#pragma region Accesses
-
-#pragma region Falzar
 /*
 	name=structure, size=0x98
 	0809E01C::0809E024 u32(0x50), 0800461E::08004640 u8(0x00), 0800461E::08004658 u8(0x01), 
@@ -343,10 +336,8 @@ Doc: NPC*/
 	0809ED94::0809ED98 u8(0x00), 080318B0::080318DE u16(0x24+0x0A), 0809F018?::0809F01E u16(0x3C), 
 	0809F018?::0809F022 u32(0x78), 0809F018?::0809F024 u32(0x60), 0809F018?::0809F02A u32(0x60), 
 
-Chaud*/
-#pragma endregion Falzar
+Falzar: Chaud*/
 
-#pragma region Gregar
 /* Gregar */
 /*
 	name=NPC, size=0x98
@@ -596,11 +587,7 @@ Accesses: s_0202FA04*/
     0803FF24::0803FF2C u8(0x85+0x00), 0803FF24::0803FF2C u8(0x86+0x00), 0803FF24::0803FF2C u8(0x88+0x00), 
     08040EC8::08040F00 u8(0x91+0x01),  
 loc 0x0202FA04 Script offset Array*/
-#pragma endregion Gregar
 
-#pragma endregion Accesses
-
-#pragma region Functions
 /* Falzar */
 /*
 	03006028 030061E8 0300631C 080026A4 080026C4 
@@ -614,7 +601,7 @@ loc 0x0202FA04 Script offset Array*/
 	0809F3C0 0809F506 0809F516 0809F51E 0809F526 
 	0809F5FC 0809F68C 
 */
-#pragma endregion Functions
+
 /*
 s_02035280 <sNoname>:
 	Description
