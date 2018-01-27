@@ -1,5 +1,6 @@
 from idautils import *
 from idaapi import *
+import idaapi
 from ida_hexrays import *
 import idc
 

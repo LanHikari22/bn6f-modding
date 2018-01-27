@@ -11,3 +11,4 @@ Build/*.map
 Tools/*.sw?
 Tools/input*
 Tools/output*
+*/.idea/*
