@@ -10,6 +10,12 @@ import idc_bc695
 import Function
 import os
 
+# Module Input
+ROM = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\Build\\mmbn6f.gba'
+bin = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\Roms\\GBA\\Fire Emblem\\Fire Emblem - the Sacred Stones.gba'
+wrFile = open('C:\\Users\\alzakariyamq\\Desktop\\Analysis.txt', 'w')
+ROM_seg = 0x08000000
+
 # Constants
 INSTRUCTION_WIDTH = 2 # The number of bytes an instruction takes is needed for the search algorithm
 INVALID_FUNCTION = -1
@@ -95,15 +101,27 @@ class BinarySearcher:
         return output
 
 
+
 if __name__ == '__main__':
-    ROM = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\Build\\mmbn6f.gba'
-    bin = ROM
-    searcher = BinarySearcher(ROM, bin, 0x08000000)
+    print("Starting Binary Search Analysis...")
+
+    searcher = BinarySearcher(ROM, bin, ROM_seg)
+
+    # Perform and time Analysis
     import time
     stopwatch = time.time()
-    # Diagnosed code here...
     matchedFunctions = searcher.scan_for_known_functions()
     stopwatch = time.time() - stopwatch
-    print("This operation took %d s" % int(stopwatch))
-    for x in matchedFunctions: print (x["Name"])
+    wrFile.write("Analysis took %d s\n" % int(stopwatch))
+
+    # Simply output all entries
+    for x in matchedFunctions: wrFile.write(str(x["Name"]) + ": " + hex(x["Bin_Addr"]) + '\n')
+
+    # Output only entries where x["ROM_Addr"] == x["Bin_Addr"]
+    # for x in matchedFunctions:
+    #     if x["ROM_Addr"] == ROM_seg + x["Bin_Addr"]: wrFile.write(str(x["Name"]) + ": " + hex(x["Bin_Addr"]) + '\n')
+
+    wrFile.close()
+
+    print("Binary Search Analysis Complete!")
     # print(hex(0x08000000 + searcher.find_function(0x803EFCC))) # returns 0x803efcc
