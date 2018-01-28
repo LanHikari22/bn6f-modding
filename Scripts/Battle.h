@@ -8,9 +8,17 @@
 
 #define Battle_8005360 ((int (*) ()) (0x08005360+1))
 #define Battle_8007A0C ((signed int (*) ()) (0x08007A0C+1))
+#define Battle_is_paused ((int (*) ()) (0x0800A03C+1))
+#define Battle_is_timestop ((int (*) ()) (0x0800A098+1))
+#define Battle_is_battle_over ((signed int (*) ()) (0x0800A18E+1))
+#define Battle_set_flags ((__int16 __fastcall (*) (__int16 result)) (0x0800A2D8+1))
+#define Battle_clear_flags ((__int16 __fastcall (*) (__int16 result)) (0x0800A2E4+1))
+#define Battle_get_flags ((int (*) ()) (0x0800A2F0+1))
+#define Battle_network_invert ((int __fastcall (*) (int a1)) (0x0800A9EC+1))
+#define Battle_clear_enemy_fadein_list ((void (*) ()) (0x0800A9F6+1))
 #define Battle_800C8F0 ((int (*) ()) (0x0800C8F0+1))
 #define Battle_800EC56 ((signed __int64 __fastcall (*) (signed int a1)) (0x0800EC56+1))
-#define Battle_801986C ((int (*) ()) (0x0801986C+1))
+#define Battle_801986C ((void (*) ()) (0x0801986C+1))
 
 
 #endif // SCRIPT_BATTLE_H

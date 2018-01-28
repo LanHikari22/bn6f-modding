@@ -4,6 +4,8 @@
 #include "MMBN6.h"
 #include "../Structs/ChiefStruct/ChiefStruct.h"
 
+register void *r5 asm("r5");
+
 int onStart_executed;
 
 void RPress();

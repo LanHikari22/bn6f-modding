@@ -12,7 +12,7 @@ freezes for a1 != 0?
 */
 #define subsystem_launch_reqBBS ((signed int __fastcall (*) (int BBS_index)) (0x08005D08+1))
 #define subsystem_launch_shop ((int __fastcall (*) (int shop_index)) (0x08005D28+1))
-#define subsystem_launch_chipTrader ((signed int __fastcall (*) (int a1)) (0x08005D48+1))
+#define subsystem_launch_chipTrader ((signed int __fastcall (*) (int a1, int a2)) (0x08005D48+1))
 /**
 mailbox_index can be 00 or 01
 */

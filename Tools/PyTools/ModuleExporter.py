@@ -19,6 +19,8 @@
 
 import Function
 import Module
+import os
+import shutil
 
 
 class VersionInputException(Exception):
@@ -190,20 +192,106 @@ class ModuleExporter:
         output = '#endif // %s' % (headerLabel)
         return output
 
-if __name__ == '__main__':
+def deleteOldModules(scriptsDir, versionDir, otherVersionDir):
+    """
+    Deletes all of the files in the Scripts directory and version subdirectories, except for "Misc.h"
+    :param scriptsDir: (str) directory to export scripts to
+    :param versionDir: (str) relative subdirectory of scriptsDir for the primary version (analyzed by this IDA DB)
+    :param otherVersionDir: (str) relative subdirectory of scriptsDir for the other version
+    :return: None
+    """
+    # delete all of the files except for  Misc.h
+    print('Deleting old Modules...')
+    for folder in [scriptsDir, scriptsDir + versionDir, scriptsDir + otherVersionDir]:
+        for file in os.listdir(folder):
+            file_path = os.path.join(folder, file)
+            try:
+                if os.path.isfile(file_path) and 'Misc.h' not in str(file_path):
+                    print("Deleting Module '%s'..." % file)
+                    os.unlink(file_path)
+                    # elif os.path.isdir(file_path): shutil.rmtree(file_path)
+            except Exception as e:
+                print(e)
+
+def generate_ScriptsFile(scriptsDir, versionDir, otherVersionDir):
+    """
+    Generates the '_Scripts.h' file that basically includes all exported modules!
+    :param scriptsDir: (str) directory to export scripts to
+    :param versionDir: (str) relative subdirectory of scriptsDir for the primary version (analyzed by this IDA DB)
+    :param otherVersionDir: (str) relative subdirectory of scriptsDir for the other version
+    :return: None
+    """
+    # Now update _Scripts.h to include all modules
+    _ScriptsFile = open(scriptsDir + '_Scripts.h', 'w')
+    _ScriptsFile.write('#ifndef SCRIPTS__SCRIPTS_H\n#define SCRIPTS__SCRIPTS_H\n\n#include "../include/inttypes.h"\n')
+
+    # Include shared files first
+    print("Generating '_Scripts.h'...")
+    for file in os.listdir(scriptsDir):
+        if '_Scripts.h' not in file and os.path.isfile(scriptsDir + file):
+            _ScriptsFile.write('#include "%s"\n' % file)
+    # Include files from first version
+    _ScriptsFile.write('\n\n#ifdef %s\n\n' % versionDir[:-1].upper())
+    for file in os.listdir(scriptsDir + versionDir):
+        _ScriptsFile.write('#include "%s"\n' % (versionDir[:-1] + '/' + file))
+    _ScriptsFile.write('\n\n#endif // %s\n\n' % versionDir[:-1].upper())
+    # Include files from second version
+    _ScriptsFile.write('\n\n#ifdef %s\n\n' % otherVersionDir[:-1].upper())
+    for file in os.listdir(scriptsDir + otherVersionDir):
+        _ScriptsFile.write('#include "%s"\n' % (otherVersionDir[:-1] + '/' + file))
+    _ScriptsFile.write('\n\n#endif // %s\n\n' % otherVersionDir[:-1].upper())
+
+    _ScriptsFile.write('#endif // SCRIPTS__SCRIPTS_H')
+
+    # Bye bye!
+    _ScriptsFile.close()
+
+
+def exportModules(mods, scriptsDir, versionDir, otherVersionDir, ROMPath, otherVersionBinPath):
+    """
+    exports all specified modules from IDA into the specified scriptsDir and version subdirectories
+    and updates the '_Scripts.h' file to include all of the new module files!
+    If the 'subs' module is included, it is assumed to be a full refresh, and old modules are deleted.
+
+    :param mods: (list(str)) List of modules to be exported (should be everything, s
+    :param scriptsDir: (str) directory to export scripts to
+    :param versionDir: (str) relative subdirectory of scriptsDir for the primary version (analyzed by this IDA DB)
+    :param otherVersionDir: (str) relative subdirectory of scriptsDir for the other version
+    :param ROMPath: (str) Path to a ROM with content identical to the one analyzed by this IDA DB
+    :param otherVersionBinPath: (str) Path to the ROM of the other version
+    :return: None
+    """
     import time
-    mods = ['main', 'Battle', 'BattleMenu', 'Chatbox', 'Load', 'Memory', 'MenuControl', 'NCP',
-            'reqBBS', 'Save', 'Startscreen', 'subsystem', 'Bios', 'NPC', 'object', 'Sound', 'sprite', 'libc',
-            'invalid_modules_dont_generate_junk!']
+
+    # if subs is included, perform a full refresh
+    if 'sub' in mods:
+        deleteOldModules(scriptsDir, versionDir, otherVersionDir)
+
     print('Exporting Modules...')
     stopwatch = time.time()
     for mod in mods:
         print("Exporting Module '%s'..." % mod)
-        exporter = ModuleExporter(scriptsDir='C:\\Users\\alzakariyamq\Documents\\Game Modding\\mods\\MMBN6\\Scripts\\',
-                                  versionDir='Falzar\\', otherVersionDir='Gregar\\',
-                                  ROMPath='C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6f.gba',
-                                  otherVersionBinPath='C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6g.gba')
+        exporter = ModuleExporter(scriptsDir, versionDir, otherVersionDir, ROMPath, otherVersionBinPath)
         exporter.exportScripts(mod)
+
+    # Generate new '_Scripts.h' file to link all of the exported modules together!
+    generate_ScriptsFile(scriptsDir, versionDir, otherVersionDir)
+
     stopwatch = time.time() - stopwatch
     print("Exporting Complete! It took %d s" % int(stopwatch))
+
+if __name__ == '__main__':
+    mods = ['main', 'Battle', 'BattleMenu', 'Chatbox', 'Load', 'Memory', 'MenuControl', 'NCP',
+            'reqBBS', 'Save', 'Startscreen', 'subsystem', 'Bios', 'NPC', 'object', 'Sound', 'sprite', 'libc',
+            'engine', 'check', 'render', 'cb']
+    # mods.append('sub')
+    mods.append('invalid_modules_dont_generate_junk!')
+
+    scriptsDir = 'C:\\Users\\alzakariyamq\Documents\\Game Modding\\mods\\MMBN6\\Scripts\\'
+    versionDir = 'Falzar\\'; otherVersionDir = 'Gregar\\'
+    ROMPath = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6f.gba'
+    otherVersionBinPath = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6g.gba'
+
+    # deleteOldModules(scriptsDir, versionDir, otherVersionDir)
+    exportModules(mods, scriptsDir, versionDir, otherVersionDir, ROMPath, otherVersionBinPath)
 

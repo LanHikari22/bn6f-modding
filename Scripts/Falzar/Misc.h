@@ -31,8 +31,10 @@
 
 #define sub_803FE10 ((void (*)(u16 *scriptList, u16 offset))(0x803FE10+1))
 
-// calls chatbox_run_script and glitches screen?
+// calls Chatbox_run_script and glitches screen?
 #define sub_803FE74 ((void (*)(u16 *scriptList, u16 offset))(0x803FE74+1))
 
+// Nostalgic function pffft
+// :0800117C calcAngle
 
 #endif // SCRIPT_LOAD_H

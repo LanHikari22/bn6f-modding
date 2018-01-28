@@ -10,7 +10,7 @@
 hyp
 */
 #define reqBBS_80384DC ((signed int (*) ()) (0x080384DC+1))
-#define reqBBS_draw_813E0F8 ((int (*) ()) (0x0813E0F8+1))
+#define reqBBS_draw_813E0F8 ((int __fastcall (*) (int a1, int a2, int a3, int a4)) (0x0813E0F8+1))
 #define reqBBS_draw_813E188 ((void __noreturn (*) ()) (0x0813E188+1))
 #define reqBBS_draw_813E224 ((int (*) ()) (0x0813E224+1))
 #define reqBBS_draw_813E2AC ((int (*) ()) (0x0813E2AC+1))
@@ -75,7 +75,7 @@ exp: r5= 02005780
 changes header text of a BBS chatbox based on something?
 hyp
 */
-#define reqBBS_change_chatbox_header ((int (*) ()) (0x08140554+1))
+#define reqBBS_change_chatbox_header ((void (*) ()) (0x08140554+1))
 #define reqBBS_8140604 ((void __fastcall (*) (int a1, int a2, int a3, int a4)) (0x08140604+1))
 #define reqBBS_animate_cursor ((int (*) ()) (0x08140688+1))
 #define reqBBS_81408A0 ((unsigned int __fastcall (*) (int ID)) (0x081408A0+1))

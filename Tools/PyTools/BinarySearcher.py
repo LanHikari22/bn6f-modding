@@ -17,9 +17,9 @@ import os
 
 # Module Input ---------------------------------------------------------------------------------------------------------
 # identical to the ROM analyzed by IDA
-ROM = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\Build\\mmbn6f.gba'
+ROM = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6g.gba'
 # Where to write the Analysis output
-bin = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\Roms\\NDS\\3902 - Shin Megami Tensei - Devil Survivor (US)(OneUp).nds'
+bin = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6f.gba'
 # Where to write the Analysis output
 wrFile = open('C:\\Users\\alzakariyamq\\Desktop\\Analysis.txt', 'w')
 # ROM Addresses are absolute, not file relative. Configure the start address for ROM

@@ -95,6 +95,11 @@ void onKeyPress()
  */
 void RPress(){
 	// dc_printChat((u16*)0x02500050, mugshot_shuko, "How can I help you?"); // sets zennies to 0
+	// subsystem_launch_reqBBS(0x00);
+	// Sound_playBG(mo_ACDC_town);
 
-	Sound_playBG(mo_ACDC_town);
+	r5 = sBtlEnemyA;
+	// object_add_hp(50); // doesn't add HP for some reason??
+	// object_break_panel(3, 3); // it woooorks!
+	Save_803F79E();
 }
