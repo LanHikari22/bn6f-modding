@@ -236,7 +236,7 @@ def generate_ScriptsFile(scriptsDir, versionDir, otherVersionDir):
         _ScriptsFile.write('#include "%s"\n' % (versionDir[:-1] + '/' + file))
     _ScriptsFile.write('\n\n#endif // %s\n\n' % versionDir[:-1].upper())
     # Include files from second version
-    _ScriptsFile.write('\n\n#ifdef %s\n\n' % otherVersionDir[:-1].upper())
+    _ScriptsFile.write('#ifdef %s\n\n' % otherVersionDir[:-1].upper())
     for file in os.listdir(scriptsDir + otherVersionDir):
         _ScriptsFile.write('#include "%s"\n' % (otherVersionDir[:-1] + '/' + file))
     _ScriptsFile.write('\n\n#endif // %s\n\n' % otherVersionDir[:-1].upper())
@@ -284,7 +284,7 @@ if __name__ == '__main__':
     mods = ['main', 'Battle', 'BattleMenu', 'Chatbox', 'Load', 'Memory', 'MenuControl', 'NCP',
             'reqBBS', 'Save', 'Startscreen', 'subsystem', 'Bios', 'NPC', 'object', 'Sound', 'sprite', 'libc',
             'engine', 'check', 'render', 'cb']
-    # mods.append('sub')
+    mods.append('sub')
     mods.append('invalid_modules_dont_generate_junk!')
 
     scriptsDir = 'C:\\Users\\alzakariyamq\Documents\\Game Modding\\mods\\MMBN6\\Scripts\\'

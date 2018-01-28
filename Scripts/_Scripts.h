@@ -15,6 +15,7 @@
 #include "Save.h"
 #include "sprite.h"
 #include "Startscreen.h"
+#include "sub.h"
 #include "subsystem.h"
 
 
@@ -37,12 +38,11 @@
 #include "Falzar/Save.h"
 #include "Falzar/Sound.h"
 #include "Falzar/Startscreen.h"
+#include "Falzar/sub.h"
 #include "Falzar/subsystem.h"
 
 
 #endif // FALZAR
-
-
 
 #ifdef GREGAR
 
@@ -63,6 +63,7 @@
 #include "Gregar/Save.h"
 #include "Gregar/Sound.h"
 #include "Gregar/sprite.h"
+#include "Gregar/sub.h"
 
 
 #endif // GREGAR
