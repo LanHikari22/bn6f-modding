@@ -14,25 +14,26 @@
       <file leaf-file-name="delta.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/delta.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="136" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+            <state relative-caret-position="481">
+              <caret line="259" column="86" lean-forward="false" selection-start-line="259" selection-start-column="86" selection-end-line="259" selection-end-column="86" />
               <folding>
-                <element signature="e#278#1543#0" expanded="false" />
-                <element signature="e#1608#2059#0" expanded="false" />
-                <element signature="e#2167#2309#0" expanded="false" />
-                <element signature="e#2354#2700#0" expanded="false" />
-                <element signature="e#2743#3046#0" expanded="false" />
-                <element signature="e#3169#3268#0" expanded="false" />
-                <element signature="e#3299#3396#0" expanded="false" />
-                <element signature="e#4253#4645#0" expanded="false" />
-                <element signature="e#4756#4824#0" expanded="false" />
-                <element signature="e#4849#5016#0" expanded="false" />
-                <element signature="e#5232#5782#0" expanded="false" />
-                <element signature="e#5809#5928#0" expanded="false" />
-                <element signature="e#5969#6365#0" expanded="false" />
-                <element signature="e#6471#6871#0" expanded="false" />
-                <element signature="e#6926#7579#0" expanded="false" />
-                <element signature="e#7635#7782#0" expanded="false" />
+                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#289#1554#0" expanded="false" />
+                <element signature="e#1619#2070#0" expanded="false" />
+                <element signature="e#2178#2320#0" expanded="false" />
+                <element signature="e#2365#2711#0" expanded="false" />
+                <element signature="e#2754#3057#0" expanded="false" />
+                <element signature="e#3180#3279#0" expanded="false" />
+                <element signature="e#3310#3407#0" expanded="false" />
+                <element signature="e#4264#4656#0" expanded="false" />
+                <element signature="e#4767#4835#0" expanded="false" />
+                <element signature="e#4860#5027#0" expanded="false" />
+                <element signature="e#5243#5793#0" expanded="false" />
+                <element signature="e#5820#5939#0" expanded="false" />
+                <element signature="e#5980#6376#0" expanded="false" />
+                <element signature="e#6482#6882#0" expanded="false" />
+                <element signature="e#6937#7590#0" expanded="false" />
+                <element signature="e#7646#7793#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -41,8 +42,8 @@
       <file leaf-file-name="Function.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="24" />
+            <state relative-caret-position="246">
+              <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#215#230#0" expanded="true" />
                 <element signature="e#2862#3827#0" expanded="false" />
@@ -57,12 +58,11 @@
       <file leaf-file-name="BinarySearcher.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="23" column="61" lean-forward="false" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="61" />
+            <state relative-caret-position="370">
+              <caret line="53" column="24" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
               <folding>
                 <element signature="e#362#377#0" expanded="true" />
-                <element signature="e#2097#2551#0" expanded="false" />
-                <element signature="e#2599#3767#0" expanded="false" />
+                <element signature="e#2277#2731#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -71,11 +71,11 @@
       <file leaf-file-name="ModuleExporter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="79" column="61" lean-forward="true" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="61" />
+            <state relative-caret-position="549">
+              <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
               <folding>
-                <element signature="e#521#536#0" expanded="true" />
-                <element signature="e#2245#2582#0" expanded="false" />
+                <element signature="e#1163#1178#0" expanded="true" />
+                <element signature="e#7762#8099#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -84,8 +84,8 @@
       <file leaf-file-name="Module.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+            <state relative-caret-position="487">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding>
                 <element signature="e#300#315#0" expanded="true" />
               </folding>
@@ -116,18 +116,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/beep.py" />
-        <option value="$PROJECT_DIR$/delta.py" />
         <option value="$PROJECT_DIR$/ModuleDetector.py" />
-        <option value="$PROJECT_DIR$/BinarySearcher.py" />
-        <option value="$PROJECT_DIR$/Module.py" />
         <option value="$PROJECT_DIR$/Function.py" />
+        <option value="$PROJECT_DIR$/Module.py" />
+        <option value="$PROJECT_DIR$/BinarySearcher.py" />
+        <option value="$PROJECT_DIR$/delta.py" />
         <option value="$PROJECT_DIR$/ModuleExporter.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="417" />
-    <option name="y" value="108" />
+    <option name="x" value="569" />
+    <option name="y" value="204" />
     <option name="width" value="1510" />
     <option name="height" value="939" />
   </component>
@@ -269,7 +269,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -279,7 +279,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#22#0" expanded="false" />
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -293,57 +293,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/delta.py">
+    <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="136" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-          <folding>
-            <element signature="e#278#1543#0" expanded="false" />
-            <element signature="e#1608#2059#0" expanded="false" />
-            <element signature="e#2167#2309#0" expanded="false" />
-            <element signature="e#2354#2700#0" expanded="false" />
-            <element signature="e#2743#3046#0" expanded="false" />
-            <element signature="e#3169#3268#0" expanded="false" />
-            <element signature="e#3299#3396#0" expanded="false" />
-            <element signature="e#4253#4645#0" expanded="false" />
-            <element signature="e#4756#4824#0" expanded="false" />
-            <element signature="e#4849#5016#0" expanded="false" />
-            <element signature="e#5232#5782#0" expanded="false" />
-            <element signature="e#5809#5928#0" expanded="false" />
-            <element signature="e#5969#6365#0" expanded="false" />
-            <element signature="e#6471#6871#0" expanded="false" />
-            <element signature="e#6926#7579#0" expanded="false" />
-            <element signature="e#7635#7782#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-          <folding>
-            <element signature="e#300#315#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="23" column="61" lean-forward="false" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="61" />
-          <folding>
-            <element signature="e#362#377#0" expanded="true" />
-            <element signature="e#2097#2551#0" expanded="false" />
-            <element signature="e#2599#3767#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="238">
+          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="24" />
+        <state relative-caret-position="246">
+          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="e#215#230#0" expanded="true" />
             <element signature="e#2862#3827#0" expanded="false" />
@@ -354,21 +315,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
+    <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="370">
+          <caret line="53" column="24" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
+          <folding>
+            <element signature="e#362#377#0" expanded="true" />
+            <element signature="e#2277#2731#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#300#315#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/delta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="259" column="86" lean-forward="false" selection-start-line="259" selection-start-column="86" selection-end-line="259" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#289#1554#0" expanded="false" />
+            <element signature="e#1619#2070#0" expanded="false" />
+            <element signature="e#2178#2320#0" expanded="false" />
+            <element signature="e#2365#2711#0" expanded="false" />
+            <element signature="e#2754#3057#0" expanded="false" />
+            <element signature="e#3180#3279#0" expanded="false" />
+            <element signature="e#3310#3407#0" expanded="false" />
+            <element signature="e#4264#4656#0" expanded="false" />
+            <element signature="e#4767#4835#0" expanded="false" />
+            <element signature="e#4860#5027#0" expanded="false" />
+            <element signature="e#5243#5793#0" expanded="false" />
+            <element signature="e#5820#5939#0" expanded="false" />
+            <element signature="e#5980#6376#0" expanded="false" />
+            <element signature="e#6482#6882#0" expanded="false" />
+            <element signature="e#6937#7590#0" expanded="false" />
+            <element signature="e#7646#7793#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="79" column="61" lean-forward="true" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="61" />
+        <state relative-caret-position="549">
+          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
           <folding>
-            <element signature="e#521#536#0" expanded="true" />
-            <element signature="e#2245#2582#0" expanded="false" />
+            <element signature="e#1163#1178#0" expanded="true" />
+            <element signature="e#7762#8099#0" expanded="false" />
           </folding>
         </state>
       </provider>

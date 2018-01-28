@@ -46,6 +46,13 @@ class BinarySearcher:
         self.binData = binFile.read()
         binFile.close()
 
+    def closeFiles(self):
+        """
+        Should be called when this module is done with. This closes the ROM File.
+        :return: None
+        """
+        self.ROM.close()
+
     def _get_func_data(self, func):
         """
         Returns bytes for the function

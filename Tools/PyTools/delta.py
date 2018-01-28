@@ -3,9 +3,9 @@ from idaapi import *
 import idaapi
 from ida_hexrays import *
 import idc
-
-def main():
-    printCXRefsToFunction(0x0800068AL)
+import idautils
+import idc_bc695
+from Function import Function
 
 ## Modifying C local variables -------------------------------------------------
 def ongoingAttempt_changeNoneUserLVar():
@@ -253,9 +253,11 @@ def ongoing_defineChiefStructInFunction(funcAddr):
 
 
 if __name__ == "__main__":
-    main()
-    # displayUserDefinedLocalVariableInformation()
-    # cfunc = getCurrCFunc()
-    # print(type(cfunc))
-    # var = cfunc.get_lvars().find(0);
-    # print(type(var))
+    for seg_ea in idautils.Segments():
+        for func_ea in idautils.Functions(idc_bc695.SegStart(seg_ea), idc_bc695.SegEnd(seg_ea)):
+            func = Function(func_ea)
+            funcName = func.getName()
+            if len(funcName) > len('startScreen_') and funcName[0:12] == 'startScreen_':
+                print('Renaming %s...' % funcName)
+                funcName = funcName.capitalize()
+                func.setName(funcName)

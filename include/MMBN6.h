@@ -16,6 +16,7 @@
 #include "../Data/_Data.h"
 #include "../Scripts/_Scripts.h"
 #include "../Structs/_Structs.h"
+#include "../Constants/_Constants.h"
 
 /*
 	lol

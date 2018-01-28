@@ -7,21 +7,37 @@
 # [Configuration]
 # It is probably necessary to configure genScriptFile_HeaderStart and genScriptFile_HeaderEnd correctly.
 # They include necessary headers to all script files, such as inttypes.h, for example.
+#
+# [Caveats]
+# - One issue, is that the BinarySearcher introduces noise into its search. Seme functions are too small, they occur
+# at different random places in binaries. It becomes almost impossible pinpointing them. This could reflect here.
+# This wouldn't cause too much of an issue, but could introduce inaccuracies sometimes.
+# - This doesn't necessarily CATCH everything. Sometimes, the functions themselves are modified in content between
+# versions, making them not detectable using this method in the other version.
+# - IDA is weird sometimes and introduces outright illegal keywords like _spoils<R1, R2> etc. TODO deal with this!
 ##
 
 import Function
 import Module
 
 
+class VersionInputException(Exception):
+    def __init__(self, str):
+        super(str)
+
 class ScriptExportElement:
-    def __init__(self, func):
+    def __init__(self, func, otherFunc_ea=None):
         """
         This takes a function and creates a C function and converts it to a C Macro Function pointer,
         and comments.
         Simple print, or use __str__() to get the output of the conversion.
         :param func: (Function.Function) the function to be converted
+        :param otherFunc_ea: If not None, this address replaces the original from func in the macro!
         """
         self.macro = func.getFuncPtrCMacro()
+        if otherFunc_ea:
+            self.macro = self.macro.replace('0x%08X' % func.func_ea, '0x%08X' % otherFunc_ea)
+            self.macro = self.macro.replace('%07X' % func.func_ea, '%07X' % otherFunc_ea) # in case of names containing their own func_ea
         self.cmt = func.getComment()
 
     def __str__(self):
@@ -34,12 +50,24 @@ class ScriptExportElement:
 
 class ModuleExporter:
 
-    def __init__(self, scriptsDir):
+    def __init__(self, scriptsDir, versionDir=None, otherVersionDir=None, ROMPath=None, otherVersionBinPath=None):
         """
 
         :param scriptsDir: Directory to update/export Function modules to
+        :param versionDir: If the game is split into multiple versions, then this specifies the sub directory relative
+                            to scriptDir where module code unique to that version is placed!
+        :param otherVersionBinPath: If versionDir != None, then this shouldn't be too. The other version must be
+                                    specified so that it is compared against.
         """
         self.scriptsDir = scriptsDir
+        self.versionDir = versionDir
+        self.otherVersionDir = otherVersionDir
+        self.ROMPath = ROMPath
+        self.otherVersionBinPath = otherVersionBinPath
+        if not ((self.versionDir and self.otherVersionDir and self.ROMPath and self.otherVersionBinPath )
+                 or (not self.versionDir and not self.otherVersionDir and not self.ROMPath and not self.otherVersionBinPath)):
+            raise VersionInputException("For 2 versions mode: relative directories for each and " +
+                                        "paths to the curr version and other version binaries must be passed")
 
     def exportScripts(self, moduleName):
         """
@@ -48,15 +76,72 @@ class ModuleExporter:
         :param moduleName: (str) Name of the module to export the functions from.
         :return: None
         """
-        # Find the file in the scriptDir
-        scriptFile = open(self.scriptsDir + moduleName + '.h', 'w')
+
         # Retrieve the module from the database
         module = Module.Module(moduleName)
-        # Generate the file
-        scriptFile.write(self.genScriptFile_HeaderStart(moduleName) + '\n\n')
-        for func in module.getModuleFunctions():
-            scriptFile.write(str(ScriptExportElement(func)) + '\n')
-        scriptFile.write('\n\n' + self.genScriptFile_HeaderEnd(moduleName))
+
+        if self.versionDir:
+
+            # Retrieve list of functions to write for: This version, and the shared version
+            funcs_version, funcs_shared, funcs_unique = module.getVersionSegregatedModuleFuncs(self.ROMPath, self.otherVersionBinPath)
+
+            # Write version dependent files
+            if funcs_unique:
+                # Open this version file
+                scriptFile_this = open(self.scriptsDir + self.versionDir + moduleName + '.h', 'w')
+                # Generate the header file
+                # self.versionDir[-1] simply removes the \ at the end of the relative path to get the version name >.<
+                scriptFile_this.write(self.genScriptFile_HeaderStart(moduleName, version=self.versionDir[:-1]) + '\n\n')
+                # Write function pointer macros UNIQUE to the primary version first...
+                for func in funcs_unique:
+                    scriptFile_this.write(str(ScriptExportElement(func)) + '\n')
+                if funcs_unique: scriptFile_this.write('\n')
+                # Write VERSION DEPENDENT  function pointer macros
+                if funcs_version:
+                    for func, otherVersion_func_ea in funcs_version:
+                        scriptFile_this.write(str(ScriptExportElement(func)) + '\n')
+                # Whew, done! Write the ends of the headers
+                scriptFile_this.write('\n\n' + self.genScriptFile_HeaderEnd(moduleName, version=self.versionDir[:-1]))
+                # Bye bye!
+                scriptFile_this.close()
+
+            # Not only this version is present? write the other also!
+            if funcs_version:
+                # Open the other version file
+                scriptFile_other = open(self.scriptsDir + self.otherVersionDir + moduleName + '.h', 'w')
+                # Generate the header file
+                # self.otherVersionDir[-1] simply removes the \ at the end of the relative path to get the version name >.<
+                scriptFile_other.write(self.genScriptFile_HeaderStart(moduleName, version=self.otherVersionDir[:-1]) + '\n\n')
+                # Write VERSION DEPENDENT  function pointer macros
+                if funcs_version:
+                    for func, otherVersion_func_ea in funcs_version:
+                        scriptFile_other.write(str(ScriptExportElement(func, otherFunc_ea=otherVersion_func_ea)) + '\n')
+                # Whew, done! Write the ends of the headers
+                scriptFile_other.write('\n\n' + self.genScriptFile_HeaderEnd(moduleName, version=self.otherVersionDir[:-1]))
+                # Bye bye!
+                scriptFile_other.close()
+
+            # Write the shared file now
+            if funcs_shared:
+                scriptFile_shared = open(self.scriptsDir + moduleName + '.h', 'w')
+                # Generate the file
+                scriptFile_shared.write(self.genScriptFile_HeaderStart(moduleName) + '\n\n')
+                for func in funcs_shared:
+                    scriptFile_shared.write(str(ScriptExportElement(func)) + '\n')
+                scriptFile_shared.write('\n\n' + self.genScriptFile_HeaderEnd(moduleName))
+                # Bye bye!
+                scriptFile_shared.close()
+
+        else: # One version case? No problem!
+            # Find the file in the scriptDir
+            scriptFile = open(self.scriptsDir + moduleName + '.h', 'w')
+            # Generate the file
+            scriptFile.write(self.genScriptFile_HeaderStart(moduleName) + '\n\n')
+            for func in module.getModuleFunctions():
+                scriptFile.write(str(ScriptExportElement(func)) + '\n')
+            scriptFile.write('\n\n' + self.genScriptFile_HeaderEnd(moduleName))
+            # Bye bye!
+            scriptFile.close()
 
     def updateScripts(self, moduleName):
         """
@@ -68,26 +153,57 @@ class ModuleExporter:
         pass
 
     @staticmethod
-    def genScriptFile_HeaderStart(moduleName):
+    def genScriptFile_HeaderStart(moduleName, version=None):
         """
         This defines the string to be written at the start of a module script header file.
         This includes inttype.h into the script file so that it could process types.
+        Version is an optional parameter, if it is specified, it is included in the header guard.
         :param moduleName: (str) the module name
+        :param version: (str) Optional. Included in header guard.
         :return: (str) the string to write at the start of a script module header file (ex. Battle.h)
         """
-        return "#ifndef SCRIPT_%s_H\n#define SCRIPT_%s_H" % (moduleName.upper(), moduleName.upper()) + \
-               "\n\n#include \"../include/inttypes.h\"" + \
-                 "\n#include \"../include/IDADefinitions.h\""
+        if version:
+            headerLabel = 'SCRIPT_%s_%s_H' % (version.upper(), moduleName.upper())
+            includesLevel = '../../'
+        else:
+            headerLabel = 'SCRIPT_%s_H' % (moduleName.upper())
+            includesLevel = '../'
+        output =  "#ifndef %s\n#define %s" % (headerLabel, headerLabel) + \
+               "\n\n#include \"%sinclude/inttypes.h\"" % includesLevel + \
+                 "\n#include \"%sConstants/_Constants.h\"" % includesLevel + \
+                 "\n#include \"%sStructs/_Structs.h\"" % includesLevel + \
+                 "\n#include \"%sinclude/IDADefinitions.h\"" % includesLevel
+        return output
 
     @staticmethod
-    def genScriptFile_HeaderEnd(moduleName):
+    def genScriptFile_HeaderEnd(moduleName, version=None):
         """
         This defines the string to be written at the start of a module script header file.
+        Version is an optional parameter, if it is specified, it is included in the header guard comment
         :param moduleName: (str) the module name
         :return: (str) the strin to be written at the end of a script module header file (ex. Battle.h)
         """
-        return "#endif // SCRIPT_%s_H" % (moduleName.upper())
+        if version:
+            headerLabel = 'SCRIPT_%s_%s_H' % (version.upper(), moduleName.upper())
+        else:
+            headerLabel = 'SCRIPT_%s_H' % (moduleName.upper())
+        output = '#endif // %s' % (headerLabel)
+        return output
 
 if __name__ == '__main__':
-    exporter = ModuleExporter(scriptsDir='C:\\Users\\alzakariyamq\\Desktop\\Analysis\\')
-    exporter.exportScripts('Battle')
+    import time
+    mods = ['main', 'Battle', 'BattleMenu', 'Chatbox', 'Load', 'Memory', 'MenuControl', 'NCP',
+            'reqBBS', 'Save', 'Startscreen', 'subsystem', 'Bios', 'NPC', 'object', 'Sound', 'sprite', 'libc',
+            'invalid_modules_dont_generate_junk!']
+    print('Exporting Modules...')
+    stopwatch = time.time()
+    for mod in mods:
+        print("Exporting Module '%s'..." % mod)
+        exporter = ModuleExporter(scriptsDir='C:\\Users\\alzakariyamq\Documents\\Game Modding\\mods\\MMBN6\\Scripts\\',
+                                  versionDir='Falzar\\', otherVersionDir='Gregar\\',
+                                  ROMPath='C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6f.gba',
+                                  otherVersionBinPath='C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6g.gba')
+        exporter.exportScripts(mod)
+    stopwatch = time.time() - stopwatch
+    print("Exporting Complete! It took %d s" % int(stopwatch))
+

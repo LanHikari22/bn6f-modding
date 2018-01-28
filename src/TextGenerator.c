@@ -19,7 +19,7 @@ void tg_chatPrint(const char* str, uint8_t mugshot){
 }
 
 void tg_invoke_script_engine(uint16_t *scriptList){
-	chatbox_run_script(scriptList, 0x00 /* halfword offset to start from in script */);
+	Chatbox_run_script(scriptList, 0x00 /* halfword offset to start from in script */);
 }
 
 void tg_startBattle(u16 index){
