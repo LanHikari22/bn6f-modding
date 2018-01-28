@@ -12,13 +12,13 @@
 
 from Function import *
 
-class ModuleLinker:
+class ModuleScanner:
 
     func_ea = None
     def __init__(self, func_ea):
         self.func_ea = func_ea
 
-    def LinkOneFunction(func_ea):
+    def scanFunction(func_ea):
         func = Function(func_ea)
 
         """

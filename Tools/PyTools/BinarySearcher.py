@@ -2,7 +2,12 @@
 # @File BinarySearcher.py
 # @Author Lan
 # The purpose of this module is to use IDA database capabilities to search for things in binaries (ROMS, Dumps, etc).
-# TODO: First feature to be implemented is searching for whether a function in the database exists in the binary.
+#
+# [Features]
+# - Able to search for matching functions between the ROM and binary file
+#
+# [Module Input]
+# If this script is executed directly, check the Module Input section for configuration.
 ##
 
 import idautils
@@ -10,18 +15,21 @@ import idc_bc695
 import Function
 import os
 
-# Module Input
+# Module Input ---------------------------------------------------------------------------------------------------------
+# identical to the ROM analyzed by IDA
 ROM = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\Build\\mmbn6f.gba'
-bin = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\Roms\\GBA\\Fire Emblem\\Fire Emblem - the Sacred Stones.gba'
+# Where to write the Analysis output
+bin = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\Roms\\NDS\\3902 - Shin Megami Tensei - Devil Survivor (US)(OneUp).nds'
+# Where to write the Analysis output
 wrFile = open('C:\\Users\\alzakariyamq\\Desktop\\Analysis.txt', 'w')
+# ROM Addresses are absolute, not file relative. Configure the start address for ROM
 ROM_seg = 0x08000000
 
-# Constants
+# Constants ------------------------------------------------------------------------------------------------------------
 INSTRUCTION_WIDTH = 2 # The number of bytes an instruction takes is needed for the search algorithm
 INVALID_FUNCTION = -1
 RANGE_OUT_OF_ROM = -2
-
-
+# ----------------------------------------------------------------------------------------------------------------------
 
 class BinarySearcher:
 
@@ -114,14 +122,25 @@ if __name__ == '__main__':
     stopwatch = time.time() - stopwatch
     wrFile.write("Analysis took %d s\n" % int(stopwatch))
 
-    # Simply output all entries
-    for x in matchedFunctions: wrFile.write(str(x["Name"]) + ": " + hex(x["Bin_Addr"]) + '\n')
 
-    # Output only entries where x["ROM_Addr"] == x["Bin_Addr"]
-    # for x in matchedFunctions:
-    #     if x["ROM_Addr"] == ROM_seg + x["Bin_Addr"]: wrFile.write(str(x["Name"]) + ": " + hex(x["Bin_Addr"]) + '\n')
+
+    # Simply output all entries
+    for x in matchedFunctions:
+        filters = [
+            # x["ROM_Addr"] == ROM_seg + x["Bin_Addr"], # Detect only functions identical in content and location
+            Function.Function(x["ROM_Addr"]).getSize() >= 2 * INSTRUCTION_WIDTH, # Filter out empty/weird small funcs
+            'nullsub' not in x["Name"], # filter out all nullsubs, they don't give a lot of information.
+            'jumpout' not in x["Name"], # jumpout functions are very small, and just support various usages of a func
+            'bx_R' not in x["Name"], # Those weird 'functions' are so small and introduce noise to the analysis
+        ]
+        filtered = True
+        for f in filters: filtered = filtered and f
+
+        if filtered: wrFile.write(str(x["Name"]) + ": " + hex(x["Bin_Addr"]) + '\n')
 
     wrFile.close()
+
+
 
     print("Binary Search Analysis Complete!")
     # print(hex(0x08000000 + searcher.find_function(0x803EFCC))) # returns 0x803efcc

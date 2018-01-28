@@ -33,13 +33,50 @@ class Function:
         else:
             raise (InvalidFunctionException("Address %08x does not live within a function" % func_ea))
 
-    # Name ----------------------------------------------------------------------------------------------------
+    # Name -------------------------------------------------------------------------------------------------------------
 
     def getName(self):
         return idaapi.get_func_name(self.func_ea)
 
     def setName(self, funcName):
         idc.MakeName(self.func_ea, funcName)
+
+    # Prototype --------------------------------------------------------------------------------------------------------
+
+    def getPrototype(self):
+        """
+        :return: (str) representing the return type
+        """
+        # return idc.get_type(self.func_ea) Only works if type is defined with 'y' in disassembly
+        cfunc = idaapi.decompile(self.func)
+        retType = idaapi.tinfo_t()
+        cfunc.get_func_type(retType)
+        return str(retType)
+
+    def getFuncPtrCMacro(self):
+        """
+        Will return the Prototype of the function in the format:
+        #define <funcName> ((<retType> (*) (<params>)) (<funcAddr>+1))
+        Example:
+        #define sound_play ((void (*)(int a1, int a2, int a3))(0x080005CC+1))
+        this DOES assume that the function is THUMB.
+        TODO: Support ARM Functions too!
+        :return: (str) Function pointer in a CMacro definition.
+        """
+        prototype = self.getPrototype()
+        retType = prototype[0:prototype.index('(')]
+        params = prototype[prototype.index('(') : prototype.index(')')+1]
+        funcAddr = '0x%08X' % self.func_ea
+        output = '#define ' + self.getName() + ' ((' + retType + ' (*) ' + params + ') (' + funcAddr + '+1))'
+        return output
+
+
+    def ongoing_getParameters(self):
+        """
+        :return: A list of tuples of (typeName, paramName)
+                 int a2 would give ('int, 'a2')
+        """
+
 
     # Xrefs ------------------------------------------------------------------------------------------------------------
 
@@ -95,14 +132,22 @@ class Function:
 
     def getComment(self):
         """
-        TODO: For some reason, there is this weird weird glitch where if you
-        manually set a function comment through the decompiler, it isn't recognized
-        here?? At least if you don't do it on a disassembly level first...
+        TODO: Sometimes the comment is repeatable (created through decomp) or not (created through disass).
+        What to return???? Why not whichever works?
         """
-        return idaapi.get_func_cmt(self.func.func, 0)
+        cmt = idc.get_func_cmt(self.func_ea, 1)
+        if not cmt: cmt = idc.get_func_cmt(self.func_ea, 0)
+        return cmt
 
     def setComment(self, cmt):
-        idaapi.set_func_cmt(self.func.func, cmt, 0)
+        """
+        TODO: repeatable or not???
+        :param cmt: Comment to be set as a function comment
+        :return:
+        """
+        idaapi.set_func_cmt(self.func, cmt, 1)
+
+    # Boundaries -------------------------------------------------------------------------------------------------------
 
     def getSize(self):
         """
@@ -135,8 +180,7 @@ def printRefs(crefs, drefs):
 
 def RunTesting():
     func = Function(idc.here())
-    print(func.setName("Strawberry_sub"))
-
+    print(func.getComment())
     # crefs, drefs = func.getXRefsFrom()
     # printRefs(crefs, drefs)
 
