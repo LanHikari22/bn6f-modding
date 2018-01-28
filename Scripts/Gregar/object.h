@@ -6,9 +6,9 @@
 #include "../../Structs/_Structs.h"
 #include "../../include/IDADefinitions.h"
 
-#define object_update_panel_parameters ((void __fastcall __noreturn (*) (int a1, int a2)) (0x0800024C+1))
-#define object_is_current_panel_solid ((void __noreturn (*) ()) (0x0800CC66+1))
-#define object_jumpout_8005246 ((int (*) ()) (0x08005246+1))
+#define object_update_panel_parameters ((void __fastcall __noreturn (*) (int a1, int a2)) (0x0800024C +1))
+#define object_is_current_panel_solid ((void __noreturn (*) ()) (0x0800CC66 +1))
+#define object_jumpout_8005246 ((int (*) ()) (0x08005246 +1))
 
 
 #endif // SCRIPT_GREGAR_OBJECT_H

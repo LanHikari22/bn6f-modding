@@ -39,17 +39,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Function.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Function.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="549">
+              <caret line="69" column="105" lean-forward="false" selection-start-line="69" selection-start-column="105" selection-end-line="69" selection-end-column="105" />
               <folding>
                 <element signature="e#215#230#0" expanded="true" />
-                <element signature="e#2862#3827#0" expanded="false" />
-                <element signature="e#3873#4867#0" expanded="false" />
-                <element signature="e#5697#5842#0" expanded="false" />
-                <element signature="e#5881#6016#0" expanded="false" />
+                <element signature="e#2863#3828#0" expanded="false" />
+                <element signature="e#3874#4868#0" expanded="false" />
+                <element signature="e#5698#5843#0" expanded="false" />
+                <element signature="e#5882#6017#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -68,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModuleExporter.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModuleExporter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1196">
@@ -120,11 +120,11 @@
       <list>
         <option value="$PROJECT_DIR$/beep.py" />
         <option value="$PROJECT_DIR$/ModuleDetector.py" />
-        <option value="$PROJECT_DIR$/Function.py" />
         <option value="$PROJECT_DIR$/Module.py" />
         <option value="$PROJECT_DIR$/delta.py" />
         <option value="$PROJECT_DIR$/BinarySearcher.py" />
         <option value="$PROJECT_DIR$/ModuleExporter.py" />
+        <option value="$PROJECT_DIR$/Function.py" />
       </list>
     </option>
   </component>
@@ -304,30 +304,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#215#230#0" expanded="true" />
-            <element signature="e#2862#3827#0" expanded="false" />
-            <element signature="e#3873#4867#0" expanded="false" />
-            <element signature="e#5697#5842#0" expanded="false" />
-            <element signature="e#5881#6016#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#300#315#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/delta.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
@@ -375,6 +351,30 @@
             <element signature="e#3638#7735#0" expanded="false" />
             <element signature="e#7786#8123#0" expanded="false" />
             <element signature="e#10143#11142#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#300#315#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="69" column="105" lean-forward="false" selection-start-line="69" selection-start-column="105" selection-end-line="69" selection-end-column="105" />
+          <folding>
+            <element signature="e#215#230#0" expanded="true" />
+            <element signature="e#2863#3828#0" expanded="false" />
+            <element signature="e#3874#4868#0" expanded="false" />
+            <element signature="e#5698#5843#0" expanded="false" />
+            <element signature="e#5882#6017#0" expanded="false" />
           </folding>
         </state>
       </provider>

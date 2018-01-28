@@ -67,7 +67,7 @@ class Function:
         retType = prototype[0:prototype.index('(')]
         params = prototype[prototype.index('(') : prototype.index(')')+1]
         funcAddr = '0x%08X' % self.func_ea
-        output = '#define ' + self.getName() + ' ((' + retType + ' (*) ' + params + ') (' + funcAddr + '+1))'
+        output = '#define ' + self.getName() + ' ((' + retType + ' (*) ' + params + ') (' + funcAddr + ' +1))'
         return output
 
 

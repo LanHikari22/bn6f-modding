@@ -6,7 +6,7 @@
 #include "../../Structs/_Structs.h"
 #include "../../include/IDADefinitions.h"
 
-#define check_803FAB4 ((BOOL (*) ()) (0x0803FAB4+1))
+#define check_803FAB4 ((BOOL (*) ()) (0x0803FAB4 +1))
 
 
 
