@@ -8,15 +8,18 @@
 import idautils
 import idaapi
 import idc
+from Head import Head
 
+
+def isFunction(ea):
+    return idc.get_func_flags(ea) != -1
 
 class InvalidFunctionException(Exception):
-    def __init__(self, str):
-        super(self, str)
+    def __init__(self, s):
+        super(Exception, self).__init__(s)
         pass
 
-
-class Function:
+class Function(Head):
     func = None  # func_t
     func_ea = None  # ea_t
 
@@ -25,7 +28,7 @@ class Function:
         :raises: InvalidFunctionException if func_ea does not live within a function, or the function is not defined.
         :param func_ea: long: Effective Address of function to manipulate
         """
-        # If the current address is function process it
+        # If the current address is a function process it
         if idc.get_func_flags(func_ea) != -1:
 
             self.func = idaapi.get_func(func_ea)
@@ -39,6 +42,10 @@ class Function:
         return idaapi.get_func_name(self.func_ea)
 
     def setName(self, funcName):
+        """
+        Same as in Head. Kept for reference.
+        :param funcName:  (str) name of the function
+        """
         idc.MakeName(self.func_ea, funcName)
 
     # Prototype --------------------------------------------------------------------------------------------------------

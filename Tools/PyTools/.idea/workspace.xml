@@ -14,42 +14,26 @@
       <file leaf-file-name="delta.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/delta.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="259" column="86" lean-forward="false" selection-start-line="259" selection-start-column="86" selection-end-line="259" selection-end-column="86" />
+            <state relative-caret-position="445">
+              <caret line="135" column="23" lean-forward="true" selection-start-line="135" selection-start-column="23" selection-end-line="135" selection-end-column="23" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <element signature="e#289#1554#0" expanded="false" />
-                <element signature="e#1619#2070#0" expanded="false" />
-                <element signature="e#2178#2320#0" expanded="false" />
-                <element signature="e#2365#2711#0" expanded="false" />
-                <element signature="e#2754#3057#0" expanded="false" />
-                <element signature="e#3180#3279#0" expanded="false" />
-                <element signature="e#3310#3407#0" expanded="false" />
-                <element signature="e#4264#4656#0" expanded="false" />
-                <element signature="e#4767#4835#0" expanded="false" />
-                <element signature="e#4860#5027#0" expanded="false" />
-                <element signature="e#5243#5793#0" expanded="false" />
-                <element signature="e#5820#5939#0" expanded="false" />
-                <element signature="e#5980#6376#0" expanded="false" />
-                <element signature="e#6482#6882#0" expanded="false" />
-                <element signature="e#6937#7590#0" expanded="false" />
-                <element signature="e#7646#7793#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Function.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Function.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="69" column="105" lean-forward="false" selection-start-line="69" selection-start-column="105" selection-end-line="69" selection-end-column="105" />
-              <folding>
-                <element signature="e#215#230#0" expanded="true" />
-                <element signature="e#2863#3828#0" expanded="false" />
-                <element signature="e#3874#4868#0" expanded="false" />
-                <element signature="e#5698#5843#0" expanded="false" />
-                <element signature="e#5882#6017#0" expanded="false" />
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#300#1565#0" expanded="false" />
+                <element signature="e#1630#2081#0" expanded="false" />
+                <element signature="e#2189#2331#0" expanded="false" />
+                <element signature="e#2376#2722#0" expanded="false" />
+                <element signature="e#2765#3068#0" expanded="false" />
+                <element signature="e#3191#3290#0" expanded="false" />
+                <element signature="e#3321#3418#0" expanded="false" />
+                <element signature="e#4275#4667#0" expanded="false" />
+                <element signature="e#4778#4846#0" expanded="false" />
+                <element signature="e#4871#5038#0" expanded="false" />
+                <element signature="e#5254#5804#0" expanded="false" />
+                <element signature="e#5831#5950#0" expanded="false" />
+                <element signature="e#5991#6387#0" expanded="false" />
+                <element signature="e#6493#6893#0" expanded="false" />
+                <element signature="e#6948#7601#0" expanded="false" />
+                <element signature="e#7657#7804#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -58,11 +42,10 @@
       <file leaf-file-name="BinarySearcher.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="70" lean-forward="false" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+            <state relative-caret-position="306">
+              <caret line="24" column="63" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
-                <element signature="e#362#377#0" expanded="true" />
-                <element signature="e#2224#2678#0" expanded="false" />
+                <element signature="e#2079#2533#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -71,27 +54,24 @@
       <file leaf-file-name="ModuleExporter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1196">
-              <caret line="287" column="22" lean-forward="true" selection-start-line="287" selection-start-column="22" selection-end-line="287" selection-end-column="22" />
+            <state relative-caret-position="300">
+              <caret line="284" column="54" lean-forward="false" selection-start-line="284" selection-start-column="54" selection-end-line="284" selection-end-column="54" />
               <folding>
-                <element signature="e#1163#1178#0" expanded="true" />
-                <element signature="e#2324#10074#0" expanded="false" />
-                <element signature="e#3638#7735#0" expanded="false" />
-                <element signature="e#7786#8123#0" expanded="false" />
-                <element signature="e#10143#11142#0" expanded="false" />
+                <element signature="e#2310#10060#0" expanded="false" />
+                <element signature="e#3624#7721#0" expanded="false" />
+                <element signature="e#7772#8109#0" expanded="false" />
+                <element signature="e#10129#11128#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Module.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Module.py">
+        <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding>
-                <element signature="e#300#315#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="170">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,9 +79,76 @@
       <file leaf-file-name="ModuleScanner.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+            <state relative-caret-position="289">
+              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Architecture.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Definitions/Architecture.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Function.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding>
+                <element signature="e#215#230#0" expanded="true" />
+                <element signature="e#1665#1974#0" expanded="false" />
+                <element signature="e#2016#2762#0" expanded="false" />
+                <element signature="e#2810#2932#0" expanded="false" />
+                <element signature="e#3091#4056#0" expanded="false" />
+                <element signature="e#4102#5096#0" expanded="false" />
+                <element signature="e#5926#6071#0" expanded="false" />
+                <element signature="e#6110#6245#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameFile.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameItems/GameFile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameFileDetector.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GameFileDetector.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+              <folding>
+                <element signature="e#943#2613#0" expanded="false" />
+                <element signature="e#2657#3073#0" expanded="false" />
+                <element signature="e#2958#3073#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,17 +167,33 @@
       <list>
         <option value="$PROJECT_DIR$/beep.py" />
         <option value="$PROJECT_DIR$/ModuleDetector.py" />
-        <option value="$PROJECT_DIR$/Module.py" />
-        <option value="$PROJECT_DIR$/delta.py" />
-        <option value="$PROJECT_DIR$/BinarySearcher.py" />
-        <option value="$PROJECT_DIR$/ModuleExporter.py" />
         <option value="$PROJECT_DIR$/Function.py" />
+        <option value="$PROJECT_DIR$/ModuleExporter.py" />
+        <option value="$PROJECT_DIR$/File.py" />
+        <option value="$PROJECT_DIR$/ArchitectureDefinitions.py" />
+        <option value="$PROJECT_DIR$/BinarySearcher.py" />
+        <option value="$PROJECT_DIR$/Definitions/Architecture.py" />
+        <option value="$PROJECT_DIR$/Module.py" />
+        <option value="$PROJECT_DIR$/Definitions/Game.py" />
+        <option value="$PROJECT_DIR$/GameFile.py" />
+        <option value="$PROJECT_DIR$/Head.py" />
+        <option value="$PROJECT_DIR$/IDAItems/Head.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/Definitions/__init__.py" />
+        <option value="$PROJECT_DIR$/IDAItems/__init__.py" />
+        <option value="$PROJECT_DIR$/GameItems/__init__.py" />
+        <option value="$PROJECT_DIR$/delta.py" />
+        <option value="$PROJECT_DIR$/IDAItems/Function.py" />
+        <option value="$PROJECT_DIR$/HelperFunctionDetector.py" />
+        <option value="$PROJECT_DIR$/FileDetector.py" />
+        <option value="$PROJECT_DIR$/GameItems/GameFile.py" />
+        <option value="$PROJECT_DIR$/GameFileDetector.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="569" />
-    <option name="y" value="204" />
+    <option name="x" value="257" />
+    <option name="y" value="61" />
     <option name="width" value="1510" />
     <option name="height" value="939" />
   </component>
@@ -149,6 +212,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -157,16 +221,37 @@
               <item name="PyTools" type="b2602c69:ProjectViewProjectNode" />
               <item name="PyTools" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PyTools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyTools" type="462c0819:PsiDirectoryNode" />
+              <item name="Definitions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PyTools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyTools" type="462c0819:PsiDirectoryNode" />
+              <item name="GameItems" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PyTools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyTools" type="462c0819:PsiDirectoryNode" />
+              <item name="IDAItems" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="C:/Program Files/IDA 7.0/python" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Tools\PyTools\GameItems" />
+      <recent name="C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Tools\PyTools\IDAItems" />
+      <recent name="C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Tools\PyTools\Definitions" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -180,7 +265,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.BinarySearcher">
+  <component name="RunManager" selected="Python.__init__">
     <configuration name="BinarySearcher" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -210,19 +295,57 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PyTools" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Function.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Tools\PyTools\IDAItems\Function.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="2">
+    <configuration name="GameFile" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GameItems" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PyTools" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GameItems/GameFile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GameItems" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PyTools" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GameItems/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.Function" />
       <item index="1" class="java.lang.String" itemvalue="Python.BinarySearcher" />
+      <item index="2" class="java.lang.String" itemvalue="Python.GameFile" />
+      <item index="3" class="java.lang.String" itemvalue="Python.__init__" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.BinarySearcher" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Function" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.__init__" />
+        <item index="1" class="java.lang.String" itemvalue="Python.GameFile" />
+        <item index="2" class="java.lang.String" itemvalue="Python.BinarySearcher" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Function" />
       </list>
     </recent_temporary>
   </component>
@@ -249,14 +372,14 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -272,27 +395,71 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/delta.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1258">
+          <caret line="259" column="86" lean-forward="false" selection-start-line="259" selection-start-column="86" selection-end-line="259" selection-end-column="86" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#300#1565#0" expanded="false" />
+            <element signature="e#1630#2081#0" expanded="false" />
+            <element signature="e#2189#2331#0" expanded="false" />
+            <element signature="e#2376#2722#0" expanded="false" />
+            <element signature="e#2765#3068#0" expanded="false" />
+            <element signature="e#3191#3290#0" expanded="false" />
+            <element signature="e#3321#3418#0" expanded="false" />
+            <element signature="e#4275#4667#0" expanded="false" />
+            <element signature="e#4778#4846#0" expanded="false" />
+            <element signature="e#4871#5038#0" expanded="false" />
+            <element signature="e#5254#5804#0" expanded="false" />
+            <element signature="e#5831#5950#0" expanded="false" />
+            <element signature="e#5991#6387#0" expanded="false" />
+            <element signature="e#6493#6893#0" expanded="false" />
+            <element signature="e#6948#7601#0" expanded="false" />
+            <element signature="e#7657#7804#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/beep.py" />
-    <entry file="file://C:/Program Files/IDA 7.0/python/ida_bytes.py">
+    <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1139">
+          <caret line="69" column="105" lean-forward="false" selection-start-line="69" selection-start-column="105" selection-end-line="69" selection-end-column="105" />
+          <folding>
+            <element signature="e#215#230#0" expanded="true" />
+            <element signature="e#1665#1974#0" expanded="false" />
+            <element signature="e#2016#2762#0" expanded="false" />
+            <element signature="e#2810#2932#0" expanded="false" />
+            <element signature="e#3091#4056#0" expanded="false" />
+            <element signature="e#4102#5096#0" expanded="false" />
+            <element signature="e#5926#6071#0" expanded="false" />
+            <element signature="e#6110#6245#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="70" lean-forward="false" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+          <folding>
+            <element signature="e#2079#2533#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#300#315#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -304,77 +471,304 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="285" column="54" lean-forward="false" selection-start-line="285" selection-start-column="54" selection-end-line="285" selection-end-column="54" />
+          <folding>
+            <element signature="e#2310#10060#0" expanded="false" />
+            <element signature="e#3624#7721#0" expanded="false" />
+            <element signature="e#7772#8109#0" expanded="false" />
+            <element signature="e#10129#11128#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/delta.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
+        <state relative-caret-position="1258">
           <caret line="259" column="86" lean-forward="false" selection-start-line="259" selection-start-column="86" selection-end-line="259" selection-end-column="86" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#289#1554#0" expanded="false" />
-            <element signature="e#1619#2070#0" expanded="false" />
-            <element signature="e#2178#2320#0" expanded="false" />
-            <element signature="e#2365#2711#0" expanded="false" />
-            <element signature="e#2754#3057#0" expanded="false" />
-            <element signature="e#3180#3279#0" expanded="false" />
-            <element signature="e#3310#3407#0" expanded="false" />
-            <element signature="e#4264#4656#0" expanded="false" />
-            <element signature="e#4767#4835#0" expanded="false" />
-            <element signature="e#4860#5027#0" expanded="false" />
-            <element signature="e#5243#5793#0" expanded="false" />
-            <element signature="e#5820#5939#0" expanded="false" />
-            <element signature="e#5980#6376#0" expanded="false" />
-            <element signature="e#6482#6882#0" expanded="false" />
-            <element signature="e#6937#7590#0" expanded="false" />
-            <element signature="e#7646#7793#0" expanded="false" />
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#300#1565#0" expanded="false" />
+            <element signature="e#1630#2081#0" expanded="false" />
+            <element signature="e#2189#2331#0" expanded="false" />
+            <element signature="e#2376#2722#0" expanded="false" />
+            <element signature="e#2765#3068#0" expanded="false" />
+            <element signature="e#3191#3290#0" expanded="false" />
+            <element signature="e#3321#3418#0" expanded="false" />
+            <element signature="e#4275#4667#0" expanded="false" />
+            <element signature="e#4778#4846#0" expanded="false" />
+            <element signature="e#4871#5038#0" expanded="false" />
+            <element signature="e#5254#5804#0" expanded="false" />
+            <element signature="e#5831#5950#0" expanded="false" />
+            <element signature="e#5991#6387#0" expanded="false" />
+            <element signature="e#6493#6893#0" expanded="false" />
+            <element signature="e#6948#7601#0" expanded="false" />
+            <element signature="e#7657#7804#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="69" column="105" lean-forward="false" selection-start-line="69" selection-start-column="105" selection-end-line="69" selection-end-column="105" />
+          <folding>
+            <element signature="e#215#230#0" expanded="true" />
+            <element signature="e#1665#1974#0" expanded="false" />
+            <element signature="e#2016#2762#0" expanded="false" />
+            <element signature="e#2810#2932#0" expanded="false" />
+            <element signature="e#3091#4056#0" expanded="false" />
+            <element signature="e#4102#5096#0" expanded="false" />
+            <element signature="e#5926#6071#0" expanded="false" />
+            <element signature="e#6110#6245#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="306">
           <caret line="21" column="70" lean-forward="false" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
           <folding>
-            <element signature="e#362#377#0" expanded="true" />
-            <element signature="e#2224#2678#0" expanded="false" />
+            <element signature="e#2079#2533#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#300#315#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1196">
-          <caret line="287" column="22" lean-forward="true" selection-start-line="287" selection-start-column="22" selection-end-line="287" selection-end-column="22" />
+        <state relative-caret-position="2142">
+          <caret line="285" column="54" lean-forward="false" selection-start-line="285" selection-start-column="54" selection-end-line="285" selection-end-column="54" />
           <folding>
-            <element signature="e#1163#1178#0" expanded="true" />
-            <element signature="e#2324#10074#0" expanded="false" />
-            <element signature="e#3638#7735#0" expanded="false" />
-            <element signature="e#7786#8123#0" expanded="false" />
-            <element signature="e#10143#11142#0" expanded="false" />
+            <element signature="e#2310#10060#0" expanded="false" />
+            <element signature="e#3624#7721#0" expanded="false" />
+            <element signature="e#7772#8109#0" expanded="false" />
+            <element signature="e#10129#11128#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Module.py">
+    <entry file="file://$PROJECT_DIR$/delta.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#300#315#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#300#1565#0" expanded="false" />
+            <element signature="e#1630#2081#0" expanded="false" />
+            <element signature="e#2189#2331#0" expanded="false" />
+            <element signature="e#2376#2722#0" expanded="false" />
+            <element signature="e#2765#3068#0" expanded="false" />
+            <element signature="e#3191#3290#0" expanded="false" />
+            <element signature="e#3321#3418#0" expanded="false" />
+            <element signature="e#4275#4667#0" expanded="false" />
+            <element signature="e#4778#4846#0" expanded="false" />
+            <element signature="e#4871#5038#0" expanded="false" />
+            <element signature="e#5254#5804#0" expanded="false" />
+            <element signature="e#5831#5950#0" expanded="false" />
+            <element signature="e#5991#6387#0" expanded="false" />
+            <element signature="e#6493#6893#0" expanded="false" />
+            <element signature="e#6948#7601#0" expanded="false" />
+            <element signature="e#7657#7804#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Function.py">
+    <entry file="file://$PROJECT_DIR$/beep.py" />
+    <entry file="file://C:/Program Files/IDA 7.0/python/ida_bytes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Definitions/Game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDAItems/Head.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
-          <caret line="69" column="105" lean-forward="false" selection-start-line="69" selection-start-column="105" selection-end-line="69" selection-end-column="105" />
+          <caret line="67" column="11" lean-forward="true" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1498#2492#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Definitions/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDAItems/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameItems/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" column="63" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#2079#2533#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Definitions/Architecture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="e#215#230#0" expanded="true" />
-            <element signature="e#2863#3828#0" expanded="false" />
-            <element signature="e#3874#4868#0" expanded="false" />
-            <element signature="e#5698#5843#0" expanded="false" />
-            <element signature="e#5882#6017#0" expanded="false" />
+            <element signature="e#1665#1974#0" expanded="false" />
+            <element signature="e#2016#2762#0" expanded="false" />
+            <element signature="e#2810#2932#0" expanded="false" />
+            <element signature="e#3091#4056#0" expanded="false" />
+            <element signature="e#4102#5096#0" expanded="false" />
+            <element signature="e#5926#6071#0" expanded="false" />
+            <element signature="e#6110#6245#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/delta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="135" column="23" lean-forward="true" selection-start-line="135" selection-start-column="23" selection-end-line="135" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#300#1565#0" expanded="false" />
+            <element signature="e#1630#2081#0" expanded="false" />
+            <element signature="e#2189#2331#0" expanded="false" />
+            <element signature="e#2376#2722#0" expanded="false" />
+            <element signature="e#2765#3068#0" expanded="false" />
+            <element signature="e#3191#3290#0" expanded="false" />
+            <element signature="e#3321#3418#0" expanded="false" />
+            <element signature="e#4275#4667#0" expanded="false" />
+            <element signature="e#4778#4846#0" expanded="false" />
+            <element signature="e#4871#5038#0" expanded="false" />
+            <element signature="e#5254#5804#0" expanded="false" />
+            <element signature="e#5831#5950#0" expanded="false" />
+            <element signature="e#5991#6387#0" expanded="false" />
+            <element signature="e#6493#6893#0" expanded="false" />
+            <element signature="e#6948#7601#0" expanded="false" />
+            <element signature="e#7657#7804#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="284" column="54" lean-forward="false" selection-start-line="284" selection-start-column="54" selection-end-line="284" selection-end-column="54" />
+          <folding>
+            <element signature="e#2310#10060#0" expanded="false" />
+            <element signature="e#3624#7721#0" expanded="false" />
+            <element signature="e#7772#8109#0" expanded="false" />
+            <element signature="e#10129#11128#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameItems/GameFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameFileDetector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding>
+            <element signature="e#943#2613#0" expanded="false" />
+            <element signature="e#2657#3073#0" expanded="false" />
+            <element signature="e#2958#3073#0" expanded="false" />
           </folding>
         </state>
       </provider>

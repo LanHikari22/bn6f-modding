@@ -10,10 +10,13 @@
 # If this script is executed directly, check the Module Input section for configuration.
 ##
 
+import os
+
 import idautils
 import idc_bc695
-import Function
-import os
+
+from Definitions.Architecture import ROM_SEG
+from IDAItems import Function
 
 # Module Input ---------------------------------------------------------------------------------------------------------
 # identical to the ROM analyzed by IDA
@@ -22,14 +25,11 @@ ROM = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6g.gba
 bin = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6f.gba'
 # Where to write the Analysis output
 wrFile = open('C:\\Users\\alzakariyamq\\Desktop\\Analysis.txt', 'w')
-# ROM Addresses are absolute, not file relative. Configure the start address for ROM
-ROM_seg = 0x08000000
 
-# Constants ------------------------------------------------------------------------------------------------------------
-INSTRUCTION_WIDTH = 2 # The number of bytes an instruction takes is needed for the search algorithm
+# Constants  -----------------------------------------------------------------------------------------------------------
 INVALID_FUNCTION = -1
 RANGE_OUT_OF_ROM = -2
-# ----------------------------------------------------------------------------------------------------------------------
+# Constants  -----------------------------------------------------------------------------------------------------------
 
 class BinarySearcher:
 
@@ -120,7 +120,7 @@ class BinarySearcher:
 if __name__ == '__main__':
     print("Starting Binary Search Analysis...")
 
-    searcher = BinarySearcher(ROM, bin, ROM_seg)
+    searcher = BinarySearcher(ROM, bin, ROM_SEG)
 
     # Perform and time Analysis
     import time

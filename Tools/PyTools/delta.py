@@ -1,11 +1,13 @@
-from idautils import *
-from idaapi import *
 import idaapi
-from ida_hexrays import *
-import idc
 import idautils
+import idc
 import idc_bc695
-from Function import Function
+from ida_hexrays import *
+from idaapi import *
+from idautils import *
+
+from IDAItems.Function import Function
+
 
 ## Modifying C local variables -------------------------------------------------
 def ongoingAttempt_changeNoneUserLVar():
@@ -251,13 +253,26 @@ def ongoing_defineChiefStructInFunction(funcAddr):
     """
     # STILL CANT DO THIS
 
+def renameModule(moduleName):
+    if type(moduleName) is not str: raise Exception('moduleName must be a str')
+    for seg_ea in idautils.Segments():
+        for func_ea in idautils.Functions(idc_bc695.SegStart(seg_ea), idc_bc695.SegEnd(seg_ea)):
+            func = Function(func_ea)
+            funcName = func.getName()
+            if len(funcName) > len('startScreen_') and funcName[0:len(moduleName)] == moduleName:
+                print('Renaming %s... Just kidding!' % funcName)
+                # Perform logic here
+                # funcName = funcName.capitalize()
+                # func.setName(funcName)
+
 
 if __name__ == "__main__":
     for seg_ea in idautils.Segments():
         for func_ea in idautils.Functions(idc_bc695.SegStart(seg_ea), idc_bc695.SegEnd(seg_ea)):
             func = Function(func_ea)
             funcName = func.getName()
-            if len(funcName) > len('startScreen_') and funcName[0:12] == 'startScreen_':
+            if len(funcName) > len('startScreen_') and funcName[0:12] == 'Chatbox_':
                 print('Renaming %s...' % funcName)
-                funcName = funcName.capitalize()
+                # funcName = funcName.capitalize()
                 func.setName(funcName)
+

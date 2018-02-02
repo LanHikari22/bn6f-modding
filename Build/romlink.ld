@@ -19,8 +19,5 @@ SECTIONS
     . = 0x08000402;
     .intercept_08000402 : {*.o(.intercept_08000402)}
     /* Intercept tests */
-    /*
-    . = 0x803F79E;
-    ._Save_803F79E: {*.o(._Save_803F79E)}
-    */
+    call_shuko_please = 0x089004a2;
 }

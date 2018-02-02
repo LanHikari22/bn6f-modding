@@ -14,6 +14,8 @@
 #include <inttypes.h>
 #include <TextGenerator.h>
 #include <DebugConsole.h>
+#include <intercept_test.h>
+
 
 NPC *npc;
 int savedKeyState;
@@ -89,6 +91,8 @@ void onKeyPress()
 	}
 }
 
+void intercept_test_func();
+
 /**
  * Executes if 0x089A0000 is set to 0x02. This is handled by the DebugConsole.c Module
  * Can also be triggered to execute using the cheatcode "SELECT SELECT SELECT R"
@@ -101,5 +105,5 @@ void RPress(){
 	r5 = sBtlEnemyA;
 	// object_add_hp(50); // doesn't add HP for some reason??
 	// object_break_panel(3, 3); // it woooorks!
-	Save_803F79E();
+	run_test();
 }

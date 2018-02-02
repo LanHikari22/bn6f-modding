@@ -7,15 +7,10 @@
 import idautils
 import idc_bc695
 
-import Function
 from BinarySearcher import BinarySearcher
+from Definitions.Architecture import ROM_SEG
+from IDAItems import Function
 
-
-# Constants ------------------------------------------------------------------------------------------------------------
-# Change this if running this code for an architecture different from GBA.
-# TODO: Is there a better way than this? like a definition for the architecture being run?
-GBA_ROM_SEGLOC = 0x08000000
-# ----------------------------------------------------------------------------------------------------------------------
 
 class Module:
 
@@ -55,7 +50,7 @@ class Module:
 
         :return: A tuple of the three lists of functions mentioned above: (VersionDependent, Shared, Unique)
         """
-        searcher = BinarySearcher(ROMPath, otherVersionBinPath, GBA_ROM_SEGLOC)
+        searcher = BinarySearcher(ROMPath, otherVersionBinPath, ROM_SEG)
 
         moduleFunctions = self.getModuleFunctions()
 
@@ -65,7 +60,7 @@ class Module:
         for func in moduleFunctions:
             func_ea = searcher.find_function(func.func_ea)
             if func_ea >= 0:
-                matchedFunctions.append((func, GBA_ROM_SEGLOC + func_ea)) # found func_ea's are file-relative
+                matchedFunctions.append((func, ROM_SEG + func_ea)) # found func_ea's are file-relative
             else: # Those are functions unique to THIS version!
                 UniqueFunctions.append(func)
         # Those are all of the matches, Find both the VERSION and SHARED Functions!

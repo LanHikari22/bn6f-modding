@@ -10,7 +10,7 @@
 # <ModuleName>_<NotSub>_<...>
 ##
 
-from Function import *
+from IDAItems.Function import *
 
 class ModuleScanner:
 

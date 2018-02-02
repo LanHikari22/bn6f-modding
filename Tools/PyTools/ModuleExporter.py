@@ -17,10 +17,9 @@
 # - IDA is weird sometimes and introduces outright illegal keywords like _spoils<R1, R2> etc. TODO deal with this!
 ##
 
-import Function
-import Module
 import os
-import shutil
+
+from GameItems import Module
 
 
 class VersionInputException(Exception):
@@ -283,8 +282,8 @@ def exportModules(mods, scriptsDir, versionDir, otherVersionDir, ROMPath, otherV
 if __name__ == '__main__':
     mods = ['main', 'Battle', 'BattleMenu', 'Chatbox', 'Load', 'Memory', 'MenuControl', 'NCP',
             'reqBBS', 'Save', 'Startscreen', 'subsystem', 'Bios', 'NPC', 'object', 'Sound', 'sprite', 'libc',
-            'engine', 'check', 'render', 'cb']
-    mods.append('sub')
+            'engine', 'check', 'render', 'cb', 'uncomp']
+    # mods.append('sub')
     mods.append('invalid_modules_dont_generate_junk!')
 
     scriptsDir = 'C:\\Users\\alzakariyamq\Documents\\Game Modding\\mods\\MMBN6\\Scripts\\'

@@ -40,6 +40,7 @@
 #include "Falzar/Startscreen.h"
 #include "Falzar/sub.h"
 #include "Falzar/subsystem.h"
+#include "Falzar/uncomp.h"
 
 
 #endif // FALZAR
