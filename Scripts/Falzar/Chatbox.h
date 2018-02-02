@@ -8,6 +8,7 @@
 
 #define Chatbox_loadObjScripts_0803FD08 ((int (*) ()) (0x0803FD08 +1))
 #define Chatbox_uncomp_lmsgdialog_803fd3c ((int (*) ()) (0x0803FD3C +1))
+#define Chatbox_uncomp_803FD54 ((int (*) ()) (0x0803FD54 +1))
 #define Chatbox_onUpdate_803FEB4 ((int __cdecl (*) ()) (0x0803FEB4 +1))
 #define Chatbox_interprete_script_char ((int (*) ()) (0x0803FF50 +1))
 #define Chatbox_8040344 ((int (*) ()) (0x08040344 +1))
@@ -26,7 +27,7 @@ exp: r5= 02009CD0 (chatbox)
 #define Chatbox_8041DF4 ((int __fastcall (*) (int a1, int a2, int a3, int a4, int (__fastcall *a5)) (0x08041DF4 +1))
 #define Chatbox_8041EB0 ((signed int (*) ()) (0x08041EB0 +1))
 #define Chatbox_8041EE8 ((int (*) ()) (0x08041EE8 +1))
-#define Chatbox_8041F10 ((signed int (*) ()) (0x08041F10 +1))
+#define Chatbox_8041F10 ((signed int __fastcall (*) (int a1)) (0x08041F10 +1))
 #define Chatbox_8041F1C ((BOOL (*) ()) (0x08041F1C +1))
 #define Chatbox_8041F44 ((int (*) ()) (0x08041F44 +1))
 #define Chatbox_8041FB4 ((signed int (*) ()) (0x08041FB4 +1))
@@ -34,12 +35,12 @@ exp: r5= 02009CD0 (chatbox)
 #define Chatbox_8042128 ((signed int (*) ()) (0x08042128 +1))
 #define Chatbox_80421D8 ((signed int (*) ()) (0x080421D8 +1))
 #define Chatbox_804222C ((signed int (*) ()) (0x0804222C +1))
-#define Chatbox_fb_givechip ((signed int __fastcall (*) (int a1, int a2, int a3)) (0x08042418 +1))
+#define Chatbox_fb_givechip ((signed int (*) ()) (0x08042418 +1))
 #define Chatbox_fb_startrandomencounter ((int (*) ()) (0x0804244C +1))
 #define Chatbox_fb_startbattle ((int (*) ()) (0x0804247C +1))
 #define Chatbox_fb_openshop ((int (*) ()) (0x080424BC +1))
-#define Chatbox_fb_chiptrader ((signed int __fastcall (*) (int a1, int a2)) (0x080424E0 +1))
-#define Chatbox_fb_restorehp ((int __fastcall (*) (int a1, int a2, int a3)) (0x0804252C +1))
+#define Chatbox_fb_chiptrader ((signed int (*) ()) (0x080424E0 +1))
+#define Chatbox_fb_restorehp ((int (*) ()) (0x0804252C +1))
 #define Chatbox_fb_openbbs ((int (*) ()) (0x08042580 +1))
 #define Chatbox_fb_80425a0 ((int (*) ()) (0x080425A0 +1))
 /**
@@ -53,19 +54,19 @@ This function is jumpTable_3[0x0E]
 #define Chatbox_fb_openmailbox ((int (*) ()) (0x080425F0 +1))
 #define Chatbox_Save_8042678 ((signed int (*) ()) (0x08042678 +1))
 #define Chatbox_run_8098370 ((int (*) ()) (0x08098370 +1))
-#define Chatbox_run_lmsg_8099218 ((int (*) ()) (0x08099218 +1))
+#define Chatbox_run_lmsg_8099218 ((int __fastcall (*) (int a1)) (0x08099218 +1))
 /**
 is this really in the chatbox module, though?
 */
-#define Chatbox_809E14C ((unsigned int __fastcall (*) (int a1)) (0x0809E14C +1))
+#define Chatbox_809E14C ((int __fastcall (*) (char a1)) (0x0809E14C +1))
 
 #define Chatbox_run_script_202da04 ((int *__fastcall (*) (int a1)) (0x0803FD68 +1))
 #define Chatbox_8040154 ((int (*) ()) (0x08040154 +1))
 #define Chatbox_run_train_script ((int *__fastcall (*) (int scriptListOffset)) (0x08040374 +1))
-#define Chatbox_set_flags_3e ((int __fastcall (*) (int result)) (0x08040920 +1))
-#define Chatbox_clear_flags_3e ((int __fastcall (*) (int result)) (0x0804092C +1))
+#define Chatbox_set_flags_3e ((__int16 __fastcall (*) (__int16 result)) (0x08040920 +1))
+#define Chatbox_clear_flags_3e ((__int16 __fastcall (*) (__int16 result)) (0x0804092C +1))
 #define Chatbox_mask_flags_3e ((int __fastcall (*) (unsigned __int16 a1)) (0x08040938 +1))
-#define Chatbox_8040C44 ((void (*) ()) (0x08040C44 +1))
+#define Chatbox_8040C44 ((void __spoils<R2,R3,R12> (*) ()) (0x08040C44 +1))
 /**
 hyp: not E5???
 */

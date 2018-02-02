@@ -8,7 +8,7 @@
 
 #define cb_8038606 ((int (*) ()) (0x08038606 +1))
 #define cb_8038606 ((int (*) ()) (0x08038606 +1))
-#define cb_803D19E ((int (*) ()) (0x0803D19E +1))
+#define cb_803D19E ((signed int (*) ()) (0x0803D19E +1))
 #define cb_jt_4_803EA4C ((int (*) ()) (0x0803EA4C +1))
 #define cb_803FB10 ((int (*) ()) (0x0803FB10 +1))
 #define cb_8046CC8 ((int (*) ()) (0x08046CC8 +1))

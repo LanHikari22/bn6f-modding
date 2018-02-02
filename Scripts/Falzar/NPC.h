@@ -8,7 +8,7 @@
 
 #define NPC_init_809E590 ((int (*) ()) (0x0809E590 +1))
 #define NPC_809E5E2 ((int (*) ()) (0x0809E5E2 +1))
-#define NPC_809EADA ((u32 (*) ()) (0x0809EADA +1))
+#define NPC_809EADA ((int (*) ()) (0x0809EADA +1))
 #define NPC_RunChatbox ((int __cdecl (*) ()) (0x0809EB20 +1))
 #define NPC_809EBBC ((int (*) ()) (0x0809EBBC +1))
 #define NPC_809F612 ((int (*) ()) (0x0809F612 +1))

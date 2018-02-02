@@ -7,7 +7,7 @@
 #include "../include/IDADefinitions.h"
 
 #define Save_8006E0E ((int __cdecl (*) (int a1, int a2)) (0x08006E0E +1))
-#define Save_8006E26 ((unsigned int (*) ()) (0x08006E26 +1))
+#define Save_8006E26 ((int __fastcall (*) (int result)) (0x08006E26 +1))
 
 
 #endif // SCRIPT_SAVE_H

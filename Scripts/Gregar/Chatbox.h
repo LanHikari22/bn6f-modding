@@ -9,10 +9,10 @@
 #define Chatbox_run_script_202da04 ((int *__fastcall (*) (int a1)) (0x0803FD3C +1))
 #define Chatbox_8040128 ((int (*) ()) (0x08040128 +1))
 #define Chatbox_run_train_script ((int *__fastcall (*) (int scriptListOffset)) (0x08040348 +1))
-#define Chatbox_set_flags_3e ((int __fastcall (*) (int result)) (0x080408F4 +1))
-#define Chatbox_clear_flags_3e ((int __fastcall (*) (int result)) (0x08040900 +1))
+#define Chatbox_set_flags_3e ((__int16 __fastcall (*) (__int16 result)) (0x080408F4 +1))
+#define Chatbox_clear_flags_3e ((__int16 __fastcall (*) (__int16 result)) (0x08040900 +1))
 #define Chatbox_mask_flags_3e ((int __fastcall (*) (unsigned __int16 a1)) (0x0804090C +1))
-#define Chatbox_8040C18 ((void (*) ()) (0x08040C18 +1))
+#define Chatbox_8040C18 ((void __spoils<R2,R3,R12> (*) ()) (0x08040C18 +1))
 /**
 hyp: not E5???
 */

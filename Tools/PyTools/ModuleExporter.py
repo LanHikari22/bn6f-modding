@@ -35,11 +35,14 @@ class ScriptExportElement:
         :param func: (Function.Function) the function to be converted
         :param otherFunc_ea: If not None, this address replaces the original from func in the macro!
         """
-        self.macro = func.getFuncPtrCMacro()
-        if otherFunc_ea:
-            self.macro = self.macro.replace('0x%08X' % func.func_ea, '0x%08X' % otherFunc_ea)
-            self.macro = self.macro.replace('%07X' % func.func_ea, '%07X' % otherFunc_ea) # in case of names containing their own func_ea
-        self.cmt = func.getComment()
+        try:
+            self.macro = func.getFuncPtrCMacro()
+            if otherFunc_ea:
+                self.macro = self.macro.replace('0x%08X' % func.func_ea, '0x%08X' % otherFunc_ea)
+                self.macro = self.macro.replace('%07X' % func.func_ea, '%07X' % otherFunc_ea) # in case of names containing their own func_ea
+            self.cmt = func.getComment()
+        except Exception:
+            print("Couldn't decompile: 0x%08X (I think) Sorry about that." % func.getName())
 
     def __str__(self):
         if self.cmt:
@@ -47,7 +50,6 @@ class ScriptExportElement:
         else:
             output = self.macro
         return output
-
 
 class ModuleExporter:
 
@@ -151,7 +153,7 @@ class ModuleExporter:
         :param moduleName: (str) Name of the module to export the functions from.
         :return: None
         """
-        pass
+        raise Exception('Feature not implemented. Sorry!')
 
     @staticmethod
     def genScriptFile_HeaderStart(moduleName, version=None):

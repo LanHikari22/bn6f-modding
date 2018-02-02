@@ -16,13 +16,12 @@
 #define uncomp_jackmsg_8037AD0 ((signed int __fastcall (*) (signed int result)) (0x08037AD0 +1))
 #define uncomp_8037AEC ((signed int __fastcall (*) (signed int result)) (0x08037AEC +1))
 #define uncomp_8039024 ((void (*) ()) (0x08039024 +1))
-#define uncomp_803FD54 ((int (*) ()) (0x0803FD54 +1))
 #define uncomp_811C2A8 ((int __fastcall (*) (int a1, int a2)) (0x0811C2A8 +1))
 #define uncomp_811D2F8 ((int (*) ()) (0x0811D2F8 +1))
 #define uncomp_811D5F8 ((int (*) ()) (0x0811D5F8 +1))
 #define uncomp_811DC88 ((int __fastcall (*) (int a1, int a2)) (0x0811DC88 +1))
 #define uncomp_submenus_and_mail_8123300 ((void __fastcall (*) (int a1, void *a2, _DWORD *a3)) (0x08123300 +1))
-#define uncomp_812B530 ((int (*) ()) (0x0812B530 +1))
+#define uncomp_812B530 ((int __fastcall (*) (int a1)) (0x0812B530 +1))
 #define uncomp_813E5A0 ((void (*) ()) (0x0813E5A0 +1))
 
 

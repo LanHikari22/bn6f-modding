@@ -51,16 +51,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModuleExporter.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ModuleExporter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="284" column="54" lean-forward="false" selection-start-line="284" selection-start-column="54" selection-end-line="284" selection-end-column="54" />
+            <state relative-caret-position="306">
+              <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
               <folding>
-                <element signature="e#2310#10060#0" expanded="false" />
-                <element signature="e#3624#7721#0" expanded="false" />
-                <element signature="e#7772#8109#0" expanded="false" />
-                <element signature="e#10129#11128#0" expanded="false" />
+                <element signature="e#7923#8306#0" expanded="false" />
+                <element signature="e#10326#11325#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -69,8 +67,8 @@
       <file leaf-file-name="Module.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="34">
+              <caret line="2" column="80" lean-forward="false" selection-start-line="2" selection-start-column="80" selection-end-line="2" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -139,15 +137,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameFileDetector.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameFileDetector.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameFileDetector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="362">
+              <caret line="69" column="16" lean-forward="true" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
               <folding>
-                <element signature="e#943#2613#0" expanded="false" />
-                <element signature="e#2657#3073#0" expanded="false" />
-                <element signature="e#2958#3073#0" expanded="false" />
+                <element signature="e#850#865#0" expanded="true" />
+                <element signature="e#980#2650#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -168,7 +165,6 @@
         <option value="$PROJECT_DIR$/beep.py" />
         <option value="$PROJECT_DIR$/ModuleDetector.py" />
         <option value="$PROJECT_DIR$/Function.py" />
-        <option value="$PROJECT_DIR$/ModuleExporter.py" />
         <option value="$PROJECT_DIR$/File.py" />
         <option value="$PROJECT_DIR$/ArchitectureDefinitions.py" />
         <option value="$PROJECT_DIR$/BinarySearcher.py" />
@@ -188,6 +184,8 @@
         <option value="$PROJECT_DIR$/FileDetector.py" />
         <option value="$PROJECT_DIR$/GameItems/GameFile.py" />
         <option value="$PROJECT_DIR$/GameFileDetector.py" />
+        <option value="$PROJECT_DIR$/GameItems/Module.py" />
+        <option value="$PROJECT_DIR$/ModuleExporter.py" />
       </list>
     </option>
   </component>
@@ -395,7 +393,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -458,7 +456,7 @@
         <state relative-caret-position="561">
           <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="e#300#315#0" expanded="false" />
+            <element signature="e#298#313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -476,10 +474,9 @@
         <state relative-caret-position="2142">
           <caret line="285" column="54" lean-forward="false" selection-start-line="285" selection-start-column="54" selection-end-line="285" selection-end-column="54" />
           <folding>
-            <element signature="e#2310#10060#0" expanded="false" />
-            <element signature="e#3624#7721#0" expanded="false" />
-            <element signature="e#7772#8109#0" expanded="false" />
-            <element signature="e#10129#11128#0" expanded="false" />
+            <element signature="e#2461#10257#0" expanded="false" />
+            <element signature="e#3775#7872#0" expanded="false" />
+            <element signature="e#10326#11325#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -542,7 +539,7 @@
         <state relative-caret-position="561">
           <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="e#300#315#0" expanded="false" />
+            <element signature="e#298#313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -560,10 +557,9 @@
         <state relative-caret-position="2142">
           <caret line="285" column="54" lean-forward="false" selection-start-line="285" selection-start-column="54" selection-end-line="285" selection-end-column="54" />
           <folding>
-            <element signature="e#2310#10060#0" expanded="false" />
-            <element signature="e#3624#7721#0" expanded="false" />
-            <element signature="e#7772#8109#0" expanded="false" />
-            <element signature="e#10129#11128#0" expanded="false" />
+            <element signature="e#2461#10257#0" expanded="false" />
+            <element signature="e#3775#7872#0" expanded="false" />
+            <element signature="e#10326#11325#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -722,35 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="284" column="54" lean-forward="false" selection-start-line="284" selection-start-column="54" selection-end-line="284" selection-end-column="54" />
-          <folding>
-            <element signature="e#2310#10060#0" expanded="false" />
-            <element signature="e#3624#7721#0" expanded="false" />
-            <element signature="e#7772#8109#0" expanded="false" />
-            <element signature="e#10129#11128#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GameItems/GameFile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -763,12 +730,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GameFileDetector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="362">
+          <caret line="69" column="16" lean-forward="true" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
           <folding>
-            <element signature="e#943#2613#0" expanded="false" />
-            <element signature="e#2657#3073#0" expanded="false" />
-            <element signature="e#2958#3073#0" expanded="false" />
+            <element signature="e#850#865#0" expanded="true" />
+            <element signature="e#980#2650#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="80" lean-forward="false" selection-start-line="2" selection-start-column="80" selection-end-line="2" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+          <folding>
+            <element signature="e#7923#8306#0" expanded="false" />
+            <element signature="e#10326#11325#0" expanded="false" />
           </folding>
         </state>
       </provider>

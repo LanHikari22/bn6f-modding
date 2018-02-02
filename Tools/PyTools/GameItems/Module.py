@@ -1,8 +1,8 @@
 ##
 # @Author Lan
 # This represents the concept of modulized functions/data. A set of functions may be related, or were belonging to
-# A single file or set of files when compiled together. That is one example of a Module. This 'Module' module will
-# define operations to be done on a whole module!
+# A single file or set of files when compiled together.
+# This encapsulates all Names that begin with <ModuleName> and count them as belonging to the same module.
 ##
 import idautils
 import idc_bc695
@@ -31,8 +31,8 @@ class Module:
         for seg_ea in idautils.Segments():
             for func_ea in idautils.Functions(idc_bc695.SegStart(seg_ea), idc_bc695.SegEnd(seg_ea)):
                 func = Function.Function(func_ea)
-                # if the function starts with '<moduleName>_'...
-                if len(func.getName())>len(self.name)+1 and func.getName()[0:len(self.name)+1]==(self.name + '_'):
+                # if the function starts with '<moduleName>'...
+                if len(func.getName())>len(self.name) and func.getName()[0:len(self.name)]==self.name :
                     output.append(func)
         return output
 

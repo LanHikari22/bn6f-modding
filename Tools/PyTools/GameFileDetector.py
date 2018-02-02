@@ -15,6 +15,8 @@
 ##
 import idautils
 
+from GameItems.Module import Module
+
 
 class GameFileDetector:
     pass
@@ -73,3 +75,6 @@ def dispModuleFileChunks(moduleName):
 
 if __name__ == '__main__':
     dispModuleFileChunks('Chatbox')
+    mod = Module('Chatbox')
+    for func in mod.getModuleFunctions():
+        print(func.getName())

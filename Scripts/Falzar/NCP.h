@@ -6,7 +6,6 @@
 #include "../../Structs/_Structs.h"
 #include "../../include/IDADefinitions.h"
 
-#define NCP_cb_813C684 ((int __cdecl (*) ()) (0x0813C684 +1))
 #define NCP_SuperArmor ((int (*) ()) (0x0813C80C +1))
 #define NCP_CustomPlus ((int (*) ()) (0x0813C81C +1))
 #define NCP_CustomPlus_dup ((int (*) ()) (0x0813C838 +1))
