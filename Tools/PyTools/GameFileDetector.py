@@ -41,7 +41,7 @@ def getModuleFileChunks(moduleName):
     foundLastName = False
     # First get all names within the module
     for name_ea, name in idautils.Names():
-        if len(name) > len(moduleName) and name[0:len(moduleName)] == moduleName:
+        if len(name) >= len(moduleName) and name[0:len(moduleName)] == moduleName:
             if foundFirstName and foundLastName:
                 listCsr += 1
                 # Repeat the process for the next field...
@@ -58,23 +58,38 @@ def getModuleFileChunks(moduleName):
 
     return namesLists
 
-def dispModuleFileChunks(moduleName):
+def dispModuleFileChunks(moduleName, onlyRange=True, showNames=False):
     """
     Prints the content of getModuleFileChunks. Each Chunk can be seen as a File (or parts of) a File.
     :param moduleName: The name of the module to analyze
+    :param onlyRange: Will show [ <firstaddr> ..<n>.. <lastaddr> ]. The first and last addresses, and how many in between.
+    :param showNames: Will show the subroutine names (Default shows effective addresses instead)
     """
-    fileChunks = getModuleFileChunks('Chatbox')
+    fileChunks = getModuleFileChunks(moduleName)
 
     print('numFiles= %d' % len(fileChunks))
     for names in fileChunks:
         s = '[ '
-        for name_ea, name in names:
-            s += '%08X ' % (name_ea)
+        if onlyRange:
+            if showNames: s += names[0][1] + ' '
+            else: s += '%08X ' % (names[0][0])
+
+            if len(names) > 2: s += '..%2d.. ' % (len(names) - 2)
+
+            if len(names) > 1:
+                if showNames: s += names[-1][1] + ' '
+                else: s += '%08X ' % (names[-1][0])
+
+        else:
+            for name_ea, name in names:
+                if showNames: s += name + ' '
+                else: s += '%08X ' % (name_ea)
+
         s += ']'
         print(s)
 
 if __name__ == '__main__':
-    dispModuleFileChunks('Chatbox')
-    mod = Module('Chatbox')
-    for func in mod.getModuleFunctions():
-        print(func.getName())
+    moduleName = 'main' maintainance 
+    print("Scanning files in Module '%s'..." % moduleName)
+    dispModuleFileChunks(moduleName, onlyRange=True, showNames=False)
+    print('Scanning Complete!')
