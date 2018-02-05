@@ -20,6 +20,8 @@
 import os
 
 from GameItems import Module
+from Command import c
+from Definitions.Paths import ROM_PATH, PYTOOLS_PATH
 
 
 class VersionInputException(Exception):
@@ -281,18 +283,29 @@ def exportModules(mods, scriptsDir, versionDir, otherVersionDir, ROMPath, otherV
     stopwatch = time.time() - stopwatch
     print("Exporting Complete! It took %d s" % int(stopwatch))
 
-if __name__ == '__main__':
-    mods = ['main', 'Battle', 'BattleMenu', 'Chatbox', 'Load', 'Memory', 'MenuControl', 'NCP',
-            'reqBBS', 'Save', 'Startscreen', 'subsystem', 'Bios', 'NPC', 'object', 'Sound', 'sprite', 'libc',
-            'engine', 'check', 'render', 'cb', 'uncomp']
-    # mods.append('sub')
-    mods.append('invalid_modules_dont_generate_junk!')
+def __exportModules(cmd, *args, **kwargs):
+    """
 
-    scriptsDir = 'C:\\Users\\alzakariyamq\Documents\\Game Modding\\mods\\MMBN6\\Scripts\\'
+    :param cmd: not used. Python requires it. (sorry)
+    :param args: (mods=None)
+        mods: (list(str)) the modules to export, if not specified, default specified modules are used
+    :param kwargs: Not used
+    :return:
+    """
+    mods = len(args) > 0 and args[0] or \
+        ['main', 'm4a', 'Battle', 'BattleMenu', 'Chatbox', 'Load', 'Memory', 'MenuControl', 'NCP',
+        'reqBBS', 'Save', 'Startscreen', 'subsystem', 'Bios', 'NPC', 'object', 'Sound', 'sprite', 'libc',
+        'engine', 'check', 'render', 'cb', 'uncomp']
+    # mods.append('sub')
+    if len(args) == 0: mods.append('invalid_modules_dont_generate_junk!')
+
+    scriptsDir = PYTOOLS_PATH + '..\\..\\Scripts\\'
     versionDir = 'Falzar\\'; otherVersionDir = 'Gregar\\'
-    ROMPath = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6f.gba'
-    otherVersionBinPath = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6g.gba'
+    otherVersionBinPath = PYTOOLS_PATH + '..\\..\\mmbn6g.gba'
 
     # deleteOldModules(scriptsDir, versionDir, otherVersionDir)
-    exportModules(mods, scriptsDir, versionDir, otherVersionDir, ROMPath, otherVersionBinPath)
+    exportModules(mods, scriptsDir, versionDir, otherVersionDir, ROM_PATH, otherVersionBinPath)
 
+
+if __name__ == '__main__':
+    __exportModules(None)

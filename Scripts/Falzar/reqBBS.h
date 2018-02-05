@@ -76,7 +76,7 @@ changes header text of a BBS chatbox based on something?
 hyp
 */
 #define reqBBS_change_chatbox_header ((int (*) ()) (0x08140554 +1))
-#define reqBBS_8140604 ((void __fastcall __spoils<R1,R2,R3,R12> (*) (int a1, int a2, int a3, int a4)) (0x08140604 +1))
+#define reqBBS_8140604 ((void __fastcall (*) (int a1, int a2, int a3, int a4)) (0x08140604 +1))
 #define reqBBS_animate_cursor ((void (*) ()) (0x08140688 +1))
 #define reqBBS_81408A0 ((unsigned int __fastcall (*) (int ID)) (0x081408A0 +1))
 #define reqBBS_check_81408F0 ((int __cdecl (*) ()) (0x081408F0 +1))

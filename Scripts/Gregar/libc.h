@@ -12,7 +12,7 @@
 #define libc_814F754 ((int (*) ()) (0x0814F754 +1))
 #define libc_814FB94 ((_DWORD *__fastcall (*) (_DWORD *result)) (0x0814FB94 +1))
 #define libc_814FBEC ((int __fastcall (*) (int a1)) (0x0814FBEC +1))
-#define libc_814FC06 ((void __spoils<R2> (*) ()) (0x0814FC06 +1))
+#define libc_814FC06 ((void (*) ()) (0x0814FC06 +1))
 #define libc_814FC20 ((void __fastcall (*) (int a1, int a2)) (0x0814FC20 +1))
 #define libc_814FC2C ((int __fastcall (*) (int a1, int a2)) (0x0814FC2C +1))
 #define libc_814FC68 ((void __fastcall (*) (int a1, int a2)) (0x0814FC68 +1))

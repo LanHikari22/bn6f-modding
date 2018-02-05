@@ -1,0 +1,14 @@
+Necessary changes to convert disassemblies in IDA:
+1. remove ROM:%08X
+2. Instructions liek MOVS, and SUBS are illegal. Replace with MOV, SUB
+3. ';' is not  used by gcc for comments, replace with '//'...
+4. After each label, add a ':'
+5. Add the disassembly to a unique section to be linked: '.section .link__<name>, "ax"'
+
+Steps to adding the disassembly to the project
+1. Add to <name>.s in src
+2. Modify romlink.ld to include .link__<name> as such: 
+    . = <address of file>;
+    .link__<name> : {*.o(.link__<name>)}
+3. Modify symbols.x to include any dependencies found in the file (DOESNT WORK)
+3.5 Include all dependencies in dependencies.s and dependencies.x

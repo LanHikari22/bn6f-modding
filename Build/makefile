@@ -10,12 +10,12 @@ LD = $(BIN)/arm-none-eabi-ld
 OBJCOPY = $(BIN)/arm-none-eabi-objcopy
 
 # build flags
-COMPLIANCE_FLAGS = -fomit-frame-pointer -ffast-math -fno-toplevel-reorder -nostdinc # -O2 makes main not first
+COMPLIANCE_FLAGS = #-fomit-frame-pointer -ffast-math -fno-toplevel-reorder -nostdinc # -O2 makes main not first
 WFLAGS = -Wno-builtin-declaration-mismatch
-ARCH   = -mcpu=arm7tdmi -mabi=aapcs -mthumb -mthumb-interwork
+ARCH   = -march=armv4t -mtune=arm7tdmi -mabi=aapcs -mthumb -mthumb-interwork
 CDEBUG = # -g # this is going crazy for some reason, no debugging for now
 CFLAGS = $(ARCH) $(WFLAGS) $(COMPLIANCE_FLAGS) $(CDEBUG) -I. -I$(SRCDIR)
-LDFLAGS = -g -T romlink.ld -Map output.map
+LDFLAGS = -g -T symbols.x -T romlink.ld -Map output.map
 LD_LINK = -static -L $(SYS_LIB_DIR1) -L $(SYS_LIB_DIR2) $(LIBS)
 PURE_OBJCOPY_FLAGS = -O elf32-littlearm -B arm --rename-section .data=.rom --set-section-flags .rom="r,c,a"
 

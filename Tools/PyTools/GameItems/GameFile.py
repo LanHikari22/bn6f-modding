@@ -142,6 +142,4 @@ class GameFile:
 if __name__ == '__main__':
     # file = GameFile(idc.SegStart(ROM_SEG), idc.SegEnd(ROM_SEG))
     # file = GameFile('StartScreen')
-    displayModuleSegments('Chatbox')
-    print('Display Complete!')
-
+    pass

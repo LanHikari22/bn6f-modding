@@ -105,5 +105,5 @@ void RPress(){
 	r5 = sBtlEnemyA;
 	// object_add_hp(50); // doesn't add HP for some reason??
 	// object_break_panel(3, 3); // it woooorks!
-	run_test();
+	
 }

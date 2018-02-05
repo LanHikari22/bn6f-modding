@@ -5,26 +5,22 @@
 #
 # [Features]
 # - Able to search for matching functions between the ROM and binary file
-#
-# [Module Input]
-# If this script is executed directly, check the Module Input section for configuration.
 ##
 
+
 import os
+import time
 
 import idautils
 import idc_bc695
 
 from Definitions.Architecture import ROM_SEG
+from Definitions.Architecture import INSTRUCTION_WIDTH
+from Definitions.Paths import ROM_PATH, PYTOOLS_PATH
 from IDAItems import Function
 
-# Module Input ---------------------------------------------------------------------------------------------------------
-# identical to the ROM analyzed by IDA
-ROM = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6g.gba'
-# Where to write the Analysis output
-bin = 'C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\mmbn6f.gba'
-# Where to write the Analysis output
-wrFile = open('C:\\Users\\alzakariyamq\\Desktop\\Analysis.txt', 'w')
+
+from Command import c
 
 # Constants  -----------------------------------------------------------------------------------------------------------
 INVALID_FUNCTION = -1
@@ -117,21 +113,39 @@ class BinarySearcher:
 
 
 
-if __name__ == '__main__':
-    print("Starting Binary Search Analysis...")
+def fcmp(cmd, *args, **kwargs):
+    """
+    This is to be executed through the run module
+    :param cmd: Not used. There because python. Thank you!
+    :param args: (binaryPath)
+            binaryPath: (str) the path to the binary being function compared with
+    :param kwargs: (wr=True, q=False, wrPath=PYTOOLS_PATH + 'FE8.txt')
+            wr: (bool) whether also to write the analysis to a file, or only return the value. Default to write.
+            q: (bool) supresses info messages, False if not specified.
+            wrPath: (str) path to file to output the results in. If not specified, analysis ouput is returned
+    :return: Files detected within the module
+    """
+    binaryPath = args[0]
+    wr = 'wr' in kwargs and kwargs['wr'] or True
+    wrPath = ('wrPath' in kwargs and wr) and kwargs['wrPath'] or wr and PYTOOLS_PATH + 'FE8.txt' or None
+    wrFile = wrPath and open(wrPath, 'w') or None
+    suppressed = 'q' in kwargs and kwargs['q'] or False
 
-    searcher = BinarySearcher(ROM, bin, ROM_SEG)
+    if not suppressed: print("Starting Binary Search Analysis...")
+
+    searcher = BinarySearcher(ROM_PATH, binaryPath, ROM_SEG)
 
     # Perform and time Analysis
-    import time
-    stopwatch = time.time()
+    if not suppressed:
+        stopwatch = time.time()
     matchedFunctions = searcher.scan_for_known_functions()
-    stopwatch = time.time() - stopwatch
-    wrFile.write("Analysis took %d s\n" % int(stopwatch))
-
-
+    if not suppressed:
+        stopwatch = time.time() - stopwatch
+        if wrFile: wrFile.write("Analysis took %d s\n" % int(stopwatch))
+        else: print("Analysis took %d s\n" % int(stopwatch))
 
     # Simply output all entries
+    matchedFunctions_filtered = []
     for x in matchedFunctions:
         filters = [
             # x["ROM_Addr"] == ROM_seg + x["Bin_Addr"], # Detect only functions identical in content and location
@@ -142,12 +156,17 @@ if __name__ == '__main__':
         ]
         filtered = True
         for f in filters: filtered = filtered and f
+        if filtered:
+            if wrFile: wrFile.write(str(x["Name"]) + ": " + hex(x["Bin_Addr"]) + '\n')
+            matchedFunctions_filtered.append(x)
+    if wrFile: wrFile.close()
+    if not suppressed: print("Binary Search Analysis Complete!")
 
-        if filtered: wrFile.write(str(x["Name"]) + ": " + hex(x["Bin_Addr"]) + '\n')
 
-    wrFile.close()
+if __name__ == '__main__':
+    binPath = PYTOOLS_PATH + '..\\..\\mmbn6g.gba'
+    wrPath = PYTOOLS_PATH + 'analysis.txt'
+    suppressed = True
+    fcmp(None, binPath, wrPath, not suppressed)
 
-
-
-    print("Binary Search Analysis Complete!")
     # print(hex(0x08000000 + searcher.find_function(0x803EFCC))) # returns 0x803efcc

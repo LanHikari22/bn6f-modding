@@ -14,8 +14,7 @@
 #   and the identified function form a valid file, then it belongs to that file.
 ##
 import idautils
-
-from GameItems.Module import Module
+from Command import c
 
 
 class GameFileDetector:
@@ -68,8 +67,9 @@ def dispModuleFileChunks(moduleName, onlyRange=True, showNames=False):
     fileChunks = getModuleFileChunks(moduleName)
 
     print('numFiles= %d' % len(fileChunks))
+    s = ''
     for names in fileChunks:
-        s = '[ '
+        s += '[ '
         if onlyRange:
             if showNames: s += names[0][1] + ' '
             else: s += '%08X ' % (names[0][0])
@@ -84,12 +84,33 @@ def dispModuleFileChunks(moduleName, onlyRange=True, showNames=False):
             for name_ea, name in names:
                 if showNames: s += name + ' '
                 else: s += '%08X ' % (name_ea)
+        s += ']\n'
 
-        s += ']'
-        print(s)
+    return len(s) > 0 and s[:-1] or s
+
+
+def moduleFiles(cmd, *args, **kwargs):
+    """
+    This is to be executed through the run module
+    :param cmd: Not used. There because python! (Sorry)
+    :param args: (moduleName, suppress=True, onlyRange=True, showNames=False)
+    :param kwargs: Not used
+    :return: Files detected within the module
+    """
+    moduleName = args[0]
+    suppress = len(args) > 1 and args[1] or True
+    onlyRange = len(args) > 2 and args[2] or True
+    showNames = len(args) > 3 and args[3] or False
+
+    if not suppress: print("Scanning files in Module '%s'..." % moduleName)
+    output = dispModuleFileChunks(moduleName, onlyRange=onlyRange, showNames=showNames)
+    if not suppress: print('Scanning Complete!')
+    return output
+
 
 if __name__ == '__main__':
-    moduleName = 'main' maintainance 
-    print("Scanning files in Module '%s'..." % moduleName)
-    dispModuleFileChunks(moduleName, onlyRange=True, showNames=False)
-    print('Scanning Complete!')
+    moduleName = 'main'
+    suppressed=False
+    onlyRange=True
+    showNames=False
+    print(moduleFiles(None, moduleName, suppressed, onlyRange, showNames))

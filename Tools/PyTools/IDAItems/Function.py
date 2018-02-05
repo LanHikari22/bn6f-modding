@@ -8,7 +8,6 @@
 import idautils
 import idaapi
 import idc
-from Head import Head
 
 
 def isFunction(ea):
@@ -19,7 +18,7 @@ class InvalidFunctionException(Exception):
         super(Exception, self).__init__(s)
         pass
 
-class Function(Head):
+class Function:
     func = None  # func_t
     func_ea = None  # ea_t
 

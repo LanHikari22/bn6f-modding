@@ -18,6 +18,11 @@ SECTIONS
     .mainHook : {*.o(.mainHook)}
     . = 0x08000402;
     .intercept_08000402 : {*.o(.intercept_08000402)}
-    /* Intercept tests */
-    call_shuko_please = 0x089004a2;
+    /* Other */
+    . = 0x0800E2D8;
+    .link__object_subtract_hp : {*.o(.link__object_subtract_hp)}
+
+    /* Dependencies */
+    INCLUDE dependencies.x
+
 }
