@@ -5,3 +5,6 @@ ROM_SEG = 0x08000000
 # ARM Cortex-M4 Thumb mode instruction width in bytes
 INSTRUCTION_WIDTH = 2
 
+# ARM Cortex-M4 Thumb mode Instruction that is actually 4 bytes
+LONG_INSTRUCTION = 'BL'
+

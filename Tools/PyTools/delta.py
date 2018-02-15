@@ -196,7 +196,7 @@ def printXRefsTo(ea):
         print xref.type, XrefTypeName(xref.type), 'from', hex(xref.frm), 'to', hex(xref.to)
 def printCXRefsToFunction(func_ea):
     # If the current address is function process it
-    if get_func_flags(func_ea) != -1:
+    if idc.get_func_flags(func_ea) != -1:
         msg("Function %s at 0x%x\n" % (get_func_name(func_ea), func_ea))
         # Find all code references to func
         ref = get_first_cref_to(func_ea)

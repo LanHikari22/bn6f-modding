@@ -13,16 +13,17 @@ SECTIONS
     .bss : {*(.bss) . = ALIGN(4);}
 
 
-    /* things that require specialized linking */
+    /* Main hook linking */
     . = 0x08090000;
     .mainHook : {*.o(.mainHook)}
     . = 0x08000402;
     .intercept_08000402 : {*.o(.intercept_08000402)}
-    /* Other */
-    . = 0x0800E2D8;
-    .link__object_subtract_hp : {*.o(.link__object_subtract_hp)}
+
+    /* specialized linking */
+    INCLUDE slinky.x
 
     /* Dependencies */
     INCLUDE dependencies.x
+    INCLUDE slinkydependencies.x
 
 }

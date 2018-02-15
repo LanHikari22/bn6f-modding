@@ -116,23 +116,42 @@ class Function:
         drefs = []
         normalFlow = True
         for ref in idautils.CodeRefsFrom(self.func_ea, normalFlow):  # XrefsFrom
-            # print xref.type, XrefTypeName(xref.type), 'from', hex(xref.frm), 'to', hex(xref.to)
             crefs.append(ref)
         for ref in idautils.CodeRefsFrom(self.func_ea, not normalFlow):  # XrefsFrom
-            # print xref.type, XrefTypeName(xref.type), 'from', hex(xref.frm), 'to', hex(xref.to)
             crefs.append(ref)
-            # for xref in XrefsFrom(self.func_ea, 0):
-            # if xref.type == fl_CN or xref.type == fl_CF:
-            # Message("%s calls %s from %x\n" % (fname,  Name(xref.to), i))
-            # else:
-            # Warning("No function found at location %x" % here())
-            # crefs.append(xref.to)
+        for ref in idautils.CodeRefsFrom(self.func_ea+1, normalFlow):  # XrefsFrom
+            crefs.append(ref)
+        for ref in idautils.CodeRefsFrom(self.func_ea+1, not normalFlow):  # XrefsFrom
+            crefs.append(ref)
+
+        for xref in idautils.XrefsFrom(self.func_ea, 0):
+            if xref.type == idc.fl_CN or xref.type == idc.fl_CF:
+                idc.Message("%s calls %s from %x\n" % (self.getName(), idc.Name(xref.to), xref.to))
+            else:
+                idc.Warning("No function found at location %x" % self.func_ea)
+            crefs.append(xref.to)
 
         for ref in idautils.DataRefsFrom(self.func_ea):
             drefs.append(ref)
         for ref in idautils.DataRefsFrom(self.func_ea + 1):
             drefs.append(ref)
         return crefs, drefs
+
+    def enumerateCrossReferences(self):
+        """
+        This finds all functions called by the function provided at
+        the cursor.
+        """
+        # from idaapi import *
+        fname = self.getName()
+        items = idautils.FuncItems(self.func.startEA)
+        for i in items:
+            for xref in idautils.XrefsFrom(i, 0):
+                print('%08X' % xref.to)
+                if xref.type == idc.fl_CN or xref.type == idc.fl_CF:
+                    idc.Message("%s calls %s from %x\n" % (fname, idc.Name(xref.to), i))
+                # else:
+                #     Warning("No function found at location %x" % idc.here())
 
     # Comments ---------------------------------------------------------------------------------------------------------
 
@@ -155,11 +174,22 @@ class Function:
 
     # Boundaries -------------------------------------------------------------------------------------------------------
 
-    def getSize(self):
+    def getSize(self, withPool=False):
         """
+        Computes the size of the function the first time this is called, and caches that computation for later
+        :param withPool: (bool) somewhat of a heuristic. Computes the pool size as simply the amount of bytes since
+                         the function's code portion finished (endEA) until a new code head is detected
         :return:  Returns the size of the Function in bytes: EndEA - StartEA
         """
-        return self.func.end_ea - self.func.start_ea
+        if not withPool: return self.func.end_ea - self.func.start_ea
+        try:
+            return self._size
+        except AttributeError:
+            head = self.func.end_ea
+            while not idc.isCode(idc.GetFlags(head)):
+                head += idc.get_item_size(head)
+            self._size = head - self.func.start_ea
+            return self._size
 
     def getBoundaries(self):
         """
@@ -187,7 +217,8 @@ def printRefs(crefs, drefs):
 def RunTesting():
     func = Function(idc.here())
     print(func.getComment())
-    # crefs, drefs = func.getXRefsFrom()
+    func.enumerateCrossReferences()
+    # crefs, drefs = func.ongoing_getXRefsFrom()
     # printRefs(crefs, drefs)
 
 

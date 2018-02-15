@@ -1,4 +1,5 @@
 SRCDIR = ../src/
+SLINKY_SRCDIR = ../src/slinky/
 SYS_LIB_DIR1 = C:/devkitPro/devkitARM/arm-none-eabi/lib/
 SYS_LIB_DIR2 = C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/
 INC = ../include/
@@ -30,6 +31,13 @@ SFILES	:=	$(foreach dir,$(SRCDIR),$(notdir $(wildcard $(SRCDIR)/*.S))) \
 			$(foreach dir,$(SRCDIR),$(notdir $(wildcard $(SRCDIR)/*.s)))
 OFILES 	:=  $(patsubst %.c, %.o, $(CFILES)) $(patsubst %.s, %.o, $(SFILES))
 SOURCES :=  $(addprefix $(SRCDIR), $(CFILES)) $(addprefix $(SRCDIR), $(SFILES))
+# slinky project files for compilation (WORST solution, TODO: ** fix this!!!)
+SLINKY_CFILES	:=	$(foreach dir,$(SLINKY_SRCDIR),$(notdir $(wildcard $(SLINKY_SRCDIR)/*.c)))
+SLINKY_SFILES	:=	$(foreach dir,$(SLINKY_SRCDIR),$(notdir $(wildcard $(SLINKY_SRCDIR)/*.S))) \
+			$(foreach dir,$(SLINKY_SRCDIR),$(notdir $(wildcard $(SLINKY_SRCDIR)/*.s)))
+SLINKY_OFILES 	:=  $(patsubst %.c, %.o, $(SLINKY_CFILES)) $(patsubst %.s, %.o, $(SLINKY_SFILES))
+SLINKY_SOURCES :=  $(addprefix $(SLINKY_SRCDIR), $(SLINKY_CFILES)) $(addprefix $(SLINKY_SRCDIR), $(SLINKY_SFILES))
+
 
 # BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.bin)))
 
@@ -45,8 +53,8 @@ COMBINED_OBJ = output.o
 
 # This handles compiling and linking into ROM.
 build:
-	$(CC) $(CFLAGS) -c $(SOURCES) -I$(INC)
-	$(LD) $(LDFLAGS) -o $(COMBINED_OBJ) $(OFILES) pure.o $(LD_LINK)
+	$(CC) $(CFLAGS) -c $(SOURCES) -c $(SLINKY_SOURCES) -I$(INC)
+	$(LD) $(LDFLAGS) -o $(COMBINED_OBJ) $(OFILES) $(SLINKY_OFILES) pure.o $(LD_LINK)
 	$(OBJCOPY) --set-section-flags .rom="r,c,a" $(COMBINED_OBJ)
 	$(OBJCOPY) -O binary $(COMBINED_OBJ) $(ROM)
 	
