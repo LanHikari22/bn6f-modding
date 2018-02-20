@@ -34,6 +34,7 @@ class Dependency:
         else:
             raise NoDependencyException()
         self.ea = idc.get_name_ea(0,self.name)
+        self.name = idc.get_name(self.ea) # this filters out silly comments in the name
 
     def getLabelDefinition(self):
         """

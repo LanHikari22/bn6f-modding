@@ -36,7 +36,7 @@ class Extractor:
         # Iterate through all heads from start to end
         asmLines = []
         sizeCounter = 0 # This will be incremented based on each head, to ensure all items were accounted for
-        dependencies = [] # all BL's involved
+        dependencies = [] # all B/BL's and DCDs involved
         for head in idautils.Heads(func_ea, func_ea + func.getSize(withPool=True)):
             asmLine = AsmLine(head)
             sizeCounter += asmLine.size
@@ -50,6 +50,45 @@ class Extractor:
         # Remove any dependencies self-contained within the function, like a label within the function.
         dependencies = self.filterResolvedDependencies(dependencies, asmLines)
         return (asmLines, dependencies)
+
+    def extractFile(self, gamefile):
+        asmLines = []
+        sizeCounter = 0 # This will be incremented based on each head, to ensure all items were accounted for
+        dependencies = [] # all B/BL's and DCDs involved
+        for head in idautils.Heads(gamefile.start_ea, gamefile.start_ea + gamefile.getSize(withPool=True)):
+            asmLine = AsmLine(head)
+            sizeCounter += asmLine.size
+            asmLines.append(asmLine)
+            try:
+                dependency = Dependency(head)
+                dependencies.append(dependency)
+            except NoDependencyException: pass
+        if sizeCounter != gamefile.getSize(withPool=True):
+            raise Exception('Extracted items do not sum to the size of the file %08X' % func_ea)
+        print(hex(sizeCounter))
+        # Remove any dependencies self-contained within the function, like a label within the function.
+        dependencies = self.filterResolvedDependencies(dependencies, asmLines)
+        return (asmLines, dependencies)
+
+    def exportRange(self, startEA, size):
+        asmLines = []
+        sizeCounter = 0 # This will be incremented based on each head, to ensure all items were accounted for
+        dependencies = [] # all B/BL's and DCDs involved
+        for head in idautils.Heads(startEA, startEA + size):
+            asmLine = AsmLine(head)
+            sizeCounter += asmLine.size
+            asmLines.append(asmLine)
+            try:
+                dependency = Dependency(head)
+                dependencies.append(dependency)
+            except NoDependencyException: pass
+        if sizeCounter != size:
+            raise Exception('Extracted items do not sum to the size of the range @ %08X' % startEA)
+        print(hex(sizeCounter))
+        # Remove any dependencies self-contained within the function, like a label within the function.
+        dependencies = self.filterResolvedDependencies(dependencies, asmLines)
+        return (asmLines, dependencies)
+
 
     def filterResolvedDependencies(self, dependencies, asmLines):
         """
@@ -67,10 +106,9 @@ class Extractor:
             if dependency.name not in resolvedNames: output.append(dependency)
         return output
 
-
 if __name__ == '__main__':
     extractor = Extractor()
-    asmLines, dependencies = extractor.extractFunction(0x081382AC)
-    for asmLine in asmLines:
-        print(str(asmLine))
-
+    # asmLines, dependencies = extractor.extractFunction(0x081382AC)
+    asmLines, dependencies = extractor.exportRange(0x0802F8A6, 0x0802F8D8-0x0802F8A6)
+    for line in asmLines:
+        print(str(line))

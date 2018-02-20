@@ -179,7 +179,7 @@ class Function:
         Computes the size of the function the first time this is called, and caches that computation for later
         :param withPool: (bool) somewhat of a heuristic. Computes the pool size as simply the amount of bytes since
                          the function's code portion finished (endEA) until a new code head is detected
-        :return:  Returns the size of the Function in bytes: EndEA - StartEA
+        :return:  Returns the size of the Function in bytes: EndEA - StartEA (if no pool selected, otherwise + pool)
         """
         if not withPool: return self.func.end_ea - self.func.start_ea
         try:

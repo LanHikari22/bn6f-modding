@@ -13,7 +13,7 @@ class Exporter:
         self.xPath = dependenciesXPath
         self.sPath = dependenciesSPath
         self.lPath = ldScriptPath
-        pass
+
 
     def exportDisassembly(self, asmLines, filename):
         """
@@ -48,6 +48,7 @@ class Exporter:
         Simply overwrites the files dependencies.s and dependencies.x with label definitions and appropriate ldscript
         for each dependency
         :param dependencies: list(Dependency) a list of dependencies the disassembly to be exported relies on
+        :param exportMacros: (bool) macroized instructions, and other things used by the IDA disassembler will be exported
         :return: None
         """
         s = open(self.sPath, 'w')

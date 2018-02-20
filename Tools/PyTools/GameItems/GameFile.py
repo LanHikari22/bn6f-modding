@@ -5,7 +5,8 @@ import idc_bc695
 
 import Definitions
 from Definitions.Architecture import ROM_SEG
-from IDAItems.Function import Function, InvalidFunctionException
+from IDAItems.Function import Function, InvalidFunctionException, isFunction
+
 
 # CONSTANTS ------------------------------------------------------------------------------------------------------------
 class Mode:
@@ -136,6 +137,16 @@ class GameFile:
             info('Renamed %s to %s' % (name, newName), suppressed)
 
         info('Renaming Complete!', suppressed)
+
+    def getSize(self, withPool=False):
+        """
+        Computes the size of the file the first time this is called, and caches that computation for later
+        :param withPool: (bool) If end_ea is a function, compute its size including its pool if it has any
+        :return:  Returns the size of the file in bytes: EndEA + itemSize - StartEA
+        """
+        if isFunction(self.end_ea):
+            return self.end_ea + Function(self.end_ea).getSize(withPool=withPool) - self.start_ea
+        return (self.end_ea + idc.get_item_size(self.end_ea) - self.start_ea)
 
 
 
