@@ -71,7 +71,8 @@ StartScreen_cb_802f60c:
 	MOV     LR, PC
 	BX      R0
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802F61C:
 	.word StartScreen_jt
 StartScreen_jt:
@@ -85,7 +86,8 @@ StartScreen_802f624:
 	MOV    R0, #0
 	STRB    R0, [R5,#1]
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 dword_802F638:
 	.word 0x1741
 StartScreen_cb_802f63c:
@@ -94,18 +96,19 @@ StartScreen_cb_802f63c:
 	LDRB    R1, [R5,#1]
 	LDR     R0, [R0,R1]
 	MOV     LR, PC
-	BX      R0
+	BX		LR
 	BL      StartScreen_802FB10
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802F650:
 	.word StartScreen_jt_0
 StartScreen_jt_0:
-	.word StartScreen_802f668+1
-	.word StartScreen_802f6a4+1
-	.word StartScreen_802f6b2+1
-	.word StartScreen_802F704+1
-	.word StartScreen_802f710+1
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
 StartScreen_802f668:
 	PUSH    {LR}
 	MOV    R0, #0
@@ -269,7 +272,8 @@ loc_802F7DC:
 	BL      sub_81440D8
 locret_802F7E0:
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802F7E4:
 	.word loc_1140
 StartScreen_802f7e8:
@@ -291,7 +295,8 @@ StartScreen_802f7e8:
 	BL      loc_8001B1C
 locret_802F810:
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802F814:
 	.word dword_802F2E4
 off_802F818:
@@ -366,11 +371,14 @@ StartScreen_802F88E:
 	BL      sub_8001158
 locret_802F8A4:
 	POP     {R4-R7,PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802F8A8:
 	.word dword_802F8AC
 dword_802F8AC:
 	.word 0x80344078, 0x2001, 0x80544078, 0x2009, 0x80744078
+.word 0x2011, 0x80944078, 0x2019, 0xB48078, 0x2021
+.word 0x0
 StartScreen_802f8d8:
 	PUSH    {R4-R7,LR}
 	LDRB    R0, [R5,#6]
@@ -430,6 +438,7 @@ off_802F95C:
 	.word dword_802F960
 dword_802F960:
 	.word 0x40490071, 0x40490080, 0x40490091
+
 off_802F96C:
 	.word byte_802F970
 byte_802F970:
@@ -476,7 +485,8 @@ StartScreen_802F994:
 	LDR     R0, [R0,R1]
 	BL      sub_8001158
 	POP     {R4-R7,PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802F9A4:
 	.word off_802F9A8
 off_802F9A8:
@@ -485,8 +495,10 @@ off_802F9A8:
 	.word dword_802F9D0
 dword_802F9B4:
 	.word 0x80584070, 0x3023, 0x80784070, 0x302B, 0x40980070
+.word 0x3033, 0x0
 dword_802F9D0:
 	.word 0x80584070, 0x4023, 0x80784070, 0x402B, 0x40980070
+.word 0x4033, 0x0
 StartScreen_802F9EC:
 	PUSH    {R4-R7,LR}
 	LDR     R1, off_802F9FC
@@ -494,7 +506,8 @@ StartScreen_802F9EC:
 	LDR     R0, [R0,R1]
 	BL      sub_8001158
 	POP     {R4-R7,PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802F9FC:
 	.word off_802FA00
 off_802FA00:
@@ -503,8 +516,10 @@ off_802FA00:
 	.word dword_802FA28
 dword_802FA0C:
 	.word 0x8058407F, 0x3037, 0x8078407F, 0x303F, 0x4098007F
+.word 0x3047, 0x0
 dword_802FA28:
 	.word 0x8058407F, 0x4037, 0x8078407F, 0x403F, 0x4098007F
+.word 0x4047, 0x0
 	PUSH    {R4-R7,LR}
 	LDRB    R1, [R5,#9]
 	CMP     R1, #3
@@ -534,22 +549,30 @@ off_802FA74:
 	.word dword_802FA80
 dword_802FA80:
 	.word 0x80584080, 0x304B, 0x80784080, 0x3053, 0x40980080
+.word 0x305B, 0xA88080, 0x305F, 0x0
 dword_802FAA4:
 	.word 0x80584080, 0x404B, 0x80784080, 0x4053, 0x40980080
+.word 0x405B, 0xA88080, 0x405F, 0x0
 dword_802FAC8:
 	.word 0x80584070, 0x304B, 0x80784070, 0x3053, 0x40980070
+.word 0x305B, 0xA88070, 0x305F, 0x0
 dword_802FAEC:
 	.word 0x80584070, 0x404B, 0x80784070, 0x4053, 0x40980070
+.word 0x405B, 0xA88070, 0x405F, 0x0
 StartScreen_802FB10:
 	PUSH    {R4-R7,LR}
 	LDR     R0, off_802FB1C
 	BL      sub_8001158
 	POP     {R4-R7,PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802FB1C:
 	.word dword_802FB20
 dword_802FB20:
 	.word 0x8000007E, 0x6180, 0x8020007E, 0x6190, 0x8040007E
+.word 0x61A0, 0x8060007E, 0x61B0, 0x8080007E, 0x61C0
+.word 0x80A0007E, 0x61D0, 0x80C0007E, 0x61E0, 0x80E0007E
+.word 0x61F0, 0x0
 StartScreen_802fb64:
 	PUSH    {LR}
 	LDRH    R0, [R5,#0xA]
@@ -560,11 +583,13 @@ StartScreen_802fb64:
 	BL      sub_8001158
 locret_802FB74:
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802FB78:
 	.word dword_802FB7C
 dword_802FB7C:
-	.word 0x80044002, 0x9280, 0x40044012, 0x9288, 0
+	.word 0x80044002, 0x9280, 0x40044012, 0x9288, 0x0
+
 StartScreen_802fb90:
 	PUSH    {LR}
 	LDRH    R0, [R5,#0xA]
@@ -575,11 +600,13 @@ StartScreen_802fb90:
 	BL      sub_8001158
 locret_802FBA0:
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802FBA4:
 	.word dword_802FBA8
 dword_802FBA8:
-	.word 0x802C4004, 0x8220, 0
+	.word 0x802C4004, 0x8220, 0x0
+
 StartScreen_802fbb4:
 	PUSH    {LR}
 	LDRH    R0, [R5,#0xA]
@@ -590,11 +617,13 @@ StartScreen_802fbb4:
 	BL      sub_8001158
 locret_802FBC4:
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802FBC8:
 	.word dword_802FBCC
 dword_802FBCC:
-	.word 0x80544004, 0x8230, 0
+	.word 0x80544004, 0x8230, 0x0
+
 StartScreen_802fbd8:
 	PUSH    {LR}
 	LDRH    R0, [R5,#0xA]
@@ -605,11 +634,13 @@ StartScreen_802fbd8:
 	BL      sub_8001158
 locret_802FBE8:
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802FBEC:
 	.word dword_802FBF0
 dword_802FBF0:
-	.word 0x807C4004, 0x8240, 0
+	.word 0x807C4004, 0x8240, 0x0
+
 StartScreen_802fbfc:
 	PUSH    {LR}
 	LDRH    R0, [R5,#0xA]
@@ -620,11 +651,13 @@ StartScreen_802fbfc:
 	BL      sub_8001158
 locret_802FC0C:
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802FC10:
 	.word dword_802FC14
 dword_802FC14:
-	.word 0x808E4014, 0x7210, 0x408E4024, 0x7218, 0
+	.word 0x808E4014, 0x7210, 0x408E4024, 0x7218, 0x0
+
 StartScreen_802fc28:
 	PUSH    {LR}
 	LDRH    R0, [R5,#0xA]
@@ -635,11 +668,13 @@ StartScreen_802fc28:
 	BL      sub_8001158
 locret_802FC38:
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802FC3C:
 	.word dword_802FC40
 dword_802FC40:
-	.word 0x80A44004, 0x8250, 0
+	.word 0x80A44004, 0x8250, 0x0
+
 StartScreen_802fc4c:
 	PUSH    {LR}
 	LDRH    R0, [R5,#0xA]
@@ -650,11 +685,13 @@ StartScreen_802fc4c:
 	BL      sub_8001158
 locret_802FC5C:
 	POP     {PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 off_802FC60:
 	.word dword_802FC64
 dword_802FC64:
-	.word 0x80CC4004, 0x8260, 0
+	.word 0x80CC4004, 0x8260, 0x0
+
 StartScreen_802fc70:
 	PUSH    {LR}
 	LDRH    R0, [R5,#0xA]
@@ -669,7 +706,8 @@ locret_802FC82:
 off_802FC84:
 	.word dword_802FC88
 dword_802FC88:
-	.word 0x80404014, 0x7200, 0x40404024, 0x7208, 0
+	.word 0x80404014, 0x7200, 0x40404024, 0x7208, 0x0
+
 StartScreen_802fc9c:
 	PUSH    {LR}
 	LDRH    R0, [R5,#0xA]

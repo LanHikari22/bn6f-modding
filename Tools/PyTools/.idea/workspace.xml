@@ -14,8 +14,8 @@
       <file leaf-file-name="Function.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1819">
-              <caret line="181" column="116" lean-forward="false" selection-start-line="181" selection-start-column="116" selection-end-line="181" selection-end-column="116" />
+            <state relative-caret-position="107">
+              <caret line="76" column="21" lean-forward="true" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
               <folding>
                 <element signature="e#215#230#0" expanded="true" />
                 <element signature="e#1637#1946#0" expanded="false" />
@@ -42,8 +42,8 @@
       <file leaf-file-name="Extractor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SlinkyEngine/Extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="111" column="84" lean-forward="false" selection-start-line="111" selection-start-column="63" selection-end-line="111" selection-end-column="84" />
+            <state relative-caret-position="170">
+              <caret line="77" column="24" lean-forward="true" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
               <folding>
                 <element signature="e#578#593#0" expanded="true" />
                 <element signature="e#2668#3638#0" expanded="false" />
@@ -55,8 +55,8 @@
       <file leaf-file-name="Linker.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SlinkyEngine/Linker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="57" column="22" lean-forward="false" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+            <state relative-caret-position="58">
+              <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
               <folding>
                 <element signature="e#95#105#0" expanded="true" />
               </folding>
@@ -101,8 +101,23 @@
       <file leaf-file-name="AsmLine.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SlinkyEngine/AsmLine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            <state relative-caret-position="302">
+              <caret line="145" column="51" lean-forward="true" selection-start-line="145" selection-start-column="51" selection-end-line="145" selection-end-column="51" />
+              <folding>
+                <element signature="e#140#150#0" expanded="true" />
+                <element signature="e#676#2422#0" expanded="false" />
+                <element signature="e#2455#2645#0" expanded="false" />
+                <element signature="e#3097#3162#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Architecture.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Definitions/Architecture.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,18 +126,8 @@
       <file leaf-file-name="Exporter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SlinkyEngine/Exporter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="935">
-              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Interceptor.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SlinkyEngine/Interceptor.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="381">
+              <caret line="62" column="17" lean-forward="true" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -141,6 +146,7 @@
     <findStrings>
       <find>BL</find>
       <find>08</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -182,7 +188,6 @@
         <option value="$PROJECT_DIR$/SlinkyEngine/Interceptor.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Redirector.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/asmLine.py" />
-        <option value="$PROJECT_DIR$/Definitions/Architecture.py" />
         <option value="$PROJECT_DIR$/delta.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/linker.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/DependencyResolver.py" />
@@ -191,15 +196,16 @@
         <option value="$PROJECT_DIR$/SlinkyEngine/Linker.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Dependency.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Exporter.py" />
-        <option value="$PROJECT_DIR$/SlinkyEngine/AsmLine.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Extractor.py" />
+        <option value="$PROJECT_DIR$/Definitions/Architecture.py" />
+        <option value="$PROJECT_DIR$/SlinkyEngine/AsmLine.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="44" />
-    <option name="y" value="274" />
-    <option name="width" value="1510" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1489" />
     <option name="height" value="939" />
   </component>
   <component name="ProjectView">
@@ -395,13 +401,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="44" y="274" width="1510" height="939" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3206158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37635705" sideWeight="0.51458335" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.51458335" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
@@ -424,7 +430,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="26" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -662,13 +668,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SlinkyEngine/AssemblyConverter.py" />
-    <entry file="file://$PROJECT_DIR$/Definitions/Architecture.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FE8.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -713,30 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="181" column="116" lean-forward="false" selection-start-line="181" selection-start-column="116" selection-end-line="181" selection-end-column="116" />
-          <folding>
-            <element signature="e#215#230#0" expanded="true" />
-            <element signature="e#1637#1946#0" expanded="false" />
-            <element signature="e#1988#2734#0" expanded="false" />
-            <element signature="e#2782#2904#0" expanded="false" />
-            <element signature="e#3063#4028#0" expanded="false" />
-            <element signature="e#4074#5144#0" expanded="false" />
-            <element signature="e#7499#7634#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GameItems/GameFile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2074">
@@ -749,16 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Linker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="57" column="22" lean-forward="false" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
-          <folding>
-            <element signature="e#95#105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SlinkyEngine/Dependency.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -767,18 +732,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Definitions/Architecture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SlinkyEngine/Exporter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="381">
+          <caret line="62" column="17" lean-forward="true" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SlinkyEngine/Extractor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="111" column="84" lean-forward="false" selection-start-line="111" selection-start-column="63" selection-end-line="111" selection-end-column="84" />
+        <state relative-caret-position="170">
+          <caret line="77" column="24" lean-forward="true" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
           <folding>
             <element signature="e#578#593#0" expanded="true" />
             <element signature="e#2668#3638#0" expanded="false" />
@@ -786,11 +759,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Linker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+          <folding>
+            <element signature="e#95#105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="76" column="21" lean-forward="true" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
+          <folding>
+            <element signature="e#215#230#0" expanded="true" />
+            <element signature="e#1637#1946#0" expanded="false" />
+            <element signature="e#1988#2734#0" expanded="false" />
+            <element signature="e#2782#2904#0" expanded="false" />
+            <element signature="e#3063#4028#0" expanded="false" />
+            <element signature="e#4074#5144#0" expanded="false" />
+            <element signature="e#7499#7634#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SlinkyEngine/AsmLine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="302">
+          <caret line="145" column="51" lean-forward="true" selection-start-line="145" selection-start-column="51" selection-end-line="145" selection-end-column="51" />
+          <folding>
+            <element signature="e#140#150#0" expanded="true" />
+            <element signature="e#676#2422#0" expanded="false" />
+            <element signature="e#2455#2645#0" expanded="false" />
+            <element signature="e#3097#3162#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -11,5 +11,6 @@ object_subtract_hp:
 loc_800E2E2:
 	STRH    R1, [R5,#0x24]
 	POP     {R4,PC}
-	.byte 0, 0
+	.byte 0x0, 0x0
+
 	.word 0x40000000
