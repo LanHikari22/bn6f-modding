@@ -96,7 +96,7 @@ StartScreen_cb_802f63c:
 	LDRB    R1, [R5,#1]
 	LDR     R0, [R0,R1]
 	MOV     LR, PC
-	BX		LR
+	BX      R0
 	BL      StartScreen_802FB10
 	POP     {PC}
 	.byte 0x0, 0x0
@@ -104,11 +104,11 @@ StartScreen_cb_802f63c:
 off_802F650:
 	.word StartScreen_jt_0
 StartScreen_jt_0:
-	.word 0
-	.word 0
-	.word 0
-	.word 0
-	.word 0
+	.word StartScreen_802f668+1
+	.word StartScreen_802f6a4+1
+	.word StartScreen_802f6b2+1
+	.word StartScreen_802F704+1
+	.word StartScreen_802f710+1
 StartScreen_802f668:
 	PUSH    {LR}
 	MOV    R0, #0
@@ -377,8 +377,8 @@ off_802F8A8:
 	.word dword_802F8AC
 dword_802F8AC:
 	.word 0x80344078, 0x2001, 0x80544078, 0x2009, 0x80744078
-.word 0x2011, 0x80944078, 0x2019, 0xB48078, 0x2021
-.word 0x0
+	.word 0x2011, 0x80944078, 0x2019, 0xB48078, 0x2021
+	.word 0x0
 StartScreen_802f8d8:
 	PUSH    {R4-R7,LR}
 	LDRB    R0, [R5,#6]
@@ -433,11 +433,15 @@ loc_802F936:
 	BL      StartScreen_802fbfc
 	BL      StartScreen_802fc28
 	BL      StartScreen_802fc4c
+some_loop:
+	B		some_loop
+	.byte 0,0
+	BL		main
 	POP     {R4-R7,PC}
 off_802F95C:
 	.word dword_802F960
 dword_802F960:
-	.word 0x40490071, 0x40490080, 0x40490091
+	.word 0, 0, 0
 
 off_802F96C:
 	.word byte_802F970
@@ -472,12 +476,12 @@ byte_802F970:
 	.byte 0x11
 	.byte 0x48
 	.byte 0x11
-	.byte 0x48
+	.byte 0x00
 	.byte 0x11
-	.byte 0x48
+	.byte 0x00
 	.byte 0x11
-	.byte 0x48
-	.byte 0x11
+	.byte 0x00
+	.byte 0x00
 StartScreen_802F994:
 	PUSH    {R4-R7,LR}
 	LDR     R1, off_802F9A4
@@ -495,10 +499,10 @@ off_802F9A8:
 	.word dword_802F9D0
 dword_802F9B4:
 	.word 0x80584070, 0x3023, 0x80784070, 0x302B, 0x40980070
-.word 0x3033, 0x0
+	.word 0x3033, 0x0
 dword_802F9D0:
 	.word 0x80584070, 0x4023, 0x80784070, 0x402B, 0x40980070
-.word 0x4033, 0x0
+	.word 0x4033, 0x0
 StartScreen_802F9EC:
 	PUSH    {R4-R7,LR}
 	LDR     R1, off_802F9FC
@@ -516,10 +520,10 @@ off_802FA00:
 	.word dword_802FA28
 dword_802FA0C:
 	.word 0x8058407F, 0x3037, 0x8078407F, 0x303F, 0x4098007F
-.word 0x3047, 0x0
+	.word 0x3047, 0x0
 dword_802FA28:
 	.word 0x8058407F, 0x4037, 0x8078407F, 0x403F, 0x4098007F
-.word 0x4047, 0x0
+	.word 0x4047, 0x0
 	PUSH    {R4-R7,LR}
 	LDRB    R1, [R5,#9]
 	CMP     R1, #3
@@ -549,16 +553,16 @@ off_802FA74:
 	.word dword_802FA80
 dword_802FA80:
 	.word 0x80584080, 0x304B, 0x80784080, 0x3053, 0x40980080
-.word 0x305B, 0xA88080, 0x305F, 0x0
+	.word 0x305B, 0xA88080, 0x305F, 0x0
 dword_802FAA4:
 	.word 0x80584080, 0x404B, 0x80784080, 0x4053, 0x40980080
-.word 0x405B, 0xA88080, 0x405F, 0x0
+	.word 0x405B, 0xA88080, 0x405F, 0x0
 dword_802FAC8:
 	.word 0x80584070, 0x304B, 0x80784070, 0x3053, 0x40980070
-.word 0x305B, 0xA88070, 0x305F, 0x0
+	.word 0x305B, 0xA88070, 0x305F, 0x0
 dword_802FAEC:
 	.word 0x80584070, 0x404B, 0x80784070, 0x4053, 0x40980070
-.word 0x405B, 0xA88070, 0x405F, 0x0
+	.word 0x405B, 0xA88070, 0x405F, 0x0
 StartScreen_802FB10:
 	PUSH    {R4-R7,LR}
 	LDR     R0, off_802FB1C
@@ -570,9 +574,9 @@ off_802FB1C:
 	.word dword_802FB20
 dword_802FB20:
 	.word 0x8000007E, 0x6180, 0x8020007E, 0x6190, 0x8040007E
-.word 0x61A0, 0x8060007E, 0x61B0, 0x8080007E, 0x61C0
-.word 0x80A0007E, 0x61D0, 0x80C0007E, 0x61E0, 0x80E0007E
-.word 0x61F0, 0x0
+	.word 0x61A0, 0x8060007E, 0x61B0, 0x8080007E, 0x61C0
+	.word 0x80A0007E, 0x61D0, 0x80C0007E, 0x61E0, 0x80E0007E
+	.word 0x61F0, 0x0
 StartScreen_802fb64:
 	PUSH    {LR}
 	LDRH    R0, [R5,#0xA]

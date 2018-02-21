@@ -117,7 +117,7 @@ class AsmLine:
             disasm = firstLineSplitDisasm[0] + ' '
             newLineCounter = 0
             for elem in arr:
-                if disasm[-1] == '\n': disasm += '%s' % (firstLineSplitDisasm[0] + ' ')
+                if disasm[-1] == '\n': disasm += '\t%s' % (firstLineSplitDisasm[0] + ' ')
                 disasm += '0x%X, ' % elem
                 newLineCounter += 1
                 if newLineCounter % elemsPerLine == 0:
@@ -143,7 +143,7 @@ class AsmLine:
         newLineCounter = 0
         disasm = 'DCD '
         for func_ea in func_eas:
-            if disasm[-1] == '\n': disasm += 'DCD '
+            if disasm[-1] == '\n': disasm += '\tDCD '
             disasm += '%s, ' % (idc.get_name(func_ea) + subpad)
             newLineCounter += 1
             if newLineCounter % elemsPerLine == 0:
