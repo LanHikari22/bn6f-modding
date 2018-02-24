@@ -4,12 +4,31 @@
 ##
 import idc
 import re
+import ida_funcs
+
+# import wingdbstub
+# wingdbstub.Ensure()
+import idaapi
+idaapi.require('IDAItems.Function')
+
+from IDAItems import Function
 
 class AsmLine:
     def __init__(self, ea):
+        print('%08X' % ea)
         self.ea = ea
         self.name = idc.Name(ea)
         self.size = idc.get_item_size(ea)
+
+        self.hasLabel = False
+        self.isFunctionStart = False
+        self.withinFunction = idc.get_func_flags(ea) != -1
+        if self.name:
+            self.hasLabel = True
+            try:
+                self.isFunctionStart = Function.Function(self.ea).func_ea == ea
+            except Function.InvalidFunctionException:
+                pass
 
         flags = idc.GetFlags(ea)
         if idc.isCode(flags):
@@ -17,7 +36,6 @@ class AsmLine:
         if idc.isData(flags):
             self.disasm = self.getDataDisasm(ea)
             self.disasm = self._convertData(self.disasm)
-
         self.disasm = self._convertComments(self.disasm)
 
 
@@ -34,15 +52,17 @@ class AsmLine:
         if idc.isCode(flags):
             instName = disasm[:disasm.index(' ')]
             if instName[-1] == 'S':
-                # remove the 'S'
-                output = instName[:-1] + output[len(instName):]
+                # remove the 'S': 'MOVS ...' -> 'MOV  ...'
+                output = instName[:-1] + ' ' +  output[len(instName):]
                 # if imm is present, a shift may be present, in case it wasn't disabled in ARM-specific settings
                 if '#' in output:
                     destReg = output[len(instName)+1:output.index(',')]
-                    immStr = output[output.index('#'):]
+                    immStr = output[output.index('#')+1:]
                     base = '0x' in immStr and 16 or 10
+                    # '#0; comment' could be present, must filte only 0 out of it.
                     charAfterImm = ';' in immStr and ';' or ' ' # could be a comment, or a space (or nothing)
-                    imm = charAfterImm in immStr and int(immStr[1:immStr.index(charAfterImm)], base) or int(immStr[1:], base)
+                    imm = int(immStr[:immStr.index(charAfterImm)], base) if charAfterImm in immStr else \
+                             int(immStr, base)
                     if imm > 255:
                         # determine how many shifts are needed, and the value to be shifted
                         numShifts = 1
@@ -94,21 +114,20 @@ class AsmLine:
             firstLineSplitDisasm = list(filter(None, re.split('[ ,]', idc.GetDisasm(ea))))
             dataType = firstLineSplitDisasm[0]
             elemsPerLine = len(firstLineSplitDisasm) - 1 # don't include type, ex: DCB 0, 4, 5, 0x02, 0
+
             # Grab all of the bytes in the array
             bytes = []
             for char in idc.get_bytes(ea, idc.get_item_size(ea)):
                 bytes.append(ord(char))
-            # You can treat the data as bytes always, but I don't want to ruin the representation.
 
+            # You can treat the data as bytes always, but I don't want to ruin the representation.
             if self.isFunctionPointer(firstLineSplitDisasm):
                 return self.getFuncPtrArrayDisasm(bytes, elemsPerLine)
 
             bytesPerElem = dataType == 'DCB' and 1 \
                        or dataType == 'DCW' and 2 \
                        or dataType == 'DCD' and 4 \
-                       or 1
-
-
+                       or 1 # if type unknown, just show it as a an array of bytes
 
             # create new array with correct type
             arr = self.combineBytes(bytes, bytesPerElem)
@@ -138,7 +157,7 @@ class AsmLine:
             and idc.isCode(idc.GetFlags(idc.get_name_ea(0,firstLineSplitDisasm[1])))
 
     def getFuncPtrArrayDisasm(self, bytes, elemsPerLine, thumbMode=True):
-        subpad = thumbMode and '+1' or ''
+        subpad = '+1' if thumbMode else ''
         func_eas = self.combineBytes(bytes, 4)
         newLineCounter = 0
         disasm = 'DCD '
@@ -149,6 +168,7 @@ class AsmLine:
             if newLineCounter % elemsPerLine == 0:
                 disasm = (disasm[len(disasm) - 2:] == ', ' and disasm[:-2] or disasm) + '\n'
             disasm = (disasm[len(disasm) - 2:] == ', ' and disasm[:-2] or disasm)
+        return disasm
 
     def combineBytes(self, bytes, newDataSize):
         """

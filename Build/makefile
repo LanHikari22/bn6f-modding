@@ -1,5 +1,5 @@
 SRCDIR = ../src/
-SLINKY_SRCDIR = ../src/slinky/
+SLINKY_SRCDIR = ../asm/
 SYS_LIB_DIR1 = C:/devkitPro/devkitARM/arm-none-eabi/lib/
 SYS_LIB_DIR2 = C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/
 INC = ../include/

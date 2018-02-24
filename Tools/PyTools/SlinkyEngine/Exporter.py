@@ -15,21 +15,32 @@ class Exporter:
         self.lPath = ldScriptPath
 
 
-    def exportDisassembly(self, asmLines, filename):
+    def exportDisassembly(self, asmLines, filename, src=None, file=None, include=True):
         """
 
         :param asmLines: the disassembly to be dumped in the file, basically
         :param filename: the file to have the disassembly being dumped into. BASICALLY! (don't include extension)
+        :param src: If not input, default path given in __init__ is used
+        :param file: a file object to write to. By default, exportDisassembly will open/close its own file.
+                     this allows for writing to a file, without completely overwriting it.
+        :param include: if True: '.include "slinkydepenencies.s" is written. Needed at start of file.
         :return: None
         """
-
-        file = open(self.src + filename + '.s', 'w')
+        if not src: src = self.src
+        f = not file and open(src + filename + '.s', 'w') or file
 
         # include depenencies.s so that the file is operational, as well as assembly for the linker script and stuff
-        file.write('.include "slinkydependencies.s"\n\n.thumb\n.section .l__%s, "ax"\n' % (filename))
+        if include: f.write('.include "slinkydependencies.s"\n\n')
+
+        # Write disassembly
+        f.write('.thumb\n.section .l__%s, "ax"\n' % (filename))
         for asmLine in asmLines:
-            file.write(str(asmLine) + '\n')
-        file.close()
+            if asmLine.isFunctionStart:
+                f.write('\n')
+            if not asmLine.isFunctionStart and asmLine.withinFunction and asmLine.hasLabel:
+                f.write(' ')
+            f.write(str(asmLine) + '\n')
+        if not file: f.close()
 
     def exportLinking(self, names, addresses):
         """

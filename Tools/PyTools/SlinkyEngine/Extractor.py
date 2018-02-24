@@ -10,6 +10,14 @@
 import idautils
 import idc
 
+# import wingdbstub
+# wingdbstub.Ensure()
+import idaapi
+idaapi.require('IDAItems.Function')
+idaapi.require('Definitions')
+idaapi.require('SlinkyEngine.AsmLine')
+idaapi.require('SlinkyEngine.Dependency')
+
 from IDAItems.Function import Function
 from IDAItems.Function import InvalidFunctionException
 from Definitions import Architecture
@@ -70,7 +78,14 @@ class Extractor:
         dependencies = self.filterResolvedDependencies(dependencies, asmLines)
         return (asmLines, dependencies)
 
-    def exportRange(self, startEA, size):
+    def extractRange(self, startEA, endEA):
+        """
+        Extracts [startEA, endEA)
+        :param startEA: (long) Starting address
+        :param endEA: (long) End address, not included
+        :return: Assembly lines and all dependencies found
+        """
+        size = endEA - startEA
         asmLines = []
         sizeCounter = 0 # This will be incremented based on each head, to ensure all items were accounted for
         dependencies = [] # all B/BL's and DCDs involved

@@ -126,9 +126,9 @@ def fcmp(cmd, *args, **kwargs):
     :return: Files detected within the module
     """
     binaryPath = args[0]
-    wr = 'wr' in kwargs and kwargs['wr'] or True
+    wr = kwargs['wr'] if 'wr' in kwargs else True
     wrPath = ('wrPath' in kwargs and wr) and kwargs['wrPath'] or wr and PYTOOLS_PATH + 'FE8.txt' or None
-    wrFile = wrPath and open(wrPath, 'w') or None
+    wrFile = open(wrPath, 'w') if wrPath else None
     suppressed = 'q' in kwargs and kwargs['q'] or False
 
     if not suppressed: print("Starting Binary Search Analysis...")

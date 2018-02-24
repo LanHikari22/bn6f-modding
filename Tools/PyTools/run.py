@@ -1,3 +1,4 @@
+import idaapi
 import GameFileDetector
 import ModuleExporter
 import BinarySearcher
