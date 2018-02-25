@@ -25,87 +25,84 @@ from SlinkyEngine.AsmLine import AsmLine
 from SlinkyEngine.Dependency import Dependency, NoDependencyException
 
 
+class SizeIntegrityViolation(Exception):
+    def __init__(self, str):
+        super(Exception, self).__init__(str)
+
+
 class Extractor:
 
     def __init__(self):
         pass
 
+    def extractRange(self, startEA, endEA):
+        """
+        Extracts all assembly lines within the range [startEA, endEA)
+        The range is iterated through to obtain each assembly line, which is converted appropriately based
+        on the assembler used.
+        It also detects all dependencies to be resolved.
+        The returned Dependencies are Names that are not defined within the confined space of the range.
+        :param startEA: (long) Starting address
+        :param endEA: (long) End address, not included
+        :return: Assembly lines and all dependencies found
+        """
+        asmLines = [] # Assembly lines to be extracted
+        sizeCounter = 0 # This will be incremented based on each head, to ensure all items were accounted for
+        dependencies = [] # all B/BL's and DCDs involved
+
+        # Extract all items within the range
+        for head in idautils.Heads(startEA, endEA):
+            # ensure item size integrity as you walk items (if not ensured, full of holes asm files can ruin the ROM)
+            if sizeCounter != (head - startEA):
+                print('[debug] %X, size= %X, sizeCounter= %X' % (head, head - startEA, sizeCounter))
+                raise SizeIntegrityViolation('Size mismatch detected at the item before %08X' % head)
+            # extract the item and account for its size
+            asmLine = AsmLine(head)
+            sizeCounter += asmLine.size
+            asmLines.append(asmLine)
+            # If the item contains a dependency, (ex: BL someFunction), the dependency must be accounted for.
+            try:
+                dependency = Dependency(head)
+                dependencies.append(dependency)
+            except NoDependencyException: pass
+
+        # Size integrity check for the last item: This can be hit because of bad ranges.
+        if sizeCounter != (endEA - startEA):
+            # This is likely to mean that the range specified did not enclose entirely on all items
+            # Remove the last item, and warn the user
+            asmLines = asmLines[:-1]
+            print('WARNING: Last asm lie not extracted. '
+                  'Likely because the specified range did not enclose it completely.')
+            print('size= %X, sizeCounter= %X' % (endEA - startEA, sizeCounter))
+            # in the event that the last asmLine contained a dependency, it isn't removed, but it is harmless.
+
+        # Remove any dependencies self-contained within the function, like a label within the function.
+        dependencies = self.filterResolvedDependencies(dependencies, asmLines)
+        return (asmLines, dependencies)
+
     def extractFunction(self, func_ea):
         """
         Extracts and converts the assembly content of a function. Function.getSize() is utilized to detect the function's
-        pool, if any. The function is iterated through to obtain each assembly line, which is converted appropriately based
-        on the assembler used. Dependencies are Names that are not defined within the confined space of the function.
+        pool, if any.
         :param func_ea: (long) The effective address of the function
         :return: (tuple(list(AsmLine), list(str)) Both the assembly lines of the function, and all of the Names of its
         dependencies.
         """
         # This is needed to obtain the size of the function (+pool)
         func = Function(func_ea)
-        # Iterate through all heads from start to end
-        asmLines = []
-        sizeCounter = 0 # This will be incremented based on each head, to ensure all items were accounted for
-        dependencies = [] # all B/BL's and DCDs involved
-        for head in idautils.Heads(func_ea, func_ea + func.getSize(withPool=True)):
-            asmLine = AsmLine(head)
-            sizeCounter += asmLine.size
-            asmLines.append(asmLine)
-            try:
-                dependency = Dependency(head)
-                dependencies.append(dependency)
-            except NoDependencyException: pass
-        if sizeCounter != func.getSize(withPool=True):
-            raise Exception('Extracted items do not sum to the size of the function %08X' % func_ea)
-        # Remove any dependencies self-contained within the function, like a label within the function.
-        dependencies = self.filterResolvedDependencies(dependencies, asmLines)
-        return (asmLines, dependencies)
+        return self.extractRange(func_ea, func_ea + func.getSize(withPool=True))
 
     def extractFile(self, gamefile):
-        asmLines = []
-        sizeCounter = 0 # This will be incremented based on each head, to ensure all items were accounted for
-        dependencies = [] # all B/BL's and DCDs involved
-        for head in idautils.Heads(gamefile.start_ea, gamefile.start_ea + gamefile.getSize(withPool=True)):
-            asmLine = AsmLine(head)
-            sizeCounter += asmLine.size
-            asmLines.append(asmLine)
-            try:
-                dependency = Dependency(head)
-                dependencies.append(dependency)
-            except NoDependencyException: pass
-        if sizeCounter != gamefile.getSize(withPool=True):
-            raise Exception('Extracted items do not sum to the size of the file %08X' % func_ea)
-        print(hex(sizeCounter))
-        # Remove any dependencies self-contained within the function, like a label within the function.
-        dependencies = self.filterResolvedDependencies(dependencies, asmLines)
-        return (asmLines, dependencies)
-
-    def extractRange(self, startEA, endEA):
         """
-        Extracts [startEA, endEA)
-        :param startEA: (long) Starting address
-        :param endEA: (long) End address, not included
-        :return: Assembly lines and all dependencies found
+        Extracts and converts assembly content of a game file.
+        :param gamefile: (GameFile) A defined range as a file, either manually or through heuristics
+        :return: (tuple(list(AsmLine), list(str)) Both the assembly lines of the file, and all of the Names of its
+        dependencies.
         """
-        size = endEA - startEA
-        asmLines = []
-        sizeCounter = 0 # This will be incremented based on each head, to ensure all items were accounted for
-        dependencies = [] # all B/BL's and DCDs involved
-        for head in idautils.Heads(startEA, startEA + size):
-            asmLine = AsmLine(head)
-            sizeCounter += asmLine.size
-            asmLines.append(asmLine)
-            try:
-                dependency = Dependency(head)
-                dependencies.append(dependency)
-            except NoDependencyException: pass
-        if sizeCounter != size:
-            raise Exception('Extracted items do not sum to the size of the range @ %08X' % startEA)
-        print(hex(sizeCounter))
-        # Remove any dependencies self-contained within the function, like a label within the function.
-        dependencies = self.filterResolvedDependencies(dependencies, asmLines)
-        return (asmLines, dependencies)
+        return self.extractRange(gamefile.start_ea, gamefile.start_ea + gamefile.getSize(withPool=True))
 
-
-    def filterResolvedDependencies(self, dependencies, asmLines):
+    @staticmethod
+    def filterResolvedDependencies(dependencies, asmLines):
         """
         if a dependency is in the names present in asmLines, it is filtered out.
         :param dependencies: List of names being branched to

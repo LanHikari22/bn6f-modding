@@ -14,21 +14,20 @@
       <file leaf-file-name="Extractor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SlinkyEngine/Extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="386">
+              <caret line="125" column="24" lean-forward="true" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
               <folding>
                 <element signature="e#578#593#0" expanded="true" />
-                <element signature="e#2872#3842#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Linker.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Linker.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SlinkyEngine/Linker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+            <state relative-caret-position="437">
+              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
                 <element signature="e#95#105#0" expanded="true" />
               </folding>
@@ -46,19 +45,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AsmLine.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AsmLine.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SlinkyEngine/AsmLine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
               <folding>
                 <element signature="e#140#150#0" expanded="true" />
-                <element signature="e#3121#3311#0" expanded="false" />
-                <element signature="e#3357#3713#0" expanded="false" />
-                <element signature="e#3763#3828#0" expanded="false" />
-                <element signature="e#6399#6986#0" expanded="false" />
-                <element signature="e#7691#8531#0" expanded="false" />
+                <element signature="e#1849#2039#0" expanded="false" />
+                <element signature="e#2085#2441#0" expanded="false" />
+                <element signature="e#2491#2556#0" expanded="false" />
+                <element signature="e#5127#5714#0" expanded="false" />
+                <element signature="e#6419#7259#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SlinkyInterpreter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SlinkyEngine/SlinkyInterpreter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Redirector.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SlinkyEngine/Redirector.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,8 +85,8 @@
       <file leaf-file-name="Dependency.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SlinkyEngine/Dependency.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="17" lean-forward="false" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="17" />
+            <state relative-caret-position="284">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -78,26 +97,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Command.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Command.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="analysis.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -190,9 +189,9 @@
         <option value="$PROJECT_DIR$/SlinkyEngine/Exporter.py" />
         <option value="$PROJECT_DIR$/run.py" />
         <option value="$PROJECT_DIR$/BinarySearcher.py" />
+        <option value="$PROJECT_DIR$/SlinkyEngine/AsmLine.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Extractor.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Linker.py" />
-        <option value="$PROJECT_DIR$/SlinkyEngine/AsmLine.py" />
       </list>
     </option>
   </component>
@@ -420,7 +419,6 @@
           <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
           <folding>
             <element signature="e#578#593#0" expanded="true" />
-            <element signature="e#2872#3842#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -436,6 +434,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
           <caret line="69" column="105" lean-forward="false" selection-start-line="69" selection-start-column="105" selection-end-line="69" selection-end-column="105" />
+          <folding>
+            <element signature="e#215#230#0" expanded="false" />
+            <element signature="e#1637#1946#0" expanded="false" />
+            <element signature="e#1988#2734#0" expanded="false" />
+            <element signature="e#2782#2904#0" expanded="false" />
+            <element signature="e#3063#4028#0" expanded="false" />
+            <element signature="e#4074#5144#0" expanded="false" />
+            <element signature="e#7499#7634#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -478,6 +485,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
           <caret line="69" column="105" lean-forward="false" selection-start-line="69" selection-start-column="105" selection-end-line="69" selection-end-column="105" />
+          <folding>
+            <element signature="e#215#230#0" expanded="false" />
+            <element signature="e#1637#1946#0" expanded="false" />
+            <element signature="e#1988#2734#0" expanded="false" />
+            <element signature="e#2782#2904#0" expanded="false" />
+            <element signature="e#3063#4028#0" expanded="false" />
+            <element signature="e#4074#5144#0" expanded="false" />
+            <element signature="e#7499#7634#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -625,6 +641,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#215#230#0" expanded="false" />
+            <element signature="e#1637#1946#0" expanded="false" />
+            <element signature="e#1988#2734#0" expanded="false" />
+            <element signature="e#2782#2904#0" expanded="false" />
+            <element signature="e#3063#4028#0" expanded="false" />
+            <element signature="e#4074#5144#0" expanded="false" />
+            <element signature="e#7499#7634#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -632,13 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SlinkyEngine/SlinkyInterpreter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -653,21 +671,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2054">
           <caret line="143" column="77" lean-forward="false" selection-start-line="143" selection-start-column="77" selection-end-line="143" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Redirector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Dependency.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="17" lean-forward="false" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+            <element signature="e#5665#6031#0" expanded="false" />
+            <element signature="e#6094#6912#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -703,35 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Exporter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="e#578#593#0" expanded="true" />
-            <element signature="e#2872#3842#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Linker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-          <folding>
-            <element signature="e#95#105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SlinkyEngine/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -742,15 +721,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SlinkyEngine/AsmLine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
           <folding>
             <element signature="e#140#150#0" expanded="true" />
-            <element signature="e#3121#3311#0" expanded="false" />
-            <element signature="e#3357#3713#0" expanded="false" />
-            <element signature="e#3763#3828#0" expanded="false" />
-            <element signature="e#6399#6986#0" expanded="false" />
-            <element signature="e#7691#8531#0" expanded="false" />
+            <element signature="e#1849#2039#0" expanded="false" />
+            <element signature="e#2085#2441#0" expanded="false" />
+            <element signature="e#2491#2556#0" expanded="false" />
+            <element signature="e#5127#5714#0" expanded="false" />
+            <element signature="e#6419#7259#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Redirector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SlinkyEngine/SlinkyInterpreter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Dependency.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Exporter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="125" column="24" lean-forward="true" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
+          <folding>
+            <element signature="e#578#593#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Linker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <element signature="e#95#105#0" expanded="true" />
           </folding>
         </state>
       </provider>

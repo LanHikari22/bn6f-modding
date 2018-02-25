@@ -91,9 +91,8 @@ if __name__ == '__main__':
                         dependenciesSPath='C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\include\\slinkydependencies.s',
                         ldScriptPath='C:\\Users\\alzakariyamq\\Documents\\Game Modding\\mods\\MMBN6\\Build\\slinky.x')
     linker = Linker(exporter)
-    linker.linkRange(0x08000000, 0x087FFFF0, linkName='rom.s')
+    # linker.linkRange(0x08000000, 0x087FFFF0, linkName='rom') # This one is insane. IDB too broken for it.
     # linker.linkFunction('object_subtract_hp')
-    # linker.linkFile('StartScreen')
-    # linker.linkFiles()
-    # linker.linkRemaining()
+    linker.linkFile('StartScreen')
+    linker.linkFiles()
     linker.linkX()
