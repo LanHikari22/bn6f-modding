@@ -29,16 +29,16 @@ RANGE_OUT_OF_ROM = -2
 
 class BinarySearcher:
 
-    def __init__(self, ROM, bin, ROM_start_addr):
+    def __init__(self, bin):
         """
-        :param ROM:  str: Path to the ROM to be opened as a file. This should be identical to the ROM analyzed by IDA
         :param bin:  str: Path to the binary to be searched
-        :param ROM_start_addr: Reference address within the database. This is used to address things in the DB, and ROM.
         """
-        self.ROM = open(ROM, 'rb')
+        # Path to the ROM to be opened as a file. This should be identical to the ROM analyzed by IDA
+        self.ROM = open(ROM_PATH, 'rb')
         binFile = open(bin, 'rb')
         self.binSize = os.path.getsize(bin)
-        self.ROM_start_addr = ROM_start_addr
+        # Reference address within the database. This is used to address things in the DB, and ROM.
+        self.ROM_start_addr = ROM_SEG
         self.binData = binFile.read()
         binFile.close()
 
@@ -133,7 +133,7 @@ def fcmp(cmd, *args, **kwargs):
 
     if not suppressed: print("Starting Binary Search Analysis...")
 
-    searcher = BinarySearcher(ROM_PATH, binaryPath, ROM_SEG)
+    searcher = BinarySearcher(binaryPath)
 
     # Perform and time Analysis
     if not suppressed:

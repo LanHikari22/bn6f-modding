@@ -3,6 +3,8 @@
 
 #include <inttypes.h>
 
+// #define LZ77UnCompReadNormalWrite8bit ((void (*) (void *compressedData, void *dest)) (0x0814D8C4 +1))
+
 typedef enum{
     // Those can be entered in 0x089A0000. Pressing R will trigger specified action
 
@@ -22,6 +24,8 @@ typedef enum{
     dc_cmd_sweepPartial2D   = 0x06,
     // Format: <TblAddr> <TblOffsetW> <RetAddress> <numParams> <Params ...>
     dc_cmd_jumptable        = 0x07,
+    // Format: <*compData> <*uncompDest>
+    dc_cmd_uncompress       = 0x08, // not complete
 
     dc_cmd_NONE             = 0xFF,
 

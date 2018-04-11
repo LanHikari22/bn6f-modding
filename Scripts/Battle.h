@@ -17,7 +17,7 @@
 #define Battle_clear_enemy_fadein_list ((void (*) ()) (0x0800A9F6 +1))
 #define Battle_800C8F0 ((int (*) ()) (0x0800C8F0 +1))
 #define Battle_800EC56 ((signed __int64 __fastcall (*) (signed int a1)) (0x0800EC56 +1))
-#define Battle_801986C ((int (*) ()) (0x0801986C +1))
+#define Battle_801986C ((void (*) ()) (0x0801986C +1))
 #define BattleMenu_check_80269E2 ((signed int (*) ()) (0x080269E2 +1))
 #define BattleMenu_cb_8026A28 ((int (*) ()) (0x08026A28 +1))
 #define BattleMenu_8026A50 ((int (*) ()) (0x08026A50 +1))
@@ -44,6 +44,5 @@
 #define BattleMenu_80279C8 ((int __fastcall (*) (int a1)) (0x080279C8 +1))
 #define BattleMenu_cp_8027A58 ((int (*) ()) (0x08027A58 +1))
 #define BattleMenu_8027A90 ((int (*) ()) (0x08027A90 +1))
-
 
 #endif // SCRIPT_BATTLE_H

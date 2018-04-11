@@ -8,5 +8,4 @@
 
 #define Chatbox0_init_clear_struct ((u8 *__fastcall (*) (ChatBoxPropreties *chatbox)) (0x0800A964 +1))
 
-
 #endif // SCRIPT_CHATBOX_H

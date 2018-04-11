@@ -20,5 +20,4 @@
 #define MenuControl_NaviCust_cb_8138BBC ((int (*) ()) (0x08138BBC +1))
 #define MenuControl_Megaman_cbRecords ((int (*) ()) (0x0802F60C +1))
 
-
 #endif // SCRIPT_GREGAR_MENUCONTROL_H

@@ -9,12 +9,12 @@
 #define object_spawn_type1 ((int __fastcall (*) (int a1, int a2, int a3, int a4)) (0x08003320 +1))
 #define object_spawn_type3 ((int __fastcall (*) (int a1, int a2, int a3, int a4)) (0x08003358 +1))
 #define object_spawn_type4 ((int __fastcall (*) (int a1, int a2, int a3, int a4)) (0x080033AC +1))
-#define object_free_memory ((int (*) ()) (0x08003458 +1))
+#define object_free_memory ((void (*) ()) (0x08003458 +1))
 #define object_timefreeze_begin ((signed int (*) ()) (0x0800B916 +1))
 #define object_dim_screen ((int (*) ()) (0x0800B94C +1))
 #define object_draw_chipname ((int (*) ()) (0x0800B9B0 +1))
 #define object_undim_screen ((int (*) ()) (0x0800BC88 +1))
-#define object_timefreeze_end ((int (*) ()) (0x0800BD34 +1))
+#define object_timefreeze_end ((void (*) ()) (0x0800BD34 +1))
 #define object_get_panel_parameters ((int __fastcall (*) (int a1, int a2)) (0x0800C8F8 +1))
 #define object_crack_panel ((signed int __fastcall (*) (int a1, int a2)) (0x0800C938 +1))
 #define object_crack_panel_dup1 ((void __fastcall __noreturn (*) (int a1, int a2)) (0x0800C998 +1))
@@ -52,10 +52,9 @@
 #define object_set_counter_time ((int __fastcall (*) (int result)) (0x0800E9DC +1))
 #define object_set_invulnerable_time ((int __fastcall (*) (__int16 a1)) (0x0800EAFA +1))
 #define object_get_enemy_by_name_range ((int __fastcall (*) (_DWORD *a1, int a2, int a3, int a4)) (0x0800EBD4 +1))
-#define object_create_ai_data ((char * (*) ()) (0x0800ED2C +1))
+#define object_create_ai_data ((void (*) ()) (0x0800ED2C +1))
 #define object_set_flag ((int __fastcall (*) (int result)) (0x0801A152 +1))
 #define object_clear_flag ((int __fastcall (*) (int result)) (0x0801A15C +1))
 #define object_get_flag ((int (*) ()) (0x0801A166 +1))
-
 
 #endif // SCRIPT_OBJECT_H

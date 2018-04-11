@@ -103,9 +103,12 @@ class GameFile:
             raise InvalidGameFileException('GameFile boundaries could not be determined')
 
         # a function's contents are also part of the boundary!
-        if idc.isCode(idc.get_func_flags(self.end_ea)) != -1:
+        # if idc.isCode(idc.get_func_flags(self.end_ea)) != -1: # TODO: doesn't fail when Function fails sometimes?
+        try:
             func = Function(self.end_ea)
             self.end_ea += func.getSize()
+        except InvalidFunctionException:
+            pass
 
         # Cache list of names involved for further operation
         self.names = []
@@ -113,9 +116,13 @@ class GameFile:
             if self.start_ea <= name_ea <= self.end_ea:
                 self.names.append((name_ea, name))
 
+    def hasName(self):
+        return self.mode & Mode.NAME != 0
+
     def getName(self):
         """
         Only operable if in Mode.NAME mode. Check __init__ for more details.
+        When calling, Always check first with hasName()
         :raises InvalidModeException: if self.mode does not contain within it Mode.NAME
         :return: The name of the GameFile
         """

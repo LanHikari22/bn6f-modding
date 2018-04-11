@@ -9,6 +9,7 @@
 #include "s_02001B80.h"
 #include "s_0200A480.h"
 #include "s_02034880.h"
+#include "s_02011C50.h"
 #include "Camera.h"
 #include "../ChatBoxPropreties.h"
 
@@ -21,7 +22,7 @@ typedef struct{
 	Joystick *joystick;                // loc=0x4
 	s_rendering_0200AC40 *sRender_08;                // loc=0x8
 	Camera *camera;                // loc=0xC
-	void *unk_10;                // loc=0x10
+	s_02011C50 *unk_10;                // loc=0x10
 	void *unk_14;                // loc=0x14
 	s_02034880 *unk_18;                // loc=0x18
 	void *unk_1C;                // loc=0x1C

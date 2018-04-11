@@ -10,5 +10,4 @@
 #define NPC_80A0114 ((int (*) ()) (0x080A0114 +1))
 #define NPC_80A09EA ((int __fastcall (*) (int a1)) (0x080A09EA +1))
 
-
 #endif // SCRIPT_GREGAR_NPC_H

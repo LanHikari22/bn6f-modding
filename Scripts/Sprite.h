@@ -10,5 +10,4 @@
 #define sprite_make_unscalable ((int (*) ()) (0x08002D52 +1))
 #define sprite_set_pallete ((int __fastcall (*) (int result)) (0x08002D80 +1))
 
-
 #endif // SCRIPT_SPRITE_H

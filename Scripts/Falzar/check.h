@@ -6,8 +6,8 @@
 #include "../../Structs/_Structs.h"
 #include "../../include/IDADefinitions.h"
 
+
+// VERSION UNIQUE ------------------------------------
 #define check_803FAB4 ((BOOL (*) ()) (0x0803FAB4 +1))
-
-
 
 #endif // SCRIPT_FALZAR_CHECK_H

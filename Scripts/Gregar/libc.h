@@ -37,5 +37,4 @@
 #define libc_81514FC ((int __fastcall (*) (int a1, unsigned __int16 a2, int a3)) (0x081514FC +1))
 #define libc_8151564 ((int __fastcall (*) (int a1, unsigned __int16 a2, unsigned __int16 a3)) (0x08151564 +1))
 
-
 #endif // SCRIPT_GREGAR_LIBC_H

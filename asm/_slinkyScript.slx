@@ -1,8 +1,0 @@
-/*
- * @Author Lan
- * This file is responsible for auto-generating content in the asm folder using the Slinky Engine!
- * This allows for automatic unpacking from IDA so that the files may be updated anytime when updates are made in IDA
- */
- 
- linkfunction(object_subject_hp, path='..//src//')
- linkfile(StartScreen)

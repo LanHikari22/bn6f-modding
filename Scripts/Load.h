@@ -9,5 +9,4 @@
 #define Load_802FCC0 ((int (*) ()) (0x0802FCC0 +1))
 #define Load_802FD3C ((int (*) ()) (0x0802FD3C +1))
 
-
 #endif // SCRIPT_LOAD_H

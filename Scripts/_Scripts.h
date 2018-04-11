@@ -14,8 +14,6 @@
 #include "render.h"
 #include "Save.h"
 #include "sprite.h"
-#include "Startscreen.h"
-#include "sub.h"
 #include "subsystem.h"
 
 
@@ -23,6 +21,7 @@
 
 #include "Falzar/Battle.h"
 #include "Falzar/BattleMenu.h"
+#include "Falzar/Bios.h"
 #include "Falzar/cb.h"
 #include "Falzar/Chatbox.h"
 #include "Falzar/check.h"
@@ -30,16 +29,12 @@
 #include "Falzar/m4a.h"
 #include "Falzar/main.h"
 #include "Falzar/MenuControl.h"
-#include "Falzar/Misc.h"
 #include "Falzar/NCP.h"
 #include "Falzar/NPC.h"
 #include "Falzar/object.h"
 #include "Falzar/render.h"
 #include "Falzar/reqBBS.h"
 #include "Falzar/Save.h"
-#include "Falzar/Sound.h"
-#include "Falzar/Startscreen.h"
-#include "Falzar/sub.h"
 #include "Falzar/subsystem.h"
 #include "Falzar/uncomp.h"
 
@@ -57,16 +52,13 @@
 #include "Gregar/m4a.h"
 #include "Gregar/main.h"
 #include "Gregar/MenuControl.h"
-#include "Gregar/Misc.h"
 #include "Gregar/NCP.h"
 #include "Gregar/NPC.h"
 #include "Gregar/object.h"
 #include "Gregar/render.h"
 #include "Gregar/reqBBS.h"
 #include "Gregar/Save.h"
-#include "Gregar/Sound.h"
 #include "Gregar/sprite.h"
-#include "Gregar/sub.h"
 
 
 #endif // GREGAR

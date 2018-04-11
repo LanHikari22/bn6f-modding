@@ -33,5 +33,4 @@
 #define BattleMenu_cp_8027A58 ((int (*) ()) (0x08027A58 +1))
 #define BattleMenu_8027A90 ((int (*) ()) (0x08027A90 +1))
 
-
 #endif // SCRIPT_BATTLEMENU_H

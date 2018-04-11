@@ -5,10 +5,19 @@
 # This encapsulates all Names that begin with <ModuleName> and count them as belonging to the same module.
 ##
 import idautils
+import idc
 import idc_bc695
+
+import idaapi
+
+idaapi.require('BinarySearcher')
+idaapi.require('Definitions.Architecture')
+idaapi.require('GameItems.GameFile')
+idaapi.require('IDAItems.Function')
 
 from BinarySearcher import BinarySearcher
 from Definitions.Architecture import ROM_SEG
+from GameItems.GameFile import GameFile
 from IDAItems import Function
 
 
@@ -21,6 +30,55 @@ class Module:
         :param moduleName:  The name of the module
         """
         self.name = moduleName
+        self.files = self.getModuleFiles()
+
+
+    def getModuleFileChunks(self):
+        """
+        When performing context analysis, many functions all over the place could be associated with a module.
+        Say, anything that only seems to have to do with the Battle engine, maybe called as 'Battle_08040000' or
+        'Battle_Start', 'Battle)CheckPlayerStatus', 'Battle_IncreaseHP', etc. They are named that, simply because they
+        in some sense were thought to have something to do with 'Battle'.
+        They have to be named '<moduleName>_'... to count as part of the module.
+
+        This function identifies a list of lists of Names starting with moduleName, each list would reperesent a collection
+        of names that identify as one chunk. If they are cut by other defined names, other chunks are appended.
+        :return: (list(list(long, str)) All Module-defined Names, seperated out in chunks such that each chunk represents a
+                 valid GameFile.
+        """
+        namesLists = []
+        listCsr = 0
+
+        foundFirstName = False
+        foundLastName = False
+        # First get all names within the module
+        for name_ea, name in idautils.Names():
+            if len(name) >= len(self.name)+1 and name[0:len(self.name)+1] == self.name + '_': # starts with '<moduleName>_'
+                if foundFirstName and foundLastName:
+                    listCsr += 1
+                    # Repeat the process for the next field...
+                    foundFirstName = False
+                    foundLastName = False
+                if not foundFirstName:
+                    namesLists.append([])
+                    foundFirstName = True
+                namesLists[listCsr].append((name_ea, name))
+
+            # we have entered the filename field, yet it was not detected in Names...
+            elif foundFirstName and not foundLastName:
+                foundLastName = True
+
+        return namesLists
+
+    def getModuleFiles(self):
+        """
+        :return: list(GameFile) list of files of this modules
+        """
+        namesLists = self.getModuleFileChunks()
+        files = []
+        for names in namesLists: # each name is a tuple (name_ea, name)
+            files.append(GameFile(names[0][0], names[-1][0]))
+        return files
 
     def getModuleFunctions(self):
         """
@@ -36,7 +94,7 @@ class Module:
                     output.append(func)
         return output
 
-    def getVersionSegregatedModuleFuncs(self, ROMPath, otherVersionBinPath):
+    def getVersionSegregatedModuleFuncs(self, otherVersionBinPath):
         """
         This not only searches for function modules, but recognizes functions that are:
         1) Version Dependent functions
@@ -46,11 +104,11 @@ class Module:
         Please note that this has an inherent limitation of only being able to search ROM.
         This means that some 'unique' functions might just exist in RAM, or IRAM, or any non-ROM segments.
 
-        TODO: [O] Implemented [X] Tested
+        TODO: [1] Implemented [1] Tested
 
         :return: A tuple of the three lists of functions mentioned above: (VersionDependent, Shared, Unique)
         """
-        searcher = BinarySearcher(ROMPath, otherVersionBinPath, ROM_SEG)
+        searcher = BinarySearcher(otherVersionBinPath)
 
         moduleFunctions = self.getModuleFunctions()
 
@@ -78,4 +136,5 @@ class Module:
         return VersionFunctions, SharedFunctions, UniqueFunctions
 
 
-
+if __name__ == '__main__':
+    pass

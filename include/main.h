@@ -6,10 +6,12 @@
 
 register void *r5 asm("r5");
 
+#define LZ77UnCompReadNormalWrite8bit ((void (*) (void *compressedData, void *dest)) (0x0814D8C4 +1))
+
+
 int onStart_executed;
 
 void RPress();
-
 
 /* All supported System code is here */
 // #include <string.h>

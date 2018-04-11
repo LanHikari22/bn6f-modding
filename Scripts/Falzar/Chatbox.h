@@ -6,15 +6,15 @@
 #include "../../Structs/_Structs.h"
 #include "../../include/IDADefinitions.h"
 
+
+// VERSION UNIQUE ------------------------------------
 #define Chatbox_loadObjScripts_0803FD08 ((int (*) ()) (0x0803FD08 +1))
 #define Chatbox_uncomp_lmsgdialog_803fd3c ((int (*) ()) (0x0803FD3C +1))
 #define Chatbox_uncomp_803FD54 ((int (*) ()) (0x0803FD54 +1))
 #define Chatbox_803FD78 ((int __fastcall (*) (u16 *a1, int a2)) (0x0803FD78 +1))
 #define Chatbox_803FD9C ((int __fastcall (*) (u16 *a1, int a2)) (0x0803FD9C +1))
 #define Chatbox_runScript_803FE10 ((int *__fastcall (*) (u16 *scriptList, int offset)) (0x0803FE10 +1))
-/**
-Dunno how to form complete function
-*/
+/*Dunno how to form complete function*/
 #define Chatbox_runScript_803FE74 ((void __fastcall (*) (u16 *a1, int a2)) (0x0803FE74 +1))
 #define Chatbox_onUpdate_803FEB4 ((int __cdecl (*) ()) (0x0803FEB4 +1))
 #define Chatbox_interprete_script_char ((int (*) ()) (0x0803FF50 +1))
@@ -26,15 +26,12 @@ Dunno how to form complete function
 #define Chatbox_80405F8 ((int __fastcall (*) (u16 *a1, int a2, int a3, int a4)) (0x080405F8 +1))
 #define Chatbox_8040818 ((int (*) ()) (0x08040818 +1))
 #define Chatbox_804082C ((int (*) ()) (0x0804082C +1))
-#define Chatbox_80408CE ((int __fastcall (*) (int a1, int a2, int a3, int a4, int (__fastcall *a5)) (0x080408CE +1))
 #define Chatbox_80409E0 ((void (*) ()) (0x080409E0 +1))
 #define Chatbox_8040B8C ((int (*) ()) (0x08040B8C +1))
 #define Chatbox_8040CD0 ((void (*) ()) (0x08040CD0 +1))
-#define Chatbox_8040DBC ((void __spoils<R2,R3,R12> (*) ()) (0x08040DBC +1))
+#define Chatbox_8040DBC ((void (*) ()) (0x08040DBC +1))
 #define Chatbox_8040DDC ((void __fastcall (*) (int a1)) (0x08040DDC +1))
-/**
-exp: r5= 02009CD0 (chatbox)
-*/
+/*exp: r5= 02009CD0 (chatbox)*/
 #define Chatbox_e6_cb ((int (*) ()) (0x08040E98 +1))
 #define Chatbox_8041090 ((signed int (*) ()) (0x08041090 +1))
 #define Chatbox_804110C ((signed int (*) ()) (0x0804110C +1))
@@ -63,11 +60,9 @@ exp: r5= 02009CD0 (chatbox)
 #define Chatbox_fb_restorehp ((int (*) ()) (0x0804252C +1))
 #define Chatbox_fb_openbbs ((int (*) ()) (0x08042580 +1))
 #define Chatbox_fb_80425a0 ((int (*) ()) (0x080425A0 +1))
-/**
-Can be launched through dialog script:
+/*Can be launched through dialog script:
 FB 0E (found in r4:pScriptCursor)
 This function is jumpTable_3[0x0E]
-
 */
 #define Chatbox_fb_openrequestbss ((int (*) ()) (0x080425C0 +1))
 #define Chatbox_fb_setextrafolder ((int (*) ()) (0x080425E0 +1))
@@ -75,11 +70,10 @@ This function is jumpTable_3[0x0E]
 #define Chatbox_Save_8042678 ((signed int (*) ()) (0x08042678 +1))
 #define Chatbox_run_8098370 ((int (*) ()) (0x08098370 +1))
 #define Chatbox_run_lmsg_8099218 ((int __fastcall (*) (int a1)) (0x08099218 +1))
-/**
-is this really in the chatbox module, though?
-*/
+/*is this really in the chatbox module, though?*/
 #define Chatbox_809E14C ((int __fastcall (*) (char a1)) (0x0809E14C +1))
 
+// VERSION DEPENDENT ---------------------------------
 #define Chatbox_run_script_202da04 ((int *__fastcall (*) (int a1)) (0x0803FD68 +1))
 #define Chatbox_runScript_803FE08 ((void (*) ()) (0x0803FE08 +1))
 #define Chatbox_8040154 ((int (*) ()) (0x08040154 +1))
@@ -91,11 +85,9 @@ is this really in the chatbox module, though?
 #define Chatbox_clear_flags_3e ((int __fastcall (*) (int result)) (0x0804092C +1))
 #define Chatbox_mask_flags_3e ((int __fastcall (*) (unsigned __int16 a1)) (0x08040938 +1))
 #define Chatbox_8040C44 ((void (*) ()) (0x08040C44 +1))
-#define Chatbox_8040C9C ((void __spoils<> (*) ()) (0x08040C9C +1))
+#define Chatbox_8040C9C ((void (*) ()) (0x08040C9C +1))
 #define Chatbox_8040D5C ((int __fastcall (*) (int a1, int a2)) (0x08040D5C +1))
-/**
-hyp: not E5???
-*/
+/*hyp: not E5???*/
 #define Chatbox_e5_cb ((signed int (*) ()) (0x08040E90 +1))
 #define Chatbox_e7_cb ((int (*) ()) (0x08040EF4 +1))
 #define Chatbox_804103E ((signed int (*) ()) (0x0804103E +1))
@@ -107,20 +99,17 @@ hyp: not E5???
 #define Chatbox_8041c54 ((signed int (*) ()) (0x08041C54 +1))
 #define Chatbox_jt3_callback ((int (*) ()) (0x08041E80 +1))
 #define Chatbox_jt2_callback ((int (*) ()) (0x08041F68 +1))
-#define Chatbox_8042184 ((signed int (*) ()) (0x08042184 +1))
+#define Chatbox_8042184 ((void (*) ()) (0x08042184 +1))
 #define Chatbox_804228C ((void (*) ()) (0x0804228C +1))
 #define Chatbox_cb_8042290 ((int (*) ()) (0x08042290 +1))
-/**
-# determined while launching reqBBS from asterland
+/*# determined while launching reqBBS from asterland
 exp: r4= 020336E0 (pScriptCursor)
-This is called trhough dialog script: FB 0E
-*/
+This is called trhough dialog script: FB 0E*/
 #define Chatbox_fb_modecallback ((int (*) ()) (0x08042388 +1))
 #define Chatbox_jt1_callback ((int (*) ()) (0x08042610 +1))
 #define Chatbox_8042830 ((int (*) ()) (0x08042830 +1))
 #define Chatbox_8042cf8 ((int (*) ()) (0x08042CF8 +1))
 #define Chatbox_8042fd8 ((int (*) ()) (0x08042FD8 +1))
 #define Chatbox_8043020 ((int (*) ()) (0x08043020 +1))
-
 
 #endif // SCRIPT_FALZAR_CHATBOX_H

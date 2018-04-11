@@ -102,8 +102,11 @@ void RPress(){
 	// subsystem_launch_reqBBS(0x00);
 	// Sound_playBG(mo_ACDC_town);
 
-	r5 = sBtlEnemyA;
+	// r5 = sBtlEnemyA;
 	// object_add_hp(50); // doesn't add HP for some reason??
 	// object_break_panel(3, 3); // it woooorks!
-	
+
+	//
+	LZ77UnCompReadNormalWrite8bit(0x0809836B, 0x02050010);
+
 }

@@ -11,113 +11,115 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Extractor.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SlinkyEngine/Extractor.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="125" column="24" lean-forward="true" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
-              <folding>
-                <element signature="e#578#593#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Linker.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SlinkyEngine/Linker.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-              <folding>
-                <element signature="e#95#105#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AsmLine.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SlinkyEngine/AsmLine.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+            <state relative-caret-position="382">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
-                <element signature="e#140#150#0" expanded="true" />
-                <element signature="e#1849#2039#0" expanded="false" />
-                <element signature="e#2085#2441#0" expanded="false" />
-                <element signature="e#2491#2556#0" expanded="false" />
-                <element signature="e#5127#5714#0" expanded="false" />
-                <element signature="e#6419#7259#0" expanded="false" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SlinkyInterpreter.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SlinkyEngine/SlinkyInterpreter.py">
+      <file leaf-file-name="MemoryAccessProtocol.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../.vscode/userTools/MemoryAccessProtocol.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+            <state relative-caret-position="102">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <element signature="e#477#487#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StructPadder.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../.vscode/userTools/StructPadder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="121" column="36" lean-forward="true" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Redirector.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SlinkyEngine/Redirector.py">
+      <file leaf-file-name="GameFileMap.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameFileMap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="516">
+              <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+              <folding>
+                <element signature="e#304#348#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModuleExporter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ModuleExport/ModuleExporter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="257" column="7" lean-forward="true" selection-start-line="257" selection-start-column="7" selection-end-line="257" selection-end-column="7" />
+              <folding>
+                <element signature="e#1163#1172#0" expanded="true" />
+                <element signature="e#1661#2821#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Module.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding>
+                <element signature="e#3307#3961#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="delta.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/delta.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="158" column="0" lean-forward="true" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dependency.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SlinkyEngine/Dependency.py">
+      <file leaf-file-name="ModuleScanner.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SlinkyEngine/__init__.py">
+      <file leaf-file-name="GameDefinitions.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Definitions/GameDefinitions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BinarySearcher.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
+      <file leaf-file-name="GameFile.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GameItems/GameFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2125">
-              <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Exporter.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SlinkyEngine/Exporter.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="17" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="10" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="550">
+              <caret line="100" column="38" lean-forward="true" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
+              <folding>
+                <element signature="e#7208#7733#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,38 +141,18 @@
       <find>print</find>
       <find>=</find>
       <find>or</find>
-      <find>or</find>
+      <find>comment</find>
+      <find>Ptr</find>
+      <find>I think</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/beep.py" />
-        <option value="$PROJECT_DIR$/ModuleDetector.py" />
-        <option value="$PROJECT_DIR$/Function.py" />
-        <option value="$PROJECT_DIR$/File.py" />
-        <option value="$PROJECT_DIR$/ArchitectureDefinitions.py" />
-        <option value="$PROJECT_DIR$/Module.py" />
-        <option value="$PROJECT_DIR$/Definitions/Game.py" />
-        <option value="$PROJECT_DIR$/GameFile.py" />
-        <option value="$PROJECT_DIR$/Head.py" />
-        <option value="$PROJECT_DIR$/IDAItems/Head.py" />
-        <option value="$PROJECT_DIR$/__init__.py" />
-        <option value="$PROJECT_DIR$/Definitions/__init__.py" />
-        <option value="$PROJECT_DIR$/IDAItems/__init__.py" />
-        <option value="$PROJECT_DIR$/GameItems/__init__.py" />
-        <option value="$PROJECT_DIR$/HelperFunctionDetector.py" />
-        <option value="$PROJECT_DIR$/FileDetector.py" />
-        <option value="$PROJECT_DIR$/GameItems/Module.py" />
-        <option value="$PROJECT_DIR$/Console.py" />
-        <option value="$PROJECT_DIR$/commands.py" />
-        <option value="$PROJECT_DIR$/command.py" />
-        <option value="$PROJECT_DIR$/Definitions/Paths.py" />
         <option value="$PROJECT_DIR$/cmd.py" />
         <option value="$PROJECT_DIR$/c.py" />
         <option value="$PROJECT_DIR$/Cmd.py" />
         <option value="$PROJECT_DIR$/Command.py" />
-        <option value="$PROJECT_DIR$/ModuleExporter.py" />
         <option value="$PROJECT_DIR$/GameFileDetector.py" />
         <option value="$PROJECT_DIR$/analysis.txt" />
         <option value="$PROJECT_DIR$/SlinkyEngine/AsmExtractor.py" />
@@ -180,24 +162,50 @@
         <option value="$PROJECT_DIR$/delta.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/linker.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/DependencyResolver.py" />
-        <option value="$PROJECT_DIR$/IDAItems/Function.py" />
-        <option value="$PROJECT_DIR$/GameItems/GameFile.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Dependency.py" />
         <option value="$PROJECT_DIR$/Definitions/Architecture.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Interceptor.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/SlinkyInterpreter.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Exporter.py" />
-        <option value="$PROJECT_DIR$/run.py" />
-        <option value="$PROJECT_DIR$/BinarySearcher.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/AsmLine.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Extractor.py" />
         <option value="$PROJECT_DIR$/SlinkyEngine/Linker.py" />
+        <option value="$PROJECT_DIR$/SlinkyEngine/SlinkyScript.py" />
+        <option value="$PROJECT_DIR$/IDBPatcher/FunctionExplorer.py" />
+        <option value="$PROJECT_DIR$/IDBPatcher/Misc.py" />
+        <option value="$PROJECT_DIR$/IDBPatcher/LinearSweeper.py" />
+        <option value="$PROJECT_DIR$/IDBPatcher/FunctionFixer.py" />
+        <option value="$PROJECT_DIR$/IDBPatcher/Patcher.py" />
+        <option value="$PROJECT_DIR$/IDBPatches/Patcher.py" />
+        <option value="$PROJECT_DIR$/IDBHospital/Patcher.py" />
+        <option value="$PROJECT_DIR$/IDBHospital/Diagnoser.py" />
+        <option value="$PROJECT_DIR$/IDBHospital/Diagnosis.py" />
+        <option value="$PROJECT_DIR$/IDAItems/Function.py" />
+        <option value="$PROJECT_DIR$/Exporters/Exporter.py" />
+        <option value="$PROJECT_DIR$/Definitions/Paths.py" />
+        <option value="$PROJECT_DIR$/BinarySearcher.py" />
+        <option value="$PROJECT_DIR$/ModuleExporter.py" />
+        <option value="$PROJECT_DIR$/ModuleExporter/ScriptFile.py" />
+        <option value="$PROJECT_DIR$/ModuleExporter/ScriptFileWriter.py" />
+        <option value="$PROJECT_DIR$/FileMap.py" />
+        <option value="$PROJECT_DIR$/FileMapper/FileMapWriter.py" />
+        <option value="$PROJECT_DIR$/FileMapper/FileMapper.py" />
+        <option value="$PROJECT_DIR$/FileMapper.py" />
+        <option value="$PROJECT_DIR$/GameItems/GameFileMap.py" />
+        <option value="$PROJECT_DIR$/ModuleExporter/ModuleExporter.py" />
+        <option value="$PROJECT_DIR$/Definitions/GameDefinitions.py" />
+        <option value="$PROJECT_DIR$/GameItems/GameFile.py" />
+        <option value="$PROJECT_DIR$/GameFileMap.py" />
+        <option value="$PROJECT_DIR$/GameItems/Module.py" />
+        <option value="$PROJECT_DIR$/ModuleExport/ModuleExporter.py" />
+        <option value="$PROJECT_DIR$/run.py" />
+        <option value="$PROJECT_DIR$/../../.vscode/userTools/StructPadder.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="280" />
-    <option name="y" value="255" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-596" />
+    <option name="y" value="127" />
     <option name="width" value="1447" />
     <option name="height" value="939" />
   </component>
@@ -216,6 +224,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,13 +235,22 @@
             <path>
               <item name="PyTools" type="b2602c69:ProjectViewProjectNode" />
               <item name="PyTools" type="462c0819:PsiDirectoryNode" />
-              <item name="SlinkyEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="Definitions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PyTools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyTools" type="462c0819:PsiDirectoryNode" />
+              <item name="GameItems" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PyTools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyTools" type="462c0819:PsiDirectoryNode" />
+              <item name="ModuleExport" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -242,9 +260,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Tools\PyTools" />
       <recent name="C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Tools\PyTools\GameItems" />
+      <recent name="C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Tools\PyTools\ModuleExporter" />
+      <recent name="C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Tools\PyTools\Exporters" />
       <recent name="C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Tools\PyTools\IDAItems" />
-      <recent name="C:\Users\alzakariyamq\Documents\Game Modding\mods\MMBN6\Tools\PyTools\Definitions" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -379,18 +399,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="280" y="255" width="1447" height="939" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33473095" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293124" sideWeight="0.5108316" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32875264" sideWeight="0.5239583" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293124" sideWeight="0.4891684" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.478125" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -399,7 +420,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.48541668" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -408,138 +428,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="29" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SlinkyEngine/Extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
-          <folding>
-            <element signature="e#578#593#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/delta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="259" column="86" lean-forward="false" selection-start-line="259" selection-start-column="86" selection-end-line="259" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="69" column="105" lean-forward="false" selection-start-line="69" selection-start-column="105" selection-end-line="69" selection-end-column="105" />
-          <folding>
-            <element signature="e#215#230#0" expanded="false" />
-            <element signature="e#1637#1946#0" expanded="false" />
-            <element signature="e#1988#2734#0" expanded="false" />
-            <element signature="e#2782#2904#0" expanded="false" />
-            <element signature="e#3063#4028#0" expanded="false" />
-            <element signature="e#4074#5144#0" expanded="false" />
-            <element signature="e#7499#7634#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="70" lean-forward="false" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="285" column="54" lean-forward="false" selection-start-line="285" selection-start-column="54" selection-end-line="285" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/delta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="259" column="86" lean-forward="false" selection-start-line="259" selection-start-column="86" selection-end-line="259" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="69" column="105" lean-forward="false" selection-start-line="69" selection-start-column="105" selection-end-line="69" selection-end-column="105" />
-          <folding>
-            <element signature="e#215#230#0" expanded="false" />
-            <element signature="e#1637#1946#0" expanded="false" />
-            <element signature="e#1988#2734#0" expanded="false" />
-            <element signature="e#2782#2904#0" expanded="false" />
-            <element signature="e#3063#4028#0" expanded="false" />
-            <element signature="e#4074#5144#0" expanded="false" />
-            <element signature="e#7499#7634#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="70" lean-forward="false" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="285" column="54" lean-forward="false" selection-start-line="285" selection-start-column="54" selection-end-line="285" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/delta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beep.py" />
-    <entry file="file://C:/Program Files/IDA 7.0/python/ida_bytes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Definitions/Game.py" />
     <entry file="file://$PROJECT_DIR$/New Text Document (2).txt" />
     <entry file="file://$PROJECT_DIR$/New Text Document.txt" />
@@ -566,13 +459,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IDAItems/Head.py" />
     <entry file="file://$PROJECT_DIR$/commands.py" />
-    <entry file="file://$PROJECT_DIR$/Definitions/Paths.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="33" lean-forward="false" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vds3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -595,64 +481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/delta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="158" column="0" lean-forward="true" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameFileDetector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModuleExporter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="254" column="36" lean-forward="true" selection-start-line="254" selection-start-column="36" selection-end-line="254" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Definitions/Architecture.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#215#230#0" expanded="false" />
-            <element signature="e#1637#1946#0" expanded="false" />
-            <element signature="e#1988#2734#0" expanded="false" />
-            <element signature="e#2782#2904#0" expanded="false" />
-            <element signature="e#3063#4028#0" expanded="false" />
-            <element signature="e#4074#5144#0" expanded="false" />
-            <element signature="e#7499#7634#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -667,47 +495,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameItems/GameFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2054">
-          <caret line="143" column="77" lean-forward="false" selection-start-line="143" selection-start-column="77" selection-end-line="143" selection-end-column="77" />
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-            <element signature="e#5665#6031#0" expanded="false" />
-            <element signature="e#6094#6912#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Command.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2125">
-          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -715,7 +506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -723,14 +513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-          <folding>
-            <element signature="e#140#150#0" expanded="true" />
-            <element signature="e#1849#2039#0" expanded="false" />
-            <element signature="e#2085#2441#0" expanded="false" />
-            <element signature="e#2491#2556#0" expanded="false" />
-            <element signature="e#5127#5714#0" expanded="false" />
-            <element signature="e#6419#7259#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -738,7 +520,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -746,7 +527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -754,7 +534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="26" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,7 +541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="17" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="10" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,19 +548,255 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
           <caret line="125" column="24" lean-forward="true" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
-          <folding>
-            <element signature="e#578#593#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SlinkyEngine/Linker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+        <state relative-caret-position="471">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SlinkyEngine/SlinkyScript.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="18" column="61" lean-forward="false" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDBHospital/LinearSweeper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDBHospital/FunctionFixer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDBHospital/Diagnosis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDBHospital/Misc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Command.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IDAItems/Function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="77" column="32" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
           <folding>
-            <element signature="e#95#105#0" expanded="true" />
+            <element signature="e#1637#1946#0" expanded="false" />
+            <element signature="e#2996#3118#0" expanded="false" />
+            <element signature="e#3277#4242#0" expanded="false" />
+            <element signature="e#4288#5358#0" expanded="false" />
+            <element signature="e#7713#7848#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exporters/Exporter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="51" lean-forward="false" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Definitions/Paths.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BinarySearcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding>
+            <element signature="e#255#264#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exporters/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModuleExport/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FileMap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FileMapper/FileMapWriter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FileMapper/FileMapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Definitions/Architecture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModuleExport/ScriptFileWriter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="58" column="16" lean-forward="true" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameFileDetector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="85" column="46" lean-forward="true" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+          <folding>
+            <element signature="e#965#2636#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Definitions/GameDefinitions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameFileMap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding>
+            <element signature="e#304#348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameItems/Module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#3307#3961#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/delta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="158" column="0" lean-forward="true" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModuleScanner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameItems/GameFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="100" column="38" lean-forward="true" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
+          <folding>
+            <element signature="e#7208#7733#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModuleExport/ModuleExporter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="257" column="7" lean-forward="true" selection-start-line="257" selection-start-column="7" selection-end-line="257" selection-end-column="7" />
+          <folding>
+            <element signature="e#1163#1172#0" expanded="true" />
+            <element signature="e#1661#2821#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../.vscode/userTools/MemoryAccessProtocol.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#477#487#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../.vscode/userTools/StructPadder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="121" column="36" lean-forward="true" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -10,5 +10,4 @@
 #define object_is_current_panel_solid ((void __noreturn (*) ()) (0x0800CC66 +1))
 #define object_jumpout_8005246 ((int (*) ()) (0x08005246 +1))
 
-
 #endif // SCRIPT_GREGAR_OBJECT_H

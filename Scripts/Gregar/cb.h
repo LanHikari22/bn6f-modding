@@ -24,5 +24,4 @@
 #define cb_812DD48 ((int (*) ()) (0x0812DD48 +1))
 #define cb_813A088 ((int (*) ()) (0x0813A088 +1))
 
-
 #endif // SCRIPT_GREGAR_CB_H

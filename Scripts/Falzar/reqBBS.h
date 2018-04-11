@@ -6,9 +6,9 @@
 #include "../../Structs/_Structs.h"
 #include "../../include/IDADefinitions.h"
 
-/**
-hyp
-*/
+
+// VERSION UNIQUE ------------------------------------
+/*hyp*/
 #define reqBBS_80384DC ((signed int (*) ()) (0x080384DC +1))
 #define reqBBS_draw_813E0F8 ((int (*) ()) (0x0813E0F8 +1))
 #define reqBBS_draw_813E188 ((void __noreturn (*) ()) (0x0813E188 +1))
@@ -23,22 +23,14 @@ hyp
 #define reqBBS_813E834 ((int (*) ()) (0x0813E834 +1))
 #define reqBBS_813E890 ((int (*) ()) (0x0813E890 +1))
 #define reqBBS_draw_chatbox ((int (*) ()) (0x0813ECC0 +1))
-/**
-hyp: it seems to set the header text in boxes?
-*/
+/*hyp: it seems to set the header text in boxes?*/
 #define reqBBS_draw_header_text ((int (*) ()) (0x0813ED0C +1))
-/**
-draws the last selected request' name on the screen in white?
-*/
+/*draws the last selected request' name on the screen in white?*/
 #define reqBBS_813ED40 ((void (*) ()) (0x0813ED40 +1))
 #define reqBBS_draw_RquestBBS ((int (*) ()) (0x0813EF2C +1))
-/**
-hyp: whenever this is called, it seems like the reqBBS screen resets to the beginning?
-*/
+/*hyp: whenever this is called, it seems like the reqBBS screen resets to the beginning?*/
 #define reqBBS_init_s_2005780 ((void **__cdecl (*) (int a1)) (0x0813F3C0 +1))
-/**
-exp: r5= 02005780
-*/
+/*exp: r5= 02005780*/
 #define reqBBS_813F474 ((int (*) ()) (0x0813F474 +1))
 #define reqBBS_813F550 ((void __noreturn (*) ()) (0x0813F550 +1))
 #define reqBBS_813F5EC ((void __noreturn (*) ()) (0x0813F5EC +1))
@@ -71,10 +63,8 @@ exp: r5= 02005780
 #define reqBBS_draw_select_chatbox ((int (*) ()) (0x081404B8 +1))
 #define reqBBS_render_selectedEntry_headerText ((int (*) ()) (0x081404E8 +1))
 #define reqBBS_set_chatbox_header_basedOn_0F ((int (*) ()) (0x0814051C +1))
-/**
-changes header text of a BBS chatbox based on something?
-hyp
-*/
+/*changes header text of a BBS chatbox based on something?
+hyp*/
 #define reqBBS_change_chatbox_header ((int (*) ()) (0x08140554 +1))
 #define reqBBS_8140604 ((void __fastcall (*) (int a1, int a2, int a3, int a4)) (0x08140604 +1))
 #define reqBBS_animate_cursor ((void (*) ()) (0x08140688 +1))
@@ -82,6 +72,7 @@ hyp
 #define reqBBS_check_81408F0 ((int __cdecl (*) ()) (0x081408F0 +1))
 #define reqBBS_run_dialog_8140A70 ((int *__fastcall (*) (int a1, int a2)) (0x08140A5C +1))
 
+// VERSION DEPENDENT ---------------------------------
 #define reqBBS_draw_jt1_callBack ((int (*) ()) (0x0813E0A4 +1))
 #define reqBBS_draw_813E1C8 ((void __noreturn (*) ()) (0x0813E1C8 +1))
 #define reqBBS_draw_813E33C ((void __noreturn (*) ()) (0x0813E33C +1))
@@ -92,14 +83,11 @@ hyp
 #define reqBBS_jumpout_draw_star ((int __fastcall (*) (int a1, int a2)) (0x081402C8 +1))
 #define reqBBS_jumpout_8140308 ((int __fastcall (*) (int a1, int a2, int a3, int a4)) (0x08140308 +1))
 #define reqBBS_get_totalPointsIndex ((int (*) ()) (0x08140798 +1))
-/**
-hyp: totalPointsIndex corresponding to rank
-*/
+/*hyp: totalPointsIndex corresponding to rank*/
 #define reqBBS_rankLessThan ((BOOL __fastcall (*) (int a1)) (0x08140884 +1))
 #define reqBBS_get_selectedEntry_ID ((int __cdecl (*) ()) (0x081408C8 +1))
 #define reqBBS_set_selectedEntry_rank_to_0F ((int (*) ()) (0x081408DC +1))
 #define reqBBS_GUI_get_0F ((int (*) ()) (0x08140974 +1))
 #define reqBBS_clear_points_and_rank ((reqBBS_GUI * (*) ()) (0x08140984 +1))
-
 
 #endif // SCRIPT_FALZAR_REQBBS_H

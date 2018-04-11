@@ -6,11 +6,14 @@
 #include "../../Structs/_Structs.h"
 #include "../../include/IDADefinitions.h"
 
+
+// VERSION UNIQUE ------------------------------------
 #define MenuControl_cbOpenSubmenu ((int __cdecl (*) ()) (0x0811F774 +1))
 #define MenuControl_Navicust_81356F4 ((void __noreturn (*) ()) (0x081356F4 +1))
 #define MenuControl_NaviCust_81357C4 ((int (*) ()) (0x081357C4 +1))
 #define MenuControl_init_8135B54 ((int __fastcall (*) (int a1)) (0x08135B54 +1))
 
+// VERSION DEPENDENT ---------------------------------
 #define MenuControl_cbChipFoldar ((int (*) ()) (0x08123434 +1))
 #define MenuControl_cbSubChip ((int (*) ()) (0x08123F5C +1))
 #define MenuControl_cbLibrary ((int (*) ()) (0x08124B3C +1))
@@ -24,6 +27,5 @@
 #define MenuControl_Megaman_cbNaviCust ((int __cdecl (*) ()) (0x081356D4 +1))
 #define MenuControl_NaviCust_cb_8136DE0 ((int (*) ()) (0x08136DE0 +1))
 #define MenuControl_Megaman_cbRecords ((int (*) ()) (0x081378B4 +1))
-
 
 #endif // SCRIPT_FALZAR_MENUCONTROL_H

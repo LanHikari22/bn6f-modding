@@ -6,6 +6,8 @@
 #include "../../Structs/_Structs.h"
 #include "../../include/IDADefinitions.h"
 
+
+// VERSION UNIQUE ------------------------------------
 #define uncomp_8000B30 ((int __fastcall (*) (int *a1)) (0x08000B30 +1))
 #define uncomp_8000B8E ((int __fastcall (*) (int *a1)) (0x08000B8E +1))
 #define uncomp_8002906 ((signed int __fastcall (*) (unsigned __int8 *a1)) (0x08002906 +1))
@@ -23,7 +25,5 @@
 #define uncomp_submenus_and_mail_8123300 ((void __fastcall (*) (int a1, void *a2, _DWORD *a3)) (0x08123300 +1))
 #define uncomp_812B530 ((int __fastcall (*) (int a1)) (0x0812B530 +1))
 #define uncomp_813E5A0 ((void (*) ()) (0x0813E5A0 +1))
-
-
 
 #endif // SCRIPT_FALZAR_UNCOMP_H

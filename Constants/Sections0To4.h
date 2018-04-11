@@ -1,6 +1,10 @@
 #ifndef CONSTANTS_SECTIONS_0_TO_4_H
 #define CONSTANTS_SECTIONS_0_TO_4_H
 
+typedef struct {
+    
+} Section;
+
 /**
 * Assuming the sprite sections pointed by pSpriteListSections have not changed.
 * 0x08031CEC is the first section. The sections appear to be contiguous. 

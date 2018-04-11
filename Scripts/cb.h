@@ -14,5 +14,4 @@
 #define cb_jack_80341B6 ((int (*) ()) (0x080341B6 +1))
 #define cb_8037B08 ((signed int (*) ()) (0x08037B08 +1))
 
-
 #endif // SCRIPT_CB_H

@@ -1,6 +1,6 @@
 Necessary changes to convert disassemblies in IDA:
 1. remove ROM:%08X
-2. Instructions liek MOVS, and SUBS are illegal. Replace with MOV, SUB
+2. Instructions lk MOVS, and SUBS are illegal. Replace with MOV, SUB
 3. ';' is not  used by gcc for comments, replace with '//'...
 4. After each label, add a ':'
 5. Add the disassembly to a unique section to be linked: '.section .link__<name>, "ax"'

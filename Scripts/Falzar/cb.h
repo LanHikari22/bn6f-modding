@@ -6,6 +6,8 @@
 #include "../../Structs/_Structs.h"
 #include "../../include/IDADefinitions.h"
 
+
+// VERSION UNIQUE ------------------------------------
 #define cb_8007850 ((int (*) ()) (0x08007850 +1))
 #define cb_8007A44 ((int (*) ()) (0x08007A44 +1))
 #define cb_8038AD0 ((int (*) ()) (0x08038AD0 +1))
@@ -23,6 +25,7 @@
 #define cb_812B80C ((int __fastcall (*) (int a1)) (0x0812B80C +1))
 #define cb_812B874 ((int __fastcall (*) (int a1)) (0x0812B874 +1))
 
+// VERSION DEPENDENT ---------------------------------
 #define cb_803CBA6 ((int (*) ()) (0x0803CBA6 +1))
 #define cb_803CCD6 ((int (*) ()) (0x0803CCD6 +1))
 #define cb_803D1CA ((signed int (*) ()) (0x0803D1CA +1))
@@ -40,6 +43,5 @@
 #define cb_80E344C ((int (*) ()) (0x080E344C +1))
 #define cb_812BFF4 ((int (*) ()) (0x0812BFF4 +1))
 #define cb_81382AC ((int (*) ()) (0x081382AC +1))
-
 
 #endif // SCRIPT_FALZAR_CB_H

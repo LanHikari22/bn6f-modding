@@ -8,5 +8,4 @@
 
 #define subsystem_triggerTransition_800630A ((int (*) ()) (0x0800630A +1))
 
-
 #endif // SCRIPT_SUBSYSTEM_H

@@ -8,5 +8,4 @@
 
 #define Save_803F76C ((void (*) ()) (0x0803F76C +1))
 
-
 #endif // SCRIPT_GREGAR_SAVE_H

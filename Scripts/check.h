@@ -6,10 +6,7 @@
 #include "../Structs/_Structs.h"
 #include "../include/IDADefinitions.h"
 
-/**
-returns... zf
-*/
+/*returns... zf*/
 #define check_802F168 ((int __cdecl (*) (int a1)) (0x0802F168 +1))
-
 
 #endif // SCRIPT_CHECK_H

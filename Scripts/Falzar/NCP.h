@@ -6,6 +6,8 @@
 #include "../../Structs/_Structs.h"
 #include "../../include/IDADefinitions.h"
 
+
+// VERSION UNIQUE ------------------------------------
 #define NCP_SuperArmor ((int (*) ()) (0x0813C80C +1))
 #define NCP_CustomPlus ((int (*) ()) (0x0813C81C +1))
 #define NCP_CustomPlus_dup ((int (*) ()) (0x0813C838 +1))
@@ -40,9 +42,9 @@
 #define NCP_BusterPack_813CADC ((int (*) ()) (0x0813CADC +1))
 #define NCP_BusterPack_813CB30 ((int (*) ()) (0x0813CB30 +1))
 
+// VERSION DEPENDENT ---------------------------------
 #define NCP_813CA4C ((int (*) ()) (0x0813CA4C +1))
 #define NCP_813CA60 ((int (*) ()) (0x0813CA60 +1))
 #define NCP_dup_813CA6C ((int (*) ()) (0x0813CA6C +1))
-
 
 #endif // SCRIPT_FALZAR_NCP_H

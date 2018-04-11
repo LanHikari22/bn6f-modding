@@ -69,13 +69,16 @@ class Function:
         TODO: Support ARM Functions too!
         :return: (str) Function pointer in a CMacro definition.
         """
-        prototype = self.getPrototype()
-        retType = prototype[0:prototype.index('(')]
-        params = prototype[prototype.index('(') : prototype.index(')')+1]
-        funcAddr = '0x%08X' % self.func_ea
-        output = '#define ' + self.getName() + ' ((' + retType + ' (*) ' + params + ') (' + funcAddr + ' +1))'
+        try:
+            prototype = self.getPrototype()
+            retType = prototype[0:prototype.index('(')]
+            params = prototype[prototype.index('(') : prototype.index(')')+1]
+            funcAddr = '0x%08X' % self.func_ea
+            output = '#define ' + self.getName() + ' ((' + retType + ' (*) ' + params + ') (' + funcAddr + ' +1))'
+        except idaapi.DecompilationFailure:
+            funcAddr = '0x%08X' % self.func_ea
+            output = '#define ' + self.getName() + ' ((void (*) () (' + funcAddr + ' +1))'
         return output
-
 
     def ongoing_getParameters(self):
         """
