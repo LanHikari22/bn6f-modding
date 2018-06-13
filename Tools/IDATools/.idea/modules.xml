@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../IDATools/.idea/IDATools.iml" filepath="$PROJECT_DIR$/../IDATools/.idea/IDATools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PyTools.iml" filepath="$PROJECT_DIR$/.idea/PyTools.iml" />
     </modules>
   </component>
 </project>
