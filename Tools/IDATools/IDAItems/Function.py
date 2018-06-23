@@ -9,6 +9,12 @@ import idautils
 import idaapi
 import idc
 
+from IDAItems import Data
+
+idaapi.require("IDAItems.Data")
+
+
+
 def isFunction(ea):
     return idc.get_func_flags(ea) != -1
 
@@ -171,6 +177,7 @@ class Function:
         return crefs, drefs
 
     def getComment(self):
+        # type: () -> str
         """
         TODO: Sometimes the comment is repeatable (created through decomp) or not (created through disass).
         What to return???? Why not whichever works?
@@ -180,14 +187,13 @@ class Function:
         return cmt
 
     def setComment(self, cmt):
+        # type: (str) -> ()
         """
         TODO: repeatable or not???
         :param cmt: Comment to be set as a function comment
         :return:
         """
         idaapi.set_func_cmt(self.func, cmt, 1)
-
-    # Boundaries -------------------------------------------------------------------------------------------------------
 
     def getSize(self, withPool=False):
         """
@@ -211,6 +217,24 @@ class Function:
         :return: Tuple of Start address and end address of function
         """
         return self.func.start_ea, self.func.end_ea
+
+    def getPoolData(self):
+        # type: () -> (list[Data.Data])
+        """
+        Using the computed pool size algorithm, all data items within the pool can be identified and
+        created.
+        :return: A list of all data items in the pool of this function
+        """
+        output = []
+        # start from the beginning of the pool area
+        ea = self.getSize(withPool=False)
+        while ea < self.getSize(withPool=True):
+            # create and append the data item
+            data = Data.Data(ea)
+            output.append(data)
+            # advance ea by the size of the curr data item
+            ea += data.getSize()
+        return output
 
 
 def printRefs(crefs, drefs):

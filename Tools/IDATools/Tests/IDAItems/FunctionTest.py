@@ -1,8 +1,10 @@
 from Tests import Test
-from IDAItems import Function
+from IDAItems import Function, Data
 import idaapi
 idaapi.require("Tests.Test")
 idaapi.require("IDAItems.Function")
+idaapi.require("IDAItems.Data")
+
 
 
 class FunctionTest:
@@ -19,6 +21,8 @@ class FunctionTest:
         d1['xrefsTo'] = ([0x08046D4C+0x10],[])
         d1['xrefsFrom'] = ([0x0814D8C4], [0x02029A00, 0x0873DE4C, 0x0202BA00, 0x0873ECC8,
                                           0x0202DA00])
+        d1['pool'] = {Data.Data(0x08047216), Data.Data(0x08047218), Data.Data(0x0804721C),
+                      Data.Data(0x08047220), Data.Data(0x08047224), Data.Data(0x08047228)}
 
         # test function 2.
 
@@ -32,6 +36,7 @@ class FunctionTest:
         test.add(Test.Test("testFunctionDefinition()", self.testFunctionDefinition))
         test.add(Test.Test("testXRefsTo()", self.testXRefsTo))
         test.add(Test.Test("testXRefsFrom()", self.testXRefsFrom))
+        test.add(Test.Test("testPoolData()", self.testPoolData))
 
         self.test = test
 
@@ -120,6 +125,16 @@ class FunctionTest:
             Test.assertEquals(f.getXRefsFrom(), td['xrefsFrom'],
                               "XrefsFrom Mismatch. Expected: '%s', Actual: '%s'"
                               % (self.xrefs2str(td['xrefsFrom']), self.xrefs2str(f.getXRefsFrom())))
+
+    def testPoolData(self):
+        for td in self.testData:
+            f = Function.Function(td['ea'])
+            i = 0
+            for data in f.getPoolData():
+                Test.assertEquals(td['pool'][i].ea, data.ea,
+                                  "Pool data item mismatch. Expected: '%s', Actual: '%s'"
+                                  % (td['pool'][i].ea, data.ea))
+                i += 1
 
     def xrefs2str(self, xrefs):
         # type: (tuple[list[int], list[int]]) -> str

@@ -58,6 +58,10 @@ class DataTest:
             Test.assertEquals(d.getXRefsTo(), td['xrefsTo'],
                               "%s: Invalid XrefsTo. Expected=%s, Actual=%s"
                               % (key, self.xrefs2str(td['xrefsTo']), self.xrefs2str(d.getXRefsTo())))
+            Test.assertEquals(d.getXRefsFrom(), td['xrefsFrom'],
+                              "%s: Invalid XrefsFrom. Expected=%s, Actual=%s"
+                              % (key, self.xrefs2str(td['xrefsFrom']), self.xrefs2str(d.getXRefsFrom())))
+
         # test that when addressing in the middle of an array, the EA returned is its beginning
         td = self.testData['array']
         d = Data.Data(td['ea'] + td['size']/2)
@@ -147,6 +151,7 @@ class DataTest:
         d1['isPool'] = True
         d1['poolFuncEA'] = 0x0800093C
         d1['xrefsTo'] = ([], [d1['poolFuncEA'] + 0x02])
+        d1['xrefsFrom'] = ([], [0x04000000])
 
         # test data 2 -- array
         d2 = dict()
@@ -182,6 +187,7 @@ class DataTest:
         d2['poolFuncEA'] = 0x08128500
         d2['xrefsTo'] = ([], [0x081279A8 + 0x24, 0x081279F4, 0x08127EF4 + 0x26, 0x08127F50,
                               0x081283A0 + 0x36, 0x08128484, 0x081284B4 + 0x16, 0x081284FC])
+        d2['xrefsFrom'] = ([], [])
 
         # data 3 -- jumptable
         d3 = dict()
@@ -197,6 +203,7 @@ class DataTest:
         d3['isPool'] = True
         d3['poolFuncEA'] = 0x08128730
         d3['xrefsTo'] = ([], [d3['poolFuncEA'] + 0x02, 0x08128740])
+        d3['xrefsFrom'] = ([], [0x08128751, 0x081287B5, 0x081288E5])
 
         # data 4 -- primitive
         d4 = dict()
@@ -212,6 +219,7 @@ class DataTest:
         d4['isPool'] = True
         d4['poolFuncEA'] = 0x081289C4
         d4['xrefsTo'] = ([], [d4['poolFuncEA'] + 0x04])
+        d4['xrefsFrom'] = ([], [])
 
         # data 5 -- asm line
         d5 = dict()
@@ -227,6 +235,7 @@ class DataTest:
         d5['isPool'] = False
         d5['poolFuncEA'] = None
         d5['xrefsTo'] = ([d5['ea'] - 2], [])
+        d5['xrefsFrom'] = ([0x081289FA], [])
 
         # data 6 -- unnamedUnknown
         d6 = dict()
@@ -242,6 +251,7 @@ class DataTest:
         d6['isPool'] = False
         d6['poolFuncEA'] = None
         d6['xrefsTo'] = ([], [])
+        d6['xrefsFrom'] = ([], [])
 
         # data 7 -- named_unknown
         d7 = dict()
@@ -257,6 +267,7 @@ class DataTest:
         d7['isPool'] = False
         d7['poolFuncEA'] = None
         d7['xrefsTo'] = ([], [])
+        d7['xrefsFrom'] = ([], [])
 
         # data 8 -- struct # TODO: incomplete
         d8 = dict()
@@ -275,6 +286,7 @@ class DataTest:
         d8['isPool'] = False
         d8['poolFuncEA'] = None
         d8['xrefsTo'] = ([], [])
+        d8['xrefsFrom'] = ([], [])
 
         # add data to manually computed test data
         testData['pointer'] = d1

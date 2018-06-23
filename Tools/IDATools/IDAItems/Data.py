@@ -99,6 +99,30 @@ class Data:
 
         return (crefs, drefs)
 
+    def getXRefsFrom(self):
+        # type: () -> (list[int], list[int])
+        """
+        computes data and code references references from this data item
+        This defines all data and code dependencies to this data item
+        :return:
+        """
+        crefs = []
+        drefs = []
+
+        for xref in idautils.XrefsFrom(self.ea, 0):
+            # if the xref is to a far or near called function/jump
+            # also discluded the trivial case of flowing to next inst (fl_F)
+            # (in case the data item is an asm line)
+            if (xref.type != idc.fl_F and
+                    xref.type == idc.fl_CN or xref.type == idc.fl_CF or
+                    xref.type == idc.fl_JF or xref.type == idc.fl_JN):
+                if xref.to not in crefs:
+                    crefs.append(xref.to)
+            elif xref.type != idc.fl_F:
+                drefs.append(xref.to)
+
+        return crefs, drefs
+
     def getContent(self):
         """
         reads bytes at the EA of the data item and constructs its content representation based on its type
