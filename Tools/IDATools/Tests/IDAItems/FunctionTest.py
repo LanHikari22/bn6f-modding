@@ -6,146 +6,145 @@ idaapi.require("IDAItems.Function")
 
 
 class FunctionTest:
-
-    class TestParams:
-        """
-        represents manually computed function parameters
-        """
-        def __init__(self, ea, name, comment, size_pool, size_nopool, xrefsTo):
-            # type: (int, str, str, int, int, tuple[list[int],list[int]]) -> None
-            """
-            :param ea: start address of the function
-            :param name: name of the function
-            :param comment: comment found on the function
-            :param size_pool: function's size, with data after its end
-            :param size_nopool: function's size, until its code end.
-            :param xrefsTo: code/data xrefs to the function
-            """
-            self.ea = ea
-            self.name = name
-            self.comment = comment
-            self.size_pool = size_pool
-            self.size_nopool = size_nopool
-            self.xrefsTo = xrefsTo
-
     def __init__(self):
         test = Test.Test("IDAItems.Function")
 
-        # test function
-        ea = 0x080471F8
-        name = "Shop_uncomp_80471F8"
-        comment = "I use this as a test function."
-        size_pool = 0x0804722C - ea
-        size_nopool = 0x08047216 - ea
-        xrefsTo = ([0x08046D4C+0x10],[])
-        f1 = self.TestParams(ea, name, comment, size_pool, size_nopool, xrefsTo)
-        test.add(self.createTest(name, f1))
+        # test function 1. no STRs, LDRs and BLs
+        d1 = dict()
+        d1['ea'] = 0x080471F8
+        d1['name'] = "Shop_uncomp_80471F8"
+        d1['cmt'] = "I use this as a test function."
+        d1['size_pool'] = 0x0804722C - d1['ea']
+        d1['size_nopool'] = 0x08047216 - d1['ea']
+        d1['xrefsTo'] = ([0x08046D4C+0x10],[])
+        d1['xrefsFrom'] = ([0x0814D8C4], [0x02029A00, 0x0873DE4C, 0x0202BA00, 0x0873ECC8,
+                                          0x0202DA00])
+
+        # test function 2.
+
+        # append to testData
+        self.testData = []
+        self.testData.append(d1)
+
+        test.add(Test.Test("testBasic()", self.testBasic))
+        test.add(Test.Test("testComments()", self.testComments))
+        # test.add(Test.Test("testContent()", self.testContent))
+        test.add(Test.Test("testFunctionDefinition()", self.testFunctionDefinition))
+        test.add(Test.Test("testXRefsTo()", self.testXRefsTo))
+        test.add(Test.Test("testXRefsFrom()", self.testXRefsFrom))
+
         self.test = test
+
 
     def run(self):
         self.test.run()
 
-    def createTest(self, testName, testParams):
-        # type: (self.TestParams) -> Test
-        """
-        Creates tests for one function
-        :testParams: encapsulated object showing manually computed function parameters
-        :return: a Test compromising tests running on a single function
-        """
-        t = Test.Test(testName)
-        t.add(Test.Test("testBasic()", self.testBasic, testParams))
-        t.add(Test.Test("testComments()", self.testComments, testParams))
-        # t1.add(Test.Test("testContent()", self.testContent, testParams))
-        t.add(Test.Test("testFunctionDefinition()", self.testFunctionDefinition, testParams))
-        t.add(Test.Test("testXRefsTo()", self.testXRefsTo, testParams))
-        # t.add(Test.Test("testXRefsFrom()", self.testXRefsFrom, testParams))
-
-        return t
-
-
-    def testBasic(self, testParams):
-        # type: (self.TestParams) -> None
+    def testBasic(self):
+        # type: () -> None
         """
         Tests that InvalidFunctionException is raised if instantiated with invalid EA.
         And tests that valid functions give valid behavior
-        :testParams: encapsulated object showing manually computed function parameters
         """
-        # necessary test params
-        ea = testParams.ea
-        name = testParams.name
-        size_pool = testParams.size_pool
-        size_nopool = testParams.size_nopool
-
         try:
             f = Function.Function(0x00)
             Test.fail("InvalidFunctionException not raised")
-        except(Function.InvalidFunctionException):
+        except(Function.FunctionException):
             pass
-        f = Function.Function(ea)
-        Test.assertEquals(f.func_ea, ea, "Function EA mistmatch: 0x%08X" % f.func_ea)
-        # getName()
-        Test.assertEquals(f.getName(), name, "Function name mismatch")
-        # setName()
-        f.setName(name + "0")
-        Test.assertEquals(f.getName(), name + "0", "setName() not working")
-        f.setName(name)
-        Test.assertEquals(f.getName(), name, "could not set name back to normal")
-        # getSize()
-        Test.assertEquals(f.getSize(withPool=True), size_pool, "invalid pool size")
-        Test.assertEquals(f.getSize(), size_nopool, "invalid no pool size")
+        for td in self.testData:
+            f = Function.Function(td['ea'])
+            Test.assertEquals(f.func_ea, td['ea'], "Function EA mistmatch: 0x%08X" % f.func_ea)
+            # getName()
+            Test.assertEquals(f.getName(), td['name'], "Function name mismatch")
+            # setName()
+            f.setName(td['name'] + "0")
+            Test.assertEquals(f.getName(), td['name'] + "0", "setName() not working")
+            f.setName(td['name'])
+            Test.assertEquals(f.getName(), td['name'], "could not set name back to normal")
+            # getSize()
+            Test.assertEquals(f.getSize(withPool=True), td['size_pool'], "invalid pool size")
+            Test.assertEquals(f.getSize(), td['size_nopool'], "invalid no pool size")
 
-    def testComments(self, testParams):
-        # type: (self.TestParams) -> None
+    def testComments(self):
+        # type: () -> None
         """
         Makes sure that function comments are viewable and modifiable
-        :testParams: encapsulated object showing manually computed function parameters
         """
         # there's an issue where GUI comments filter out system input comments, but
         # both exist anyway. Only one is showed in the GUI.
-        f = Function.Function(testParams.ea)
-        comment = testParams.comment
-        Test.assertEquals(f.getComment(), comment, "comment mismatch: '%s'" % f.getComment())
-        f.setComment(comment + "0")
-        Test.assertEquals(f.getComment(), comment + "0", "setComment() not modifying")
-        f.setComment(comment)
-        Test.assertEquals(f.getComment(), comment, "comment didn't return to original")
+        for td in self.testData:
+            f = Function.Function(td['ea'])
+            Test.assertEquals(f.getComment(), td['cmt'], "comment mismatch: '%s'" % f.getComment())
+            f.setComment(td['cmt'] + "0")
+            Test.assertEquals(f.getComment(), td['cmt'] + "0", "setComment() not modifying")
+            f.setComment(td['cmt'])
+            Test.assertEquals(f.getComment(), td['cmt'], "comment didn't return to original")
 
-    def testContent(self, testParams):
+    def testContent(self):
         # type: (int) -> None
         Test.fail("Not implemented: content is not parsed within the function")
 
 
-    def testFunctionDefinition(self, testParams):
-        # type: (self.TestParams) -> None
+    def testFunctionDefinition(self):
+        # type: () -> None
         """
         This decompiles the function and tries to get a C-style pointer #define
         macro
         It also tests just getting the prototype. This requires decompilation.
-        :testParams: encapsulated object showing manually computed function parameters
         """
-        f = Function.Function(testParams.ea)
-        macro = "#define %s ((void (*) ()) (0x%08X +1))" % (testParams.name, testParams.ea)
-        Test.assertEquals(f.getFuncPtrCMacro(), macro,
-                          "macro mismatch: %s" % f.getFuncPtrCMacro())
+        for td in self.testData:
+            f = Function.Function(td['ea'])
+            macro = "#define %s ((void (*) ()) (0x%08X +1))" % (td['name'], td['ea'])
+            Test.assertEquals(f.getFuncPtrCMacro(), macro,
+                              "macro mismatch: %s" % f.getFuncPtrCMacro())
 
-    def testXRefsTo(self, testParams):
-        # type: (self.TestParams) -> None
+    def testXRefsTo(self):
+        # type: () -> None
         """
         Tests valid code/data xrefs to the function
-        :testParams: encapsulated object showing manually computed function parameters
         """
-        f = Function.Function(testParams.ea)
-        # testing xrefs to function
-        Test.assertEquals(f.getXRefsTo(), testParams.xrefsTo,
-                          "XrefsTo Mismatch")
+        for td in self.testData:
+            f = Function.Function(td['ea'])
+            # testing xrefs to function
+            Test.assertEquals(f.getXRefsTo(), td['xrefsTo'],
+                              "XrefsTo Mismatch. Expected: '%s', Actual: '%s'"
+                              % (self.xrefs2str(td['xrefsTo']), self.xrefs2str(f.getXRefsTo())))
 
-    def testXRefsFrom(self, testParams):
-        # type: (self.TestParams) -> None
+    def testXRefsFrom(self):
+        # type: () -> None
         """
         Tests valid code/data xrefs to the function
-        :testParams: encapsulated object showing manually computed function parameters
         """
-        Test.fail("not implemented")
+        for td in self.testData:
+            f = Function.Function(td['ea'])
+            # testing xrefs from function
+            Test.assertEquals(f.getXRefsFrom(), td['xrefsFrom'],
+                              "XrefsFrom Mismatch. Expected: '%s', Actual: '%s'"
+                              % (self.xrefs2str(td['xrefsFrom']), self.xrefs2str(f.getXRefsFrom())))
+
+    def xrefs2str(self, xrefs):
+        # type: (tuple[list[int], list[int]]) -> str
+        """
+        prints xref tuples in a good manner, with hex integer numbers in the lists
+        """
+        return "(" + self.hexArr(xrefs[0]) + ", " + self.hexArr(xrefs[1]) + ")"
+
+    def hexArr(self, arr):
+        # type: (list[int]) -> str
+        """
+        :param arr: array of integers
+        :return: str representation of the array but with hex numbers instead
+        """
+        output = '['
+        hasElement = False
+        for i in arr:
+            hasElement = True
+            output += "0x%08X, " % i
+        if hasElement:
+            output = output[0:-2] + ']'
+        else:
+            output += "]"
+        return output
+
 
 if __name__ == "__main__":
     test = FunctionTest()

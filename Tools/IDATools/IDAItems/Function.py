@@ -9,14 +9,14 @@ import idautils
 import idaapi
 import idc
 
-
 def isFunction(ea):
     return idc.get_func_flags(ea) != -1
 
-class InvalidFunctionException(Exception):
+class FunctionException(Exception):
     def __init__(self, s):
         super(Exception, self).__init__(s)
         pass
+
 
 class Function:
     func = None  # func_t
@@ -33,9 +33,7 @@ class Function:
             self.func = idaapi.get_func(func_ea)
             self.func_ea = self.func.startEA
         else:
-            raise (InvalidFunctionException("Address %08x does not live within a function" % func_ea))
-
-    # Name -------------------------------------------------------------------------------------------------------------
+            raise (FunctionException("Address %08x does not live within a function" % func_ea))
 
     def getName(self):
         return idaapi.get_func_name(self.func_ea)
@@ -47,8 +45,6 @@ class Function:
         :param funcName:  (str) name of the function
         """
         idc.MakeName(self.func_ea, funcName)
-
-    # Prototype --------------------------------------------------------------------------------------------------------
 
     def getPrototype(self):
         """
@@ -87,9 +83,7 @@ class Function:
         :return: A list of tuples of (typeName, paramName)
                  int a2 would give ('int, 'a2')
         """
-
-
-    # Xrefs ------------------------------------------------------------------------------------------------------------
+        raise(NotImplemented())
 
     def getXRefsTo(self):
         """
@@ -117,49 +111,64 @@ class Function:
 
             return crefs, drefs
 
-    def ongoing_getXRefsFrom(self):
+    def getXRefsFrom(self):
+        # type: () -> (list[int], list[int])
+        """
+        computes code references called from this function, and data references accessed
+        if the data reference accessed is a pool variable, and it's a pointer,
+        the pointer is given instead (as compliant with the LDR RX =<refInPool> syntax)
+        This defines all data and code dependencies in the function
+        :return:
+        """
         crefs = []
         drefs = []
-        normalFlow = True
-        for ref in idautils.CodeRefsFrom(self.func_ea, normalFlow):  # XrefsFrom
-            crefs.append(ref)
-        for ref in idautils.CodeRefsFrom(self.func_ea, not normalFlow):  # XrefsFrom
-            crefs.append(ref)
-        for ref in idautils.CodeRefsFrom(self.func_ea+1, normalFlow):  # XrefsFrom
-            crefs.append(ref)
-        for ref in idautils.CodeRefsFrom(self.func_ea+1, not normalFlow):  # XrefsFrom
-            crefs.append(ref)
 
-        for xref in idautils.XrefsFrom(self.func_ea, 0):
-            if xref.type == idc.fl_CN or xref.type == idc.fl_CF:
-                idc.Message("%s calls %s from %x\n" % (self.getName(), idc.Name(xref.to), xref.to))
-            else:
-                idc.Warning("No function found at location %x" % self.func_ea)
-            crefs.append(xref.to)
 
-        for ref in idautils.DataRefsFrom(self.func_ea):
-            drefs.append(ref)
-        for ref in idautils.DataRefsFrom(self.func_ea + 1):
-            drefs.append(ref)
-        return crefs, drefs
+        # normalFlow = True
+        # for ref in idautils.CodeRefsFrom(self.func_ea, normalFlow):  # XrefsFrom
+        #     crefs.append(ref)
+        # for ref in idautils.CodeRefsFrom(self.func_ea, not normalFlow):  # XrefsFrom
+        #     crefs.append(ref)
+        # for ref in idautils.CodeRefsFrom(self.func_ea-1, normalFlow):  # XrefsFrom
+        #     crefs.append(ref)
+        # for ref in idautils.CodeRefsFrom(self.func_ea-1, not normalFlow):  # XrefsFrom
+        #     crefs.append(ref)
 
-    def enumerateCrossReferences(self):
-        """
-        This finds all functions called by the function provided at
-        the cursor.
-        """
-        # from idaapi import *
-        fname = self.getName()
-        items = idautils.FuncItems(self.func.startEA)
-        for i in items:
+        # needed to identify pool variables. drefs accessing the pool may access pointers
+        # in the pool. the pointers should be retrieved instead
+        size_pool = self.getSize(withPool=True)
+
+        # for each instruction
+        for i in idautils.FuncItems(self.func_ea):
             for xref in idautils.XrefsFrom(i, 0):
-                print('%08X' % xref.to)
+                # if the xref is to a far or near called function
                 if xref.type == idc.fl_CN or xref.type == idc.fl_CF:
-                    idc.Message("%s calls %s from %x\n" % (fname, idc.Name(xref.to), i))
-                # else:
-                #     Warning("No function found at location %x" % idc.here())
+                    if xref.to not in crefs:
+                        crefs.append(xref.to)
+                # if the xref is to a read or write data access
+                if xref.type == idc.dr_W or xref.type == idc.dr_R:
+                    print("%08X: %08X" % (i, xref.to))
+                    if xref.to not in drefs:
+                        # if xref.to is in the pool, then retrieve content if it's a pointer
+                        if xref.to < self.func_ea + size_pool:
+                            # those are the references found at the pool location
+                            iteratedOnce = False
+                            for poolRef in idautils.XrefsFrom(xref.to, 0):
+                                if iteratedOnce:
+                                    raise(FunctionException("%08X: there should only be one data xref in pool variable"
+                                                            % (self.func_ea)))
+                                # there should only be one in the pool refernce
+                                if poolRef.to not in drefs:
+                                    drefs.append(poolRef.to)
+                                iteratedOnce = True
+                        else:
+                            drefs.append(xref.to)
 
-    # Comments ---------------------------------------------------------------------------------------------------------
+        # for ref in idautils.DataRefsFrom(self.func_ea):
+        #     drefs.append(ref)
+        # for ref in idautils.DataRefsFrom(self.func_ea - 1):
+        #     drefs.append(ref)
+        return crefs, drefs
 
     def getComment(self):
         """

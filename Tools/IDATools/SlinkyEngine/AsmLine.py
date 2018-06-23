@@ -26,7 +26,7 @@ class AsmLine:
             self.hasLabel = True
             try:
                 self.isFunctionStart = Function.Function(self.ea).func_ea == ea
-            except Function.InvalidFunctionException:
+            except Function.FunctionException:
                 pass
 
         flags = idc.GetFlags(ea)

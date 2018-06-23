@@ -87,7 +87,7 @@ class BinarySearcher:
             except ValueError:
                 output = None
             return output
-        except Function.InvalidFunctionException:
+        except Function.FunctionException:
             return INVALID_FUNCTION
 
     def scan_for_known_functions(self):

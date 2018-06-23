@@ -5,7 +5,7 @@ import idc_bc695
 
 import Definitions
 from Definitions.Architecture import ROM_SEG
-from IDAItems.Function import Function, InvalidFunctionException, isFunction
+from IDAItems.Function import Function, FunctionException, isFunction
 
 
 # CONSTANTS ------------------------------------------------------------------------------------------------------------
@@ -62,6 +62,18 @@ class GameFile:
             used, and linearly swept to determine the boundaries of the file.
             Function heads, location heads that are not within a function, and data heads from minEA to maxEA
             must have a name that begins with 'Battle_', or this exception will be raised.
+        fromLocalName(search_ea, fileName)
+            This combines the best worlds of the Name and EA modes. A name does NOT have to be global to
+            the entire namespace. It only needs to be confined within a local region.
+            Given a search_ea >= start_ea, the name of items within that region, and the whole region
+            can be identified as a GameFile. Once the start_ea is identified, ea is advanced until a
+            fail condition defines the end of the file.
+            For example, if search_ea = 0, all names from address 0 will be searched until the naming
+            scheme matches. The first time it matches is start_ea, then from then, the first time a
+            non-match is detected, determines the end of the file.
+            :param ea: An effective address within the local name range
+            :param fileName: the name of the file that all items within
+            :raises InvalidGameFileException if the size of the resulting file is 0 (2 fail conditions at ea)
         """
         # Case: GameFile(start_ea, end_ea)
         if len(args) == 2 and (type(args[0]) == long and type(args[1]) == long or
@@ -89,7 +101,7 @@ class GameFile:
                         foundFirstName = True
                     # Even though we finished investigating, we found a name belonging to our file... Oops.
                     if foundFirstName and foundLastName:
-                        raise InvalidFunctionException("Name '%s' found after last file name @ 0x%08X: %s" % (name, self.end_ea, last_name))
+                        raise FunctionException("Name '%s' found after last file name @ 0x%08X: %s" % (name, self.end_ea, last_name))
                 # we have entered the filename field, yet it was not detected in Names...
                 elif foundFirstName and not foundLastName:
                     self.end_ea = prev_ea # The last input was valid! We're done! (Or so we hope)
@@ -111,7 +123,7 @@ class GameFile:
         try:
             func = Function(self.end_ea)
             self.end_ea += func.getSize()
-        except InvalidFunctionException as e:
+        except FunctionException as e:
             pass
         except Exception as e:
             # TODO: for whatever reason needed when e being InvalifFunctionException is not caught anyway
@@ -132,6 +144,11 @@ class GameFile:
     def fromName(cls, filename):
         # type: (str) -> GameFile
         return cls(filename)
+
+    @ classmethod
+    def fromLocalNsme(cls, ea, filename):
+        # type: (int, str) -> GameFile
+        return cls(ea, filename)
 
     def hasName(self):
         return self.mode & Mode.NAME != 0

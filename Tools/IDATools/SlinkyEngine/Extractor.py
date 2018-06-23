@@ -19,7 +19,7 @@ idaapi.require('SlinkyEngine.AsmLine')
 idaapi.require('SlinkyEngine.Dependency')
 
 from IDAItems.Function import Function
-from IDAItems.Function import InvalidFunctionException
+from IDAItems.Function import FunctionException
 from Definitions import Architecture
 from SlinkyEngine.AsmLine import AsmLine
 from SlinkyEngine.Dependency import Dependency, NoDependencyException

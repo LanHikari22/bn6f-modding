@@ -5,7 +5,7 @@ import idc_bc695
 
 import Definitions
 from Definitions.Architecture import ROM_SEG
-from IDAItems.Function import Function, InvalidFunctionException, isFunction
+from IDAItems.Function import Function, FunctionException, isFunction
 
 
 # CONSTANTS ------------------------------------------------------------------------------------------------------------
@@ -86,7 +86,7 @@ class GameFile:
                         foundFirstName = True
                     # Even though we finished investigating, we found a name belonging to our file... Oops.
                     if foundFirstName and foundLastName:
-                        raise InvalidFunctionException("Name '%s' found after last file name @ 0x%08X: %s" % (name, self.end_ea, last_name))
+                        raise FunctionException("Name '%s' found after last file name @ 0x%08X: %s" % (name, self.end_ea, last_name))
                 # we have entered the filename field, yet it was not detected in Names...
                 elif foundFirstName and not foundLastName:
                     self.end_ea = prev_ea # The last input was valid! We're done! (Or so we hope)
@@ -109,7 +109,7 @@ class GameFile:
             self.end_ea += func.getSize()
         except Exception:
             print("beep")
-        except InvalidFunctionException:
+        except FunctionException:
             pass
 
         # Cache list of names involved for further operation
