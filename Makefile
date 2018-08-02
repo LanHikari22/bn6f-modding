@@ -10,26 +10,40 @@ OBJCOPY = arm-none-eabi-objcopy
 SHA1SUM = sha1sum
 PY = py
 
+# libraries
+SYS_LIB_DIR1 = C:/devkitPro/devkitARM/arm-none-eabi/lib/
+SYS_LIB_DIR2 = C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/7.1.0/
+
+# Add system libraries and custom libraries to include here
+LIB_LINK_FLAG = -l
+SYS_LIBS = c gcc
+LIBS = $(addprefix $(LIB_LINK_FLAG), $(SYS_LIBS))
+
+
 # project paths
-SRCDIR = asm
+ASMDIR = asm
+SRCDIR = src
 BIN = bin
 CONST = constants
+STRUCTS = structs
 INC = inc
+INCLUDE = include
 
 # project files
-SFILES = $(SRCDIR)/_rom.s
-OFILES = $(addprefix $(OBJ),$(notdir $(SFILES:.s=.o)))
+CFILES = $(wildcard $(SRCDIR)/*.c)
+SFILES = $(ASMDIR)/_rom.s
+OFILES = $(addprefix $(OBJ),$(notdir $(SFILES:.s=.o))) $(addprefix $(OBJ),$(notdir $(CFILES:.c=.o)))
 ROM = bn6f
 
 # build flags
-COMPLIANCE_FLAGS = -O0 -g3 -I$(INC)
+COMPLIANCE_FLAGS = -O0 -g3 -I$(INC) -I$(INCLUDE) -I.
 WFLAGS =
 ARCH = -march=armv4t -mtune=arm7tdmi -mabi=aapcs -mthumb -mthumb-interwork
 CDEBUG =
 CFLAGS = $(ARCH) $(WFLAGS) $(COMPLIANCE_FLAGS) $(CDEBUG)
 ASFLAGS =
 LDFLAGS = -g -Map $(ROM).map
-LIB =
+LIB = -static -L $(SYS_LIB_DIR1) -L $(SYS_LIB_DIR2) $(LIBS)
 
 all:
 
@@ -37,7 +51,7 @@ rom: $(ROM)
 	@# TODO: this tab is needed or ROM is executed weirdly?? oops!
 
 $(ROM):
-	$(CC) $(CFLAGS) -c $(SFILES)
+	$(CC) $(CFLAGS) -c $(SFILES) $(CFILES)
 	$(LD) $(LDFLAGS) -o $(ROM).elf -T ld_script.x $(OFILES) $(LIB)
 	$(OBJCOPY) -O binary $(ROM).elf $(ROM).gba
 

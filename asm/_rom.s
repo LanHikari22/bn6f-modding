@@ -128,8 +128,11 @@ asm38:
 .include "asm/asm38.s"
 .incbin "bin/bin38.bin"
 
+// hook to include main.c into main_ in main.s
+.include "asm/mainHook.s"
+
 /**/
 // include parts of the ROM not disassembled yet
 // run 'make tail' if this label's location changes to re-compute bin/tail.bin
 tail:
-// .incbin "bin/tail.bin"
+.incbin "bin/tail.bin"

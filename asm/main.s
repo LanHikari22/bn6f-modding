@@ -1,6 +1,6 @@
 .include "main.inc"
 
-.func .thumb
+.thumb
 main_:
     bl main_static_80004A4
     bl sub_8001514
@@ -26,13 +26,22 @@ main_gameRoutine:
     add r1, #1
     strh r1, [r0]
     bl sub_8000E10
-    ldr r0, [pc, #0x8000348-0x800030e-2] // =main_jt_subsystem
-    mov r1, r10
-    ldr r1, [r1]
-    ldrb r1, [r1]
-    ldr r0, [r0,r1]
+
+// hook to main.c
+.extern mainHook
+    ldr r1, =mainHook+1
     mov lr, pc
-    bx r0
+    bx r1
+    b main_endHook
+    .pool
+main_endHook:
+    // ldr r0, [pc, #0x8000348-0x800030e-2] // =main_jt_subsystem
+    // mov r1, r10
+    // ldr r1, [r1]
+    // ldrb r1, [r1]
+    // ldr r0, [r0,r1]
+    // mov lr, pc
+    // bx r0
     bl sub_800154C
     bl zf_checkSameSubsystem_800A732
     beq loc_800032A
@@ -70,9 +79,9 @@ main_jt_subsystem:    .word Load_cb_802F544+1
     .word menuControl_cb_email+1
     .word cb_8049E04+1
     .byte 0, 0, 0, 0
-.endfunc // end of function main_
+// end of function main_
 
-.func .thumb
+.thumb
 main_static_awaitFrame_80003A0:
     push {lr}
 loc_80003A2:
@@ -96,9 +105,9 @@ loc_80003A6:
 off_80003C4:    .word dword_200A870
 off_80003C8:    .word dword_2009930
 off_80003CC:    .word GeneralLCDStatus_STAT_LYC_
-.endfunc // end of function main_static_awaitFrame_80003A0
+// end of function main_static_awaitFrame_80003A0
 
-.func .thumb
+.thumb
 main_static_await_80003D0:
     push {lr}
     ldr r0, [pc, #0x80003e0-0x80003d2-2] // =GeneralLCDStatus_STAT_LYC_
@@ -110,9 +119,9 @@ loc_80003D6:
     pop {pc}
     .byte 0, 0
 off_80003E0:    .word GeneralLCDStatus_STAT_LYC_
-.endfunc // end of function main_static_await_80003D0
+// end of function main_static_await_80003D0
 
-.func .thumb
+.thumb
 main_static_80003E4:
     mov r7, r10
     ldr r0, [r7,#4]
@@ -174,9 +183,9 @@ loc_8000438:
     .balign 4, 0x00
 off_800044C:    .word KeyStatus
 dword_8000450:    .word 0x3FF
-.endfunc // end of function main_static_80003E4
+// end of function main_static_80003E4
 
-.func .thumb
+.thumb
 main_static_8000454:
     push {r4-r7,lr}
     bl engine_isScreeneffectAnimating
@@ -215,9 +224,9 @@ loc_80004A0:
     strb r4, [r1]
 locret_80004A2:
     pop {r4-r7,pc}
-.endfunc // end of function main_static_8000454
+// end of function main_static_8000454
 
-.func .thumb
+.thumb
 main_static_80004A4:
     mov r0, #1
     b loc_80004AA
@@ -283,9 +292,9 @@ loc_80004C0:
 off_8000564:    .word 0x40
 off_8000568:    .word 0xC0
 off_800056C:    .word dword_2009930
-.endfunc // end of function main_static_80004A4
+// end of function main_static_80004A4
 
-.func .thumb
+.thumb
 main_static_8000570:
     push {lr}
     bl sub_814E8A0
@@ -298,9 +307,9 @@ main_static_8000570:
     ldrh r1, [r0]
     mov r2, #0xff
     and r1, r2
-    mov r2, #0x20 
+    mov r2, #0x20
     orr r1, r2
-    mov r2, #0x50 
+    mov r2, #0x50
     lsl r2, r2, #8
     orr r1, r2
     strh r1, [r0]
@@ -310,6 +319,6 @@ dword_800059C:    .word 0x93040D
 off_80005A0:    .word GeneralLCDStatus_STAT_LYC_
     .word dword_3000E70
 dword_80005A8:    .word 0x3005D79
-.endfunc // end of function main_static_8000570
+// end of function main_static_8000570
 
 /*For debugging purposes, connect comment at any range!*/
