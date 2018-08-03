@@ -8,9 +8,7 @@
 
 register void *r5 asm("r5");
 
-#define sBtlEnemyA ((Battle*)0x0203AA88)
-#define LZ77UnCompReadNormalWrite8bit ((void (*) (void *compressedData, void *dest)) (0x0814D8C4 +1))
-
+extern SWI_LZ77UnCompReadNormalWrite8bit(void *compressedData, void *dest)
 
 int onStart_executed;
 
