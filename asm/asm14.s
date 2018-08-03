@@ -33,7 +33,7 @@ sub_8071B50:
     ldr r0, [pc, #0x8071bb0-0x8071b92-2] // =off_8071BB4
     ldr r0, [r0,r1]
     bl sub_8002906
-    bl sub_803FD08
+    bl chatbox_uncomp_803FD08
     bl sub_8071CEE
     bl sub_8034FB8
     pop {r4-r7,pc}
@@ -384,7 +384,7 @@ sub_8072B70:
 loc_8072B88:
     lsl r4, r4, #1
     bl sub_800151C
-    ldr r1, [pc, #0x8072bb4-0x8072b8e-2] // =0x1F8
+    ldr r1, [pc, #0x8072bb4-0x8072b8e-2] // =0x1FF
     and r0, r1
     ldr r1, [pc, #0x8072bb8-0x8072b92-2] // =0x258
     add r0, r0, r1
