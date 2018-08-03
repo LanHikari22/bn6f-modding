@@ -7,7 +7,6 @@
 
 #define tg_max_str_len 255
 // #define chatbox_runScript ((void (*) (u16* scriptList, char halfwordOffset)) (0x08040384 +1))
-asm(".include inc/asm00.inc");
 extern void chatbox_runScript(u16* scriptList, char halfwordOffset);
 
 // This is an array specifying a conversion between ASCII and game text

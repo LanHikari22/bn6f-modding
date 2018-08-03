@@ -92,7 +92,11 @@ void onKeyPress()
  * Can also be triggered to execute using the cheatcode "SELECT SELECT SELECT R"
  */
 void RPress(){
-	dc_printChat((u16*)0x02500050, mugshot_shuko, "Andy! I ported my MMBN6\nC mod with the\ndisassembly!!"); // sets zennies to 0
+	// sets zennies to 0
+	// TODO: this is not an indicator of how many characters go per line.
+	// This isn't mono-space, but it's a good lower limit.
+	dc_printChat((u16*)0x02500050, mugshot_shuko,
+  "0123456789012345678901\n0123456789012345678901\n012345678901234567890");
 	// subsystem_launch_reqBBS(0x00);
 	// Sound_playBG(mo_ACDC_town);
 
@@ -103,6 +107,6 @@ void RPress(){
 
 
 	//
-	// LZ77UnCompReadNormalWrite8bit(0x0809836B, 0x02050010);
+	// SWI_LZ77UnCompReadNormalWrite8bit(0x0809836B, 0x02050010);
 
 }
