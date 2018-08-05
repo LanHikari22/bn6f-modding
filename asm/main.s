@@ -36,7 +36,7 @@ main_gameRoutine:
     b main_endHook
     .pool
 main_endHook:
-    // ldr r0, [pc, #0x8000348-0x800030e-2] // =main_jt_subsystem
+    // ldr r0, off_8000348 // =main_jt_subsystem 
     // mov r1, r10
     // ldr r1, [r1]
     // ldrb r1, [r1]

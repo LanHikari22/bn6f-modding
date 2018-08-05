@@ -95,8 +95,10 @@ void RPress(){
 	// sets zennies to 0
 	// TODO: this is not an indicator of how many characters go per line.
 	// This isn't mono-space, but it's a good lower limit.
-	dc_printChat((u16*)0x02500050, mugshot_shuko,
-  "0123456789012345678901\n0123456789012345678901\n012345678901234567890");
+	// dc_printChat((u16*)0x02500050, mugshot_shuko,
+  // "0123456789012345678901\n0123456789012345678901\n012345678901234567890");
+	extern void sub_813C030();
+	dc_printChat((u16*)0x02500050, mugshot_shuko, "Debugger Shuko, at your\nservice!");
 	// subsystem_launch_reqBBS(0x00);
 	// Sound_playBG(mo_ACDC_town);
 
