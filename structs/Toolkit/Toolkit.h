@@ -39,54 +39,80 @@ typedef struct{
 	// 02009980
 	Camera *camera;                // loc=0xC
 	// 02011C50
-	s_02011C50 *unk_10;                // loc=0x10
+	s_02011C50 *unk_2011C50;                // loc=0x10
 	// 02011BB0
 	void *unk_14;                // loc=0x14
 	// 02034880
-	s_02034880 *unk_18;                // loc=0x18
+	s_02034880 *unk_2034880;     // loc=0x18
 	// 0200F3A0
-	void *unk_1C;                // loc=0x1C
+	void *unk_200F3A0;                // loc=0x1C
 	// 02009740
-	void *unk_20;                // loc=0x20
+	void *unk_2009740;                // loc=0x20
 	// 0200A210
 	u16 *currFrame;                // loc=0x24
-	void *gfx_28;                // loc=0x28
+	// 030025C0
+	void *gfx_30025C0;                // loc=0x28
+	// 02009CD0
 	ChatBoxPropreties *chatbox;  // loc=0x2C
-	void *unk_30;                // loc=0x30
+	// 020384F0
+	void *unk_20384F0;                // loc=0x30
 	// 02009A30
 	MenuControl *submenu;                // loc=0x34
-	void *unk_38;                // loc=0x38
+	// 0200A220
+	void *unk_200A220;                // loc=0x38
+	// 02001B80
 	GameState *gamestate;          // loc=0x3C
-	void *unk_40;                // loc=0x40
+	// 02001C04
+	void *unk_2001C04;                // loc=0x40
 	/*
 	bot dog disappeared while zeroing this
 	*/
-	void *unk_44;                // loc=0x44
+	// 02001C88
+	void *unk_2001C88;                // loc=0x44
 	/*
 	Involved w/ chip data. When changed, and modifying folder,
 	It says you have damaged chip data and freezes...
 	*/
-	void *sChip_48;                // loc=0x48
-	void *unk_4C;                // loc=0x4C
-	void *unk_50;                // loc=0x50
-	void *unk_54;                // loc=0x54
-	void *unk_58;                // loc=0x58
-	void *unk_5C;                // loc=0x5C
-	void *unk_60;                // loc=0x60
-	void *unk_64;                // loc=0x64
-	void *unk_68;                // loc=0x68
-	void *unk_6C;                // loc=0x6C
-	void *unk_70;                // loc=0x70
-	void *unk_74;                // loc=0x74
-	void *unk_78;                // loc=0x78
-	void *unk_7C;                // loc=0x7C
-	void *unk_80;                // loc=0x80
+	// 02002178
+	void *sChip_2002178;         // loc=0x48
+	// 02002230
+	void *unk_2002230;           // loc=0x4C
+	// 02003134
+	void *unk_2003134;                // loc=0x50
+	// 020032C8
+	void *unk_20032C8;                // loc=0x54
+	// 0200414C
+	void *unk_200414C;                // loc=0x58
+	// 02004190
+	void *unk_2004190;                // loc=0x5C
+	// 0200431C
+	void *unk_200431C;                // loc=0x60
+	// 02004330
+	void *unk_2004330;                // loc=0x64
+	// 02004334
+	void *unk_2004334;                // loc=0x68
+	// 02004338
+	void *unk_2004338;                // loc=0x6C
+	// 02004348
+	void *unk_2004348;                // loc=0x70
+	// 020047CC
+	void *unk_20047CC;                // loc=0x74
+	// 02004A8C
+	void *unk_2004A8C;                // loc=0x78
+	// 02004C20
+	void *unk_2004C20;                // loc=0x7C
+	// 02004E24
+	void *unk_2004E24;                // loc=0x80
 	/*
 	First Word of this is Protected Zennies. change it, and your money is gone.
 	*/
-	void *unk_84;                // loc=0x84
-	void *unk_88;                // loc=0x88
-	void *unk_8C;                // loc=0x8C
+	// 02005028
+	void *unk_2005028;                // loc=0x84
+	// 02005030
+	void *unk_2005030;                // loc=0x88
+	// 02005038
+	void *unk_2005038;                // loc=0x8C
+	// 4F4DD170
 	u32 unk_90;             // loc=0x90
 	// size=0x94
 }Toolkit;
