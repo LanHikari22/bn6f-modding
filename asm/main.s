@@ -36,7 +36,7 @@ main_gameRoutine:
     b main_endHook
     .pool
 main_endHook:
-    // ldr r0, off_8000348 // =main_jt_subsystem 
+    // ldr r0, off_8000348 // =main_jt_subsystem
     // mov r1, r10
     // ldr r1, [r1]
     // ldrb r1, [r1]
@@ -50,13 +50,8 @@ main_endHook:
 loc_800032A:
     bl chatbox_main_onUpdate // () -> void
     bl cb_call_200A880
-<<<<<<< HEAD
-    bl PET_onUpdate_8001B94
-    ldr r0, off_8000344 // =loc_3006814+1
-=======
     bl PET_main_onUpdate
-    ldr r0, off_8000344 // =loc_3006814+1 
->>>>>>> ae403ab9d41e493af0b9223f329b453b298a44c3
+    ldr r0, off_8000344 // =loc_3006814+1
     mov lr, pc
     bx r0
     bl main_static_8000454
@@ -230,14 +225,14 @@ main_static_8000454:
     .byte 0xF0
     .byte 6
     .byte 0xF8
-    .byte 0x3F 
+    .byte 0x3F
     .byte 0xF0
     .byte 0x16
     .byte 0xF8
     .byte 2
     .byte 0xBC
     .byte 0xA
-    .byte 0x24 
+    .byte 0x24
 loc_80004A0:
     strb r4, [r1]
 locret_80004A2:
