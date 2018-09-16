@@ -6,8 +6,7 @@
 #include "main.h"
 
 #define tg_max_str_len 255
-// #define chatbox_runScript ((void (*) (u16* scriptList, char halfwordOffset)) (0x08040384 +1))
-extern void chatbox_runScript(u16* scriptList, char halfwordOffset);
+extern void chatbox_runScript(u16*, u8);
 
 // This is an array specifying a conversion between ASCII and game text
 static const char tg_ascii2GameText[128] =

@@ -25,7 +25,7 @@ sub_801FE00:
 .thumb_func
 sub_801FE24:
     push {r4,lr}
-    bl sub_802D246
+    bl get_802D246 // () -> int
     mov r1, #8
     tst r0, r1
     bne loc_801FE4A
@@ -81,16 +81,18 @@ sub_801FE6C:
     ldrb r0, [r4]
     tst r0, r0
     beq loc_801FED2
+    // entryIdx
     mov r0, #0x17
+    // byteFlagIdx
     mov r1, #0x2d 
-    bl sub_802F164 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
     beq loc_801FEB6
     strb r6, [r4,#0x1] // (dword_203F7D8+1 - 0x203f7d8)
     ldrb r0, [r4,#0x1] // (dword_203F7D8+1 - 0x203f7d8)
     cmp r0, #2
     bne locret_801FEE6
     push {r5}
-    bl sub_802D246
+    bl get_802D246 // () -> int
     mov r1, #8
     tst r0, r1
     pop {r5}
@@ -109,7 +111,7 @@ loc_801FEB0:
     b locret_801FEE6
 loc_801FEB6:
     push {r5}
-    bl sub_802D246
+    bl get_802D246 // () -> int
     mov r1, #8
     tst r0, r1
     pop {r5}
@@ -121,21 +123,15 @@ loc_801FECC:
     strb r6, [r4,#0x1] // (dword_203F7D8+1 - 0x203f7d8)
     ldrb r0, [r4,#0x1] // (dword_203F7D8+1 - 0x203f7d8)
     b locret_801FEE6
-    // src
 loc_801FED2:
     ldr r0, off_80200DC // =word_2036780 
-    // dest
     ldr r1, off_80200E0 // =unk_20399F0 
-    // mode
     mov r2, #0x10
-    bl CpuSet_800093C // (void *src, void *dest, int mode) -> void
-    // src
+    bl CpuSet_copyWords // (u32 *src, u32 *dest, int size) -> void
     ldr r0, off_80200E4 // =word_2036780 
-    // dest
     ldr r1, off_80200E8 // =unk_2039A00 
-    // mode
     mov r2, #0x10
-    bl CpuSet_800093C // (void *src, void *dest, int mode) -> void
+    bl CpuSet_copyWords // (u32 *src, u32 *dest, int size) -> void
 locret_801FEE6:
     pop {r4,r6,pc}
 .endfunc // sub_801FE6C
@@ -148,9 +144,7 @@ sub_801FEE8:
     mov pc, lr
 .endfunc // sub_801FEE8
 
-.func
-.thumb_func
-sub_801FEEE:
+loc_801FEEE:
     push {r4-r7,lr}
     add r7, r0, #0
     bl sub_803EA60
@@ -166,8 +160,6 @@ off_801FF08:    .word sub_801FF18+1
     .word sub_801FFD6+1
     .word sub_801FFD6+1
     .word sub_801FF18+1
-.endfunc // sub_801FEEE
-
 .func
 .thumb_func
 sub_801FF18:
@@ -432,9 +424,9 @@ sub_8020134:
     push {lr}
     // memBlock
     ldr r0, off_8020164 // =unk_2038160 
-    // numWords
+    // size
     mov r1, #4
-    bl CpuSet_ZeroFillWord // (void *memBlock, unsigned int numWords) -> void
+    bl CpuSet_ZeroFillWord // (void *memBlock, int size) -> void
     pop {pc}
 .endfunc // sub_8020134
 

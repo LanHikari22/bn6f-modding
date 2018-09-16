@@ -5,6 +5,16 @@
 
 
 /* External Symbols */
+.include "asm00_0.inc"
+// .global sub_8002354
+
+.include "sprite.inc"
+// .global sub_80028D4
+// .global sub_8002906
+
+.include "asm00_1.inc"
+// .global sub_8003570
+
 .include "asm03_0.inc"
 // .global sub_802FF4C
 // .global sub_803037C
@@ -13,12 +23,6 @@
 
 .include "chatbox.inc"
 // .global chatbox_uncomp_803FD08 // () -> int
-
-.include "asm00.inc"
-// .global sub_8002354
-// .global sub_80028D4
-// .global sub_8002906
-// .global loc_8003570
 
 
 /* Undeclared Symbols */
@@ -29,7 +33,7 @@
 .equ dword_805DE2C, 0x805DE2C
 .equ dword_805DE2C, 0x805DE2C
 .equ dword_805DE2C, 0x805DE2C
-.equ dword_805E01C, 0x805E01C
+// .global dword_805E01C
 .equ dword_805E084, 0x805E084
 .equ dword_805E09C, 0x805E09C
 .equ dword_805E118, 0x805E118

@@ -5,19 +5,21 @@
 
 
 /* External Symbols */
-.include "reqBBS.inc"
-// .global reqBBS_81409F4
+.include "asm00_0.inc"
+// .global sub_800060A
+
+.include "asm00_1.inc"
+// .global sub_80047E0
 
 .include "asm03_0.inc"
-// .global sub_802F110
-// .global sub_802F12C // (int a1, int a2) -> void
-// .global sub_802F164 // (int a1, int a2) -> zf
-// .global zf_802F168
-// .global sub_8036E90
+// .global setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+// .global clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+// .global isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
+// .global isActiveFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> zf
+// .global init_s_02011C50_8036E90
 
-.include "asm00.inc"
-// .global sub_800060A
-// .global sub_80047E0
+.include "reqBBS.inc"
+// .global reqBBS_81409F4
 
 
 /* Undeclared Symbols */
@@ -32,6 +34,6 @@
 .equ dword_8086A54, 0x8086A54
 .equ dword_8086D5C, 0x8086D5C
 .equ unk_8086D74, 0x8086D74
-.equ dword_80871D8, 0x80871D8
+// .global dword_80871D8
 
 .endif // INC_ASM22

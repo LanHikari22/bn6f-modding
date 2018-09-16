@@ -11,16 +11,16 @@
 .global reqBBS_813F9A0
 .global reqBBS_initMemory_813F9DA
 .global reqBBS_81406FC
-.global reqBBS_getTotalPointsIndex
+.global reqBBS_getTotalPointsIndex // () -> u8
 .global reqBBS_81407D8
 .global reqBBS_81408B4
 .global reqBBS_8140974
 .global reqBBS_8140984
-.global reqBBS_81409D0
+.global reqBBS_81409D0 // (int a1) -> int
 .global reqBBS_81409E4
 .global reqBBS_81409F4
-.global reqBBS_8140A00
-.global reqBBS_8140A0C
+.global reqBBS_setFlag_e17b0f7_8140A00
+.global reqBBS_clearFlag_8140A0C
 .global reqBBS_runDialog_8140A70
 .global dword_8140C60
 .global dword_8140C68
@@ -45,25 +45,15 @@
 
 
 /* External Symbols */
-.include "asm32.inc"
-// .global sub_811F7F8
-// .global sub_811FA98
-
-.include "asm37_1.inc"
-// .global SWI_LZ77UnCompReadNormalWrite8bit // (void *src, void *dest) -> void
-
-.include "asm28.inc"
-// .global sub_809E122
-
-.include "asm00.inc"
-// .global sound_play
+.include "asm00_0.inc"
+// .global sound_play // () -> void
 // .global sub_80008C0
-// .global CpuSet_ZeroFillWord // (void *memBlock, unsigned int numWords) -> void
-// .global initMemToByte // (void *mem, int size, u8 byte) -> void
+// .global CpuSet_ZeroFillWord // (void *memBlock, int size) -> void
+// .global initMemblockToByte // (u8 *mem, int byteCount, u8 byte) -> void
 // .global loc_8000AC8
-// .global sub_8000B30
-// .global getPETNaviSelect
-// .global sub_800151C
+// .global decompAndCopyData_8000B30 // (u32 *initRefs) -> void
+// .global getPETNaviSelect // () -> u8
+// .global change_20013F0_800151C // () -> int
 // .global sub_80015FC
 // .global sub_8001778
 // .global sub_8001788
@@ -71,45 +61,57 @@
 // .global sub_80017AA
 // .global sub_80017E0
 // .global sub_800183C
-// .global drawTiles // (int a1, int a2, int a3) -> void
+// .global copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
 // .global sub_80018D0
+
+.include "asm00_1.inc"
 // .global sub_8002FA6
 // .global sub_8005F84
-// .global engine_setScreeneffect
-// .global engine_isScreeneffectAnimating
-
-.include "asm37_0.inc"
-// .global unk_813DBDC
-// .global unk_813DBE4
-// .global unk_813DEC4
-// .global dword_813DF44
-// .global off_813DF74
-// .global dword_813DF7C
+// .global engine_setScreeneffect // (int a1, int a2) -> void
+// .global engine_isScreeneffectAnimating // () -> zf
 
 .include "asm03_0.inc"
-// .global sub_802F110
-// .global sub_802F114 // (int a1) -> void
-// .global sub_802F12C // (int a1, int a2) -> void
-// .global loc_802F130
-// .global sub_802F164 // (int a1, int a2) -> zf
-// .global zf_802F168
-// .global sub_802F17E // (int a1, int a2) -> void
+// .global setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+// .global setFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> void
+// .global clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+// .global clearFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> void
+// .global isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
+// .global isActiveFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> zf
+// .global setFlags_multEntries_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx, int numEntries) -> void
 // .global sub_802FE28
 // .global sub_8031A7A
 
 .include "chatbox.inc"
-// .global chatbox_runScript // (u16 *scriptArr, u8 scriptID) -> void
-// .global chatbox_runScript_reqBBS // (u16 *scriptArr, u8 scriptID) -> void
-// .global chatbox_8040818 // () -> void
-// .global chatbox_maskBits_2009F38 // (int mask) -> void
+// .global chatbox_runScript // (u16 *scriptList, u8 scriptOffIdx) -> void
+// .global chatbox_reqBBS_80404C0
+// .global chatbox_8040818
+// .global chatbox_8045F3C
 
 .include "asm03_1.inc"
 // .global render_graphicalText_8045F8C
 // .global sub_8045FC6
-// .global sub_80465A0
+// .global sub_80465A0 // (void *a1) -> void
 // .global sub_80465BC
-// .global sub_80465F8
-// .global sub_8046664
+// .global sub_80465F8 // () -> void
+// .global sub_8046664 // () -> void
+
+.include "asm28_0.inc"
+// .global sub_809E122
+
+.include "asm32.inc"
+// .global sub_811F7F8
+// .global sub_811FA98
+
+.include "asm37_0.inc"
+// .global unk_813DBDC
+// .global tileRefs_813DBE4
+// .global unk_813DEC4
+// .global tileRefs_813DF44
+// .global off_813DF74
+// .global dword_813DF7C
+
+.include "asm37_1.inc"
+// .global SWI_LZ77UnCompReadNormalWrite8bit // (void *src, void *dest) -> void
 
 
 /* Undeclared Symbols */
@@ -130,7 +132,7 @@
 .equ reqBBS_numRequestsSent, 0x20065B0
 .equ byte_2008450, 0x2008450
 .equ sChatbox, 0x2009CD0
-.equ word_2013A00, 0x2013A00
+.equ decomp_2013A00, 0x2013A00
 .equ unk_2018200, 0x2018200
 .equ reqBBS_tile_data, 0x2018204
 .equ unk_2018A00, 0x2018A00
@@ -172,6 +174,6 @@
 .equ dword_87EF5A4, 0x87EF5A4
 .equ dword_87EFBA4, 0x87EFBA4
 .equ reqBBS_textualShades, 0x87EFBC8
-.equ dword_87EFE14, 0x87EFE14
+.equ unk_87EFE14, 0x87EFE14
 
 .endif // INC_REQBBS

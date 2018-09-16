@@ -132,7 +132,7 @@
 .global sub_8149644
 .global sub_8149718
 .global sub_814A828
-.global SWI_CpuFastSet // (void *src, void *dest, int mode) -> void
+.global SWI_CpuFastSet // (u32 *src, u32 *dest, int mode) -> void
 .global SWI_CpuSet // (void *src, void *dest, int mode) -> void
 .global SWI_Div
 .global SWI_LZ77UnCompReadNormalWrite16bit
@@ -141,6 +141,7 @@
 .global sub_814D8F0
 .global sub_814D954
 .global sub_814D9C4
+.global sub_814DA9C
 .global loc_814E0DE
 .global sub_814E8A0
 .global sub_814E918
@@ -150,40 +151,71 @@
 
 
 /* External Symbols */
-.include "asm32.inc"
-// .global sub_811E0BA
-// .global sub_811E744
-// .global sub_811EBE0
+.include "asm00_0.inc"
+// .global sound_play // () -> void
+// .global CpuSet_ZeroFillWord // (void *memBlock, int size) -> void
+// .global CpuSet_copyWords // (u32 *src, u32 *dest, int size) -> void
+// .global initMemblockToByte // (u8 *mem, int byteCount, u8 byte) -> void
+// .global loc_8000AC8
+// .global sub_8000E3A
+// .global getPETNaviSelect // () -> u8
+// .global sub_80010D4
+// .global sub_80010EC
+// .global calcAngle_800117C
+// .global sub_80014D4
+// .global change_20013F0_800151C // () -> int
+
+.include "asm00_1.inc"
+// .global sub_8003A64
+// .global sub_8004822
+// .global engine_isScreeneffectAnimating // () -> zf
+
+.include "asm03_0.inc"
+// .global sub_802D064
+// .global setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+// .global setFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> void
+// .global clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+// .global clearFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> void
+// .global isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
+// .global isActiveFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> zf
+// .global clearFlags_multEntries_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx, int numEntries) -> void
+// .global clearFlags_multEntries_2001C88_bitfield // (u16 entryFlagBitfield) -> void
+// .global sub_80302A8
+// .global sub_80307D8
+// .global sub_8030A60
+// .global init_s_02011C50_8036E90
+// .global s_2011C50_ptr_1C_isNull // () -> zf
+// .global sub_803C514
+// .global sub_803DE88
+// .global sub_803ECFC
+// .global sub_803F030
+// .global sub_803F05C
+// .global sub_803F334
+// .global sub_803F618
+
+.include "chatbox.inc"
+// .global chatbox_8045F3C
+
+.include "asm03_1.inc"
+// .global sub_8046818
+// .global sub_8046854
+// .global sub_80468BA
+// .global sub_80468C6
+// .global sub_804691A
 
 .include "asm24.inc"
 // .global dword_808BF48
 // .global dword_808BF48
 
-.include "reqBBS.inc"
-// .global reqBBS_8140A00
-// .global reqBBS_8140A0C
-
-.include "asm28.inc"
+.include "asm28_0.inc"
 // .global sub_809E1AE
 // .global sub_809E2B8
 // .global sub_809E462
 
-.include "asm00.inc"
-// .global sound_play
-// .global CpuSet_ZeroFillWord // (void *memBlock, unsigned int numWords) -> void
-// .global CpuSet_800093C // (void *src, void *dest, int mode) -> void
-// .global initMemToByte // (void *mem, int size, u8 byte) -> void
-// .global loc_8000AC8
-// .global sub_8000E3A
-// .global getPETNaviSelect
-// .global sub_80010D4
-// .global sub_80010EC
-// .global calcAngle_800117C
-// .global sub_80014D4
-// .global sub_800151C
-// .global sub_8003A64
-// .global sub_8004822
-// .global engine_isScreeneffectAnimating
+.include "asm32.inc"
+// .global sub_811E0BA
+// .global sub_811E744
+// .global sub_811EBE0
 
 .include "asm37_0.inc"
 // .global sub_813D760
@@ -198,38 +230,9 @@
 // .global sub_813D978
 // .global sub_813D98C
 
-.include "asm03_0.inc"
-// .global sub_802D064
-// .global sub_802F110
-// .global sub_802F114 // (int a1) -> void
-// .global sub_802F12C // (int a1, int a2) -> void
-// .global loc_802F130
-// .global sub_802F164 // (int a1, int a2) -> zf
-// .global zf_802F168
-// .global sub_802F1A8 // (int a3, int a2) -> void
-// .global loc_802F1AC
-// .global sub_80302A8
-// .global sub_80307D8
-// .global sub_8030A60
-// .global sub_8036E90
-// .global sub_8036F36
-// .global sub_803C514
-// .global sub_803DE88
-// .global sub_803ECFC
-// .global sub_803F030
-// .global sub_803F05C
-// .global sub_803F334
-// .global sub_803F618
-
-.include "chatbox.inc"
-// .global chatbox_maskBits_2009F38 // (int mask) -> void
-
-.include "asm03_1.inc"
-// .global sub_8046818
-// .global sub_8046854
-// .global sub_80468BA
-// .global sub_80468C6
-// .global sub_804691A
+.include "reqBBS.inc"
+// .global reqBBS_setFlag_e17b0f7_8140A00
+// .global reqBBS_clearFlag_8140A0C
 
 
 /* Undeclared Symbols */
@@ -521,7 +524,7 @@
 .equ InterruptRequestFlags_IRQAcknowledge, 0x4000202
 .equ GamePakWaitstateControl, 0x4000204
 .equ InterruptMasterEnableRegister, 0x4000208
-.equ dword_8072BCC, 0x8072BCC
+// .global dword_8072BCC
 .equ dword_8073610, 0x8073610
 .equ dword_808A128, 0x808A128
 .equ dword_814FE90, 0x814FE90

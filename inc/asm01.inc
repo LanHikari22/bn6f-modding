@@ -8,7 +8,7 @@
 .global sub_801FE64
 .global sub_801FE6C
 .global sub_801FEE8
-.global sub_801FEEE
+.global loc_801FEEE
 .global sub_80200A4
 .global sub_8020134
 .global sub_8020140
@@ -29,13 +29,17 @@
 
 
 /* External Symbols */
-.include "asm37_0.inc"
-// .global sub_813D60C
-// .global sub_813D66C
+.include "asm00_0.inc"
+// .global CpuSet_ZeroFillWord // (void *memBlock, int size) -> void
+// .global CpuFastSet_8000900 // (int a1, int a2) -> void
+// .global CpuSet_copyWords // (u32 *src, u32 *dest, int size) -> void
+
+.include "asm00_1.inc"
+// .global sub_800A0D6
 
 .include "asm03_0.inc"
-// .global sub_802D246
-// .global sub_802F164 // (int a1, int a2) -> zf
+// .global get_802D246 // () -> int
+// .global isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
 // .global sub_803C620
 // .global sub_803DCE8
 // .global sub_803DE88
@@ -45,14 +49,12 @@
 // .global sub_803F524
 // .global sub_803F740
 
+.include "asm37_0.inc"
+// .global sub_813D60C
+// .global sub_813D66C
+
 .include "asm37_1.inc"
 // .global sub_8144D04
-
-.include "asm00.inc"
-// .global CpuSet_ZeroFillWord // (void *memBlock, unsigned int numWords) -> void
-// .global CpuFastSet_8000900 // (int a1, int a2) -> void
-// .global CpuSet_800093C // (void *src, void *dest, int mode) -> void
-// .global sub_800A0D6
 
 
 /* Undeclared Symbols */
@@ -87,7 +89,7 @@
 .equ dword_203F7D8, 0x203F7D8
 .equ dword_203F7D8, 0x203F7D8
 .equ dword_203F7D8, 0x203F7D8
-.equ off_80B1B7C, 0x80B1B7C
+// .global off_80B1B7C
 .equ off_80B1ED8, 0x80B1ED8
 .equ off_80B23C8, 0x80B23C8
 .equ off_80B29CC, 0x80B29CC

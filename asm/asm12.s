@@ -153,10 +153,10 @@ loc_806DC0C:
     push {r0,r1}
     mov r0, #0
     mov r1, #0x8e
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     mov r0, #0
     mov r1, #0x8f
-    bl sub_802F12C // (int a1, int a2) -> void
+    bl clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     pop {r0,r1}
     mov r5, r10
     ldr r5, [r5,#0x3c]
@@ -198,10 +198,12 @@ sub_806DC7A:
 loc_806DC86:
     mov r0, #0
     mov r1, #0x8e
-    bl sub_802F12C // (int a1, int a2) -> void
+    bl clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+    // entryIdx
     mov r0, #0
+    // byteFlagIdx
     mov r1, #0x8f
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     pop {pc}
 .endfunc // sub_806DC7A
 
@@ -217,10 +219,12 @@ sub_806DC98:
 loc_806DCA4:
     mov r0, #0
     mov r1, #0x8e
-    bl sub_802F12C // (int a1, int a2) -> void
+    bl clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+    // entryIdx
     mov r0, #0
+    // byteFlagIdx
     mov r1, #0x8f
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     pop {pc}
 .endfunc // sub_806DC98
 
@@ -236,10 +240,12 @@ sub_806DCB6:
 loc_806DCC2:
     mov r0, #0
     mov r1, #0x8e
-    bl sub_802F12C // (int a1, int a2) -> void
+    bl clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+    // entryIdx
     mov r0, #0
+    // byteFlagIdx
     mov r1, #0x8f
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     pop {pc}
 .endfunc // sub_806DCB6
 
@@ -253,7 +259,7 @@ sub_806DCD4:
     lsl r0, r0, #2
     ldr r1, off_806DCE8 // =pt_806DCEC 
     ldr r0, [r1,r0]
-    bl loc_8003570
+    bl sub_8003570
     pop {pc}
 off_806DCE8:    .word pt_806DCEC
     // <endpool> <endfile>

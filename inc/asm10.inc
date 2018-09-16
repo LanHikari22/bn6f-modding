@@ -6,7 +6,16 @@
 .global dword_80665AC
 .global off_80665B4
 .global off_80665BC
+.global off_8067754
 .global off_8067914
+.global off_8067944
+.global off_80679A4
+.global off_80679D4
+.global off_8067A14
+.global off_8067A44
+.global off_8067A6C
+.global off_8067A9C
+.global off_8067ACC
 .global off_8067DC8
 .global dword_8067DD4
 .global off_8067DE0
@@ -14,6 +23,22 @@
 
 
 /* External Symbols */
+.include "asm00_0.inc"
+// .global sub_8001778
+// .global sub_8001780
+// .global sub_800195C
+// .global loc_80019FE
+// .global loc_8001A6A
+// .global locret_8001AB4
+// .global sub_8002354
+
+.include "sprite.inc"
+// .global sub_80028D4
+// .global sub_8002906
+
+.include "asm00_1.inc"
+// .global sub_8003570
+
 .include "asm03_0.inc"
 // .global sub_802FF4C
 // .global sub_803037C
@@ -24,18 +49,6 @@
 
 .include "chatbox.inc"
 // .global chatbox_uncomp_803FD08 // () -> int
-
-.include "asm00.inc"
-// .global sub_8001778
-// .global sub_8001780
-// .global sub_800195C
-// .global loc_80019FE
-// .global loc_8001A6A
-// .global locret_8001AB4
-// .global sub_8002354
-// .global sub_80028D4
-// .global sub_8002906
-// .global loc_8003570
 
 
 /* Undeclared Symbols */
@@ -53,7 +66,7 @@
 .equ dword_8066220, 0x8066220
 .equ dword_8066220, 0x8066220
 .equ dword_8066220, 0x8066220
-.equ dword_8067DF8, 0x8067DF8
+// .global dword_8067DF8
 .equ dword_8067E08, 0x8067E08
 .equ dword_8067E18, 0x8067E18
 .equ dword_8067E2C, 0x8067E2C

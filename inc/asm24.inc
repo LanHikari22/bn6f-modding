@@ -5,39 +5,44 @@
 
 
 /* External Symbols */
-.include "asm32.inc"
-// .global sub_811EBE0
+.include "asm00_0.inc"
+// .global sound_play // () -> void
+// .global sound_8000672
+// .global CpuSet_ZeroFillWord // (void *memBlock, int size) -> void
+// .global sub_8001172
+// .global change_20013F0_800151C // () -> int
 
-.include "asm28.inc"
+.include "asm00_1.inc"
+// .global sub_80047E0
+// .global sub_8005D88
+
+.include "asm03_0.inc"
+// .global setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+// .global setFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> void
+// .global clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+// .global isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
+// .global isActiveFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> zf
+// .global clearFlags_multEntries_2001C88_bitfield // (u16 entryFlagBitfield) -> void
+// .global loc_802F200
+// .global sub_80302A8
+// .global init_s_02011C50_8036E90
+
+.include "asm03_1.inc"
+// .global sub_8048F88
+
+.include "asm28_0.inc"
 // .global sub_809E13C
 // .global sub_809E188
 // .global sub_809E1AE
 // .global sub_809E2AE
 // .global sub_809E2B8
 
-.include "asm00.inc"
-// .global sound_play
-// .global sound_8000672
-// .global CpuSet_ZeroFillWord // (void *memBlock, unsigned int numWords) -> void
-// .global sub_8001172
-// .global sub_800151C
-// .global sub_80047E0
-// .global sub_8005D88
+.include "asm32.inc"
+// .global sub_811EBE0
 
 .include "reqBBS.inc"
 // .global reqBBS_81409E4
-// .global reqBBS_8140A00
-
-.include "asm03_0.inc"
-// .global sub_802F110
-// .global sub_802F114 // (int a1) -> void
-// .global sub_802F12C // (int a1, int a2) -> void
-// .global sub_802F164 // (int a1, int a2) -> zf
-// .global zf_802F168
-// .global loc_802F1AC
-// .global loc_802F200
-// .global sub_80302A8
-// .global sub_8036E90
+// .global reqBBS_setFlag_e17b0f7_8140A00
 
 .include "asm37_1.inc"
 // .global sub_8142C94
@@ -45,9 +50,6 @@
 // .global sub_8142CC8
 // .global sub_8142D4C
 // .global sub_8143294
-
-.include "asm03_1.inc"
-// .global sub_8048F88
 
 
 /* Undeclared Symbols */

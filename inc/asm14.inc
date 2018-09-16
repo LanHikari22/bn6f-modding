@@ -9,6 +9,23 @@
 
 
 /* External Symbols */
+.include "asm00_0.inc"
+// .global sound_play // () -> void
+// .global change_20013F0_800151C // () -> int
+// .global sub_8001778
+// .global sub_8001780
+// .global sub_800195C
+// .global loc_80019D0
+// .global locret_8001AB4
+// .global sub_8002354
+
+.include "sprite.inc"
+// .global sub_80028D4
+// .global sub_8002906
+
+.include "asm00_1.inc"
+// .global sub_8003570
+
 .include "asm03_0.inc"
 // .global sub_802FF4C
 // .global sub_80302C0
@@ -21,19 +38,6 @@
 
 .include "chatbox.inc"
 // .global chatbox_uncomp_803FD08 // () -> int
-
-.include "asm00.inc"
-// .global sound_play
-// .global sub_800151C
-// .global sub_8001778
-// .global sub_8001780
-// .global sub_800195C
-// .global loc_80019D0
-// .global locret_8001AB4
-// .global sub_8002354
-// .global sub_80028D4
-// .global sub_8002906
-// .global loc_8003570
 
 
 /* Undeclared Symbols */

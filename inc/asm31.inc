@@ -120,77 +120,11 @@
 // .global dword_8000004
 // .global dword_80001F4
 
-.include "asm02.inc"
-// .global refIndex_8021DA8 // (int idx) -> void*
-
-.include "asm21.inc"
-// .global aSa
-
-.include "asm32.inc"
-// .global dword_810DD10
-// .global dword_810DD10
-// .global sub_810E2A6
-// .global sub_810E336
-// .global sub_810E340
-// .global dword_810E3E8
-// .global dword_810E3E8
-// .global sub_810E854
-// .global dword_810EC80
-// .global dword_810EC80
-// .global sub_810F090
-// .global dword_810F200
-// .global dword_810F200
-// .global dword_810F22C
-// .global dword_810F22C
-// .global sub_810FA4C
-// .global sub_81100E2
-// .global dword_811028C
-// .global dword_811028C
-// .global sub_811060A
-// .global dword_8110610
-// .global dword_8110610
-// .global dword_8111130
-// .global dword_8111130
-// .global sub_8111846
-// .global dword_811190C
-// .global dword_811190C
-// .global dword_8111FF8
-// .global dword_8111FF8
-// .global dword_81126DC
-// .global dword_81126DC
-// .global sub_81129EE
-// .global dword_8112B94
-// .global dword_8112B94
-// .global dword_8112F2C
-// .global dword_8112F2C
-// .global dword_8113754
-// .global dword_8113754
-// .global dword_8113DC0
-// .global dword_81143C0
-// .global dword_81143C0
-// .global sub_8114F52
-// .global sub_8114F6A
-// .global sub_8115098
-// .global dword_81150AC
-// .global dword_81150AC
-// .global dword_8115704
-// .global dword_8115704
-// .global sub_81159DC
-// .global sub_8115BB0
-// .global dword_8115BEC
-// .global dword_8115BEC
-// .global sub_81162AA
-// .global dword_81162F8
-// .global dword_81162F8
-// .global dword_81165BC
-// .global dword_81165BC
-// .global sub_8116878
-
-.include "asm00.inc"
-// .global sound_play
+.include "asm00_0.inc"
+// .global sound_play // () -> void
 // .global sub_80008C0
-// .global CpuSet_ZeroFillWord // (void *memBlock, unsigned int numWords) -> void
-// .global copyMemory // (void *src, void *dest, int size)
+// .global CpuSet_ZeroFillWord // (void *memBlock, int size) -> void
+// .global copyBytes // (u8 *src, u8 *dest, int byteCount) -> void
 // .global loc_8000AC8
 // .global sub_8000C72
 // .global sub_8000DE0
@@ -200,23 +134,27 @@
 // .global sub_8001330
 // .global sub_8001382
 // .global sub_800139A
-// .global sub_800151C
+// .global change_20013F0_800151C // () -> int
 // .global sub_8001532
 // .global sub_8002378
 // .global sub_800239A
-// .global sprite_loadAnimationData_80026A4
-// .global anim_80026C4
-// .global sub_80026E4
-// .global sub_8002B30
+
+.include "sprite.inc"
+// .global sprite_loadAnimationData // () -> void
+// .global sprite_update
+// .global sprite_load // (int a1, int a2, int a3) ->
+// .global sprite_decompress
 // .global sub_8002C7A
-// .global loc_8002C7E
+// .global sprite_setMosaicScalingParameters
 // .global sub_8002CCE
-// .global sub_8002CE0
-// .global sprite_setPallete
-// .global sub_8002D8C
-// .global sprite_setAnimation
-// .global sub_8002DB0
+// .global sprite_getMosaicScalingParameters
+// .global sprite_setPallete // (int pallete) -> void
+// .global sprite_getPallete
+// .global sprite_setAnimation // (u8 a1) -> void
+// .global sprite_forceWhitePallete
 // .global loc_8002DB4
+
+.include "asm00_1.inc"
 // .global sub_8002DC8
 // .global sub_8002DD8
 // .global sub_8002DEA
@@ -231,7 +169,7 @@
 // .global sub_8002F3E
 // .global sub_8002F5C
 // .global sub_8002F7E
-// .global sub_8002F90
+// .global sub_8002F90 // () -> void
 // .global sub_8002FA6
 // .global sub_8003006
 // .global sub_800302A
@@ -243,8 +181,8 @@
 // .global sub_80033E4
 // .global object_freeMemory
 // .global sub_800362C
-// .global engine_setScreeneffect
-// .global engine_isScreeneffectAnimating
+// .global engine_setScreeneffect // (int a1, int a2) -> void
+// .global engine_isScreeneffectAnimating // () -> zf
 // .global dword_80065D0
 // .global dword_8006660
 // .global battle_isPaused
@@ -273,6 +211,8 @@
 // .global sub_800BBA8
 // .global sub_800BC88
 // .global sub_800BCC0
+
+.include "object.inc"
 // .global object_timefreezeEnd
 // .global loc_800BDB2
 // .global sub_800BF16
@@ -323,18 +263,18 @@
 // .global sub_800D668
 // .global sub_800E24C
 // .global sub_800E258
-// .global sub_800E276
-// .global sub_800E29C
+// .global sub_800E276 // (int a1, int a2) -> (int n1, int n2)
+// .global sub_800E29C // () -> void
 // .global sub_800E2AC
 // .global sub_800E2C0
 // .global sub_800E2C2
-// .global sub_800E2CA
-// .global object_getFlipDirection
+// .global object_getFlipDirection_800E2CA // () -> int
+// .global object_getFlipDirection // (int a1, int a2) -> int
 // .global object_subtractHP
 // .global object_addHP
 // .global sub_800E2FC
 // .global sub_800E3BE
-// .global sub_800E456
+// .global sub_800E456 // () -> int
 // .global object_canMove
 // .global sub_800E5FC
 // .global sub_800E6E8
@@ -350,6 +290,8 @@
 // .global sub_800EB6C
 // .global object_getEnemyByNameRange
 // .global sub_800EC48
+
+.include "asm00_2.inc"
 // .global sub_800ED90
 // .global sub_800F214
 // .global sub_800F23C
@@ -449,7 +391,7 @@
 // .global sub_801299C
 // .global sub_8012E74
 // .global sub_8012EA8
-// .global sub_8013682
+// .global sub_8013682 // (int idx) -> void*
 // .global sub_80136CC
 // .global sub_8013754
 // .global sub_8013764
@@ -484,7 +426,7 @@
 // .global sub_8016C4E
 // .global sub_8016C8A
 // .global sub_8016C9C
-// .global loc_8016CE8
+// .global sub_8016CE8
 // .global sub_8016E64
 // .global sub_8016F56
 // .global sub_80170C4
@@ -519,16 +461,16 @@
 // .global sub_801A018
 // .global sub_801A04C
 // .global sub_801A066
-// .global sub_801A074
+// .global sub_801A074 // () -> void
 // .global sub_801A07C
 // .global sub_801A082
 // .global sub_801A0D4
 // .global sub_801A100
 // .global sub_801A140
 // .global sub_801A146
-// .global object_setFlag
-// .global object_clearFlag
-// .global object_getFlag
+// .global object_setFlag // (int a1) -> void
+// .global object_clearFlag // (int bitfield) -> void
+// .global object_getFlag // () -> int
 // .global sub_801A16C
 // .global sub_801A176
 // .global sub_801A180
@@ -581,6 +523,9 @@
 // .global sub_801E658
 // .global sub_801EB18
 
+.include "asm02.inc"
+// .global getChip_8021DA8 // (int chip_idx) -> ChipData*
+
 .include "asm03_0.inc"
 // .global ho_8026554
 // .global sub_802B6EC
@@ -593,9 +538,9 @@
 // .global sub_802CE8A
 // .global sub_802CEA6
 // .global sub_802D234
-// .global sub_802D246
+// .global get_802D246 // () -> int
 // .global sub_802D26A
-// .global loc_802D322
+// .global sub_802D322
 // .global loc_802D4C6
 // .global sub_802DD2A
 // .global sub_802E032
@@ -609,14 +554,77 @@
 // .global sub_80302A8
 
 .include "chatbox.inc"
-// .global chatbox_runScript // (u16 *scriptArr, u8 scriptID) -> void
-// .global chatbox_maskBits_2009F38 // (int mask) -> void
+// .global chatbox_runScript // (u16 *scriptList, u8 scriptOffIdx) -> void
+// .global chatbox_8045F3C
 
 .include "asm03_1.inc"
 // .global sub_80465BC
-// .global sub_80465F8
-// .global sub_8046664
+// .global sub_80465F8 // () -> void
+// .global sub_8046664 // () -> void
 // .global sub_8046670
+
+.include "asm21.inc"
+// .global aSa
+
+.include "asm32.inc"
+// .global dword_810DD10
+// .global dword_810DD10
+// .global sub_810E2A6
+// .global sub_810E336
+// .global sub_810E340
+// .global dword_810E3E8
+// .global dword_810E3E8
+// .global sub_810E854
+// .global dword_810EC80
+// .global dword_810EC80
+// .global sub_810F090
+// .global dword_810F200
+// .global dword_810F200
+// .global dword_810F22C
+// .global dword_810F22C
+// .global sub_810FA4C
+// .global sub_81100E2
+// .global dword_811028C
+// .global dword_811028C
+// .global sub_811060A
+// .global dword_8110610
+// .global dword_8110610
+// .global dword_8111130
+// .global dword_8111130
+// .global sub_8111846
+// .global dword_811190C
+// .global dword_811190C
+// .global dword_8111FF8
+// .global dword_8111FF8
+// .global dword_81126DC
+// .global dword_81126DC
+// .global sub_81129EE
+// .global dword_8112B94
+// .global dword_8112B94
+// .global dword_8112F2C
+// .global dword_8112F2C
+// .global dword_8113754
+// .global dword_8113754
+// .global dword_8113DC0
+// .global dword_81143C0
+// .global dword_81143C0
+// .global sub_8114F52
+// .global sub_8114F6A
+// .global sub_8115098
+// .global dword_81150AC
+// .global dword_81150AC
+// .global dword_8115704
+// .global dword_8115704
+// .global sub_81159DC
+// .global sub_8115BB0
+// .global dword_8115BEC
+// .global dword_8115BEC
+// .global sub_81162AA
+// .global dword_81162F8
+// .global dword_81162F8
+// .global dword_81165BC
+// .global dword_81165BC
+// .global sub_8116878
 
 
 /* Undeclared Symbols */
@@ -661,8 +669,8 @@
 .equ byte_802136D, 0x802136D
 .equ dword_8080AC4, 0x8080AC4
 .equ dword_80A0BE0, 0x80A0BE0
-.equ dword_810C35C, 0x810C35C
-.equ dword_810C35C, 0x810C35C
+// .global dword_810C35C
+// .global dword_810C35C
 .equ dword_810C388, 0x810C388
 .equ dword_810C388, 0x810C388
 .equ dword_810CFE8, 0x810CFE8

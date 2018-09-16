@@ -5,13 +5,13 @@
 
 
 /* External Symbols */
+.include "asm00_0.inc"
+// .global CpuSet_ZeroFillWord // (void *memBlock, int size) -> void
+// .global CpuSet_copyHalfwords // (u16 *src, u16 *dest, int halfwordCount) -> void
+// .global decompAndCopyData_8000B30 // (u32 *initRefs) -> void
+
 .include "asm03_0.inc"
 // .global sub_80307D8
-
-.include "asm00.inc"
-// .global CpuSet_ZeroFillWord // (void *memBlock, unsigned int numWords) -> void
-// .global CpuSet_800092A // (void *src, void *dest, int mode) -> void
-// .global sub_8000B30
 
 
 /* Undeclared Symbols */

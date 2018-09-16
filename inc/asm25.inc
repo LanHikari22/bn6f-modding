@@ -2,13 +2,48 @@
 .equ INC_ASM25, 0
 
 /* Public Symbols */
+.global off_8090000
 
 
 /* External Symbols */
-.include "asm32.inc"
-// .global sub_811EBE0
+.include "asm00_0.inc"
+// .global sound_play // () -> void
+// .global CpuSet_ZeroFillWord // (void *memBlock, int size) -> void
+// .global sub_8001172
+// .global sub_800118A
 
-.include "asm28.inc"
+.include "sprite.inc"
+// .global sprite_loadAnimationData // () -> void
+// .global sprite_update
+// .global sprite_load // (int a1, int a2, int a3) ->
+// .global sprite_setAnimation // (u8 a1) -> void
+
+.include "asm00_1.inc"
+// .global sub_8002F90 // () -> void
+// .global sub_8003914
+// .global sub_8003940
+// .global sub_80039D4
+// .global sub_80047E0
+// .global engine_isScreeneffectAnimating // () -> zf
+
+.include "asm03_0.inc"
+// .global setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+// .global setFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> void
+// .global clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+// .global isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
+// .global isActiveFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> zf
+// .global clearFlags_multEntries_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx, int numEntries) -> void
+// .global sub_80301B2
+// .global sub_80301DC
+// .global init_s_02011C50_8036E90
+
+.include "asm03_1.inc"
+// .global sub_8046818
+// .global sub_8046854
+// .global sub_80468BA
+// .global sub_80468C6
+
+.include "asm28_0.inc"
 // .global sub_809E13C
 // .global sub_809E188
 // .global sub_809E1AE
@@ -27,37 +62,13 @@
 // .global sub_809E3B2
 // .global sub_809E3C4
 
-.include "asm00.inc"
-// .global sound_play
-// .global CpuSet_ZeroFillWord // (void *memBlock, unsigned int numWords) -> void
-// .global sub_8001172
-// .global sub_800118A
-// .global sprite_loadAnimationData_80026A4
-// .global anim_80026C4
-// .global sub_80026E4
-// .global sprite_setAnimation
-// .global sub_8002F90
-// .global sub_8003914
-// .global sub_8003940
-// .global sub_80039D4
-// .global sub_80047E0
-// .global engine_isScreeneffectAnimating
+.include "asm32.inc"
+// .global sub_811EBE0
 
 .include "reqBBS.inc"
 // .global reqBBS_81409E4
-// .global reqBBS_8140A00
-// .global reqBBS_8140A0C
-
-.include "asm03_0.inc"
-// .global sub_802F110
-// .global sub_802F114 // (int a1) -> void
-// .global sub_802F12C // (int a1, int a2) -> void
-// .global sub_802F164 // (int a1, int a2) -> zf
-// .global zf_802F168
-// .global sub_802F1A8 // (int a3, int a2) -> void
-// .global sub_80301B2
-// .global sub_80301DC
-// .global sub_8036E90
+// .global reqBBS_setFlag_e17b0f7_8140A00
+// .global reqBBS_clearFlag_8140A0C
 
 .include "asm37_1.inc"
 // .global dword_81434E4
@@ -65,12 +76,6 @@
 // .global dword_81434E4
 // .global dword_81434E4
 // .global dword_81434E4
-
-.include "asm03_1.inc"
-// .global sub_8046818
-// .global sub_8046854
-// .global sub_80468BA
-// .global sub_80468C6
 
 
 /* Undeclared Symbols */

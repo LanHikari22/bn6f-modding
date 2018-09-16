@@ -8,7 +8,7 @@
 
 register void *r5 asm("r5");
 
-extern SWI_LZ77UnCompReadNormalWrite8bit(void *compressedData, void *dest);
+extern void SWI_LZ77UnCompReadNormalWrite8bit(void *src, void *dest);
 
 int onStart_executed;
 

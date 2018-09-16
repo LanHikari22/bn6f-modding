@@ -18,7 +18,7 @@ main_gameRoutine:
     bl getPalleteAndTransition_80023E0
     bl renderPalletes_8001808
     bl renderPalletesAndObjs_8002650
-    bl handleObjSprites_800289C
+    bl sprite_handleObjSprites_800289C
     bl render_80015D0
     bl main_static_80003E4
     mov r0, r10
@@ -43,14 +43,15 @@ main_endHook:
     // ldr r0, [r0,r1]
     // mov lr, pc
     // bx r0
-    bl sub_800154C
-    bl isSameSubsystem // () -> zf
+
+    bl sub_800154C // () -> void
+    bl isSameSubsystem_800A732 // () -> zf
     beq loc_800032A
     bl subsystem_triggerTransition_800630A
 loc_800032A:
-    bl chatbox_main_onUpdate // () -> void
+    bl chatbox_onUpdate_803FEB4
     bl cb_call_200A880
-    bl PET_main_onUpdate
+    bl PET_onUpdate_8001B94
     ldr r0, off_8000344 // =loc_3006814+1
     mov lr, pc
     bx r0
@@ -59,26 +60,11 @@ loc_800032A:
     .balign 4, 0x00
 off_8000344:    .word loc_3006814+1
 off_8000348:    .word main_jt_subsystem
-main_jt_subsystem:    .word Load_cb_802F544+1
-    .word cb_80050EC+1
-    .word cb_jack_80341B6+1
-    .word cb_8038AD0+1
-    .word cb_803D1CA+1
-    .word cb_803FB3C+1
-    .word cb_80395A4+1
-    .word cb_803CBA6+1
-    .word cb_803CCD6+1
-    .word reqBBS_cb_draw_813E0A4+1
-    .word menuControl_cb_openSubmenu+1
-    .word cb_8046CF8+1
-    .word cb_8048FD4+1
-    .word cb_804A304+1
-    .word cb_81382AC+1
-    .word 0x0
-    .word 0x0
-    .word reqBBS_cb_813F404+1
-    .word menuControl_cb_email+1
-    .word cb_8049E04+1
+main_jt_subsystem:    .word Load_ho_802F544+1, cb_80050EC+1, ho_jackIn_80341B6+1, cb_8038AD0+1
+    .word cb_803D1CA+1, cb_803FB3C+1, cb_80395A4+1, cb_803CBA6+1
+    .word cb_803CCD6+1, reqBBS_cb_draw_813E0A4+1, menuControl_cb_openSubmenu+1, cb_8046CF8+1
+    .word cb_8048FD4+1, cb_804A304+1, cb_81382AC+1, 0x0
+    .word 0x0, reqBBS_cb_813F404+1, menuControl_cb_email+1, cb_8049E04+1
     .byte 0, 0, 0, 0
 .endfunc // main_
 
@@ -193,7 +179,7 @@ dword_8000450:    .word 0x3FF
 .thumb_func
 main_static_8000454:
     push {r4-r7,lr}
-    bl engine_isScreeneffectAnimating
+    bl engine_isScreeneffectAnimating // () -> zf
     beq locret_80004A2
     bl sub_813D60C
     bne locret_80004A2
@@ -221,15 +207,15 @@ main_static_8000454:
     beq loc_80004A0
     push {r1}
     bl start_800023C // () -> void
-    .byte 0
+    .byte  0
     .byte 0xF0
-    .byte 6
+    .byte  6
     .byte 0xF8
     .byte 0x3F
     .byte 0xF0
     .byte 0x16
     .byte 0xF8
-    .byte 2
+    .byte  2
     .byte 0xBC
     .byte 0xA
     .byte 0x24
@@ -248,7 +234,7 @@ main_static_80004A4:
 loc_80004AA:
     push {r5,lr}
     push {r0}
-    bl CpuSet_toolKit
+    bl CpuSet_toolKit // () -> void
     bl sub_8006C22
     pop {r1}
     ldr r0, off_8000564 // =0x40
@@ -288,7 +274,7 @@ loc_80004C0:
     bl sub_803EBC8
     bl sub_813D960
     bl sub_80071B4
-    bl sub_804657C
+    bl sub_804657C // () -> void
     bl sub_80467D8
     ldr r0, off_800056C // =dword_2009930
     mov r1, #1
@@ -296,9 +282,9 @@ loc_80004C0:
     mov r0, r10
     // memBlock
     ldr r0, [r0]
-    // numWords
+    // size
     mov r1, #8
-    bl CpuSet_ZeroFillWord // (void *memBlock, unsigned int numWords) -> void
+    bl CpuSet_ZeroFillWord // (void *memBlock, int size) -> void
     bl sub_803D1A8
     bl sub_803E900
     pop {r5,pc}

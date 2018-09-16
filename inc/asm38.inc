@@ -6,8 +6,33 @@
 
 
 /* External Symbols */
-.include "asm37_0.inc"
-// .global sub_813D5DC
+.include "asm00_0.inc"
+// .global sub_80005AC
+// .global sub_80005C4
+// .global sub_80008B4
+// .global copyBytes // (u8 *src, u8 *dest, int byteCount) -> void
+// .global sub_800098C
+// .global loc_8000AC8
+// .global sub_8000C00
+// .global sub_8000C5C
+
+.include "asm00_1.inc"
+// .global dword_80065D0
+// .global dword_8006660
+// .global sub_80068E0
+// .global battle_isPaused
+// .global battle_isTimeStop
+
+.include "object.inc"
+// .global object_isValidPanel
+// .global object_checkPanelParameters
+// .global sub_800E2C2
+// .global object_getFlipDirection // (int a1, int a2) -> int
+
+.include "asm00_2.inc"
+// .global off_8019B78
+// .global dword_8019C34
+// .global sub_801A29A
 
 .include "asm03_0.inc"
 // .global off_802FD70
@@ -16,36 +41,17 @@
 // .global sub_803DE72
 // .global sub_803EA68
 
+.include "chatbox.inc"
+// .global chatbox_8040D5C
+// .global off_8043C8C
+
+.include "asm37_0.inc"
+// .global sub_813D5DC
+
 .include "asm37_1.inc"
 // .global sub_814469C
 // .global sub_81446AC
 // .global sub_814DA9C
-
-.include "chatbox.inc"
-// .global chatbox_8040D5C // (int a1, int a2) -> (int r1, int r2)
-// .global off_8043C8C
-
-.include "asm00.inc"
-// .global sub_80005AC
-// .global sub_80005C4
-// .global sub_80008B4
-// .global copyMemory // (void *src, void *dest, int size)
-// .global sub_800098C
-// .global loc_8000AC8
-// .global sub_8000C00
-// .global sub_8000C5C
-// .global dword_80065D0
-// .global dword_8006660
-// .global sub_80068E0
-// .global battle_isPaused
-// .global battle_isTimeStop
-// .global object_isValidPanel
-// .global object_checkPanelParameters
-// .global sub_800E2C2
-// .global object_getFlipDirection
-// .global off_8019B78
-// .global dword_8019C34
-// .global sub_801A29A
 
 
 /* Undeclared Symbols */
@@ -93,7 +99,7 @@
 .equ dword_3002590, 0x3002590
 .equ dword_3002594, 0x3002594
 .equ unk_30025B0, 0x30025B0
-.equ loc_3005CA0, 0x3005CA0
+.equ unk_3005CA0, 0x3005CA0
 .equ loc_3006314, 0x3006314
 .equ loc_300631C, 0x300631C
 .equ loc_300638C, 0x300638C

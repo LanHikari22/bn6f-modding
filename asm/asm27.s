@@ -4,8 +4,9 @@
 .thumb_func
 sub_80946C4:
     push {r4-r7,lr}
+    // initRefs
     ldr r0, off_80946D0 // =dword_80946D4 
-    bl sub_8000B30
+    bl decompAndCopyData_8000B30 // (u32 *initRefs) -> void
     mov r0, #0
     pop {r4-r7,pc}
 off_80946D0:    .word dword_80946D4
@@ -47,7 +48,7 @@ sub_8094720:
     ldr r0, off_8094778 // =unk_2026404 
     mov r1, #0x10
     lsl r1, r1, #8
-    bl CpuSet_ZeroFillWord // (void *memBlock, unsigned int numWords) -> void
+    bl CpuSet_ZeroFillWord // (void *memBlock, int size) -> void
     ldr r0, off_8094778 // =unk_2026404 
     bl sub_8094738
     mov r0, #0
@@ -80,9 +81,9 @@ loc_8094752:
     mul r1, r6
     // dest
     add r1, r1, r7
-    // mode
+    // halfwordCount
     mov r2, #0x64 
-    bl CpuSet_800092A // (void *src, void *dest, int mode) -> void
+    bl CpuSet_copyHalfwords // (u16 *src, u16 *dest, int halfwordCount) -> void
     add r4, #1
     cmp r4, #0x22 
     blt loc_8094752

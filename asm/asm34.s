@@ -4,26 +4,28 @@
 .thumb_func
 sub_812D378:
     push {r4-r7,lr}
-    // a1
+    // j
     mov r0, #0
-    // a2
+    // i
     mov r1, #0
-    // a3
+    // cpyOff
     mov r2, #1
+    // tileRefs
     ldr r3, off_812D3A0 // =unk_201D620 
     mov r4, #0x1e
     mov r5, #0x14
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
     mov r0, #0x1e
     neg r0, r0
-    // a2
+    // i
     mov r1, #2
-    // a3
+    // cpyOff
     mov r2, #1
+    // tileRefs
     ldr r3, off_812D3A4 // =unk_201DB20 
     mov r4, #0x3c 
     mov r5, #0x11
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
     pop {r4-r7,pc}
     .byte 0, 0
 off_812D3A0:    .word unk_201D620
@@ -69,7 +71,7 @@ off_812D3E0:    .word unk_2023FC0
     ldr r3, off_812D4C8 // =unk_202DFA0 
     mov r4, #8
     mov r5, #0xe
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
     ldrh r0, [r7,#0x2e]
     ldr r1, off_812D4C4 // =word_2023FA0 
     ldr r2, off_812D4CC // =unk_202E080 
@@ -83,7 +85,7 @@ off_812D3E0:    .word unk_2023FC0
     ldr r3, off_812D4CC // =unk_202E080 
     mov r4, #2
     mov r5, #0xe
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
     ldrh r0, [r7,#0x2e]
     ldr r1, off_812D4C4 // =word_2023FA0 
     ldr r2, off_812D4D8 // =unk_202E0B8 
@@ -100,7 +102,7 @@ off_812D3E0:    .word unk_2023FC0
     ldr r3, off_812D4D8 // =unk_202E0B8 
     mov r4, #2
     mov r5, #0xe
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
     ldrh r0, [r7,#0x2e]
     ldr r1, off_812D4C4 // =word_2023FA0 
     ldr r2, off_812D4E4 // =unk_202E0F0 
@@ -116,7 +118,7 @@ off_812D3E0:    .word unk_2023FC0
     ldr r3, off_812D4E4 // =unk_202E0F0 
     mov r4, #1
     mov r5, #0xe
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
     ldrh r0, [r7,#0x2e]
     ldr r1, off_812D4C4 // =word_2023FA0 
     ldr r2, off_812D4EC // =unk_202E10C 
@@ -132,13 +134,13 @@ off_812D3E0:    .word unk_2023FC0
     ldr r3, off_812D4EC // =unk_202E10C 
     mov r4, #2
     mov r5, #0xe
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
     ldrh r0, [r7,#0x2e]
     ldr r1, off_812D4C4 // =word_2023FA0 
     ldr r2, off_812D4F4 // =unk_202E144 
     mov r3, #0xa
     lsl r3, r3, #0xc
-    ldr r4, unk_812D4F8
+    ldr r4, unk_812D4F8 // =0x0 
     orr r3, r4
     mov r5, #7
     bl sub_8120618
@@ -148,7 +150,7 @@ off_812D3E0:    .word unk_2023FC0
     ldr r3, off_812D4F4 // =unk_202E144 
     mov r4, #2
     mov r5, #0xe
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
     bl sub_812D5EC
     pop {r4-r7,pc}
     .balign 4, 0x00
@@ -165,10 +167,10 @@ dword_812D4E8:    .word 0x216
 off_812D4EC:    .word unk_202E10C
 dword_812D4F0:    .word 0x34F
 off_812D4F4:    .word unk_202E144
-unk_812D4F8:    .byte 0
-    .byte 2
-    .byte 0
-    .byte 0
+unk_812D4F8:    .byte  0
+    .byte  2
+    .byte  0
+    .byte  0
 .func
 .thumb_func
 sub_812D4FC:
@@ -239,7 +241,7 @@ sub_812D56C:
     str r2, [sp]
     add r6, r1, #0
     add r4, r6, #2
-    bl sub_80465A0
+    bl sub_80465A0 // (void *a1) -> void
 loc_812D57A:
     add r0, r6, #0
     bl sub_80466C4
@@ -442,7 +444,7 @@ loc_812D6E6:
     beq loc_812D6F0
     mov r0, #0x83
 loc_812D6F0:
-    bl sound_play
+    bl sound_play // () -> void
 locret_812D6F4:
     pop {r4-r7,pc}
     .balign 4, 0x00
@@ -476,7 +478,7 @@ loc_812D71E:
     ldrb r0, [r7,#0xd]
     strb r0, [r5,#2]
     mov r0, #0x83
-    bl sound_play
+    bl sound_play // () -> void
     b locret_812D746
 loc_812D730:
     strb r0, [r7,#0xd]
@@ -485,7 +487,7 @@ loc_812D730:
     mov r0, #0
     strh r0, [r7,#0x34]
     mov r0, #0x81
-    bl sound_play
+    bl sound_play // () -> void
     b locret_812D746
 loc_812D742:
     mov r0, #0
@@ -527,16 +529,17 @@ locret_812D788:
 .thumb_func
 sub_812D78C:
     push {r4-r7,lr}
-    // a1
+    // j
     mov r0, #0x15
-    // a2
+    // i
     mov r1, #2
-    // a3
+    // cpyOff
     mov r2, #0
+    // tileRefs
     ldr r3, off_812D7A0 // =unk_20227A0 
     mov r4, #8
     mov r5, #0x11
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
 .endfunc // sub_812D78C
 
     pop {r4-r7,pc}
@@ -555,7 +558,7 @@ sub_812D7A4:
     b loc_812D800
 loc_812D7BA:
     mov r0, #0x81
-    bl sound_play
+    bl sound_play // () -> void
     mov r0, r10
     ldr r0, [r0,#0x40]
     ldrh r2, [r5,#0x34]
@@ -608,7 +611,7 @@ off_812D80C:    .word unk_2023FC0
     sub r1, #1
     str r1, [r0,#0x6c]
     bne locret_812D82E
-    bl chatbox_8040818 // () -> void
+    bl chatbox_8040818
     mov r0, #0
     tst r0, r0
 locret_812D82E:
@@ -655,7 +658,7 @@ off_812D87C:    .word word_2023FA0
     bne loc_812D892
     mov r0, #8
     mov r1, #0x10
-    bl engine_setScreeneffect
+    bl engine_setScreeneffect // (int a1, int a2) -> void
 loc_812D892:
     ldrb r0, [r5,#2]
     strb r0, [r5,#0x16]
@@ -687,14 +690,14 @@ locret_812D8C6:
     push {r4-r7,lr}
     add r7, r5, #0
     bl sub_800183C
-    bl sub_8046664
+    bl sub_8046664 // () -> void
     mov r0, #0
     mov r1, #0
     mov r2, #1
     ldr r3, off_812D914 // =dword_201E420 
     mov r4, #0x1e
     mov r5, #0x14
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
     add r5, r7, #0
     bl sub_812D52E
     ldrh r0, [r5,#0x2a]
@@ -721,9 +724,10 @@ sub_812D91C:
     ldr r0, off_812D92C // =dword_812C258+32 
     b loc_812D926
     push {lr}
+    // a1
     ldr r0, off_812D930 // =dword_812C258+40 
 loc_812D926:
-    bl sub_80465A0
+    bl sub_80465A0 // (void *a1) -> void
     pop {pc}
 off_812D92C:    .word dword_812C258+0x20
 off_812D930:    .word dword_812C258+0x28
@@ -784,7 +788,7 @@ loc_812D970:
     mov r2, #2
     mov r4, #8
     mov r5, #2
-    bl drawTiles // (int a1, int a2, int a3) -> void
+    bl copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
     pop {r4-r7,pc}
     .balign 4, 0x00
     push {r4-r7,lr}
@@ -896,7 +900,7 @@ sub_812DA60:
     bne loc_812DA72
     mov r0, #8
     mov r1, #0x10
-    bl engine_setScreeneffect
+    bl engine_setScreeneffect // (int a1, int a2) -> void
 loc_812DA72:
     bl sub_803EA60
     cmp r0, #0

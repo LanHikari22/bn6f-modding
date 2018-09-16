@@ -106,9 +106,9 @@ sub_8089280:
     bge loc_8089294
     ldr r0, off_80892F0 // =dword_80892F4 
 loc_8089294:
-    bl sub_8001158
+    bl sub_8001158 // () -> void
     ldr r0, off_8089340 // =dword_8089344 
-    bl sub_8001158
+    bl sub_8001158 // () -> void
     pop {r4-r7,pc}
 off_80892A0:    .word dword_80892A4
 dword_80892A4:    .word 0x80008, 0xD247, 0x740004, 0xD240, 0xE00008, 0xD241
@@ -345,21 +345,21 @@ sub_8089704:
     bl sub_8142A84
     beq loc_808972E
     mov r0, #0x67 
-    bl sound_play
+    bl sound_play // () -> void
     mov r4, #2
     b loc_808978C
 loc_808972E:
     b loc_808978C
 loc_8089730:
     mov r0, #0x69 
-    bl sound_play
+    bl sound_play // () -> void
     b loc_808978C
 loc_8089738:
     mov r0, #2
     tst r0, r7
     beq loc_8089748
     mov r0, #0x68 
-    bl sound_play
+    bl sound_play // () -> void
     mov r4, #3
     b loc_808978C
 loc_8089748:
@@ -370,7 +370,7 @@ loc_8089748:
     tst r0, r7
     beq loc_808976C
     mov r0, #0x66 
-    bl sound_play
+    bl sound_play // () -> void
     bl sub_81421D0
     sub r0, #1
     bge loc_8089764
@@ -384,7 +384,7 @@ loc_808976C:
     tst r0, r7
     beq loc_808978C
     mov r0, #0x66 
-    bl sound_play
+    bl sound_play // () -> void
     bl sub_81421D0
     add r0, #1
     cmp r0, #4
@@ -421,9 +421,9 @@ sub_80897A6:
     tst r0, r0
     bne loc_80897E4
     mov r0, #0x80
-    bl chatbox_maskBits_2009F38 // (int mask) -> void
+    bl chatbox_8045F3C
     bne loc_80897E4
-    bl chatbox_getLast3Bits_2009F38 // () -> int
+    bl chatbox_8045F4C
     cmp r0, #0
     beq loc_80897C8
     bl sub_8089D26
@@ -450,13 +450,13 @@ loc_80897E4:
 sub_80897E8:
     push {r4-r7,lr}
     mov r0, #0x80
-    bl chatbox_maskBits_2009F38 // (int mask) -> void
+    bl chatbox_8045F3C
     bne loc_8089804
     bl sub_8089CB4
     beq loc_8089804
     mov r0, #4
     mov r1, #0xff
-    bl engine_setScreeneffect
+    bl engine_setScreeneffect // (int a1, int a2) -> void
     mov r0, #0x24 
     strb r0, [r5]
 loc_8089804:
@@ -468,11 +468,11 @@ loc_8089804:
 .thumb_func
 sub_8089808:
     push {r4-r7,lr}
-    bl engine_isScreeneffectAnimating
+    bl engine_isScreeneffectAnimating // () -> zf
     beq loc_8089822
     mov r0, #0
     mov r1, #0x10
-    bl engine_setScreeneffect
+    bl engine_setScreeneffect // (int a1, int a2) -> void
     mov r0, #5
     bl sub_8089CB0
     mov r0, #0x28 
@@ -500,7 +500,7 @@ loc_8089836:
 .thumb_func
 sub_808983A:
     push {r4-r7,lr}
-    bl engine_isScreeneffectAnimating
+    bl engine_isScreeneffectAnimating // () -> zf
     beq loc_8089856
     bl sub_8089D44
     bl sub_814216E
@@ -569,7 +569,7 @@ loc_80898AE:
 sub_80898B2:
     push {r4-r7,lr}
     mov r0, #0x80
-    bl chatbox_maskBits_2009F38 // (int mask) -> void
+    bl chatbox_8045F3C
     bne loc_80898E4
     bl sub_814216E
     bne loc_80898CE
@@ -632,7 +632,7 @@ loc_8089918:
 sub_808991C:
     push {r4-r7,lr}
     mov r0, #0x80
-    bl chatbox_maskBits_2009F38 // (int mask) -> void
+    bl chatbox_8045F3C
     bne loc_808994E
     bl sub_8089CB4
     beq loc_808994E
@@ -673,7 +673,7 @@ sub_8089960:
     beq loc_808997A
     mov r0, #4
     mov r1, #0xff
-    bl engine_setScreeneffect
+    bl engine_setScreeneffect // (int a1, int a2) -> void
     mov r0, #0x4c 
     strb r0, [r5]
 loc_808997A:
@@ -685,11 +685,11 @@ loc_808997A:
 .thumb_func
 sub_808997E:
     push {r4-r7,lr}
-    bl engine_isScreeneffectAnimating
+    bl engine_isScreeneffectAnimating // () -> zf
     beq loc_8089998
     mov r0, #0
     mov r1, #0x10
-    bl engine_setScreeneffect
+    bl engine_setScreeneffect // (int a1, int a2) -> void
     mov r0, #5
     bl sub_8089CB0
     mov r0, #0x50 
@@ -718,7 +718,7 @@ loc_80899B2:
     strb r0, [r5]
     b loc_80899D4
 loc_80899C2:
-    bl getPETNaviSelect
+    bl getPETNaviSelect // () -> u8
     bl sub_80010D4
     tst r0, r0
     beq loc_80899B2
@@ -733,7 +733,7 @@ loc_80899D4:
 .thumb_func
 sub_80899D8:
     push {r4-r7,lr}
-    bl engine_isScreeneffectAnimating
+    bl engine_isScreeneffectAnimating // () -> zf
     beq loc_80899EE
     bl sub_8089CB4
     beq loc_80899EE
@@ -805,23 +805,27 @@ sub_8089A60:
     bl sub_81427CE
     // <mkdata>
     .hword 0x1c00 // add r0, r0, #0
-    bl loc_802F130 // (int a1, int a2) -> void
+    bl clearFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> void
     bl sub_814219C
     str r0, [r7,#0x10]
     bl sub_81422B4
+    // entryIdx
     mov r0, #7
+    // byteFlagIdx
     mov r1, #0x40 
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     mov r0, #2
     mov r1, #0x25 
-    bl sub_802F12C // (int a1, int a2) -> void
+    bl clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     mov r0, r10
     ldr r0, [r0,#0x3c]
     mov r1, #0
     strb r1, [r0,#0x15]
+    // entryIdx
     mov r0, #0
+    // byteFlagIdx
     mov r1, #0x28 
-    bl sub_802F164 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
     bne loc_8089ABA
     bl sub_81426CE
     cmp r0, #6
@@ -829,7 +833,7 @@ sub_8089A60:
     bl sub_8035408
     mov r0, #0x65 
     add r0, #0xff
-    bl sound_play
+    bl sound_play // () -> void
     bl sub_8036E44
     bl sub_8036E78
 loc_8089ABA:
@@ -866,7 +870,7 @@ loc_8089AE4:
 sub_8089AE8:
     push {r4-r7,lr}
     mov r0, #0x80
-    bl chatbox_maskBits_2009F38 // (int mask) -> void
+    bl chatbox_8045F3C
     bne loc_8089B2A
     bl sub_8089CB4
     beq loc_8089B2A
@@ -903,7 +907,7 @@ sub_8089B2E:
     beq loc_8089B50
     mov r0, #2
     ldr r1, [r7,#0x10]
-    bl chatbox_8045EDC // (int a1, int a2) -> void
+    bl chatbox_8045EDC
     mov r0, #0x11
     bl sub_8089CA4
     mov r0, #0x1e
@@ -921,7 +925,7 @@ loc_8089B50:
 sub_8089B54:
     push {r4-r7,lr}
     mov r0, #0x80
-    bl chatbox_maskBits_2009F38 // (int mask) -> void
+    bl chatbox_8045F3C
     bne loc_8089B7A
     bl sub_8089CB4
     beq loc_8089B7A
@@ -929,7 +933,7 @@ sub_8089B54:
     bl sub_809E2AE
     bl sub_809E2B8
     bl sub_809E13C
-    bl reqBBS_8140A0C
+    bl reqBBS_clearFlag_8140A0C
     mov r0, #0x18
     strb r0, [r5]
 loc_8089B7A:
@@ -957,7 +961,7 @@ loc_8089B90:
 sub_8089B94:
     push {r4-r7,lr}
     mov r0, #0x80
-    bl chatbox_maskBits_2009F38 // (int mask) -> void
+    bl chatbox_8045F3C
     bne loc_8089BA6
     mov r0, #1
     strb r0, [r5,#8]
@@ -988,11 +992,13 @@ loc_8089BBC:
 sub_8089BC0:
     push {r4-r7,lr}
     mov r0, #0x80
-    bl chatbox_maskBits_2009F38 // (int mask) -> void
+    bl chatbox_8045F3C
     bne loc_8089BE0
+    // entryIdx
     mov r0, #7
+    // byteFlagIdx
     mov r1, #0x45 
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     mov r0, #0
     strb r0, [r5,#8]
     mov r0, #0x1e
@@ -1024,7 +1030,7 @@ loc_8089BF6:
 sub_8089BFA:
     push {r4-r7,lr}
     mov r0, #0x80
-    bl chatbox_maskBits_2009F38 // (int mask) -> void
+    bl chatbox_8045F3C
     bne loc_8089C12
     mov r0, #0
     strb r0, [r5,#8]
@@ -1046,12 +1052,12 @@ sub_8089C16:
     bne loc_8089C74
     mov r0, #1
     strb r0, [r5,#8]
-    bl getPETNaviSelect
+    bl getPETNaviSelect // () -> u8
     bl sub_80010D4
     tst r0, r0
     bne loc_8089C4A
     strb r0, [r5,#8]
-    bl getPETNaviSelect
+    bl getPETNaviSelect // () -> u8
     cmp r0, #0
     bne loc_8089C3E
     mov r0, #0x3a 
@@ -1114,7 +1120,7 @@ sub_8089CA4:
     push {r4-r7,lr}
     add r1, r0, #0
     ldr r0, [r5,#0x30]
-    bl chatbox_runScript // (u16 *scriptArr, u8 scriptID) -> void
+    bl chatbox_runScript // (u16 *scriptList, u8 scriptOffIdx) -> void
     pop {r4-r7,pc}
 .endfunc // sub_8089CA4
 

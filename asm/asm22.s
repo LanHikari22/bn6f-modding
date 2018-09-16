@@ -34,13 +34,13 @@ loc_8086F36:
     blt loc_8086F36
     mov r0, #0
     pop {r4-r7,pc}
-    .byte 0
-    .byte 0
+    .byte  0
+    .byte  0
 off_8086F54:    .word unk_8086F58
-unk_8086F58:    .byte 1
-    .byte 1
-    .byte 3
-    .byte 2
+unk_8086F58:    .byte  1
+    .byte  1
+    .byte  3
+    .byte  2
 .endfunc // sub_8086F18
 
 .func
@@ -77,13 +77,13 @@ loc_8086F7A:
     blt loc_8086F7A
     mov r0, #0
     pop {r4-r7,pc}
-    .byte 0
-    .byte 0
+    .byte  0
+    .byte  0
 off_8086F98:    .word unk_8086F9C
-unk_8086F9C:    .byte 2
-    .byte 2
-    .byte 2
-    .byte 3
+unk_8086F9C:    .byte  2
+    .byte  2
+    .byte  2
+    .byte  3
 off_8086FA0:    .word dword_8086A54+0x2C4
     .byte 0x10
     .byte 0xB5
@@ -91,35 +91,35 @@ off_8086FA0:    .word dword_8086A54+0x2C4
     .byte 0x46 
     .byte 0xC0
     .byte 0x6B 
-    .byte 1
+    .byte  1
     .byte 0x79 
     .byte 0x81
     .byte 0x29 
-    .byte 1
+    .byte  1
     .byte 0xD0
-    .byte 3
+    .byte  3
     .byte 0x20
-    .byte 0
+    .byte  0
     .byte 0xE0
     .byte 0x40 
     .byte 0x79 
     .byte 0x40 
-    .byte 0
-    .byte 4
+    .byte  0
+    .byte  4
     .byte 0x49 
-    .byte 8
+    .byte  8
     .byte 0x5A 
-    .byte 0
+    .byte  0
     .byte 0x24 
-    .byte 0
+    .byte  0
     .byte 0x1C
     .byte 0xA8
     .byte 0xF7
     .byte 0xD2
     .byte 0xF8
-    .byte 0
+    .byte  0
     .byte 0xD0
-    .byte 1
+    .byte  1
     .byte 0x24 
     .byte 0x20
     .byte 0x1C
@@ -127,14 +127,14 @@ off_8086FA0:    .word dword_8086A54+0x2C4
     .byte 0xBD
     .byte 0xD0
     .byte 0x6F 
-    .byte 8
-    .byte 8
+    .byte  8
+    .byte  8
     .byte 0xE1
-    .byte 5
+    .byte  5
     .byte 0xE2
-    .byte 5
+    .byte  5
     .byte 0xE3
-    .byte 5
+    .byte  5
     .hword 0xFC0
 .endfunc // sub_8086F5C
 
@@ -155,17 +155,21 @@ sub_8086FD8:
     strb r4, [r5,#0xc]
     b loc_808704C
 loc_8086FF4:
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xf1
-    bl sub_802F164 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
     beq loc_8087004
     mov r0, #1
     strb r0, [r5,#9]
     b loc_8087048
 loc_8087004:
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xf3
-    bl sub_802F164 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
     beq loc_808702C
     mov r0, #1
     strb r0, [r5,#5]
@@ -174,23 +178,27 @@ loc_8087004:
     strb r0, [r5,#1]
     mov r0, #5
     mov r1, #0xf3
-    bl sub_802F12C // (int a1, int a2) -> void
+    bl clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xf2
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     ldr r0, off_80870F8 // =dword_8086A54+716 
     b loc_80870F2
 loc_808702C:
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xf4
-    bl sub_802F164 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
     beq locret_80870F6
     mov r0, #2
     strb r0, [r5,#5]
     strb r0, [r5,#7]
     mov r0, #5
     mov r1, #0xf4
-    bl sub_802F12C // (int a1, int a2) -> void
+    bl clearFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     ldr r0, off_80870F8 // =dword_8086A54+716 
     b loc_80870F2
 loc_8087048:
@@ -199,9 +207,11 @@ loc_8087048:
 loc_808704C:
     bl sub_80871C0
     bne loc_808705C
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xf2
-    bl sub_802F164 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
     bne loc_8087062
 loc_808705C:
     add r1, r4, #0
@@ -222,45 +232,61 @@ loc_8087068:
     ldrb r0, [r0,#5]
     cmp r0, #0
     bne loc_8087092
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xe1
-    bl sub_802F164 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
     bne loc_80870D8
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xe1
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     ldr r0, off_8087108 // =dword_8086260+244 
     b loc_80870F2
 loc_8087092:
     cmp r0, #1
     bne loc_80870AC
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xe2
-    bl sub_802F164 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
     bne loc_80870D8
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xe2
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     ldr r0, off_808710C // =dword_8086260+328 
     b loc_80870F2
 loc_80870AC:
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xe3
-    bl sub_802F164 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
     bne loc_80870D8
+    // entryIdx
     mov r0, #5
+    // byteFlagIdx
     mov r1, #0xe3
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     ldr r0, off_8087110 // =dword_8086260+412 
     b loc_80870F2
 loc_80870C2:
+    // entryIdx
     mov r0, #0xf
+    // byteFlagIdx
     mov r1, #0xc0
-    bl sub_802F164 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_entry // (int entryIdx, int byteFlagIdx) -> zf
     bne loc_80870D8
+    // entryIdx
     mov r0, #0xf
+    // byteFlagIdx
     mov r1, #0xc0
-    bl sub_802F110
+    bl setFlag_2001C88_entry // (u8 entryIdx, u8 byteFlagIdx) -> void
     ldr r0, off_8087114 // =dword_8086260+520 
     b loc_80870F2
 loc_80870D8:
@@ -276,7 +302,7 @@ loc_80870E8:
     bl sub_8086F5C
     b locret_80870F6
 loc_80870F2:
-    bl sub_8036E90
+    bl init_s_02011C50_8036E90
 locret_80870F6:
     pop {r4-r7,pc}
 off_80870F8:    .word dword_8086A54+0x2CC
@@ -288,12 +314,12 @@ off_808710C:    .word dword_8086260+0x148
 off_8087110:    .word dword_8086260+0x19C
 off_8087114:    .word dword_8086260+0x208
     .byte 0x3B 
-    .byte 1
-    .byte 0
-    .byte 0
-    .byte 0
+    .byte  1
+    .byte  0
+    .byte  0
+    .byte  0
     .byte 0xB5
-    .byte 6
+    .byte  6
     .byte 0x48 
     .byte 0x29 
     .byte 0x7B 
@@ -301,32 +327,32 @@ off_8087114:    .word dword_8086260+0x208
     .byte 0x79 
     .byte 0x32 
     .byte 0x2A 
-    .byte 0
+    .byte  0
     .byte 0xDB
     .byte 0x28 
     .byte 0x3A 
     .byte 0x91
     .byte 0x42 
-    .byte 0
+    .byte  0
     .byte 0xD0
-    .byte 3
+    .byte  3
     .byte 0x48 
     .byte 0xAF
     .byte 0xF7
     .byte 0xAE
     .byte 0xFE
-    .byte 0
+    .byte  0
     .byte 0xBD
-    .byte 0
-    .byte 0
+    .byte  0
+    .byte  0
     .byte 0xE8
     .byte 0x68 
-    .byte 8
-    .byte 8
+    .byte  8
+    .byte  8
     .byte 0x98
     .byte 0x66 
-    .byte 8
-    .byte 8
+    .byte  8
+    .byte  8
     .byte 0x10
     .byte 0xB5
     .byte 0x51 
@@ -341,8 +367,8 @@ off_8087114:    .word dword_8086260+0x208
     .byte 0x1C
     .byte 0x10
     .byte 0xBD
-    .byte 0
-    .byte 0
+    .byte  0
+    .byte  0
     .byte 0xF0
     .byte 0xB5
     .byte 0x17
@@ -351,7 +377,7 @@ off_8087114:    .word dword_8086260+0x208
     .byte 0xF8
     .byte 0xA
     .byte 0x24 
-    .byte 0
+    .byte  0
     .byte 0x26 
     .byte 0x10
     .byte 0x23 
@@ -359,7 +385,7 @@ off_8087114:    .word dword_8086260+0x208
     .byte 0x50 
     .byte 0xC
     .byte 0x33 
-    .byte 1
+    .byte  1
     .byte 0x36 
     .byte 0xA6
     .byte 0x42 
@@ -367,13 +393,13 @@ off_8087114:    .word dword_8086260+0x208
     .byte 0xDB
     .byte 0x14
     .byte 0x23 
-    .byte 0
+    .byte  0
     .byte 0x26 
     .byte 0xE9
     .byte 0x50 
     .byte 0xC
     .byte 0x33 
-    .byte 1
+    .byte  1
     .byte 0x36 
     .byte 0xA6
     .byte 0x42 
@@ -381,13 +407,13 @@ off_8087114:    .word dword_8086260+0x208
     .byte 0xDB
     .byte 0x18
     .byte 0x23 
-    .byte 0
+    .byte  0
     .byte 0x26 
     .byte 0xEA
     .byte 0x50 
     .byte 0xC
     .byte 0x33 
-    .byte 1
+    .byte  1
     .byte 0x36 
     .byte 0xA6
     .byte 0x42 
@@ -401,17 +427,17 @@ off_8087114:    .word dword_8086260+0x208
     .byte 0x23 
     .byte 0x7C 
     .byte 0x24 
-    .byte 0
+    .byte  0
     .byte 0x26 
-    .byte 9
+    .byte  9
     .byte 0x27 
     .byte 0xE8
     .byte 0x58 
-    .byte 4
+    .byte  4
     .byte 0x33 
     .byte 0xE9
     .byte 0x58 
-    .byte 4
+    .byte  4
     .byte 0x33 
     .byte 0xEA
     .byte 0x58 
@@ -419,17 +445,17 @@ off_8087114:    .word dword_8086260+0x208
     .byte 0x3B 
     .byte 0x28 
     .byte 0x51 
-    .byte 4
+    .byte  4
     .byte 0x34 
     .byte 0x29 
     .byte 0x51 
-    .byte 4
+    .byte  4
     .byte 0x34 
     .byte 0x2A 
     .byte 0x51 
     .byte 0x14
     .byte 0x3C 
-    .byte 1
+    .byte  1
     .byte 0x36 
     .byte 0xBE
     .byte 0x42 
@@ -443,18 +469,18 @@ off_8087114:    .word dword_8086260+0x208
     .byte 0x23 
     .byte 0xE8
     .byte 0x50 
-    .byte 4
+    .byte  4
     .byte 0x33 
     .byte 0xE9
     .byte 0x50 
-    .byte 4
+    .byte  4
     .byte 0x33 
     .byte 0xEA
     .byte 0x50 
     .byte 0xF0
     .byte 0xBD
-    .byte 0
-    .byte 0
+    .byte  0
+    .byte  0
 .endfunc // sub_8086FD8
 
 .func
@@ -466,7 +492,7 @@ sub_80871C0:
     ldr r1, off_80871D4 // =dword_80871D8 
     ldrh r1, [r1,r0]
     add r0, r1, #0
-    bl zf_802F168 // (int a1, int a2) -> zf
+    bl isActiveFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> zf
     pop {pc}
     .hword 0x0
     // <endpool> <endfile>

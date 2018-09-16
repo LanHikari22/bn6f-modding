@@ -138,7 +138,7 @@ sub_8066540:
     lsl r0, r0, #2
     ldr r1, off_8066554 // =off_8066558 
     ldr r0, [r1,r0]
-    bl loc_8003570
+    bl sub_8003570
     pop {pc}
 off_8066554:    .word off_8066558
 off_8066558:    .word dword_8066560
@@ -348,23 +348,23 @@ dword_8066E38:    .word 0x44C0408, 0x8066E5C, 0x3C170018, 0x28FEC414, 0x16000001
     .word 0x8066EE3, 0x8066EEE, 0x8066EF9, 0x8066F04, 0xFF
     .word 0x17271F08, 0x261437, 0xE0, 0x83F3116, 0x10071603
     .word 0x3C04163C, 0x83F0408
-    .byte 5
+    .byte  5
     .byte 0x16
     .byte 0x18
     .byte 0x2A 
     .byte 0xC0
     .byte 0x3C 
-    .byte 8
-    .byte 6
+    .byte  8
+    .byte  6
     .byte 0x3F 
-    .byte 8
-    .byte 7
+    .byte  8
+    .byte  7
     .byte 0x36 
     .byte 0xCC
     .byte 0xF6
-    .byte 9
-    .byte 8
-    .byte 8
+    .byte  9
+    .byte  8
+    .byte  8
     .byte 0x1F
     .byte 0x27 
     .byte 0x25 
@@ -415,7 +415,7 @@ dword_8067704:    .word 0x5000081, 0x11C0000, 0xFEE40000, 0x100000, 0x7000281
     .word 0x8C0000, 0x100000, 0x70C0181, 0xFEC40000, 0x8C0000
     .word 0x100000
 dword_8067744:    .word 0x3000181, 0xFE440000, 0xFF760000, 0x100000
-    .word dword_8611B68
+off_8067754:    .word dword_8611B68
     .word 0x6008040, 0x1320004, 0x8067784, 0x14, 0x80677E8, 0x14
     .word 0x806784C, 0x14, 0x80678B0, 0x14, 0x1, 0x0
     .word 0x20001, 0x40003, 0x5, 0x0
@@ -424,99 +424,99 @@ dword_8067744:    .word 0x3000181, 0xFE440000, 0xFF760000, 0x100000
     .word 0x180017, 0x1A0019, 0x1C001B, 0x1E001D, 0x20001F, 0x220021
     .word 0x240023, 0x220025, 0x0
     .byte 0x26
-    .byte 0
+    .byte  0
     .byte 0x27 
-    .byte 0
+    .byte  0
     .byte 0x28 
-    .byte 0
+    .byte  0
     .byte 0x29 
-    .byte 0
+    .byte  0
     .byte 0x2A 
-    .byte 0
-    .byte 0
-    .byte 0
+    .byte  0
+    .byte  0
+    .byte  0
     .word 0x0
 a01234567232389:    .byte 0x2B, 0x0
     .byte 0x2C 
-    .byte 0
+    .byte  0
     .byte 0x2D 
-    .byte 0
+    .byte  0
     .byte 0x2E 
-    .byte 0
+    .byte  0
     .byte 0x2F 
-    .byte 0
+    .byte  0
     .byte 0x30 
-    .byte 0
+    .byte  0
     .byte 0x31 
-    .byte 0
+    .byte  0
     .byte 0x2C 
-    .byte 0
+    .byte  0
     .byte 0x2B 
-    .byte 0
+    .byte  0
     .byte 0x2C 
-    .byte 0
+    .byte  0
     .byte 0x32 
-    .byte 0
+    .byte  0
     .byte 0x33 
-    .byte 0
+    .byte  0
     .byte 0x34 
-    .byte 0
+    .byte  0
     .byte 0x35 
-    .byte 0
+    .byte  0
     .byte 0x36 
-    .byte 0
+    .byte  0
     .byte 0x37 
-    .byte 0
+    .byte  0
     .byte 0x32 
-    .byte 0
+    .byte  0
     .byte 0x33 
-    .byte 0
+    .byte  0
     .byte 0x32 
-    .byte 0
+    .byte  0
     .byte 0x33 
-    .byte 0
+    .byte  0
     .byte 0x38 
-    .byte 0
+    .byte  0
     .byte 0x39 
-    .byte 0
+    .byte  0
     .byte 0x3A 
-    .byte 0
+    .byte  0
     .byte 0x3B 
-    .byte 0
+    .byte  0
     .byte 0x3C 
-    .byte 0
+    .byte  0
     .byte 0x3D 
-    .byte 0
+    .byte  0
     .byte 0x3E 
-    .byte 0
+    .byte  0
     .byte 0x3F 
-    .byte 0
+    .byte  0
     .byte 0x40 
-    .byte 0
+    .byte  0
     .byte 0x41 
-    .byte 0
+    .byte  0
     .byte 0x42 
-    .byte 0
+    .byte  0
     .byte 0x43 
-    .byte 0
+    .byte  0
     .byte 0x44 
-    .byte 0
+    .byte  0
     .byte 0x45 
-    .byte 0
+    .byte  0
     .byte 0x46 
-    .byte 0
+    .byte  0
     .byte 0x47 
-    .byte 0
+    .byte  0
     .byte 0x48 
-    .byte 0
+    .byte  0
     .byte 0x49 
-    .byte 0
+    .byte  0
     .byte 0x46 
-    .byte 0
+    .byte  0
     .byte 0x47 
-    .byte 0
-    .byte 0
-    .byte 0
+    .byte  0
+    .byte  0
+    .byte  0
     .byte 0, 0
     .word 0x20001, 0x4B004A, 0x4C, 0x0
     .word 0x60007, 0x90008, 0x4E004D, 0x6004F, 0x60007, 0xD000E
@@ -525,123 +525,123 @@ a01234567232389:    .byte 0x2B, 0x0
     .word 0x550054, 0x250022, 0x0
 aV_3:    .byte 0x56, 0x0
     .byte 0x57 
-    .byte 0
+    .byte  0
     .byte 0x58 
-    .byte 0
+    .byte  0
     .byte 0x59 
-    .byte 0
+    .byte  0
     .byte 0x5A 
-    .byte 0
-    .byte 0
-    .byte 0
+    .byte  0
+    .byte  0
+    .byte  0
     .word 0x0
 aAbcdef232ghijk:    .byte 0x2C, 0x0
     .byte 0x2B 
-    .byte 0
+    .byte  0
     .byte 0x5B 
-    .byte 0
+    .byte  0
     .byte 0x5C 
-    .byte 0
+    .byte  0
     .byte 0x5D 
-    .byte 0
+    .byte  0
     .byte 0x5E 
-    .byte 0
+    .byte  0
     .byte 0x5F 
-    .byte 0
+    .byte  0
     .byte 0x2B 
-    .byte 0
+    .byte  0
     .byte 0x2C 
-    .byte 0
+    .byte  0
     .byte 0x2B 
-    .byte 0
+    .byte  0
     .byte 0x60 
-    .byte 0
+    .byte  0
     .byte 0x61 
-    .byte 0
+    .byte  0
     .byte 0x62 
-    .byte 0
+    .byte  0
     .byte 0x63 
-    .byte 0
+    .byte  0
     .byte 0x64 
-    .byte 0
+    .byte  0
     .byte 0x65 
-    .byte 0
+    .byte  0
     .byte 0x66 
-    .byte 0
+    .byte  0
     .byte 0x32 
-    .byte 0
+    .byte  0
     .byte 0x33 
-    .byte 0
+    .byte  0
     .byte 0x32 
-    .byte 0
+    .byte  0
     .byte 0x67 
-    .byte 0
+    .byte  0
     .byte 0x68 
-    .byte 0
+    .byte  0
     .byte 0x69 
-    .byte 0
+    .byte  0
     .byte 0x6A 
-    .byte 0
+    .byte  0
     .byte 0x6B 
-    .byte 0
+    .byte  0
     .byte 0x6C 
-    .byte 0
+    .byte  0
     .byte 0x6D 
-    .byte 0
+    .byte  0
     .byte 0x6E 
-    .byte 0
+    .byte  0
     .byte 0x41 
-    .byte 0
+    .byte  0
     .byte 0x40 
-    .byte 0
+    .byte  0
     .byte 0x6F 
-    .byte 0
+    .byte  0
     .byte 0x70 
-    .byte 0
+    .byte  0
     .byte 0x71 
-    .byte 0
+    .byte  0
     .byte 0x72 
-    .byte 0
+    .byte  0
     .byte 0x73 
-    .byte 0
+    .byte  0
     .byte 0x46 
-    .byte 0
+    .byte  0
     .byte 0x74 
-    .byte 0
+    .byte  0
     .byte 0x75 
-    .byte 0
+    .byte  0
     .byte 0x47 
-    .byte 0
+    .byte  0
     .byte 0x46 
-    .byte 0
+    .byte  0
 off_8067914:    .word dword_859E6D0
     .word 0x6000020, 0x2060104, 0x8067974, 0xC, 0x8067980, 0xC
     .word 0x806798C, 0xC, 0x8067998, 0xC, 0x1
-    .word dword_859E6D0
+off_8067944:    .word dword_859E6D0
     .word 0x60000E0, 0x2060204, 0x8067980, 0xC, 0x806798C, 0xC
     .word 0x8067998, 0xC, 0x8067974, 0xC, 0x1, 0x10000
     .word 0x30002, 0x50004, 0x70006, 0x90008, 0xB000A, 0xD000C
     .word 0xF000E, 0x110010, 0x130012, 0x150014, 0x170016
-    .word unk_3001980
+off_80679A4:    .word unk_3001980
     .word 0x20, 0xFFFF0300, 0x859E3B8, 0xA, 0x859E3D8, 0xA, 0x859E3F8
     .word 0xA, 0x859E418, 0xA, 0x1
-    .word unk_3001A60
+off_80679D4:    .word unk_3001A60
     .word 0x20, 0xFFFF0400, 0x859E4A0, 0x18, 0x859E4C0, 0xC
     .word 0x859E4E0, 0xC, 0x859E500, 0x18, 0x859E4E0, 0xC
     .word 0x859E4C0, 0xC, 0x1
-    .word unk_3001A80
+off_8067A14:    .word unk_3001A80
     .word 0x20, 0xFFFF0500, 0x859E524, 0x10, 0x859E544, 0x10
     .word 0x859E564, 0x10, 0x859E584, 0x10, 0x1
-    .word unk_3001AA0
+off_8067A44:    .word unk_3001AA0
     .word 0x20, 0xFFFF0600, 0x859E5A8, 0xA, 0x859E5C8, 0xA, 0x859E5E8
     .word 0xA, 0x1
-    .word unk_3001AC0
+off_8067A6C:    .word unk_3001AC0
     .word 0x20, 0xFFFF0700, 0x859E60C, 0x3C, 0x859E62C, 0x18
     .word 0x859E64C, 0x1E, 0x859E62C, 0xE, 0x1
-    .word unk_3001AE0
+off_8067A9C:    .word unk_3001AE0
     .word 0x20, 0xFFFF0800, 0x859E670, 0x3C, 0x859E690, 0xE
     .word 0x859E6B0, 0x1E, 0x859E690, 0x18, 0x1
-    .word unk_3001A20
+off_8067ACC:    .word unk_3001A20
     .word 0x20, 0xFFFF0900, 0x859E43C, 0x17, 0x859E45C, 0x6, 0x859E43C
     .word 0x6, 0x859E45C, 0x6, 0x859E43C, 0x6, 0x859E45C, 0x6
     .word 0x859E43C, 0x6, 0x859E45C, 0x6, 0x859E43C, 0x18, 0x859E47C
@@ -711,38 +711,38 @@ off_8067BF4:    .word off_8067BF8
 off_8067BF8:    .word off_8067C04
     .word off_8067C30
     .word off_8067C5C
-off_8067C04:    .word 0x8067754
+off_8067C04:    .word off_8067754
     .word off_8067914
-    .word 0x8067944
-    .word 0x80679A4
-    .word 0x80679D4
-    .word 0x8067A14
-    .word 0x8067A44
-    .word 0x8067A6C
-    .word 0x8067A9C
-    .word 0x8067ACC
+    .word off_8067944
+    .word off_80679A4
+    .word off_80679D4
+    .word off_8067A14
+    .word off_8067A44
+    .word off_8067A6C
+    .word off_8067A9C
+    .word off_8067ACC
     .word 0xFFFFFFFF
-off_8067C30:    .word 0x8067754
+off_8067C30:    .word off_8067754
     .word off_8067914
-    .word 0x8067944
-    .word 0x80679A4
-    .word 0x80679D4
-    .word 0x8067A14
-    .word 0x8067A44
-    .word 0x8067A6C
-    .word 0x8067A9C
-    .word 0x8067ACC
+    .word off_8067944
+    .word off_80679A4
+    .word off_80679D4
+    .word off_8067A14
+    .word off_8067A44
+    .word off_8067A6C
+    .word off_8067A9C
+    .word off_8067ACC
     .word 0xFFFFFFFF
-off_8067C5C:    .word 0x8067754
+off_8067C5C:    .word off_8067754
     .word off_8067914
-    .word 0x8067944
-    .word 0x80679A4
-    .word 0x80679D4
-    .word 0x8067A14
-    .word 0x8067A44
-    .word 0x8067A6C
-    .word 0x8067A9C
-    .word 0x8067ACC
+    .word off_8067944
+    .word off_80679A4
+    .word off_80679D4
+    .word off_8067A14
+    .word off_8067A44
+    .word off_8067A6C
+    .word off_8067A9C
+    .word off_8067ACC
     .word 0xFFFFFFFF
 .endfunc // sub_8067BE4
 
@@ -816,7 +816,7 @@ sub_8067D46:
     lsl r0, r0, #2
     ldr r1, off_8067D5C // =pt_8067D60 
     ldr r0, [r1,r0]
-    bl loc_8003570
+    bl sub_8003570
     pop {pc}
     .balign 4, 0x00
 off_8067D5C:    .word pt_8067D60

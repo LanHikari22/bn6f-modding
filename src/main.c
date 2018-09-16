@@ -97,8 +97,9 @@ void RPress(){
 	// This isn't mono-space, but it's a good lower limit.
 	// dc_printChat((u16*)0x02500050, mugshot_shuko,
   // "0123456789012345678901\n0123456789012345678901\n012345678901234567890");
-	extern void sub_813C030();
-	dc_printChat((u16*)0x02500050, mugshot_shuko, "Debugger Shuko, at your\nservice!");
+	SWI_LZ77UnCompReadNormalWrite8bit((void*)0x861C780, (void*)0x02500100);
+	dc_printChat((u16*)0x02500050, mugshot_shuko, "Debugger shuko, active.	");
+	chatbox_runScript((u16*)0x87370C0, *(u8*)0x02500090);
 	// subsystem_launch_reqBBS(0x00);
 	// Sound_playBG(mo_ACDC_town);
 

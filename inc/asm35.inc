@@ -5,6 +5,28 @@
 
 
 /* External Symbols */
+.include "asm00_0.inc"
+// .global sound_play // () -> void
+// .global CpuFastSet_8000900 // (int a1, int a2) -> void
+// .global sub_800183C
+// .global copyTiles // (int j, int i, int cpyOff, u16 *tileRefs) -> void
+// .global sub_80018D0
+
+.include "asm00_1.inc"
+// .global sub_800307C
+// .global engine_setScreeneffect // (int a1, int a2) -> void
+// .global sub_80062C8
+
+.include "asm03_0.inc"
+// .global sub_803CE28
+// .global sub_803EBF4
+
+.include "asm03_1.inc"
+// .global render_graphicalText_8045F8C
+// .global sub_80465A0 // (void *a1) -> void
+// .global sub_8046664 // () -> void
+// .global sub_80466C4
+
 .include "asm32.inc"
 // .global sub_811BC00
 // .global sub_811F7EC
@@ -20,29 +42,9 @@
 .include "asm36.inc"
 // .global sub_8132280
 
-.include "asm00.inc"
-// .global sound_play
-// .global CpuFastSet_8000900 // (int a1, int a2) -> void
-// .global sub_800183C
-// .global drawTiles // (int a1, int a2, int a3) -> void
-// .global sub_80018D0
-// .global sub_800307C
-// .global engine_setScreeneffect
-// .global sub_80062C8
-
 .include "asm37_0.inc"
 // .global sub_813B780
 // .global sub_813B9FC
-
-.include "asm03_0.inc"
-// .global sub_803CE28
-// .global sub_803EBF4
-
-.include "asm03_1.inc"
-// .global render_graphicalText_8045F8C
-// .global sub_80465A0
-// .global sub_8046664
-// .global sub_80466C4
 
 
 /* Undeclared Symbols */
@@ -58,12 +60,12 @@
 .equ unk_2025A70, 0x2025A70
 .equ unk_2030000, 0x2030000
 .equ unk_2037780, 0x2037780
-.equ dword_812DA94, 0x812DA94
-.equ dword_812DA94, 0x812DA94
-.equ dword_812DA94, 0x812DA94
-.equ dword_812DA94, 0x812DA94
-.equ dword_812DA94, 0x812DA94
-.equ dword_812DA94, 0x812DA94
+// .global dword_812DA94
+// .global dword_812DA94
+// .global dword_812DA94
+// .global dword_812DA94
+// .global dword_812DA94
+// .global dword_812DA94
 .equ dword_86A5D60, 0x86A5D60
 
 .endif // INC_ASM35

@@ -7,20 +7,7 @@
 
 
 /* External Symbols */
-.include "asm11.inc"
-// .global dword_806992C
-// .global dword_806992C
-// .global off_806A810
-// .global dword_806C1E0
-
-.include "asm03_0.inc"
-// .global sub_802D234
-// .global zf_802F168
-// .global sub_80304E8
-// .global sub_803537C
-// .global sub_8035424
-
-.include "asm00.inc"
+.include "asm00_0.inc"
 // .global sub_80008B4
 // .global sub_8001778
 // .global sub_8001780
@@ -33,6 +20,19 @@
 // .global loc_8001A58
 // .global locret_8001AB4
 // .global sub_8002354
+
+.include "asm03_0.inc"
+// .global sub_802D234
+// .global isActiveFlag_2001C88_bitfield // (u16 entryFlagBitfield) -> zf
+// .global sub_80304E8
+// .global sub_803537C
+// .global sub_8035424
+
+.include "asm11.inc"
+// .global dword_806992C
+// .global dword_806992C
+// .global off_806A810
+// .global dword_806C1E0
 
 
 /* Undeclared Symbols */
@@ -50,7 +50,7 @@
 .equ dword_80802C4, 0x80802C4
 .equ dword_80802C4, 0x80802C4
 .equ dword_80802C4, 0x80802C4
-.equ dword_80813F8, 0x80813F8
+// .global dword_80813F8
 .equ dword_80813FC, 0x80813FC
 .equ dword_8081400, 0x8081400
 .equ dword_8081404, 0x8081404

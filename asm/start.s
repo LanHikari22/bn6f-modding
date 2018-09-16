@@ -17,13 +17,13 @@ dword_8000004:    .word 0x51AEFF24, 0x21A29A69, 0xA82843D, 0xAD09E484, 0x988B241
 loc_80000D0:
     mov r0, #0x12
     msr cpsr_cf, r0
-    ldr sp, dword_80001EC // =0x3007F60 
+    ldr r13, dword_80001EC // =0x3007F60 
     mov r0, #0x13
     msr cpsr_cf, r0
-    ldr sp, dword_80001F0 // =0x3007FE0 
+    ldr r13, dword_80001F0 // =0x3007FE0 
     mov r0, #0x1f
     msr cpsr_cf, r0
-    ldr sp, dword_80001F4 // =0x3007E00 
+    ldr r13, dword_80001F4 // =0x3007E00 
     ldr r0, off_80001F8 // =loc_3007FFC 
     ldr r1, dword_80001FC // =loc_3005B00 
     str r1, [r0]
@@ -72,46 +72,46 @@ loc_80000D0:
     mov lr, pc
     bx r0
     .byte 0x9C
-    .byte 0
+    .byte  0
     .byte 0x9F
     .byte 0xE5
-    .byte 0
+    .byte  0
     .byte 0x10
     .byte 0xA0
     .byte 0xE3
-    .byte 0
+    .byte  0
     .byte 0x10
     .byte 0xC0
     .byte 0xE5
     .byte 0x94
-    .byte 0
+    .byte  0
     .byte 0x9F
     .byte 0xE5
-    .byte 1
+    .byte  1
     .byte 0x10
     .byte 0xA0
     .byte 0xE3
-    .byte 0
+    .byte  0
     .byte 0x10
     .byte 0x80
     .byte 0xE5
     .byte 0x8C
-    .byte 0
+    .byte  0
     .byte 0x9F
     .byte 0xE5
-    .byte 0
+    .byte  0
     .byte 0x10
     .byte 0xA0
     .byte 0xE3
-    .byte 0
+    .byte  0
     .byte 0x10
     .byte 0x80
     .byte 0xE5
     .byte 0x84
-    .byte 0
+    .byte  0
     .byte 0x9F
     .byte 0xE5
-    .byte 8
+    .byte  8
     .byte 0x10
     .byte 0xA0
     .byte 0xE3
@@ -120,7 +120,7 @@ loc_80000D0:
     .byte 0xC0
     .byte 0xE1
     .byte 0x7C 
-    .byte 0
+    .byte  0
     .byte 0x9F
     .byte 0xE5
     .byte 0x7C 
@@ -132,7 +132,7 @@ loc_80000D0:
     .byte 0xC0
     .byte 0xE1
     .byte 0x78 
-    .byte 0
+    .byte  0
     .byte 0x9F
     .byte 0xE5
     .byte 0x10
@@ -155,8 +155,8 @@ loc_80001C8:
 
 .func
 // (void *src, void *dest, int size) -> void
-    // size
 start_copyMemory:
+    // size
     subs r2, r2, #4
     ldr r3, [r0,r2]
     str r3, [r1,r2]
@@ -213,7 +213,7 @@ off_8000258:    .word sub_3005DD4+1
 .thumb_func
 start_dead_800025C:
     push {lr}
-    ldr r1, off_8000274 // =loc_3005DEC+1 
+    ldr r1, off_8000274 // =sub_3005DEC+1 
     mov lr, pc
     bx r1
     pop {r0}
@@ -224,20 +224,20 @@ start_dead_800025C:
 .thumb_func
 start_dead_8000268:
     push {lr}
-    ldr r1, off_8000278 // =loc_3005E02+1 
+    ldr r1, off_8000278 // =sub_3005E02+1 
     mov lr, pc
     bx r1
     pop {r0}
     bx r0
-off_8000274:    .word loc_3005DEC+1
-off_8000278:    .word loc_3005E02+1
+off_8000274:    .word sub_3005DEC+1
+off_8000278:    .word sub_3005E02+1
 .endfunc // start_dead_8000268
 
 .func
 .thumb_func
 start_800027C:
     push {lr}
-    ldr r1, dword_8000294 // =loc_3005E18 
+    ldr r1, dword_8000294 // =sub_3005E18 
     mov lr, pc
     bx r1
     pop {r0}
@@ -248,13 +248,15 @@ start_800027C:
 .thumb_func
 start_8000288:
     push {lr}
-    ldr r1, off_8000298 // =loc_3005E2C+1 
+    ldr r1, off_8000298 // =sub_3005E2C+1 
     mov lr, pc
     bx r1
-    pop {r0}
-    bx r0
+    .byte  1
+    .byte 0xBC
+    .byte  0
+    .byte 0x47 
 dword_8000294:    .word 0x3005E19
-off_8000298:    .word loc_3005E2C+1
+off_8000298:    .word sub_3005E2C+1
 .endfunc // start_8000288
 
 .func
