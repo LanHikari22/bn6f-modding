@@ -21,6 +21,13 @@ of their purpose in `{name}` and a longer desription to be found in the README.m
 You can search the branch name in [gh dism-exe/dism-exe-notes](https://github.com/dism-exe/dism-exe-notes) to see
 the process notes behind its creation.
 
+## About this experiment
+
+expt000_code_on_command_s
+
+You can interact with any code in the game by running it with `SELECT SELECT`. The code can be put in `modding_on_command` in `modding.s`.
+
+
 ## See also
 * Discord: [**pret**][Discord]
 
