@@ -3,12 +3,20 @@
 *.map
 *.elf
 
-# ROMS and ROM files
+# ROMS and ROM related files
 *.gba
 *.sav
 *.ss?
 *.sa?
 *.sg?
+*.SNA
+
+# backup directory in case of text archive build falure
+data/textscript/compressed/backup_lz/
+
+# remove build files for compressed textscripts
+data/textscript/compressed/*.lz
+data/textscript/compressed/*.bin
 
 # atom-specific settings
 .atom*
@@ -17,5 +25,38 @@
 # python generated files/folders
 __pycache__/
 
+# compiled python bytecode files
+*.pyc
+
+# clion settings
+.idea/
+
+# cache files for heavy computations
+.cache/
+
+# vim files
+*.swp
+*.swo
+*.sw*
+tags
+
 # intentionally ignore those junk/temp files
 *.ign
+
+# compare.sh and other misc dumps
+baserom.txt
+bn6f.txt
+*.txt
+
+# asmdiff.sh
+*.dump
+
+# tools
+*.exe
+tools/agbcc/
+tools/binutils/
+*.pickle
+temp/
+*.cfg
+*.rsync
+*.sym
