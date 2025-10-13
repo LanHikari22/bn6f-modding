@@ -21,7 +21,16 @@ of their purpose in `{name}` and a longer desription to be found in the README.m
 You can search the branch name in [gh dism-exe/dism-exe-notes](https://github.com/dism-exe/dism-exe-notes) to see
 the process notes behind its creation.
 
+# Contributing
+
+Feel free to contribute by opening issues, asking for assistance, or contributing changes with a PR. 
+
+If you make a mod based on this, open an issue or PR to add a link to it to be showcased in this repository.
+
+You can also contact me at mailto:lanhikarixx@gmail.com.
+
 ## See also
+
 * Discord: [**pret**][Discord]
 
 [Discord]: https://discord.gg/vdTW48Q
