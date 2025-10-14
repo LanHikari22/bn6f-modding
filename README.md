@@ -13,7 +13,7 @@ Check out `modding.s` to get started.
 To set up the repository, see [INSTALL.md](INSTALL.md).
 To contribute, see [CONTRIBUTE.md](CONTRIBUTE.md).
 
-## Experiments
+# Experiments
 
 Different modding experiments can be found in branches numbered `exp000_{name}`, `exp001_{name}`, etc. with a short description 
 of their purpose in `{name}` and a longer desription to be found in the README.md in that branch.
