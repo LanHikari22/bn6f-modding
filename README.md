@@ -23,9 +23,12 @@ the process notes behind its creation.
 
 ## About This Experiment
 
-expt000_code_on_command_s
+expt001_sweep_on_command_s
+
 
 You can interact with any code in the game by running it with `SELECT SELECT`. The code can be put in `modding_on_command` in `modding.s`.
+
+This is similar to `expt000_code_on_command`, except everytime `SELECT SELECT` is used, a new value is passed to the code, which can be used to perform manual sweeps of data
 
 # Contributing
 

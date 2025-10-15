@@ -40,7 +40,8 @@ main_hook:
 
   .equiv g_modding_init_magic, 0x2040000 // size 4
   .equiv g_modding_main_counter, 0x2040004 // size 1
-  .equiv g_end, 0x2040005
+  .equiv g_modding_sweep_counter, 0x2040005 // size 1
+  .equiv g_end, 0x2040006
 
   .equiv D_INIT_MAGIC, 0xDEADFEED
 
@@ -112,6 +113,10 @@ modding_init:
   ldr r1, =g_modding_main_counter
   mov r0, #0x0
   strb r0, [r1]
+
+  ldr r1, =g_modding_sweep_counter
+  mov r0, #0x0
+  strb r0, [r1]
   
   pop {pc}
   .pool
@@ -121,10 +126,18 @@ modding_init:
 modding_on_command:
   push {lr}
 
+  ldr r0, =g_modding_sweep_counter
+  ldrb r2, [r0]
+
   ldr r0, =TextScriptBattleRunDialog
-  mov r1, #0
+  mov r1, r2
   bl chatbox_runScript // (archive: *const TextScriptArchive, script_idx: u8) -> ()
 
+  // Increment the counter
+  ldr r0, =g_modding_sweep_counter
+  ldrb r1, [r0]
+  add r1, r1, #1
+  strb r1, [r0]
 
   pop {pc}
   .pool
