@@ -1,4 +1,4 @@
-	.include "include/macros.inc"
+	.include "include/macros.inc"                                                                                                        
 	.include "constants/constants.inc"
 
   .section .modding_text, "ax"
@@ -35,17 +35,37 @@ main_hook:
 
 
 /* 
-  Memory is at 0x2040000
+  (mgba) Memory is at 0x2040000
 */
 
-  .equiv g_modding_main_counter, 0x2040000 // size 1
-  .equiv g_end, 0x2040001
+  .equiv g_modding_init_magic, 0x2040000 // size 4
+  .equiv g_modding_main_counter, 0x2040004 // size 1
+  .equiv g_end, 0x2040005
+
+  .equiv D_INIT_MAGIC, 0xDEADFEED
 
 
   thumb_func_start modding_main
 modding_main:
 
   push {lr}
+
+  // See if we need to call modding_init
+
+  // if D_INIT_MAGIC is not set
+  ldr r0, =D_INIT_MAGIC
+  ldr r1, =g_modding_init_magic
+  ldr r2, [r1]
+  cmp r2, r0
+  beq .endif2
+
+  ldr r0, =D_INIT_MAGIC
+  ldr r1, =g_modding_init_magic
+  str r0, [r1]
+
+  bl modding_init
+
+.endif2:
 
   mov r5, r10
   ldr r5, [r5, #oToolkit_JoypadPtr]
@@ -76,11 +96,26 @@ modding_main:
 
   bl modding_on_command
 
+
 .endif1:
 
   pop {pc}
   .pool
   thumb_func_end modding_main
+
+
+  thumb_func_start modding_on_command
+modding_init:
+  push {lr}
+
+	// It should already be set to 0, but we shouldn't guess
+  ldr r1, =g_modding_main_counter
+  mov r0, #0x0
+  strb r0, [r1]
+  
+  pop {pc}
+  .pool
+  thumb_func_end modding_on_command
 
   thumb_func_start modding_on_command
 modding_on_command:
@@ -89,6 +124,7 @@ modding_on_command:
   ldr r0, =TextScriptBattleRunDialog
   mov r1, #0
   bl chatbox_runScript // (archive: *const TextScriptArchive, script_idx: u8) -> ()
+
 
   pop {pc}
   .pool
