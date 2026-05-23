@@ -1,3 +1,11 @@
+# bn6f-rust
+
+A Rust clone of MegaMan Battle Network 6: Cybeast Falzar. Development is guided by the disassembly project.
+
+Should be behaviorally identical to the original ROM. This will be checked by checking that on every frame, you see 
+the same pixels on the screen for a given sequence of inputs, for example.
+
+
 # AGBRS template
 
 ## A basic template example for agb projects
