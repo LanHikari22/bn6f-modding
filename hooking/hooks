@@ -1,0 +1,50 @@
+// This is to be used with tools/replace_chunk_in_files
+bn6f/ld_script.ld
+-    .data :
+-    ALIGN(4)
+-    {
+-        data.o(.data);
+-    } >rom_region
+
++    .data :
++    ALIGN(4)
++    {
++        data.o(.data);
++    } >rom_region
++
++    .modding_text :
++    {
++        modding.o(.text);
++    } >rom_region
+
+bn6f/ld_script.ld
+-    rom_region (rx) : ORIGIN = 0x08000000, LENGTH = 0x800000
++    rom_region (rx) : ORIGIN = 0x08000000, LENGTH = 0x1600000
+
+bn6f/asm/main.s
+-  // (*main_subsystemJumptable[*tk->oToolkit_MainJumptableIndexPtr])()
+-	ldr r0, off_8000348 // =main_subsystemJumpTable
+-	mov r1, r10
+-	ldr r1, [r1,#oToolkit_MainJumptableIndexPtr]
+-	ldrb r1, [r1]
+-	ldr r0, [r0,r1]
+-	mov lr, pc
+-	bx r0
+
++  // hook to modding.s
++  ldr r0, =main_hook+1
++  mov lr, pc
++  bx r0
++  b main_endHook
++  .pool
++main_endHook:
+
+bn6f/asm/main.s
+-main_subsystemJumpTable: 
++main_subsystemJumpTable::
+
+bn6f/Makefile
+-# project files
+-SFILES = rom.s data.s ewram.s iwram.s vram.s
++# project files
++SFILES = rom.s data.s ewram.s iwram.s vram.s modding.s

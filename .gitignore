@@ -1,3 +1,6 @@
+# The bn6f disassembly project
+bn6f/
+
 # build output
 *.o
 *.map
