@@ -14,3 +14,10 @@ pub fn get_rng(mut_primary_rng_seed: &mut u32) -> u32 {
 pub fn set_render_info_lcdcontrol(render_info_unk_00 : &mut u16, a0: u16) {
     *render_info_unk_00 = a0;
 }
+
+/// [[../docs/IO Usage]]
+pub fn render_800172c(gctx: &crate::direct::types::game_context::GameContext) {
+    // Does something to IO. Accesses MosaicSize, BG0Control, Window0HorizontalDimensions [[[[IO Usage]]]]
+
+
+}

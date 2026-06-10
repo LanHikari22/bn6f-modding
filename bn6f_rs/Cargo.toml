@@ -1,0 +1,39 @@
+[package]
+name = "bn6f_rs"
+version = "0.1.0"
+authors = [""]
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build]
+target = "thumbv4t-none-eabi"
+
+[unstable]
+build-std = ["core"]
+
+[target.thumbv4t-none-eabi]
+runner = "mgba" # sets the emulator to run bins/examples with
+rustflags = [
+  "-Clinker=arm-none-eabi-ld", # uses the ARM linker
+    "-Clink-arg=-Tlinker_scripts/mono_boot.ld", # sets the link script
+    ]
+
+[dependencies]
+gba = "0.15.0"
+
+# agb
+# [dependencies]
+# agb = "0.23.1"
+# 
+# [profile.dev]
+# opt-level = 3
+# debug = true
+# 
+# [profile.dev.build-override]
+# opt-level = 3
+# 
+# [profile.release]
+# opt-level = 3
+# lto = "fat"
+# debug = true
