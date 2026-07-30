@@ -1,3 +1,8 @@
+/// Corresponds to SeedRNG in the disassembly
+pub fn seed_rng(mut_primary_rng_seed: &mut u32) {
+    *mut_primary_rng_seed = 0xa338244f;
+}
+
 // Corresponds to GetRNG in the disassembly
 pub fn get_rng(mut_primary_rng_seed: &mut u32) -> u32 {
     let rng_magic = 0x873ca9e5;
@@ -16,7 +21,7 @@ pub fn set_render_info_lcdcontrol(render_info_unk_00 : &mut u16, a0: u16) {
 }
 
 /// [[../docs/IO Usage]]
-pub fn render_800172c(gctx: &crate::direct::types::game_context::GameContext) {
+pub fn incomp_render_800172c(gctx: &crate::direct::types::game_context::GameContext) {
     // Does something to IO. Accesses MosaicSize, BG0Control, Window0HorizontalDimensions [[[[IO Usage]]]]
 
 

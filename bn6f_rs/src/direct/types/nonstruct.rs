@@ -6,4 +6,7 @@ pub struct Nonstruct {
 
     // Unknown. Corresponds to eUnusedExtraToolkitPtrsOffset in the disassembly.
     pub unused_extra_toolkit_ptrs_offset: u32,
+
+    /// Corresponds to word_200AD04 in the disassembly.
+    pub unk_word_200ad04: u32,
 }
