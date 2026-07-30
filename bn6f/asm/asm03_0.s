@@ -18940,12 +18940,12 @@ off_802F4E0:
 startScreen_init_802F530: // () -> void
 	push {lr}
 
-  // implies eStartScreen size
+    // implies eStartScreen size
 	ldr r0, off_802F570 // =eStartScreen
 	mov r1, #0x20 
 	bl ZeroFillByWord // (mut_mem: *mut (), num_bytes: usize) -> ()
 
-  // trigger startscreen_render_802F544 via main_
+    // trigger startscreen_render_802F544 via main_
 	mov r1, r10
 	ldr r1, [r1,#oToolkit_MainJumptableIndexPtr]
 	mov r0, #0
@@ -18957,6 +18957,7 @@ startScreen_init_802F530: // () -> void
 	thumb_func_start startscreen_render_802F544
 startscreen_render_802F544: // () ->
 	push {r4-r7,lr}
+
 	bl startScreen_AnimatePressStart_803E938
 
 	ldr r5, off_802F570 // =eStartScreen
@@ -18965,12 +18966,12 @@ startscreen_render_802F544: // () ->
 	ldrb r1, [r5, #oStartScreen_JumpTableOff_00]
 	ldr r0, [r0,r1]
 	
-  mov lr, pc
-  bx r0
+    mov lr, pc
+    bx r0
 	
-  bl GetRNG // () -> u32?
-  pop {r4-r7,pc}
-  .balign 4, 0
+    bl GetRNG // () -> u32?
+    pop {r4-r7,pc}
+    .balign 4, 0
 off_802F55C:
 	.word jt_802F560
 jt_802F560:

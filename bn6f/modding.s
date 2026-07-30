@@ -1,9 +1,11 @@
 	.include "include/macros.inc"                                                                                                        
 	.include "constants/constants.inc"
 
-  .section .text, "ax"
+    .section .text, "ax"
 
 	.syntax divided
+
+    .ifdef USE_MOD
 
   thumb_func_start main_hook
 main_hook:
@@ -129,3 +131,5 @@ modding_on_command:
   pop {pc}
   .pool
   thumb_func_end modding_on_command
+
+    .endif // USE_MOD

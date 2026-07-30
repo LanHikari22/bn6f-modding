@@ -7,6 +7,7 @@ OBJDUMP := tools/binutils/bin/arm-none-eabi-objdump
 GBAGFX = tools/gbagfx/gbagfx
 SHA1SUM = sha1sum
 PY = py
+CPP = cpp
 
 # project paths
 SRCDIR = asm
@@ -51,7 +52,11 @@ all: $(ROM)
 $(ROM): %.elf
 	$(OBJCOPY) -O binary $(ELF) $(ROM)
 
-%.elf: $(OFILES)
+# Preprocess ld_script which can contain ifdefs.
+ld_script.ld: ld_script.ld.pp
+	$(CPP) -P $< > $@
+
+%.elf: $(OFILES) ld_script.ld
 	$(LD) $(LDFLAGS) -o $(ELF) -T ld_script.ld $(OFILES) $(LIB)
 
 %.o: %.s
@@ -78,6 +83,7 @@ clean:
 	# rm -f *.gba
 	rm -f $(COMPRESSED_TEXT_ARCHIVES_DIR)/*.lz
 	rm -f $(COMPRESSED_TEXT_ARCHIVES_DIR)/*.bin
+	rm -f ld_script.ld # now a build artifact generated from ld_script.ld.pp.
 
 syms: $(SYM)
 

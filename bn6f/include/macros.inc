@@ -23,6 +23,7 @@
 	.include "include/bytecode/cutscene_camera_script.inc"
 	.include "include/bytecode/gfx_anim_script.inc"
   .include "include/bytecode/npc_script.inc"
+  .include "include/use_flags.inc"
 
 // some macros illustrating quirks of the gnu assembler macro system
 /*

@@ -4,7 +4,6 @@ main_:
 	bl main_initToolkitAndOtherSubsystems // () -> ()
 	bl SeedRNG // () -> ()
 	bl clear_e200AD04 // () -> ()
-
 	bl logoScreen_init_803D1A8 // () -> ()
 
 main_gameRoutine:
@@ -22,35 +21,47 @@ main_gameRoutine:
 	bl copyToVRAMAndClear_iBGTileIdBlocks_Ptr
 	bl main_static_80003E4
 
-  // advance cur frame
+	// advance cur frame
 	mov r0, r10
 	ldr r0, [r0,#oToolkit_CurFramePtr]
 	ldrh r1, [r0]
 	add r1, #1
 	strh r1, [r0]
-  bl CapIncrementGameTimeFrames // () -> void
+	bl CapIncrementGameTimeFrames // () -> void
 
-  // hook to modding.s
-  ldr r0, =main_hook+1
-  mov lr, pc
-  bx r0
-  b main_endHook
-  .pool
-main_endHook:
+	.ifdef USE_MOD
+		  // hook to modding.s
+		  ldr r0, =main_hook+1
+		  mov lr, pc
+		  bx r0
+		  b main_endHook
+		  .pool
+		main_endHook:
+	.else
+		// (*main_subsystemJumptable[*tk->oToolkit_MainJumptableIndexPtr])()
+		ldr r0, off_8000348 // =main_subsystemJumpTable
+		mov r1, r10
+		ldr r1, [r1,#oToolkit_MainJumptableIndexPtr]
+		ldrb r1, [r1]
+		ldr r0, [r0,r1]
+		mov lr, pc
+		bx r0
+	.endif // USE_MOD
 
-  // update frame rng
+    // update frame rng
 	bl GetRNGSecondary // () -> void
 
 	bl isSameSubsystem_800A732 // () -> !zf
 	beq loc_800032A
 
-  bl subsystem_triggerTransition_800630A
+	bl subsystem_triggerTransition_800630A
 
 loc_800032A:
-
 	bl chatbox_onUpdate // () -> void
+
 	bl CallBGScrollCallback0
 	bl ProcessGFXAnims
+
 	ldr r0, off_8000344 // =copyTo_iObjectAttr3001D70_3006814+1
 	mov lr, pc
 	bx r0	
@@ -63,9 +74,21 @@ off_8000344:
 	.word copyTo_iObjectAttr3001D70_3006814+1 // () -> void
 off_8000348:
 	.word main_subsystemJumpTable
+	.ifdef USE_MOD
 main_subsystemJumpTable::
+    .else
+main_subsystemJumpTable: 
+    .endif // USE_MOD
   // 0x00
-  .word startscreen_render_802F544+1 // () ->
+	.ifdef USE_MODULE_START_SCREEN
+        .ifdef USE_MODULE_START_SCREEN_ORIG
+            .word startscreen_render_802F544+1 // () ->
+        .elseif USE_MODULE_START_SCREEN_ASM_MOD
+            .word nullsub_8+1
+        .endif // USE_MODULE_START_SCREEN_ORIG
+	.else
+		.word nullsub_8+1
+	.endif // USE_MODULE_START_SCREEN
   // 0x04
 	.word cbGameState_80050EC+1
   // 0x08
