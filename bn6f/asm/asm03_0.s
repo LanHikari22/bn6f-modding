@@ -18975,16 +18975,71 @@ startscreen_render_802F544: // () ->
 off_802F55C:
 	.word jt_802F560
 jt_802F560:
-	.word startScreen_initGfx_802F574+1 // (self: *mut StartScreen $r5) -> ()
-	.word startscreen_802F60C+1 // (self: * StartScreen $r5) -> ()
-	.word ho_802F63C+1 // (self: * StartScreen $r5) -> ()
-	.word load_game_802F756+1 // (self: * StartScreen $r5) -> ()
+	.ifdef USE_MODULE_START_SCREEN
+        .ifdef USE_MODULE_START_SCREEN_ORIG
+            .word startScreen_initGfx_802F574+1 // (self: *mut StartScreen $r5) -> ()
+        .else 
+            .ifdef USE_MODULE_START_SCREEN_ASM_MOD
+                .word mod_startscr_init_gfx+1 // (self: *mut StartScreen $r5) -> ()
+            .else
+                .word nullsub_8+1
+            .endif // USE_MODULE_START_SCREEN_ASM_MOD
+        .endif // USE_MODULE_START_SCREEN_ORIG
+	.else
+		.word nullsub_8+1
+	.endif // USE_MODULE_START_SCREEN
+
+	.ifdef USE_MODULE_START_SCREEN
+        .ifdef USE_MODULE_START_SCREEN_ORIG
+            .word startscreen_802F60C+1 // (self: * StartScreen $r5) -> ()
+        .else 
+            .ifdef USE_MODULE_START_SCREEN_ASM_MOD
+                .word mod_startscr_off04+1 // (self: * StartScreen $r5) -> ()
+            .else
+                .word nullsub_8+1
+            .endif // USE_MODULE_START_SCREEN_ASM_MOD
+        .endif // USE_MODULE_START_SCREEN_ORIG
+	.else
+		.word nullsub_8+1
+	.endif // USE_MODULE_START_SCREEN
+
+	.ifdef USE_MODULE_START_SCREEN
+        .ifdef USE_MODULE_START_SCREEN_ORIG
+            .word ho_802F63C+1 // (self: * StartScreen $r5) -> ()
+        .else 
+            .ifdef USE_MODULE_START_SCREEN_ASM_MOD
+                .word mod_startscr_off08+1 // (self: * StartScreen $r5) -> ()
+            .else
+                .word nullsub_8+1
+            .endif // USE_MODULE_START_SCREEN_ASM_MOD
+        .endif // USE_MODULE_START_SCREEN_ORIG
+	.else
+		.word nullsub_8+1
+	.endif // USE_MODULE_START_SCREEN
+
+	.ifdef USE_MODULE_START_SCREEN
+        .ifdef USE_MODULE_START_SCREEN_ORIG
+            .word load_game_802F756+1 // (self: * StartScreen $r5) -> ()
+        .else 
+            .ifdef USE_MODULE_START_SCREEN_ASM_MOD
+                .word mod_startscr_load_game+1 // (self: * StartScreen $r5) -> ()
+            .else
+                .word nullsub_8+1
+            .endif // USE_MODULE_START_SCREEN_ASM_MOD
+        .endif // USE_MODULE_START_SCREEN_ORIG
+	.else
+		.word nullsub_8+1
+	.endif // USE_MODULE_START_SCREEN
 off_802F570:
 	.word eStartScreen
 	thumb_func_end startscreen_render_802F544
 
 /// Disabling this causes black screen after Capcom Logo
-	thumb_local_start
+    .ifdef USE_MOD
+        thumb_func_start startScreen_initGfx_802F574
+    .else
+        thumb_local_start
+    .endif
 startScreen_initGfx_802F574: // (self: *mut StartScreen $r5) -> ()
 	push {lr}
 
@@ -18998,7 +19053,7 @@ startScreen_initGfx_802F574: // (self: *mut StartScreen $r5) -> ()
 
 	bl renderInfo_80017A0 // () -> ()
 
-  /// Disabling this causes responsive black start screen with some graphics noise
+	// Disabling this causes responsive black start screen with some graphics noise
 	bl startScreen_initGfx_802FCC0
 
 	mov r0, #0xc
@@ -19010,7 +19065,7 @@ startScreen_initGfx_802F574: // (self: *mut StartScreen $r5) -> ()
 	ldr r0, off_802F5EC // =pt_802F5F0 
 	bl LoadGFXAnims // (gfx_anim_data_arr: * FFStop32<[GFXAnimScript]>) -> ()
 
-  // trigger startscreen_802F60C via startscreen_render_802F544
+	// trigger startscreen_802F60C via startscreen_render_802F544
 	mov r0, #4
 	strb r0, [r5, #oStartScreen_JumpTableOff_00]
 
@@ -19037,7 +19092,7 @@ loc_802F5BE:
 	mov r6, #0
 	mov r7, #1
 
-  // Was this a condition stubbed out?
+	// Was this a condition stubbed out?
 	bl startScreen_TstZero // () -> !zf
 	beq loc_802F5E2
 
@@ -19075,7 +19130,11 @@ pt_802F5F0:
 	.word 0xFFFFFFFF
 	thumb_func_end startScreen_initGfx_802F574
 
-	thumb_local_start
+    .ifdef USE_MODULE_START_SCREEN_ASM_MOD
+        thumb_func_start startscreen_802F60C
+    .else
+        thumb_local_start
+    .endif
 startscreen_802F60C: // (self: * StartScreen $r5) -> ()
 	push {lr}
 
@@ -19116,7 +19175,11 @@ dword_802F638:
 	.word 0x1741
 	thumb_func_end startscreen_render_trigger_802F624
 
-	thumb_local_start
+    .ifdef USE_MOD
+        thumb_func_start ho_802F63C
+    .else
+        thumb_local_start
+    .endif
 ho_802F63C: // (self: * StartScreen $r5) -> ()
 	push {lr}
 
@@ -19316,7 +19379,11 @@ locret_802F754:
 
 /// Breaks on pressing Main screen "Continue" once.
 /// Disabling this causes "Continue" to click, sound effect to play, but then we get stuck in a black screen.
-	thumb_local_start
+    .ifdef USE_MOD
+        thumb_func_start load_game_802F756
+    .else
+        thumb_local_start
+    .endif
 load_game_802F756: // (self: * StartScreen $r5) -> ()
 	push {lr}
 

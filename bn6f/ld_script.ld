@@ -5,7 +5,7 @@ MEMORY
     ewram_region (w!x) : ORIGIN = 0x02000000, LENGTH = 0x40000
     iwram_region (w!x) : ORIGIN = 0x03000000, LENGTH = 0x8000
     vram_region (w!x) : ORIGIN = 0x06000000, LENGTH = 0x18000
-    rom_region (rx) : ORIGIN = 0x08000000, LENGTH = 0x0800000
+    rom_region (rx) : ORIGIN = 0x08000000, LENGTH = 0x1000000
 }
 SECTIONS
 {
@@ -42,6 +42,10 @@ SECTIONS
     ALIGN(4)
     {
         data.o(.data);
+    } >rom_region
+    .modding_text :
+    {
+        modding.o(.text);
     } >rom_region
     .fill :
     {

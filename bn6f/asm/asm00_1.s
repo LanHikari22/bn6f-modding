@@ -7445,33 +7445,33 @@ RandomizeExtraToolkitPointers: // () -> ?
 	mov r1, #0
 	and r0, r1
 
-  // let unused_zero: u32; 
+	// let unused_zero: u32; 
 	mov r4, r0
 
 	ldr r5, ToolkitExtraPtrs_eUnusedExtraToolkitPtrsOffset_p // =eUnusedExtraToolkitPtrsOffset
 
 	ldr r3, [r5]// read old offset value
 
-  // let unused_zero_old: u32;
+	// let unused_zero_old: u32;
 	mov r0, #0
 	and r3, r0
 
 	str r4, [r5]
 
-  // let src: *const u32;
+	// let src: *const u32;
 	ldr r0, ToolkitExtraPtrs_eToolkitExtraPtrsMemory_p
 	add r0, r0, r3 // src
 
-  // let mut_dest: *mut u32;
+	// let mut_dest: *mut u32;
 	ldr r1, ToolkitExtraPtrs_eToolkitExtraPtrsMemory_p
 	add r1, r1, r4
+
+	// let size: u32;
 	ldr r2, ToolkitExtraPtrs_ToolkitExtraPtrsMemorySize_p // =0x35bc
   
-  // let size: u32;
-	ldr r3, ToolkitExtraPtrs_copyWords_80014EC_p // =copyWords_80014EC+1
-
-	mov lr, pc
 	// copyWords_80014EC(&sGameState, &sGameState, 0x35BC);
+	ldr r3, ToolkitExtraPtrs_copyWords_80014EC_p // =copyWords_80014EC+1
+	mov lr, pc
 	bx r3
 
 	mov r0, r10

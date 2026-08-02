@@ -66,7 +66,7 @@ loc_800032A:
 	mov lr, pc
 	bx r0	
 
-  bl main_static_screen_fade_8000454
+    bl main_static_screen_fade_8000454
 
 	b main_gameRoutine
 	.balign 4, 0
@@ -83,8 +83,12 @@ main_subsystemJumpTable:
 	.ifdef USE_MODULE_START_SCREEN
         .ifdef USE_MODULE_START_SCREEN_ORIG
             .word startscreen_render_802F544+1 // () ->
-        .elseif USE_MODULE_START_SCREEN_ASM_MOD
-            .word nullsub_8+1
+        .else 
+            .ifdef USE_MODULE_START_SCREEN_ASM_MOD
+                .word mod_startscr_render+1
+            .else
+                .word nullsub_8+1
+            .endif // USE_MODULE_START_SCREEN_ASM_MOD
         .endif // USE_MODULE_START_SCREEN_ORIG
 	.else
 		.word nullsub_8+1

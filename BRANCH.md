@@ -1,9 +1,12 @@
-use-rve
+# What?
 
-This branch is a mod that modifies the game with use flags defined in
+This repository can host multiple source mods under different branches. Here we describe each.
 
+# Source Mod Branches
 
-cond-enables
+# use-rve
 
-This branch is about disabling all game functionality, and adding definitions for conditional re-enabling of them. This can help understand how
-the game may be put together in a modular way
+This branch is a source mod that modifies the game pre-build using USE flags defined in `include/use_flags.inc` and `use_flags.pp`.
+
+The purpose is to make the source code more modular, and allow users to replace components with modded
+ones or otherwise disable and enable parts of the game.

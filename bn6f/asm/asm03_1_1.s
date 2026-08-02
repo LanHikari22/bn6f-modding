@@ -1385,7 +1385,23 @@ sub_8039630:
 	bl ZeroFillGFX30025c0
 	bl copyMemory_8001850
 	bl chatbox_8040818
-	bl startScreen_init_802F530 // () -> void
+
+
+    .ifdef USE_MODULE_START_SCREEN
+        .ifdef USE_MODULE_START_SCREEN_ORIG
+            bl startScreen_init_802F530 // () -> void
+        .else
+            .ifdef USE_MODULE_START_SCREEN_ASM_MOD
+                ldr r0, =mod_startscr_init
+                mov lr, pc
+                bx r0
+                b .end_pool
+                .pool
+                .end_pool:
+            .endif // USE_MODULE_START_SCREEN_ASM_MOD
+        .endif // USE_MODULE_START_SCREEN_ORIG
+    .endif // USE_MODULE_START_SCREEN
+
 	ldr r0, off_8039654 // =0x40
 	bl SetRenderInfoLCDControl // (a_00: u16) -> ()
 locret_8039652:
@@ -9081,7 +9097,23 @@ logoScreen_finish_803D2A6: // (self: *const LogoScreenState $r5) -> ()
 	push {lr}
 	ldr r0, off_803D2B4 // =0x40
 	bl SetRenderInfoLCDControl // (a_00: u16) -> ()
-	bl startScreen_init_802F530 // () -> void
+
+
+    .ifdef USE_MODULE_START_SCREEN
+        .ifdef USE_MODULE_START_SCREEN_ORIG
+            bl startScreen_init_802F530 // () -> void
+        .else
+            .ifdef USE_MODULE_START_SCREEN_ASM_MOD
+                ldr r0, =mod_startscr_init
+                mov lr, pc
+                bx r0
+                b .end_pool
+                .pool
+                .end_pool:
+            .endif // USE_MODULE_START_SCREEN_ASM_MOD
+        .endif // USE_MODULE_START_SCREEN_ORIG
+    .endif // USE_MODULE_START_SCREEN
+
 	pop {pc}
 	.balign 4, 0
 off_803D2B4:
@@ -13947,7 +13979,20 @@ sub_803FBC2:
 
 	bl sub_8006910
 
-	bl startScreen_init_802F530 // () -> void
+    .ifdef USE_MODULE_START_SCREEN
+        .ifdef USE_MODULE_START_SCREEN_ORIG
+            bl startScreen_init_802F530 // () -> void
+        .else
+            .ifdef USE_MODULE_START_SCREEN_ASM_MOD
+                ldr r0, =mod_startscr_init
+                mov lr, pc
+                bx r0
+                b .end_pool
+                .pool
+                .end_pool:
+            .endif // USE_MODULE_START_SCREEN_ASM_MOD
+        .endif // USE_MODULE_START_SCREEN_ORIG
+    .endif // USE_MODULE_START_SCREEN
 
 	bl clear_e200AD04 // () -> ()
 
