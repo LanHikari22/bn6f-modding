@@ -15,7 +15,7 @@ To contribute, see [CONTRIBUTE.md](CONTRIBUTE.md).
 
 # Branches
 
-This repository hosts different branches which mod the game differently. See (BRANCH.md)[BRANCH.md].
+This repository hosts different branches which mod the game differently. See [BRANCH.md](BRANCH.md).
 
 # Contributing
 
