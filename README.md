@@ -13,13 +13,9 @@ Check out `modding.s` to get started.
 To set up the repository, see [INSTALL.md](INSTALL.md).
 To contribute, see [CONTRIBUTE.md](CONTRIBUTE.md).
 
-# Experiments
+# Branches
 
-Different modding experiments can be found in branches numbered `exp000_{name}`, `exp001_{name}`, etc. with a short description 
-of their purpose in `{name}` and a longer desription to be found in the README.md in that branch.
-
-You can search the branch name in [gh dism-exe/dism-exe-notes](https://github.com/dism-exe/dism-exe-notes) to see
-the process notes behind its creation.
+This repository hosts different branches which mod the game differently. See (BRANCH.md)[BRANCH.md].
 
 # Contributing
 
@@ -28,6 +24,12 @@ Feel free to contribute by opening issues, asking for assistance, or contributin
 If you make a mod based on this, open an issue or PR to add a link to it to be showcased in this repository.
 
 You can also contact me at mailto:lanhikarixx@gmail.com.
+
+# Mirrors
+
+Please find this repository mainly in https://codeberg.org/lan22h/bn-repo-editor. 
+
+A manually updated mirror exists in https://github.com/LanHikari22/bn_repo_editor.
 
 # See also
 
